@@ -1,0 +1,38 @@
+
+\documentclass [11pt, proquest]{uwthesis}[2020/12/21]
+\setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
+
+\begin{document}
+% preliminary pages
+%
+\prelimpages
+\include{prelim/metadata}
+
+\copyrightpage
+\titlepage 
+\setcounter{page}{-1}
+\include{prelim/abstract}
+
+\listoffigures
+%\listoftables  
+
+\include{prelim/acknowledgements}
+\dedication{\begin{center}To us\end{center}}
+
+\textpages
+\include{chapters/intro}
+%\include{chap2}
+%\include{chap3}
+%\include{chap4}
+% bibliography
+%
+
+\bibliographystyle{plain}
+\bibliography{thesis}
+% appendices
+%
+%\appendix
+%\include{appxa}
+%\include{appxb}
+%\include{vita}
+\end{document}
