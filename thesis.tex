@@ -1,6 +1,8 @@
 
-\documentclass [11pt, proquest]{uwthesis}[2020/12/21]
+\documentclass [11pt, proquest]{uwthesis}[2020/02/24]
 \setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
+
+\newcommand\bbbb{\ensuremath{b\bar{b}b\bar{b}} }
 
 \begin{document}
 % preliminary pages
@@ -13,14 +15,23 @@
 \setcounter{page}{-1}
 \include{prelim/abstract}
 
+\tableofcontents
 \listoffigures
 %\listoftables  
 
+\include{prelim/glossary}
 \include{prelim/acknowledgements}
-\dedication{\begin{center}To us\end{center}}
+\dedication{\begin{center}To life!\end{center}}
 
 \textpages
-\include{chapters/intro}
+\include{chapters/intro-SM}
+\include{chapters/intro-BSM}
+\include{chapters/intro-exp}
+\include{chapters/intro-sim}
+\include{chapters/intro-reconstruct}
+\include{chapters/search-outline}
+\include{chapters/nonresonant}
+\include{chapters/resonant}
 %\include{chap2}
 %\include{chap3}
 %\include{chap4}
