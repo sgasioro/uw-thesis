@@ -2,7 +2,7 @@
 
 This chapter presents two complementary searches for pair production of 
 Higgs bosons in the final state. Such searches are separated based on the 
-signal models being considered: resonant production, in which a new spin-O or 
+signal models being considered: resonant production, in which a new spin-0 or 
 spin-2 particle is produced and decays to two Standard Model Higgs bosons, and 
 non-resonant production, which is sensitive to the value of the Higgs self-coupling
 $\lambda_{HHH}$. Further information on the theory behind both channels can be 
@@ -32,3 +32,373 @@ than would be obtained with a more generic approach.
 
 Both searches are presented in the following, with emphasis on particular motivations for, and consequences
 of, the various design decisions involved for each respective set of signal hypotheses. 
+
+\section{Data and Monte Carlo Simulation}
+Both the resonant and non-resonant searches are performed on the full ATLAS Run 2 dataset, consisting of 
+$\sqrt{s} = \SI{13}{\TeV}$ proton-proton collision data taken from 2016 to 2018 inclusive. The 
+
+\section{Triggers and Object Definitions}
+\section{Analysis Selection}
+\subsection{Resonant Search}
+\subsection{Non-resonant Search}
+\section{Background Estimation}
+fter the event selection described in Section \ref{sec:selection} there are
+two major backgrounds, QCD and \ttbar, with relative proportions \todo{Fill in 
+appropriate ggF and VBF background composition}. Following the approach used for the 
+resonant analysis, a fully data-driven estimate is used here. This is warranted due to 
+the flexibility of the estimation method, as well as the high relative proportion of 
+QCD background, and allows for the use of machine learning methods in the construction of
+the background estimate. However, it sacrifices an explicit treatment of the
+\ttbar component. Performance of the background estimate on the \ttbar component
+is thus checked in Appendix \todo{update ttbar studies/do for VBF}. The approach and
+its benefits over other methods are discussed below.
+
+\todo{Do small background checks, text here kept from resonant}
+Contributions of single Higgs processes to the background are checked in 
+Appendix \ref{app:singleHiggs}. $\PZ\PZ$ and $\higgs\higgs$ backgrounds are checked 
+in Appendix \ref{app:minor-bkg}. All are found to be negligible.
+
+The foundation of the background estimate lies in the derivation of a
+reweighting function which matches the kinematics of events with exactly two
+\btagged jets to those of events with four or more \btagged jets. The
+reweighting function and overall normalization are derived in the control
+region. Systematic bias associated with extrapolating to the signal region in
+the Higgs candidate mass plane is assessed in the validation region. All
+derivation is done after the full event selection.
+
+\subsection{The Two Tag Region}
+
+Events in data with exactly two b-tagged jets are used for the data driven 
+background estimate. The hypothesis here is that, due to the presence of 
+multiple \btagged jets, the kinematics of such events are similar to the 
+kinematics of events in higher b-tagged regions (i.e. events with three and 
+four \btagged jets, respectively), and any differences can be corrected by a 
+reweighting procedure. The region with three \btagged jets is split into 
+two $b$-tagging regions, with the 3$b$ + 1 loose region used as an additional signal 
+region (see Section \todo{Add ref}). The lower tagged 3$b$ component 
+(3$b$ + 1 fail, as described in Section~\ref{3b1f}) is reserved for validation
+of the background modelling procedure. Events with fewer than two \btagged jets are not 
+used for this analysis, as they are relatively more different from the higher tag regions.
+
+The nominal event selection requires at least four jets in order to form Higgs
+candidates. For the four tag region, these are the four highest $p_{T}$ \btagged 
+jets. For the three tag regions, these jets are the three \btagged jets, plus the 
+highest $p_{T}$ jet satisfying a loosened $b$-tagging requirement. Similarly, and following 
+the approach of the resonant analysis, the two tag region uses the two \btagged jets 
+and the two highest $p_{T}$ non-tagged jets to form Higgs candidates. Combinatoric bias 
+from selection of different numbers of \btagged jets is corrected as a part of the kinematic 
+reweighting procedure through the reweighting of the total number of jets in the event. In this way, 
+the full event selection may be run on two tagged events. 
+
+\subsection{Kinematic Reweighting}
+The set of two tagged data events is the fundamental piece of the data driven
+background estimate. However, kinematic differences from the four tag region
+exist and must be corrected in order for this estimate to be useful. Binned 
+approaches based on ratios of histograms (\todo{Cite either 15+16 or full Run 2 VBF})
+have been previously considered, but are limited in their handling of correlations 
+between variables and by the ``curse of dimensionality'', i.e. the dataset
+becomes sparser and sparser in ``reweighting space'' as the number of dimensions
+in which to reweight increases, limiting the number of variables used for reweighting. 
+This leads either to an unstable fit result (overfitting with finely grained bins) or a 
+lower quality fit result (underfitting with coarse bins).
+
+Note that even machine learning methods such as Boosted Decision Trees (BDTs), may suffer
+from this curse of dimensionality, as the depth of each decision tree used is limited by 
+the available statistics after each set of corresponding selections (cf. binning in a 
+more sophisticated way), limiting the expressivity of the learned reweighting function.
+
+To solve these issues, a neural network based reweighting procedure is used
+here, following the success of the method used for the resonant search~\cite{Abbott:2708605}. 
+This is a truly multivariate approach, allowing for proper treatment of
+variable correlations. It further overcomes the issues associated with binned
+approaches by learning the reweighting function directly, allowing for greater
+sensitivity to local differences and helping to avoid the curse of
+dimensionality.
+
+
+\subsubsection{Neural Network Reweighting}
+Let $p_{4b}(x)$ and $p_{2b}(x)$ be the probability density functions for four and two tag data respectively across some input variables $x$. 
+The problem of learning the reweighting function between two and four tag data is then the problem of learning a function $w(x)$ such that
+\begin{equation}
+p_{2b}(x) \cdot w(x) = p_{4b}(x)
+\end{equation}
+from which it follows that
+\begin{equation}
+w(x) = \frac{p_{4b}(x)}{p_{2b}(x)}.
+\end{equation}
+
+This falls into the domain of density ratio estimation, for which there are a variety
+of approaches. The method considered here is modified from ~\cite{NNloss, NNloss1}, and depends on
+a loss function of the form
+\begin{equation}
+\mathcal{L}(R(x)) = \mathbb{E}_{x\sim p_{2b}}[\sqrt{R(x)}]
++\mathbb{E}_{x\sim p_{4b}}[\frac{1}{\sqrt{R(x)}}].
+\end{equation}
+where $R(x)$ is some estimator dependent on $x$ and $\mathbb{E}_{x\sim p_{2b}}$ and 
+$\mathbb{E}_{x\sim p_{4b}}$ are the expectation values with respect to the 2b and 4b probability 
+densities. A neural network trained with such a loss function has the objective of finding
+the estimator, $R(x)$, that minimizes this loss. It is straightforward to show
+(Appendix \ref{app:nnderiv}) that
+\begin{equation}
+\arg \min_{R}\mathcal{L}(R(x)) = \frac{p_{4b}(x)}{p_{2b}(x)}
+\end{equation}
+which is exactly the form of the desired reweighting function.
+
+In practice, to avoid imposing explicit positivity constraints, the substitution
+$Q(x) \equiv \log R(x)$ is made. The loss function then takes the equivalent form
+\begin{equation}
+\mathcal{L}(Q(x)) = \mathbb{E}_{x\sim p_{2b}}[\sqrt{e^{Q(x)}}]
++\mathbb{E}_{x\sim p_{4b}}[\frac{1}{\sqrt{e^{Q(x)}}}],
+\end{equation}
+with solution
+\begin{equation}
+\arg \min_{Q}\mathcal{L}(Q(x)) = \log\frac{p_{4b}(x)}{p_{2b}(x)}.
+\end{equation}
+Taking the exponent then results in the desired reweighting function.
+
+\subsubsection{Variables and Results}
+The neural network is trained on a variety of variables sensitive to two vs.
+four tag differences. To help bring out these differences, the natural logarithm 
+of some of the variables with a large, local change is taken. The 
+set of training variables for both ggF and VBF channels is shown in Table \ref{tbl:rw-vars}. 
+\todo{Update with final configuration/optimization when ready}
+\begin{table}[htbp]
+	\centering
+	\caption{\label{tbl:rw-vars} Set of input variables used for tthe 2\Pqb to 4\Pqb reweighting in the 
+	ggF and VBF channels respectively.}
+	\begin{tabular}{|p{7cm}|p{7cm}|}
+	\hline
+	{\bfseries ggF} & {\bfseries VBF} \\
+	\hline
+	\begin{enumerate}
+		\item $\log(p_T)$ of the 4th leading Higgs candidate jet
+		\item $\log(p_T)$ of the 2nd leading Higgs candidate jet
+		\item $\log(\Delta R)$ between the closest two Higgs candidate jets
+		\item $\log(\Delta R)$ between the other two Higgs candidate jets
+		\item Average absolute value of Higgs candidate jet $\eta$
+		\item $\log(p_T)$ of the di-Higgs system.
+		\item $\Delta R$ between the two Higgs candidates
+		\item $\Delta \phi$ between the jets in the leading Higgs candidate
+		\item $\Delta \phi$ between the jets in the subleading Higgs candidate
+		\item $\log(X_{\PW\Pqt})$, where $X_{\PW\Pqt}$ is the variable used for the top veto
+		\item Number of jets in the event.
+	\end{enumerate}
+	&
+	\begin{enumerate}
+		\item $\log(p_T)$ of the 4th leading Higgs candidate jet
+		\item $\log(p_T)$ of the 2nd leading Higgs candidate jet
+		\item $\log(\Delta R)$ between the closest two Higgs candidate jets
+		\item $\log(\Delta R)$ between the other two Higgs candidate jets
+		\item Average absolute value of Higgs candidate jet $\eta$
+		\item $\log(p_T)$ of the di-Higgs system.
+		\item $\Delta R$ between the two Higgs candidates
+		\item $\Delta \phi$ between the jets in the leading Higgs candidate
+		\item $\Delta \phi$ between the jets in the subleading Higgs candidate
+		\item $\log(X_{\PW\Pqt})$, where $X_{\PW\Pqt}$ is the variable used for the top veto
+		\item Number of jets in the event.	
+		\item $m_{jj}$ of the VBF jets
+		\item $\Delta \eta$ between the VBF jets
+		\item $\log(p_T)$ of 6 jets in the event - 4 HC jets and 2 initial scatter jets
+		\item $\log(p_T)$ of the leading VBF jet
+		\item $\log(p_T)$ of the sub-leading VBF jet
+		\item $\Delta \phi$ between VBF jets
+		\item Energy of the leading VBF jet
+		\item Energy of the sub-leading VBF jet. 
+	\end{enumerate}\\
+	\hline
+	\end{tabular}
+\end{table}
+
+As mentioned, this number of jets variable is used to address the combinatoric 
+bias of the two-tag region. The neural network used for the ggF reweighting has three 
+densely connected hidden layers of 50 nodes each with ReLU activation functions and a single node 
+linear output. The same applies to the neural network used for the VBF reweighting.
+These configuration demonstrates good performance in the modelling 
+of a variety of relevant variables, including \mhh, when compared to a 
+range of networks of similar size.
+
+In practice, a given training of the reweighting neural network is subject to variation
+due to training statistics and initial conditions. An uncertainty is assigned to account
+for this (Section \ref{sec:systematics}), which relies on training an ensemble of
+reweighting networks~\cite{DeepEnsembles}. To increase the stability of the background estimate,
+the median of the predicted weight for each event is calculated across the ensemble.
+This median is then used as the nominal background estimate. This approach is indeed 
+seen to be much more stable and to demonstrate a better overall performance than a 
+single arbitrary training. Each ensemble used for this analysis consists of 100 
+neural networks, trained as described in Section \ref{sec:systematics}.
+
+The training of the ensemble used for the nominal estimate is done in the kinematic
+Control Region. The prediction of these networks in the Signal Region is then used
+for the nominal background estimate. In addition, a separate ensemble of networks is 
+trained in the Validation Region. The difference between the prediction of the nominal 
+estimate and the estimate from the VR derived networks in the Signal Region is used to 
+assign a systematic uncertainty associated with extrapolating in the Higgs Candidate
+mass plane. Further details on this systematic uncertainty are shown in Section \ref{sec:systematics}.
+Note that although the same procedure is used for both Control and Validation Region trained 
+networks, only the median estimate from the VR derived reweighting is used for assessing the 
+extrapolation uncertainty -- no additional ``uncertainty on the uncertainty'' from 
+VR ensemble variation is applied.
+
+Each reweighted estimate is normalized such that the reweighted $2b$ yield matches the $4b$ 
+yield in the corresponding training region. Note that this applies to each of the networks 
+used in each ensemble, where the normalization factor is also subject to the procedure described 
+in Section \ref{sec:systematics}. As the median over these normalized weights is not guaranteed 
+to preserve this normalization, a further correction is applied such that the $2b$ yield, after 
+the median weights are applied, matches the $4b$ yield in the corresponding training region. As no 
+preprocessing is applied to correct for the class imbalance between $2b$ and $4b$ events entering 
+the training, this ratio of number of $4b$ events ($n(4b)$) over number of $2b$ events ($n(2b)$) is 
+folded into the learned weights. Correspondingly, the set of normalization factors described above is 
+near $1$ and the learned weights are centered around $n(4b) / n(2b)$ (roughly 0.01 over the full dataset). 
+This normalization procedure applies for all instances of the reweighting (e.g. those used for validations 
+in Section \ref{sec:bkgvalidation}), with appropriate substitutions of reweighting origin 
+(here $2b$) and reweighting target (here $4b$).
+
+Note that, though there are different trigger and pileup selections during each year, the 
+statistically limited VBF channel benefits from combining all years together in performing the 
+reweighting. The training input is the combined dataset from the years 2016 - 2018 with all configurations remaining unchanged except for the addition of the year of the given event as an input variable on top of the reweighting variables listed in Table~\ref{tbl:rw-vars}. More detailed studies comparing the nominal split-year training and training on all years together for the VBF reweighting is presented in \todo{ref appendix}. For the ggF channel, a similar approach was explored 
+\todo{ref appendix}, but was found to have minimal benefit over reweighting in each year separately. 
+As the trigger selections for each year significantly impact the kinematics of each year, 
+and thus categorizing by year is expected to reflect groupings of kinematically similar events and 
+to provide a meaningful degree of freedom in the signal extraction fit, the split-year approach is
+kept by the ggF analysis.
+
+\section{Uncertainties}
+A variety of uncertainties are assigned to account for known biases in the
+underlying methods, calibrations, and objects used for this analysis. The
+largest such uncertainty is associated with the kinematic bias inherent in
+deriving the background estimate away from the signal region. However, a
+statistical biasing of this same estimate has an effect of a similar magnitude.
+Additionally, due to the use of Monte Carlo for signal modelling and \btag
+calibration, uncertainties related to mismodellings in simulation must also be
+accounted for. These components, and their impact on this analysis, are
+described here in detail. Relative magnitudes of the uncertainties for
+each year are shown in Tables \ref{tbl:errs18}, \ref{tbl:errs17}, and
+\ref{tbl:errs16} along with an estimate of the impact of the statistics of 4b
+data in the signal region on the total error. Note that, while the Poisson
+error (from 2b data statistics) is negligible relative to the bootstrap error 
+in the bulk of the distribution, it becomes relevant in the high \mhh tail. 
+The final statistical uncertainty used for the limit setting is therefore the 
+sum (in quadrature) of these two components. 
+
+%\foreach \yr in {18, 17, 16}{
+%	\input{sections/tables/\tablesversion/\NNTtag-error-table-\yr.tex}
+%}
+
+\subsection{Statistical Uncertainties and Bootstrapping}
+There are two components to the statistical error for the neural network
+background estimate. The first is standard Poisson error, i.e., a given bin,
+$i$, in the background histogram has value $n_i = \sum\limits_{j\in i} w_j$,
+where $w_j$ is the weight for an event $j$ which falls in bin $i$. Standard
+techniques then result in statistical error $\delta n_i =
+	\sqrt{\sum\limits_{j\in i} w_j^2}$, which reduces to the familiar $\sqrt{N}$
+Poisson error when all $w_j$ are equal to 1.
+
+However, this procedure does not take into account the statistical uncertainty
+on the $w_j$ due to the finite training dataset. Due to the large size
+difference between the two tag and four tag datasets, it is the statistical
+uncertainty due to the four tag training data that dominates that on the
+background. A standard method for estimating this uncertainty is the bootstrap
+resampling technique~\cite{Bootstrap}. Conceptually, a set of statistically
+equivalent sets is constructed by sampling with replacement from the original
+training set. The reweighting network is then trained on each of these
+separately, resulting in a set of statistically equivalent background estimates.
+Each of these sets is below referred to as a replica.
+
+In practice, as the original training set is large, the resampling procedure is
+able to be simplified through the relation $\lim\limits_{n\rightarrow \infty}
+	\operatorname{Binomial}(n, 1/n) = \operatorname{Poisson}(1)$, which dictates that sampling
+with replacement is approximately equivalent to applying a randomly distributed
+integer weight to each event, drawn from a Poisson distribution with a mean of
+1.
+
+Though the network configuration itself is the same for each bootstrap training, the
+network initialization is allowed to vary. It should therefore be noted that the bootstrap
+uncertainties implicitly capture the uncertainty due to this variation in addition to
+the previously mentioned training set variation.
+
+The variation from this bootstrapping procedure is used to assign a bin-by-bin uncertainty
+which is treated as a statistical uncertainty in the fit. Due to practical constraints,
+a procedure for approximating the full bootstrap error band is developed which demonstrates
+good agreement with the full bootstrap uncertainty. This procedure is described below.
+
+\subsubsection{Calculating the Bootstrap Error Band}
+The standard procedure to calculate the bootstrap uncertainty would proceed as 
+follows: first, each network trained on each bootstrap replica dataset would be used
+to produce a histogram in the variable of interest. This would result in a set of 
+replica histograms (e.g. for 100 bootstrap replicas, 100 histograms would be created). 
+The nominal estimate would then be the mean of bin values across these replica histograms, 
+with errors set by the corresponding standard deviation.
+
+In practice, such an approach is inflexible and demanding both in computation and 
+in storage, in so far as we would like to produce histograms in many variables, with a 
+variety of different cuts and binnings. This motivates a derivation based on event-level 
+quantities. However, due to non-trivial correlations between replica weights, simple linear 
+propagation of event weight variation is not correct.
+
+We therefore adopt an approach which has been empirically found to produce results (for this
+analysis) in line with those produced by generating all of the histograms, as in the standard 
+procedure. This approach is described below. Note that, for robustness to outliers and weight distribution 
+asymmetry, the median and interquartile range (IQR) are used for the central value and width 
+respectively (as opposed to the mean and standard deviation).
+
+The components involved in the calculation have been mentioned in Section \ref{sec:bkgdestimation} and 
+are as follows:
+\begin{enumerate}
+\item Replica weight ($w_{i}$): weight predicted for a given event by a network trained on replica 
+dataset $i$.
+\item Replica norm ($\alpha_{i}$): normalization factor for replica $i$. This normalizes the reweighting 
+prediction of the network trained on replica dataset $i$ to match the correponding target yield.
+\item Median weight ($w_{med}$): median weight for a given event across replica datasets, used for the nominal estimate. Defined (for 100 bootstrap replicas) as
+\begin{equation}
+w_{med} \equiv \operatorname{median}(\alpha_{1}w_{1}, \ldots \alpha_{100}w_{100})
+\end{equation}
+\item Normalization correction ($\alpha_{med}$): normalization factor to match the predicted yield of the median weights
+($w_{med}$) to the target yield in the training region.
+\end{enumerate}
+
+As mentioned in Section \ref{sec:bkgdestimation}, the \emph{nominal estimate} is constructed from the set of
+median weights and the normalization correction, i.e. $\alpha_{med}\cdot w_{med}$.
+
+For the bootstrap error band, a ``varied'' histogram is then generated by applying, for each event, a weight
+equal to the median weight (with no normalization correction) plus half the interquartile range of 
+the replica weights: $w_{varied} = w_{med} + \frac{1}{2}\operatorname{IQR}(w_{1},\ldots, w_{100})$.
+
+This varied histogram is scaled to match the yield of the nominal estimate. To account for variation of the 
+nominal estimate yield, a normalization variation is calculated from the interquartile range of the replica norms:
+$\frac{1}{2}\operatorname{IQR}(\alpha_{1}, \ldots, \alpha_{100})$. This variation, multiplied into the nominal
+estimate, is used to set a baseline for the varied histogram described above.
+
+Denoting $H$(weights) as a histogram constructed from a given set of weights, $Y$(weights) as the predicted yield
+for a given set of weights, the final varied histogram is thus:
+\begin{equation}
+H(w_{med} +\frac{1}{2}\operatorname{IQR}(w_{1},\ldots, w_{100}))\cdot \frac{Y(\alpha_{med}w_{med})}{Y(w_{med} +\frac{1}{2}\operatorname{IQR}(w_{1},\ldots, w_{100}))} + \frac{1}{2}\operatorname{IQR}(\alpha_{1}, \ldots, \alpha_{100})\cdot H(\alpha_{med}w_{med})
+\end{equation}
+
+where the first term roughly describes the behaviour of the bootstrap variation across the distribution of 
+the variable of interest while the second term describes the normalization variation of the bootstrap replicas.
+
+The difference between the varied histogram and the nominal histogram is then
+taken to be the bootstrap statistical uncertainty on the nominal histogram.
+
+Figure \todo{include figure} demonstrates how each of the components described above
+contribute to the uncertainty envelope for the 2017 Control Region 
+and compares this approximate band to the variation of histograms from individual bootstrap 
+estimates. The error band constructed from the above procedure is seen to provide a good 
+description of the bootstrap variation.
+
+\subsection{Background Shape Uncertainties}
+To account for the systematic bias associated with deriving the reweighting function
+in the Control region and extrapolating to the Signal region, an alternative background
+model is derived in the Validation region. In contrast to previous work, this is
+done on the entire background model, due to the fully data-driven nature of the
+background used here. The alternative model and the baseline are consistent with
+the observed data in their regions and with each other. Differences between the
+alternative and baseline models are used to define a shape uncertainty on the \mhh
+spectrum, with a two-sided uncertainty defined by symmetrizing the difference about
+the baseline.
+
+This uncertainty is split into two components to allow two independent
+variations of the \mhh spectrum: \todo{HT vs quad splitting}
+
+\section{Statistical Analysis}
+\section{Results}

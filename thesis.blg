@@ -1,9 +1,11 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[65] biber-darwin:322> INFO - === Tue Jun 22, 2021, 21:47:41
+[63] biber-darwin:322> INFO - === Tue Jun 22, 2021, 22:13:15
 [77] Biber.pm:415> INFO - Reading 'thesis.bcf'
-[156] Biber.pm:943> INFO - Found 0 citekeys in bib section 0
-[160] Utils.pm:304> WARN - The file 'thesis.bcf' does not contain any citations!
-[167] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[167] bbl.pm:755> INFO - Output to thesis.bbl
-[167] Biber.pm:128> INFO - WARNINGS: 1
+[157] Biber.pm:943> INFO - Found 5 citekeys in bib section 0
+[169] Biber.pm:4256> INFO - Processing section 0
+[169] Utils.pm:75> INFO - Globbing data source 'thesis.bib'
+[169] Utils.pm:91> INFO - Globbed data source 'thesis.bib' to thesis.bib
+[177] Biber.pm:4455> INFO - Looking for bibtex format file 'thesis.bib' for section 0
+[288] Utils.pm:320> ERROR - Cannot find 'thesis.bib'!
+[288] Biber.pm:132> INFO - ERRORS: 1
