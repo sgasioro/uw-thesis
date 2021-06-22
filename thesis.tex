@@ -2,7 +2,16 @@
 \documentclass [11pt, proquest]{uwthesis}[2020/02/24]
 \setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
 
-\newcommand\bbbb{\ensuremath{b\bar{b}b\bar{b}} }
+\newcommand*{\ATLASLATEXPATH}{latex/}
+
+\usepackage[subfig]{\ATLASLATEXPATH atlaspackage}
+\usepackage[hepparticle,hepprocess]{\ATLASLATEXPATH atlasphysics}
+
+\usepackage{thesis-defs}
+
+%\bibliographystyle{plain}
+\bibliography{thesis}
+
 
 \begin{document}
 % preliminary pages
@@ -30,16 +39,13 @@
 \include{chapters/intro-sim}
 \include{chapters/intro-reconstruct}
 \include{chapters/search-outline}
-\include{chapters/nonresonant}
-\include{chapters/resonant}
+\include{chapters/bbbb}
 %\include{chap2}
 %\include{chap3}
 %\include{chap4}
 % bibliography
 %
 
-\bibliographystyle{plain}
-\bibliography{thesis}
 % appendices
 %
 %\appendix

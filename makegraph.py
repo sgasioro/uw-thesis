@@ -16,6 +16,7 @@ monthFmt = mdates.DateFormatter('%d-%m-%Y')
 
 # read data
 data = pd.read_csv(sys.stdin,sep=' ', header=0)
+data = data[data['words'] != 0]
 data['date'] = pd.to_datetime(data['date'])
 
 # the plot

@@ -1,0 +1,37 @@
+\usepackage[nohyphen]{underscore}
+\usepackage{physics}
+\usepackage[italic]{hepnames}  % something weird is going on, this should be loaded by atlashepparticle
+\usepackage[linesnumbered, ruled, vlined, commentsnumbered]{algorithm2e}
+\usepackage[export]{adjustbox}
+
+\newcommand{\doublehat}[1]{\hat{\hat{#1}}}
+
+\sisetup{list-final-separator = {, and }, table-format=1.3e3, table-auto-round}
+
+\newcommand{\incomplete}[1]{{\color{orange}#1}}
+\newcommand{\citeold}{\cite{EXOT-2016-31}\xspace}
+\newcommand{\mvtwo}{MV2c10\xspace}
+\newcommand{\todo}[1]{{\color{red}\itshape TODO: #1}}
+\newcommand*{\code}[1]{{\exhyphenpenalty=100000\hyphenpenalty=10000\relax\texttt{#1}}}
+\newcommand{\higgs}{\PH}
+\newcommand*{\hhb}{\texorpdfstring{\ensuremath{\PH\PH\,\rightarrow\,4b}\xspace}{HH → 4b }}
+\newcommand*{\Xbb}{\texorpdfstring{\ensuremath{X\,\to\,b \bar{b}}\xspace}{X → bb }}
+\newcommand{\PGrav}{\HepParticle{G}{KK}{*}\xspace}
+\newcommand{\PScal}{\HepParticle{X}{}{}}
+\newcommand{\Vbos}{\HepParticle{V}{}{}}
+\newcommand{\VVbos}{\Vbos\Vbos}
+\newcommand{\bbbb}{\ensuremath{b\bar{b}b\bar{b}} }
+\newcommand{\btalg}{MV2c10\xspace}
+\newcommand{\dr}{\ensuremath{\Delta R}\xspace}
+\newcommand*{\mhh}{\ensuremath{m_{\higgs\higgs}}\xspace}
+\renewcommand*{\mh}[1]{\ensuremath{m\qty(\higgs_{#1})}\xspace}
+\newcommand*{\mhhplane}{\mh{1}\nobreakdash--\mh{2} plane\xspace}
+\newcommand*{\ssb}{\ensuremath{\nicefrac{s}{\sqrt{b}}}\xspace}
+\newcommand*{\sob}{\ensuremath{\nicefrac{s}{b}}\xspace}
+\newcommand*{\note}[1]{\colorbox{yellow}{\sffamily\itshape #1}}
+\DeclareMathOperator{\Min}{Min}
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+% Figure directories
+%\input{figures/dir.tex}
