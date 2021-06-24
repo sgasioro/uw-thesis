@@ -21,18 +21,74 @@ described in this model, as the weakest, with effects most relevant on much larg
 the description of these other three is powerful -- verifying and searching for cracks in this description is a large 
 effort, and the topic of this thesis.
 
-The formalism for describing these particles and their interactions is that of quantum field theory. Classical field theory is most familiar in the context of, e.g., electromagnetism -- an electric field exists in some region of space, and a charged point-particle experiences a force characterized by the charge of the point-particle and the magnitude of the field at the location of the point-particle in spacetime. The same language translates to quantum field theory. Here, each particle is represented by a quantum field describing its influence on a region of spacetime. Particles also have charges which describe the forces they experience when interacting with other particles (other quantum fields). Most familiar is electric charge -- however this applies to e.g., the strong interaction as well, where particles have an associated \emph{color charge} describing behavior under the strong force.
+The formalism for describing these particles and their interactions is that of quantum field theory. Classical field theory is most familiar in the context of, e.g., electromagnetism -- an electric field exists in some region of space, and a charged point-particle experiences a force characterized by the charge of the point-particle and the magnitude of the field at the location of the point-particle in spacetime. The same language translates to quantum field theory. Here, particles are described in terms of quantum fields in some region of spacetime. These fields have associated charges which describe the forces they experience when interacting with other quantum fields. Most familiar is electric charge -- however this applies to e.g., the strong interaction as well, where quantum fields have an associated \emph{color charge} describing behavior under the strong force.
 
-Particles are observed to behave in different ways under these different forces. These behaviors respect certain \emph{symmetries}, which are most naturally described in the language of group theory. The respective fields, charges, and 
+Particles are observed to behave in different ways under different forces. These behaviors respect certain \emph{symmetries}, which are most naturally described in the language of group theory. The respective fields, charges, and 
 generators of these symmetry groups are the basic pieces of the SM Lagrangian, which describes the full dynamics of the theory. In the following, we will build up the basic components of this Lagrangian.
 
 \subsection{Quantum Electrodynamics}
+Classical electrodynamics is familiar to the general physics audience: electric ($\vec{E}$) and magnetic ($\vec{B}$) 
+fields are used to describe behavior of particles with charge $q$ moving with velocity $\vec{v}$, with 
+forces described as $\vec{F} =q\vec{E} + q \vec{v} \times \vec{B}$. Hints at some more fundamental properties of
+electric and magnetic fields come via a simple thought experiment: in a frame of reference moving along with 
+the particle at velocity $\vec{v}$, the particle would appear to be standing still, and therefore have no 
+magnetic force exerted. Therefore a \emph{relativistic} formulation of the theory is required. This is most 
+easily accomplished with a repackaging: the fundamental objects are no longer classical fields but the electric 
+and magnetic \emph{potentials}: $\phi$ and $\vec{A}$ respectively, with
+\begin{align}
+\vec{E} &= -\grad\phi + \frac{\partial \vec{A}}{\partial t}\\
+\vec{B} &= \grad \times \vec{A}
+\end{align}
+
+It is then natural to fully repackage into a relativistic \emph{four-vector}: $A_{\mu} = (\phi, \vec{A})$. 
+Considering $\partial^{\mu} = (\frac{\partial}{\partial t}, \grad)$, the $x$ components of these above 
+two equations become:
+\todo{Check signs and units!! Add Jackson reference?}
+\begin{align}
+E_{x} &= -\frac{\partial \phi}{\partial x} + \frac{\partial A_{x}}{\partial t} = ( \partial^0 A^1 - \partial^1 A^0)\\
+B_{x} &= \frac{\partial A_{z}}{\partial y} - \frac{\partial A_{y}}{\partial z} = (\partial^2 A^3 - \partial^3 A^2)
+\end{align}
+
+This is naturally suggestive of a second rank, antisymmetric tensor to describe both the electric and magnetic 
+fields (the \emph{field strength tensor}), defined as:
+\begin{equation}
+F^{\alpha\beta} = \partial^{\alpha}A^{\beta} - \partial^{\beta} A^{\alpha}
+\end{equation}
+
+Defining a four-current as $J_{\mu} = (q, \vec{J})$, with $q$ standard electric charge, $\vec{J}$ standard electric 
+current, conservation of charge may be expressed via the continuity equation
+\begin{equation}
+\partial_{\mu}J^\mu = 0
+\end{equation}
+and all of classical electromagnetism may be packaged into the Lagrangian density:
+\begin{equation}
+\mathcal{L} = -\frac{1}{4} F_{\mu\nu}F^{\mu\nu} - J^{\mu}A_{\mu}.
+\end{equation}
+
+This gets us partway to our goal, but is entirely classical - the description is of classical fields and 
+point charges, not of quantum fields and particles. To reframe this, let us go back to the zoomed out view 
+of the particles of the Standard Model. Two of the most familiar objects associated with electromagnetism 
+are electrons: spin-1/2 particles with charge $e$, mass $m$, and photons: massless spin-1 particles which are
+the "pieces" of electromagnetic radiation.
+
+We know that electrons experience electromagnetic interactions with other objects. Given this, and the 
+fact that such interactions must be transmitted \emph{somehow} between e.g. two electrons, it seems natural 
+that these interactions are facilitated by electromagnetic radiation. More specifically, we may think of 
+photons as \emph{mediators} of the electromagnetic force. It follows, then, that a description of 
+electromagnetism on the level of particles must involve a description of both the ``source" particles 
+(e.g. electrons), the mediators (photons), and their interactions. Further, this description must be 
+consistent with the classically derived dynamics described above.
+
+The description of spin-1/2 particles is courtesy of Paul Dirac \todo{ref}
+
 
 \subsection{The Weak Force}
 
 \subsection{Quantum Chromodynamics}
 
-\subsection{The Higgs mechanism}
+\subsection{The Higgs Mechanism}
+In the previous sections 
+
 
 
 
