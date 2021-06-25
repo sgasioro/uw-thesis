@@ -1,22 +1,26 @@
 \BOOKMARK [0][-]{chapter*.2}{List of Figures}{}% 1
 \BOOKMARK [0][-]{chapter*.3}{Glossary}{}% 2
 \BOOKMARK [0][-]{chapter.1}{Chapter 1: The Standard Model of Particle Physics}{}% 3
-\BOOKMARK [1][-]{section.1.1}{1.1 Particles and Fields}{chapter.1}% 4
-\BOOKMARK [0][-]{chapter.2}{Chapter 2: Beyond the Standard Model}{}% 5
-\BOOKMARK [0][-]{chapter.3}{Chapter 3: Experimental Apparatus}{}% 6
-\BOOKMARK [0][-]{chapter.4}{Chapter 4: Simulation}{}% 7
-\BOOKMARK [0][-]{chapter.5}{Chapter 5: Reconstruction}{}% 8
-\BOOKMARK [0][-]{chapter.6}{Chapter 6: The Anatomy of an LHC Search}{}% 9
-\BOOKMARK [1][-]{section.6.1}{6.1 Object Selection and Identification}{chapter.6}% 10
-\BOOKMARK [1][-]{section.6.2}{6.2 Defining a Signal Region}{chapter.6}% 11
-\BOOKMARK [1][-]{section.6.3}{6.3 Background Estimation}{chapter.6}% 12
-\BOOKMARK [1][-]{section.6.4}{6.4 Uncertainty Estimation}{chapter.6}% 13
-\BOOKMARK [1][-]{section.6.5}{6.5 Hypothesis Testing}{chapter.6}% 14
-\BOOKMARK [0][-]{chapter.7}{Chapter 7: Search for pair production of Higgs bosons in the bbarbbbarb final state}{}% 15
-\BOOKMARK [1][-]{section.7.1}{7.1 Data and Monte Carlo Simulation}{chapter.7}% 16
-\BOOKMARK [1][-]{section.7.2}{7.2 Triggers and Object Definitions}{chapter.7}% 17
-\BOOKMARK [1][-]{section.7.3}{7.3 Analysis Selection}{chapter.7}% 18
-\BOOKMARK [1][-]{section.7.4}{7.4 Background Estimation}{chapter.7}% 19
-\BOOKMARK [1][-]{section.7.5}{7.5 Uncertainties}{chapter.7}% 20
-\BOOKMARK [1][-]{section.7.6}{7.6 Statistical Analysis}{chapter.7}% 21
-\BOOKMARK [1][-]{section.7.7}{7.7 Results}{chapter.7}% 22
+\BOOKMARK [1][-]{section.1.1}{1.1 Introduction: Particles and Fields}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{1.2 Quantum Electrodynamics}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{1.3 The Weak Force and Electroweak Theory}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.4}{1.4 The Higgs Mechanism}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.5}{1.5 Quantum Chromodynamics}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Chapter 2: Beyond the Standard Model}{}% 9
+\BOOKMARK [0][-]{chapter.3}{Chapter 3: Experimental Apparatus}{}% 10
+\BOOKMARK [0][-]{chapter.4}{Chapter 4: Simulation}{}% 11
+\BOOKMARK [0][-]{chapter.5}{Chapter 5: Reconstruction}{}% 12
+\BOOKMARK [0][-]{chapter.6}{Chapter 6: The Anatomy of an LHC Search}{}% 13
+\BOOKMARK [1][-]{section.6.1}{6.1 Object Selection and Identification}{chapter.6}% 14
+\BOOKMARK [1][-]{section.6.2}{6.2 Defining a Signal Region}{chapter.6}% 15
+\BOOKMARK [1][-]{section.6.3}{6.3 Background Estimation}{chapter.6}% 16
+\BOOKMARK [1][-]{section.6.4}{6.4 Uncertainty Estimation}{chapter.6}% 17
+\BOOKMARK [1][-]{section.6.5}{6.5 Hypothesis Testing}{chapter.6}% 18
+\BOOKMARK [0][-]{chapter.7}{Chapter 7: Search for pair production of Higgs bosons in the bbarbbbarb final state}{}% 19
+\BOOKMARK [1][-]{section.7.1}{7.1 Data and Monte Carlo Simulation}{chapter.7}% 20
+\BOOKMARK [1][-]{section.7.2}{7.2 Triggers and Object Definitions}{chapter.7}% 21
+\BOOKMARK [1][-]{section.7.3}{7.3 Analysis Selection}{chapter.7}% 22
+\BOOKMARK [1][-]{section.7.4}{7.4 Background Estimation}{chapter.7}% 23
+\BOOKMARK [1][-]{section.7.5}{7.5 Uncertainties}{chapter.7}% 24
+\BOOKMARK [1][-]{section.7.6}{7.6 Statistical Analysis}{chapter.7}% 25
+\BOOKMARK [1][-]{section.7.7}{7.7 Results}{chapter.7}% 26

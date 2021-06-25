@@ -10,7 +10,7 @@ construction of such a model. The primary focus of this thesis is searches for p
 Higgs bosons decaying to four $b$-quarks. Consequently, we will pay particular attention to the 
 relevant pieces of the Higgs Mechanism, as well as the theory behind searches at a hadronic collider.
 
-\section{Particles and Fields}
+\section{Introduction: Particles and Fields}
 What is a particle? The Standard Model describes a set of fundamental, point-like, objects (shown in Figure SM FIGURE). 
 These objects have distinguishing characteristics (e.g., mass and spin). These objects interact in very specific 
 ways. The set of objects and their interactions result in a set of observable effects, and these effects are the basis of a field of experimental physics. 
@@ -26,7 +26,7 @@ The formalism for describing these particles and their interactions is that of q
 Particles are observed to behave in different ways under different forces. These behaviors respect certain \emph{symmetries}, which are most naturally described in the language of group theory. The respective fields, charges, and 
 generators of these symmetry groups are the basic pieces of the SM Lagrangian, which describes the full dynamics of the theory. In the following, we will build up the basic components of this Lagrangian.
 
-\subsection{Quantum Electrodynamics}
+\section{Quantum Electrodynamics}
 Classical electrodynamics is familiar to the general physics audience: electric ($\vec{E}$) and magnetic ($\vec{B}$) 
 fields are used to describe behavior of particles with charge $q$ moving with velocity $\vec{v}$, with 
 forces described as $\vec{F} =q\vec{E} + q \vec{v} \times \vec{B}$. Hints at some more fundamental properties of
@@ -77,19 +77,79 @@ that these interactions are facilitated by electromagnetic radiation. More speci
 photons as \emph{mediators} of the electromagnetic force. It follows, then, that a description of 
 electromagnetism on the level of particles must involve a description of both the ``source" particles 
 (e.g. electrons), the mediators (photons), and their interactions. Further, this description must be 
-consistent with the classically derived dynamics described above.
+(1) relativistic and (2) consistent with the classically derived dynamics described above.
 
-The description of spin-1/2 particles is courtesy of Paul Dirac \todo{ref}
+The beginnings of a relativistic description of spin-1/2 particles is due to Paul Dirac, with the 
+famous Dirac equation:
+\begin{equation}
+(i\gamma^{\mu}\partial_{\mu} - m)\psi = 0
+\end{equation}
+where $\partial_{\mu}$ is as defined above, $\psi$ is a Dirac \emph{spinor}, i.e. a four-component 
+wavefunction, $m$ is the mass of the particle, and $\gamma^{\mu}$ are the Dirac gamma matrices, 
+which define the algebraic structure of the theory.
+
+\todo{Add some stuff about the conjugate?}
+
+The Dirac equation is the dynamical equation for spin-1/2, but we'd like to express these dynamics 
+via a Lagrangian density. Further, to have a relativistic description, we'd like to have this be 
+density be Lorentz invariant. These constraints lead to a Lagrangian of the form
+\begin{equation}
+\mathcal{L} = \bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m)\psi 
+\end{equation}
+where the Euler-Lagrange equation exactly recovers the Dirac equation.
 
 
-\subsection{The Weak Force}
+The question now becomes how to marry the two Lagrangian descriptions that we have developed.
+Returning for a moment to classical electrodynamics, we know that the Hamiltonian for a charged 
+particle in an electromagnetic field is described by 
+\begin{equation}
+H = \frac{1}{2m}(\vec{p} - q\vec{A})^2 + q\phi.
+\end{equation}
 
-\subsection{Quantum Chromodynamics}
+Comparing this to the Hamiltonian for a free particle, we see that the modifications required 
+are $\vec{p} \rightarrow \vec{p} - q\vec{A}$ and $E\rightarrow E- q\phi$. Using the canonical 
+quantization trick of identifying $\vec{p}$ with operator $-i\grad$ and $E$ with operator 
+$i\frac{\partial}{\partial t}$, this identification becomes
+\begin{equation}
+i\partial_{\mu} \rightarrow i\partial_{\mu}-q A_{\mu}
+\end{equation}
 
-\subsection{The Higgs Mechanism}
+Allowing for the naive substitution in the Dirac Lagrangian \todo{Source term?}:
+\begin{equation}
+\mathcal{L} = \bar{\psi}(i\gamma^{\mu}\partial_{\mu}-q A_{\mu} - m)\psi -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}.
+\end{equation}
+
+Setting $q=e$ here (as appropriate for the case of an electron), and defining 
+$D_{\mu} = \partial_{\mu} + ieA_{\mu}$, this may then be written in the form
+\begin{equation}
+\mathcal{L} = \bar{\psi}(i\gamma^{\mu}D_{\mu} - m)\psi -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}.
+\end{equation}
+which is exactly the quantum electrodynamics Lagrangian.
+
+We have swept a few things under the rug here, however. Recall that the general 
+form of a Lagrangian is conventionally $\mathcal{L} = T - V$, where $T$ is the kinetic term, 
+and thus ought to contain a derivative with respect to time (c.f. the standard 
+$\frac{1}{2}m\frac{\partial x}{\partial t}$ familiar from basic kinematics). More particularly,
+given the definition of conjugate momentum as $\partial \mathcal{L}/\partial \dot{q}$ for 
+$\mathcal{L}(q, \dot{q}, t)$ and $\dot{q} = \frac{\partial q}{\partial t}$, any field $q$ which 
+has no time derivative in the Lagrangian has $0$ conjugate momentum, and thus no dynamics. 
+
+Looking at this final form, there is an easily identifiable kinetic term for the spinor fields (just applying 
+the $D_{\mu}$ operator). However trying to identify something similar for the $A$ fields, one 
+comes up short -- the antisymmetric nature of $F^{\mu\nu}$ term means that there
+is no time derivative applied to $A^0$.
+
+What does this mean? $A^{\mu}$ is a four component object, but it would appear that only three 
+of the components have dynamics: we have too many degrees of freedom in the
+theory.    
+
+\section{The Weak Force and Electroweak Theory}
+
+\section{The Higgs Mechanism}
 In the previous sections 
 
 
+\section{Quantum Chromodynamics}
 
 
 
