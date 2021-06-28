@@ -36,7 +36,7 @@ magnetic force exerted. Therefore a \emph{relativistic} formulation of the theor
 easily accomplished with a repackaging: the fundamental objects are no longer classical fields but the electric 
 and magnetic \emph{potentials}: $\phi$ and $\vec{A}$ respectively, with
 \begin{align}
-\vec{E} &= -\grad\phi + \frac{\partial \vec{A}}{\partial t}\\
+\vec{E} &= -\grad\phi - \frac{\partial \vec{A}}{\partial t}\\
 \vec{B} &= \grad \times \vec{A}
 \end{align}
 
@@ -116,11 +116,11 @@ i\partial_{\mu} \rightarrow i\partial_{\mu}-q A_{\mu}
 
 Allowing for the naive substitution in the Dirac Lagrangian \todo{Source term?}:
 \begin{equation}
-\mathcal{L} = \bar{\psi}(i\gamma^{\mu}\partial_{\mu}-q A_{\mu} - m)\psi -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}.
+\mathcal{L} = \bar{\psi}(i\gamma^{\mu}(\partial_{\mu}+iq A_{\mu}) - m)\psi -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}.
 \end{equation}
 
 Setting $q=e$ here (as appropriate for the case of an electron), and defining 
-$D_{\mu} = \partial_{\mu} + ieA_{\mu}$, this may then be written in the form
+$D_{\mu} \equiv \partial_{\mu} + ieA_{\mu}$, this may then be written in the form
 \begin{equation}
 \mathcal{L} = \bar{\psi}(i\gamma^{\mu}D_{\mu} - m)\psi -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}.
 \end{equation}
@@ -140,13 +140,98 @@ comes up short -- the antisymmetric nature of $F^{\mu\nu}$ term means that there
 is no time derivative applied to $A^0$.
 
 What does this mean? $A^{\mu}$ is a four component object, but it would appear that only three 
-of the components have dynamics: we have too many degrees of freedom in the
-theory.    
+of the components have dynamics: we have too many degrees of freedom in the theory. This is the 
+principle behind \emph{gauge symmetry} -- an extra constraint on $A^{\mu}$ (a \emph{gauge condition}) 
+must be defined such that a unique $A^{\mu}$ defines the theory and satisfies the condition. However, 
+we are free to choose this extra condition -- the physics content of the theory should be independent 
+of this choice (that is, it should be \emph{gauge invariant}).
 
-\section{The Weak Force and Electroweak Theory}
+To ground this a bit, let us return to basic electric and magnetic fields. These are physical 
+quantities that can be measured, and are defined in terms of potentials as 
+\begin{align}
+\vec{E} &= -\grad\phi - \frac{\partial \vec{A}}{\partial t}\\
+\vec{B} &= \grad \times \vec{A}.
+\end{align}
+It is easy to show, for any scalar function $\lambda$, that $\grad \times \grad\lambda = 0$. This implies 
+that the physical $\vec{B}$ field is invariant under the transformation $\vec{A} \rightarrow \vec{A} + \grad\lambda$
+for any scalar function $\lambda$.
 
-\section{The Higgs Mechanism}
-In the previous sections 
+Under the same transformation of $\vec{A}$, the electric field $\vec{E}$ becomes $-\grad\phi - \frac{\partial \vec{A}}{\partial t} - \frac{\partial \grad\lambda}{\partial t} = -\grad(\phi + \frac{\partial\lambda}{\partial t}) - \frac{\partial\vec{A}}{\partial t}$, such that, for the $\vec{E}$ field to be unchanged, we must additionally apply the transformation 
+$\phi \rightarrow \phi - \frac{\partial\lambda}{\partial t}$.
+
+\todo{Check signs here too!}
+This is set of transformations to the potentials that leave the physical degrees of freedom invariant is expressed 
+in our four vector notation naturally as
+\begin{equation}
+A_{\mu} \rightarrow A_{\mu} - \partial_{\mu}\lambda
+\end{equation}
+
+where $A_{\mu} = (\phi, -\vec{A})$ with our sign convention. It should be noted that this 
+function $\lambda$ is an arbitrary function of \emph{local} spacetime, and thus expresses 
+invariance of the physics content under a local transformation.
+
+Let us return to the Lagrangian for QED. In particular, focusing on the free Dirac piece
+\begin{equation}
+\mathcal{L} = \bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m)\psi 
+\end{equation}
+we note that if we apply a local transformation of the form $\psi\rightarrow e^{iq\lambda(x)}\psi$
+(and correspondingly $\bar{\psi}\rightarrow \bar{\psi}e^{-iq\lambda(x)}$, by definition), the Lagrangian 
+becomes
+\begin{equation}
+\bar{\psi}e^{-iq\lambda(x)}(i\gamma^{\mu}\partial_{\mu} - m)e^{iq\lambda(x)}\psi = 
+\bar{\psi}e^{-iq\lambda(x)}(i\gamma^{\mu}\partial_{\mu})e^{iq\lambda(x)}\psi - m\bar{\psi}\psi.
+\end{equation}
+As $\partial_{\mu} (e^{iq\lambda(x)}\psi) = iqe^{iq\lambda(x)}(\partial_{\mu}\lambda(x))\psi + e^{iq\lambda(x)}\partial_{\mu}\psi$, this becomes
+\begin{equation}
+\bar{\psi}(i\gamma^{\mu}(\partial_{\mu}+iq\partial_{\mu}\lambda(x)) - m)\psi.
+\end{equation}
+Thus, the free Dirac Lagrangian on its own is not invariant under this transformation. We may note, however,
+that on interaction with an electromagntic field, as described above, this transformed Lagrangian
+may be packaged as:
+\begin{equation}
+\bar{\psi}(i\gamma^{\mu}(\partial_{\mu}+ iq\partial_{\mu}\lambda(x)+iq A_{\mu}) - m)\psi =
+\bar{\psi}(i\gamma^{\mu}(\partial_{\mu}+ iq(A_{\mu}+\partial_{\mu}\lambda(x)) - m)\psi.
+\end{equation}
+since by the arguments above, the physics content of the Lagrangian is invariant under the transformation 
+$A_{\mu} \rightarrow A_{\mu} - \partial_{\mu}\lambda$,  we may directly make this transformation, and remove 
+this extra $\partial_{\mu}\lambda(x)$ term. It is straightforward to verify that the $\frac{1}{4} F_{\mu\nu}F^{\mu\nu}$
+term is invariant under this same transformation of $A_{\mu}$, so we may say that the QED Lagrangian is 
+invariant under local transformations of the form $\psi\rightarrow e^{iq\lambda(x)}\psi$.
+
+These arguments illuminate some important concepts which will serve us well going forward. First, while we have 
+remained grounded in the ``familiar'' physics of electromagnetism for the above, arguments of the ``top down''
+variety would lead us to the exact same conclusions. That is, suppose we wanted to construct a theory of 
+spin-1/2 particles that was invariant under local transformations of the form $\psi\rightarrow e^{iq\lambda(x)}\psi$. 
+More broadly, we could say that we desire this theory to be invariant under local $U(1)$ transformations, where 
+$U(1)$ is exactly this group, under multiplication, of complex numbers with absolute value 1. By very similar 
+arguments as above, we would see that, to achieve invariance, this theory would necessitate an additional degree 
+of freedom, $A_{\mu}$, with the exact properties that are familiar to us from electrodynamics. These arguments 
+based on symmetries are extremely powerful in building theories with a less familiar grounding, as we will 
+see in the following.
+
+Second, we defined this quantity $D_{\mu} \equiv \partial_{\mu} + ieA_{\mu}$ above, seemingly as a matter 
+of notational convenience. However, from the latter set of arguments, such a packaging takes on a new power: 
+by explicitly including this gauge field $A_{\mu}$ which transforms in such a way as to keep invariance 
+under a given transformation, the invariance is immediately more manifest. That is, to pose the $U(1)$ 
+invariance in a more zoomed out way, under the transformation $\psi\rightarrow e^{iq\lambda(x)}\psi$,
+while
+\begin{equation}
+\bar{\psi}\partial_{\mu}\psi \rightarrow \bar{\psi}(\partial_{\mu}+iq\partial_{\mu}\lambda(x))\psi
+\end{equation}
+with the extra term that gets canceled out by the gauge transformation of $A_{\mu}$,
+\begin{equation}
+\bar{\psi}D_{\mu}\psi \rightarrow \bar{\psi}D_{\mu}\psi
+\end{equation}
+where this transformation is already folded in. This repackaging, called a \emph{gauge covariant derivative} 
+is much more immediately expressive of the symmetries of the theory.
+
+Finally, to emphasize how fundamental these gauge symmetries are to the corresponding theory, let us examine
+the additional term needed for $U(1)$ invariance, $q\bar{\psi}\gamma^{\mu}A_{\mu}\psi$. While a first principles
+examination of Feynman rules is beyond the scope of this thesis, it is powerful to note that this is expressive 
+of a QED vertex: the $U(1)$ invariance of the theory and the interaction between photons and electrons are 
+inextricably tied together.
+
+\section{The Weak Force and Electroweak Unification}
 
 
 \section{Quantum Chromodynamics}
