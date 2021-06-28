@@ -231,12 +231,50 @@ examination of Feynman rules is beyond the scope of this thesis, it is powerful 
 of a QED vertex: the $U(1)$ invariance of the theory and the interaction between photons and electrons are 
 inextricably tied together.
 
+\section{An Aside on Group Theory}
+\todo{word on exponential representation?}
+Quantum electrodynamics is very familiar and well covered, and provides (both historically and in this thesis) 
+a nice bridge between ``standard'' physics and the language of symmetries and quantum field theory. However, now 
+that we are acquainted with the language, we may set up to dive a bit deeper. To begin, let us look again at the $U(1)$ 
+group that is so fundamental to QED. We have expressed this via a set of transformations on our Dirac spinor objects, 
+$\psi$, of the form $e^{iq\lambda(x)}$. Note that such transformations, though they are local (i.e. a function of 
+spacetime) are purely \emph{phase} transformations. Relatedly, $U(1)$ is an Abelian group, meaning that 
+group elements commute.
+
+To set up language to generalize beyond $U(1)$, note that we may equivalently write $U(1)$ elements as
+$e^{ig\vec{\alpha}(x)\cdot \vec{T}}$, $\vec{\alpha}(x)$ and $\vec{T}$ and are vectors in the space of 
+\emph{generators} of the group, with each $\alpha^{a}(x)$ an associated scalar function to generator $t^{a}$, 
+and $g$ is some scalar strength parameter. Of course this is a bit silly for $U(1)$, which has a single generator, 
+and thus reduces to the transformation we discussed above. However, this becomes much more useful for groups of higher 
+degree, with more generators and degrees of freedom.
+
+To discuss these groups in a bit more detail, note that $U(n)$ is the unitary group of 
+degree $n$, and corresponds to the group of $n \times n$ unitary matrices (that is, $U^{\dagger}U = UU^{\dagger} = 1$).
+Given that group elements are $n\times n$, this means that there are $n^2$ degrees of freedom:
+$n^2$ generators are needed to characterize the group.
+
+For $U(1)$, this is all consistent with what we have said above -- the group of $1 \times 1$ unitary matrices 
+have a single generator, and the phases we identify above clearly satisfy unitarity. Note that these degrees 
+of freedom for the gauge group also characterize the number of gauge bosons we need to satisfy the local symmetry: 
+for $U(1)$, we need one gauge boson, the photon.
+
+Of relevance for the Standard Model are also the special unitary groups $SU(n)$. These are defined similarly 
+to the unitary groups, with the additional requirement that group elements have determinant $1$. This extra 
+constraint removes $1$ degree of freedom: groups are characterized by $n^2-1$ generators.
+
+In particular, we will examine the groups $SU(2)$ in the context of the weak interaction, with an associated
+$2^2-1=3$ gauge bosons (cf. the $W^{\pm}$ and $Z$ bosons), and $SU(3)$, with an associated $3^2-1 = 8$ gauge bosons 
+(cf. gluons of different flavors). Note that these groups are non-Abelian ($2\times 2$ or $3\times 3$ matrices do not, 
+in general, commute), leading to a variety of complications. However, both of these theories feature interactions with 
+spin-1/2 particles, with transformations of a very similar form: $\psi \rightarrow e^{ig\vec{\alpha}(x)\cdot \vec{T}}\psi$, 
+and the general framing of the arguments for QED will serve us well in the following.
+
+
 \section{The Weak Force and Electroweak Unification}
+The 
 
 
 \section{Quantum Chromodynamics}
-
-
 
 
 
