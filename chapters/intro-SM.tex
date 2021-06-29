@@ -270,11 +270,105 @@ spin-1/2 particles, with transformations of a very similar form: $\psi \rightarr
 and the general framing of the arguments for QED will serve us well in the following.
 
 
-\section{The Weak Force and Electroweak Unification}
-The 
-
-
 \section{Quantum Chromodynamics}
+In some sense, the simplest extension the development of QED is quantum chromodynamics (QCD). QCD is a 
+theory in which, once the basic dynamics are framed (a non-trivial task!) the group structure becomes 
+apparent. The quark model, developed by Murray Gell-Mann and George Zweig\todo{cite}, provided the 
+fundamental particles involved in the theory, and had great success in explaining the expanding zoo 
+of experimentally observed hadronic states.
+
+Some puzzles were still apparent -- the $\Delta^{++}$ baryon, e.g., is composed of three up quarks, 
+$u$, with aligned spins. As quarks are fermions, such a state should not be allowed by the Pauli exclusion 
+principle. The existence of such a state in nature implies the existence of another quantum number, and 
+a triplet of values, called \emph{color charge} was proposed by Oscar Greenburg \todo{cite}. With these
+pieces in place, the structure becomes more apparent, as elucidated by Han and Nambu \todo{cite: https://digital.library.unt.edu/ark:/67531/metadc1031342/m1/6/}.
+
+Let us reason our way to the symmetries using color charge. Experimentally, we know that there is this triplet
+of color charge values $r, g, b$ (the ``plus'' values, cf. electric charge) and correspondingly anti-color charge
+$\bar{r}, \bar{g}, \bar{b}$ (the ``minus'' values). Supposing that the force behind QCD (the \emph{strong force}) is, 
+similar to QED, interactions between fermions mediated by gauge bosons (quarks and gluons respectively), we can 
+start to line up the pieces.
+
+What color charge does a gluon have? Similarly to electric charge, we may associate particles
+with color charge, anti-particles with anti-color charge. Notably, free particles observed experimentally are 
+colorless (have no color charge). Thus, in order for charge to be conserved throughout such 
+processes, this already implies that there are charged gluons. Further, examining color flow diagrams 
+such as \todo{insert}, it is apparent first that a gluon has not one but two associated color charges
+and second that these two must be one color charge and one anti-color charge.
+
+Counting up the available types of gluons, then, we come up with nine. Six of mixed color type: 
+$r\bar{b}, r\bar{g}, b\bar{r}, b\bar{g}, g\bar{b}$, and $g\bar{r}$, and three of same color type:
+$r\bar{r}$, $g\bar{g}$, and $b\bar{b}$. In practice, however, these latter three are a bit redundant:
+all express a colorless gluon, which, if we could observe this as a free particle, would be indistinguishable
+from each other. The \emph{color singlet} state is then a mix of these, $\frac{1}{\sqrt{3}}(r\bar{r}+g\bar{g}+b\bar{b})$,
+leaving two unclaimed degrees of freedom, which may be satisfied by the linearly independent combinations
+$\frac{1}{\sqrt{2}}(r\bar{r}-g\bar{g})$ and $\frac{1}{\sqrt{6}}(r\bar{r}+g\bar{g}-2b\bar{b})$.
+
+We thus have an octet of color states plus a colorless singlet state. If this colorless singlet state 
+existed, however, we would be able to observe it, not only via interactions with quarks, but as a free
+particle. Since do not observe this in nature, this restricts us to $8$ gluons. The simplest group with 
+a corresponding 8 generators is $SU(3)$. Under the assumption that $SU(3)$ is the local gauge symmetry
+of the strong interaction, we may proceed in a similar way as we did for QED. The gauge transformation is 
+$\psi \rightarrow e^{ig_{S}\vec{\alpha}(x)\cdot \vec{T}}\psi$, where $\vec{T}$ is an eight component vector
+of the generators of $SU(3)$, often expressed via the Gell-Mann matrices, $\lambda^{a}$, as $T^{a} = \frac{1}{2}\lambda^{a}$,
+and the spinor $\psi$ represents the fields corresponding to quarks.
+
+This $SU(3)$ symmetry exactly expresses the color structure elucidated above -- the Gell-Mann matrices are an 
+equivalent presentation of the color combinations described above. Proceeding by analogy to QED, gauge invariance 
+is achieved by introducing eight new degrees of freedom, $G_{\mu}^{a}$, which are the gauge fields corresponding to 
+the gluons, with the gauge covariant derivative then analogously taking the form 
+$D_{\mu} \equiv \partial_{\mu} + ig_{S}G_{\mu}^{a}T^{a}$.
+
+Recall from the QED derivation that the field strength tensor, $F^{\mu\nu}$ is a rank two antisymmetric
+tensor which is manifestly gauge invariant and which describes the physical dynamics of the $A_{\mu}$ field.
+We would like to analogously define a term for the gluon fields. Repackaging this QED tensor, it is apparent that
+\begin{align}
+[D_{\mu}, D_{\nu}] &= D_{\mu}D_{\nu} - D_{\nu}D_{\mu}\\
+&= (\partial_{\mu} + iqA_{\mu})(\partial_{\nu} + iqA_{\nu}) - (\partial_{\nu} + iqA_{\nu})(\partial_{\mu} + iqA_{\mu})\\
+&= \partial_{\mu}\partial_{\nu}+iq\partial_{\mu}A_{\nu} + iqA_{\mu}\partial_{\mu} + (iq)^2A_{\mu}A_{\nu} -
+(\partial_{\nu}\partial_{\mu}+iq\partial_{\nu}A_{\mu} + iqA_{\nu}\partial_{\nu} + (iq)^2A_{\nu}A_{\mu})\\
+&=iq(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}) + (iq)^2(A_{\mu}A_{\nu}-A_{\nu}A_{\mu})\\
+&=iq(\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu})+(iq)^2[A_{\mu}, A_{\nu}].
+\end{align}
+
+We proceed through this derivation to highlight that, in the specific case of QED, with its Abelian $U(1)$ gauge
+symmetry, the field commutator vanishes, leaving exactly the definition of $F_{\mu\nu}$ as described above, i.e.,
+\begin{equation}
+F_{\mu\nu} = \frac{1}{iq}[D_{\mu}, D_{\nu}].
+\end{equation}
+
+We may proceed to define an analagous field strength term for $G_{\mu}^{a}$ in the same way, as
+\begin{equation}
+G_{\mu\nu} = \frac{1}{ig_{S}}[D_{\mu}, D_{\nu}]
+\end{equation}
+This has an extremely nice correspondence, but is complicated by the non-Abelian nature of $SU(3)$, with
+\begin{equation}
+G_{\mu\nu} = \frac{1}{ig_{S}}[D_{\mu}, D_{\nu}]
+\end{equation}
+
+\section{The Weak Interaction}
+One of the first theories of the weak interaction was from Enrico Fermi \todo{cite}, in an effort to 
+explain beta decay, a process in which an electron or positron is emitted from an atomic nucleus, resulting 
+in the conversion of a neutron to a proton or proton to a neutron respectively. Fermi's hypothesis was 
+of a direct interaction between four fermions. However, in the advent of QED, it is natural to wonder if 
+a theory of based on mediator particles and gauge symmetries applies to the weak force as well. The modern formulation 
+of such a theory is due to Sheldon Glashow, Steven Weinberg, and Abdus Salam \todo{cite}, and is what we will 
+describe in the following.
+
+Considering emission of an electron, Fermi's theory involves an initial state neutron that transitions 
+to a proton with the emission of an electron and a neutrino. Schematically \todo{include figure}. 
+This transition gives a hint that something slightly more complicated is happening than in QED: there is 
+an apparent mixing between particle types. 
+
+Now, with the assumption there are mediators for such an interaction, we further know from beta decay and 
+charge conservation that there must be at least two such degrees of freedom: e.g. one that decays to an electron 
+and neutrino ($W^{-}$) and one that decays to a positron and neutrino ($W^{+}$). \todo{Motivation for 
+Z boson - grab Thomson 15.1.2}.
+
+This leads to three degrees of freedom for the gauge symmetry of the weak interactions, so we thus need a theory 
+which is locally invariant under transformations of a group with three generators. Consider $SU(2)$. Similarly 
+to for QED, this implies the existence of three gauge bosons,  
+
 
 
 
