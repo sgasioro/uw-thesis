@@ -310,14 +310,14 @@ particle. Since do not observe this in nature, this restricts us to $8$ gluons. 
 a corresponding 8 generators is $SU(3)$. Under the assumption that $SU(3)$ is the local gauge symmetry
 of the strong interaction, we may proceed in a similar way as we did for QED. The gauge transformation is 
 $\psi \rightarrow e^{ig_{S}\vec{\alpha}(x)\cdot \vec{T}}\psi$, where $\vec{T}$ is an eight component vector
-of the generators of $SU(3)$, often expressed via the Gell-Mann matrices, $\lambda^{a}$, as $T^{a} = \frac{1}{2}\lambda^{a}$,
+of the generators of $SU(3)$, often expressed via the Gell-Mann matrices, $\lambda^{a}$, as $t^{a} = \frac{1}{2}\lambda^{a}$,
 and the spinor $\psi$ represents the fields corresponding to quarks.
 
 This $SU(3)$ symmetry exactly expresses the color structure elucidated above -- the Gell-Mann matrices are an 
 equivalent presentation of the color combinations described above. Proceeding by analogy to QED, gauge invariance 
 is achieved by introducing eight new degrees of freedom, $G_{\mu}^{a}$, which are the gauge fields corresponding to 
 the gluons, with the gauge covariant derivative then analogously taking the form 
-$D_{\mu} \equiv \partial_{\mu} + ig_{S}G_{\mu}^{a}T^{a}$.
+$D_{\mu} \equiv \partial_{\mu} + ig_{S}G_{\mu}^{a}t^{a}$.
 
 Recall from the QED derivation that the field strength tensor, $F^{\mu\nu}$ is a rank two antisymmetric
 tensor which is manifestly gauge invariant and which describes the physical dynamics of the $A_{\mu}$ field.
@@ -337,14 +337,62 @@ symmetry, the field commutator vanishes, leaving exactly the definition of $F_{\
 F_{\mu\nu} = \frac{1}{iq}[D_{\mu}, D_{\nu}].
 \end{equation}
 
-We may proceed to define an analagous field strength term for $G_{\mu}^{a}$ in the same way, as
+We may proceed to define an analagous field strength term for $G_{\mu}^{a}$ in a similar way:
 \begin{equation}
 G_{\mu\nu} = \frac{1}{ig_{S}}[D_{\mu}, D_{\nu}]
 \end{equation}
 This has an extremely nice correspondence, but is complicated by the non-Abelian nature of $SU(3)$, with
 \begin{equation}
-G_{\mu\nu} = \frac{1}{ig_{S}}[D_{\mu}, D_{\nu}]
+G_{\mu\nu} = \partial_{\mu}(G_{\nu}^{a}t^{a}) - \partial_{\nu}(G_{\mu}^{a}t^{a}) + ig_{s}[G_{\mu}^{a}t^{a}, G_{\nu}^{a}t^{a}].
 \end{equation}
+in which the field commutator term is non-zero. In particular (since each term is summing over $a$, so we may relabel) as
+\begin{equation} 
+[G_{\mu}^{a}t^{a}, G_{\nu}^{b}t^{b}] = [t^{a}, t^{b}]G_{\mu}^{a}G_{\nu}^{b}
+\end{equation}
+and as $[t^{a}, t^{b}] = if^{abc}t^c$ for the Gell-Mann matrices, where $f^{abc}$ are the structure
+constants of $SU(3)$, we have
+\begin{align}
+G_{\mu\nu} &= \partial_{\mu}(G_{\nu}^{a}t^{a}) - \partial_{\nu}(G_{\mu}^{a}t^{a}) -g_{s}f^{abc}t^cG_{\mu}^{a}G_{\nu}^{b}\\
+&=t^{a}(\partial_{\mu}G_{\nu}^{a}-\partial_{\nu}G_{\mu}^{a}-f^{bca}G_{\mu}^{b}G_{\nu}^{c})\\
+&=t^{a}G_{\mu\nu}^a
+\end{align}
+for $G_{\mu\nu}^a = \partial_{\mu}G_{\nu}^{a}-\partial_{\nu}G_{\mu}^{a}-f^{abc}G_{\mu}^{b}G_{\nu}^{c}$.
+
+This gives the component of the field strength corresponding to a particular gauge field $a$, where 
+the first two terms have the familiar form of the QED field strength, while the last term is new, and 
+explicitly related to the group structure via the $f^{abc}$ constants. In terms of the physics content of the 
+theory, this latter term gives rise to a gluon \emph{self-interaction}, a distinguishing feature of QCD.
+
+Similarly as in QED, a Lorentz invariant combination of field strength tensors may be made as $G_{\mu\nu}G^{\mu\nu}$.
+However, this is not manifestly gauge invariant. Under a gauge transformation $U$, the covariant derivative 
+behaves as $D^{\mu}\rightarrow UD^{\mu}U^{-1}$, corresponding to $G^{\mu\nu}\rightarrow UG^{\mu\nu}U^{-1}$.
+The cyclic property of the trace thus ensures the gauge invariance of $\tr(G_{\mu\nu}G^{\mu\nu})$, which we 
+will write as $G_{\mu\nu}^a G^{\mu\nu}_a$ with the implied sum over generators $a$.
+
+Packaging up the theory, it is tempting to copy the form of the QED Lagrangian,
+with the identifications we have made above:
+\begin{equation}
+\mathcal{L} = \bar{\psi}(i\gamma^{\mu}D_{\mu} - m)\psi -\frac{1}{4} G_{\mu\nu}^{a}G^{\mu\nu}_{a}.
+\end{equation}
+However this is not quite correct due to the $SU(3)$ nature of the theory. In terms of the physics,
+the Dirac fields $\psi$ have associated color charge, which must interact appropriately with the 
+$G_{\mu}$ fields. Mathematically, the generators $t^{a}$ are $3\times 3$ matrices, while the $\psi$ are
+four component spinors. Adding a color index to the Dirac fields, i.e., $\psi_{i}$ where $i$ runs over 
+the three color charges, and similarly indexing the generators $t_{ij}^{a}$, we may then express the 
+$SU(3)$ gauge covariant derivative component-wise as 
+\begin{equation}
+(D_{\mu})_{ij} = \partial_{\mu}\delta_{ij} + ig_{S}G_{\mu}^{a}t^{a}_{ij}
+\end{equation}
+where $\delta_{ij}$ is the Kronecker delta, as $\partial_{\mu}$ does not participate in the $SU(3)$
+structure.
+
+The Lagrangian then becomes
+\begin{equation}
+\mathcal{L} = \bar{\psi}_{i}(i(\gamma^{\mu}D_{\mu})_{ij} - m\delta_{ij})\psi_{j} -\frac{1}{4} G_{\mu\nu}^{a}G^{\mu\nu}_{a}.
+\end{equation}
+
+and we have constructed QCD.
+
 
 \section{The Weak Interaction}
 One of the first theories of the weak interaction was from Enrico Fermi \todo{cite}, in an effort to 
@@ -366,8 +414,19 @@ and neutrino ($W^{-}$) and one that decays to a positron and neutrino ($W^{+}$).
 Z boson - grab Thomson 15.1.2}.
 
 This leads to three degrees of freedom for the gauge symmetry of the weak interactions, so we thus need a theory 
-which is locally invariant under transformations of a group with three generators. Consider $SU(2)$. Similarly 
-to for QED, this implies the existence of three gauge bosons,  
+which is locally invariant under transformations of a group with three generators. The simplest such choice is $SU(2)$. 
+We may follow a very similar prescription as for QED and QCD: $SU(2)$ has three generators, which implies the existence of 
+three gauge bosons, call them $W_{\mu}^k$.  The gauge transformation may be expressed as $\psi \rightarrow e^{ig_{W}\vec{\alpha}(x)\cdot \vec{T}}\psi$, where in this case the generators are for $SU(2)$, which may be written in terms of the familiar
+Pauli matrices: $\vec{T} = \frac{1}{2}\vec{\sigma}$. The structure constants for $SU(2)$ are the antisymmetric Levi-Civita 
+tensor, so the corresponding gauge covariant derivative is
+$D_{\mu} \equiv \partial_{\mu} + ig_{W}W_{\mu}^{k}t^{k}$, and the field strength tensor is 
+$W_{\mu\nu}^{k} = \partial_{\mu}W_{\nu}^{k}-\partial_{\nu}W_{\mu}^{k}-\epsilon^{ijk}W_{\mu}^{k}W_{\nu}^{k}$.
+
+The corresponding Lagrangian would thus be
+\begin{equation}
+\mathcal{L} = \bar{\psi}_{i}(i(\gamma^{\mu}D_{\mu})_{ij} - m\delta_{ij})\psi_{j} -\frac{1}{4} W_{\mu\nu}^{k}W^{\mu\nu}_{k}
+\end{equation}
+where indices $i$ and $j$ run over $SU(2)$ elements.
 
 
 
