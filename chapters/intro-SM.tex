@@ -426,7 +426,45 @@ The corresponding Lagrangian would thus be
 \begin{equation}
 \mathcal{L} = \bar{\psi}_{i}(i(\gamma^{\mu}D_{\mu})_{ij} - m\delta_{ij})\psi_{j} -\frac{1}{4} W_{\mu\nu}^{k}W^{\mu\nu}_{k}
 \end{equation}
-where indices $i$ and $j$ run over $SU(2)$ elements.
+where indices $i$ and $j$ run over $SU(2)$ charges.
+
+On considering some of the details, the universe unfortunately turns out to be a bit more complicated. However, this still
+provides a useful starting place for elucidating the theory of weak interactions. First off, let us consider the 
+particle content, namely, what do the Dirac fields correspond to? This is still a theory of fermionic interactions
+with gauge bosons. However, we might notice that the fermion content of this theory is both a) broader than QCD, 
+as we know experimentally (cf. beta decay) that both quarks and leptons (e.g. electrons) participate in the 
+weak interaction and b) this fermion content seemingly has a large overlap with QED. In terms of the gauge bosons, 
+we know that at both $W^{+}$ and $W^{-}$ are electrically charged -- this means that we expect some interaction of 
+the weak theory with electromagnetism. 
+
+However, before diving deeper into this apparent connection between the weak interaction and QED, let us focus on the
+gauge symmetry. In QCD, the $SU(3)$ content of the theory is expressed via a contraction of color indices -- the theory 
+allows for transitions between quarks of one color and quarks of another. Thinking similarly in terms of $SU(2)$ transitions,
+the beta decay example is already fruitful -- there is a transition between an electron and its corresponding neutrino, 
+as well as between two types of quark. In particular, for the case of neutron (with quark content $udd$) and proton 
+(with quark content $udu$), the weak interaction provides for a transtion from down to up quark.
+
+Such $SU(2)$ dynamics are described via a quantity called \emph{weak isospin}, denoted $I_{W}$ with third component 
+$I_{W}^(3)$, and can be thought of in a very similar way as color charge in QCD (i.e. as the charge corresponding to the 
+weak interaction). Since $SU(2)$ is $2 \times 2$, there are two such charge states for the fermions, denoted as 
+$I_{W}^(3)=\pm \frac{1}{2}$. This means that the bosons must have $I_{W} = 1$ such that, by sign convention corresponding 
+to electric charge, the $W^{+}$ boson has $I_{W}^(3)=+1$, the $Z$ boson has $I_{W}^(3)=0$, and the $W^{-}$ boson has
+$I_{W}^(3)=-1$.
+
+From conservation of electric charge, this means that transitions involving a $W^{\pm}$ are between particles that differ by
+$\pm 1$ in both weak isospin $I_{W}^(3)$ and electric charge. We may thus line up all such doublets as: 
+\begin{equation}
+\begin{pmatrix}\nu_{e} \\ e^{-}\end{pmatrix}, \begin{pmatrix}\nu_{\mu} \\ \mu^{-}\end{pmatrix}, 
+\begin{pmatrix}\nu_{\tau} \\ \tau^{-}\end{pmatrix}, \begin{pmatrix}u \\ d'\end{pmatrix}, 
+\begin{pmatrix}c \\ s'\end{pmatrix}, \begin{pmatrix}t \\ b'\end{pmatrix}
+\end{equation}
+with the top corresponding to the lower weak isospin and electric charge particles, and the lower quark entries 
+($d'$, etc) corresponding to the weak quark eigenstates (which are related to the mass eigenstates by the CKM 
+matrix \todo{more detail?}). Similar doublets may be constructed for the corresponding anti-particles.
+
+The fundamental structuring of these transitions around both electric and weak charge is again indicative of a natural 
+connection. However, nature is again a bit more complicated than we have described.
+
 
 
 
