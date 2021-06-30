@@ -520,6 +520,8 @@ This then leaves our Lagrangian as
 where we have expanded the covariant derivative for clarity. You may note that we have dropped the mass term in the equation 
 above -- we will discuss this in detail in just a moment. 
 
+\todo{Add in stuff about physical bosons}
+
 First, however, we return to the above comment about fermion content -- we neglected to include the sum over fermions
 in our QED derivation for simplicity. However, all of the fermions considered in the discussion of the weak 
 interaction have an electric charge (except for the neutrinos). It would be nice to repackage the theory into a coherent
@@ -543,11 +545,37 @@ as
 \end{equation}
 where $A_{\mu}$ and $Z_{\mu}$ are the physical fields, and we pick $W_{\mu}^{3}$ as the neutral weak boson.
 
-\todo{More time on unification}
+Note that in the $SU(2)_L \times U(1)_{Y}$ theory, the Lagrangian must be invariant under all of the 
+local gauge transformations. In particular, this means that the hypercharge must be the same for 
+fermion fields in each weak doublet to preserve $U(1)_{Y}$ invariance. This gives insight 
+into the relation between the charges of $SU(2)_L \times U(1)_{Y}$ and electric charge. In particular
+we know that the hypercharge, $Y$, of $e^{-}$ ($I_W^{(3)} = -\frac{1}{2}$) and $\nu_{e}$ 
+($I_W^{(3)} = +\frac{1}{2}$) is the same. 
 
-
+Supposing that $Y=\alpha I_{W}^{(3)} + \beta Q$ \todo{why this form?}, we must have
+$-\alpha \frac{1}{2} - \beta = \alpha \frac{1}{2} \implies \beta = -\alpha$. Therefore, choosing 
+an overall scaling from convention,
+\begin{equation}
+Y = 2(Q-I_{W}^{(3)}).
+\end{equation}
+\todo{Weinberg things}
 
 \section{The Higgs Mechanism}
+In the above, we have neglected a discussion of masses. However there are several things to sort out here.
+In the first place, we know experimentally that the weak interactions occur over very short ranges at low 
+energies (e.g., why Fermi's effective four fermion interaction was such a good description). This is consistent
+with massive $W^{\pm}$ and $Z$ bosons (and indeed, this is seen experimentally). However, requiring local 
+gauge invariance forbids mass terms in the Lagrangian. In the simple $U(1)$ QED example, such a term would have 
+the form $\frac{1}{2}m_{\gamma}^2A_{\mu}A^{\mu}$, which is not invariant under the transformation $A_{\mu}\rightarrow A_{\mu}-\partial_{\mu}\lambda$, and similar arguments hold for gauge bosons in the electroweak theory and QCD.
+
+\todo{Add some stuff about quark masses}
+
+These issues may be solved with the introduction of a scalar field $\phi$ to the Standard Model. The Lagrangian for 
+such a field takes the form
+\begin{equation}
+\mathcal{L} = (\partial_{\mu}\phi)(\partial_{\mu}\phi) + V(\phi)
+\end{equation}
+where $V$ is the corresponding potential. 
 
 
 
