@@ -520,7 +520,35 @@ This then leaves our Lagrangian as
 where we have expanded the covariant derivative for clarity. You may note that we have dropped the mass term in the equation 
 above -- we will discuss this in detail in just a moment. 
 
-First, however, we return to our 
+First, however, we return to the above comment about fermion content -- we neglected to include the sum over fermions
+in our QED derivation for simplicity. However, all of the fermions considered in the discussion of the weak 
+interaction have an electric charge (except for the neutrinos). It would be nice to repackage the theory into a coherent
+\emph{electroweak} theory. This is fairly straightforward when considering the gauge approach -- from the discussion 
+above we should expect the electroweak gauge group to be something like $SU(2) \times U(1)$, with four corresponding gauge bosons. 
+Consider a gauge theory with group $SU(2)_L \times U(1)_{Y}$ -- that is, the same weak interaction as discussed 
+previously, but a new $U(1)_{Y}$ gauge group for electromagnetism, with transformations defined as
+\begin{equation}
+\psi\rightarrow e^{ig'\frac{Y}{2}\lambda(x)}\psi
+\end{equation}
+with \emph{weak hypercharge} $Y$.
+
+Similarly to our discussion of QED, we may write the $U(1)_{Y}$ gauge field as $B_{\mu}$, and interactions with 
+the Dirac fields take the form $g'\frac{Y}{2}\gamma^{\mu}B_{\mu}\psi$. The relationship between this hypercharge 
+and new $B_{\mu}$ field and classical electrodynamics is not so obvious -- however it is convenient to parametrize
+as 
+\begin{equation}
+\begin{pmatrix}A_{\mu}\\Z_{\mu}\end{pmatrix} = 
+\begin{pmatrix}\cos\theta_{W} & \sin\theta_{W}\\-\sin\theta_{W} & \cos\theta_{W}\end{pmatrix}
+\begin{pmatrix}B_{\mu}\\W_{\mu}^{3}\end{pmatrix}
+\end{equation}
+where $A_{\mu}$ and $Z_{\mu}$ are the physical fields, and we pick $W_{\mu}^{3}$ as the neutral weak boson.
+
+\todo{More time on unification}
+
+
+
+\section{The Higgs Mechanism}
+
 
 
 
