@@ -568,14 +568,37 @@ with massive $W^{\pm}$ and $Z$ bosons (and indeed, this is seen experimentally).
 gauge invariance forbids mass terms in the Lagrangian. In the simple $U(1)$ QED example, such a term would have 
 the form $\frac{1}{2}m_{\gamma}^2A_{\mu}A^{\mu}$, which is not invariant under the transformation $A_{\mu}\rightarrow A_{\mu}-\partial_{\mu}\lambda$, and similar arguments hold for gauge bosons in the electroweak theory and QCD.
 
-\todo{Add some stuff about quark masses}
+Similar issues are encountered with fermions -- in the electroweak theory above, the gauge symmetries are 
+separated into left and right haned chirality via doublet and singlet states. This means that a mass term 
+would need to be separated as well. Such a term would have the form:
+\begin{align}
+m\bar{f}f &= m(\bar{f}_L+\bar{f}_R)(f_L+f_R)\\
+&=m(\bar{f}_Lf_{L}+\bar{f}_{L}f_{R}+\bar{f}_{R}f_{L} + \bar{f}_{R}f_{R})\\
+&=m(\bar{f}_{L}f_{R}+\bar{f}_{R}f_{L})
+\end{align}
+where we have used that $f_{L, R} = P_{L,R}f$, $\bar{f}_{L,R} = \bar{f}P_{R,L}$, and $P_{R}P_{L} = P_{L}P_{R} = 0$.
+As left and right-handed particles transform differently under $SU(2)_{L}$, this is manifestly not gauge invariant.
 
-These issues may be solved with the introduction of a scalar field $\phi$ to the Standard Model. The Lagrangian for 
-such a field takes the form
+The question then becomes: how do we include particle masses while preserving the gauge properties of our theory?
+The answer, due to Higgs, Englert \todo{cite}, comes via the Higgs mechanism, which we will describe in the following.
+In particular, we focus first on generating masses for the electroweak gauge bosons. 
+
+Consider adding two complex scalar fields $\phi^{+}$ and $\phi^{0}$to the Standard Model embedded in a 
+weak isospin doublet $\phi$. We may write the doublet as
 \begin{equation}
-\mathcal{L} = (\partial_{\mu}\phi)(\partial_{\mu}\phi) + V(\phi)
+\phi = \begin{pmatrix}\phi^{+}\\\phi^{0}\end{pmatrix} = \begin{pmatrix}\phi_1+i\phi_2\\\phi_3+i\phi_4\end{pmatrix}
 \end{equation}
-where $V$ is the corresponding potential. 
+where we explicitly note the four available degrees of freedom.
+
+The Lagrangian for such a doublet takes the form
+\begin{equation}
+\mathcal{L} = (\partial_{\mu}\phi)^{\dagger}(\partial^{\mu}\phi) + V(\phi)
+\end{equation}
+where $V$ is the corresponding potential. Considering the particular form
+\begin{equation}
+V(\phi) = -\mu^2\phi^{\dagger}\phi -\lambda(\phi^{\dagger}\phi)^2
+\end{equation}
+we may notice that this has a 
 
 
 
