@@ -560,7 +560,7 @@ Y = 2(Q-I_{W}^{(3)}).
 \end{equation}
 \todo{Weinberg things}
 
-\section{The Higgs Mechanism}
+\section{The Higgs Potential and the SM}
 In the above, we have neglected a discussion of masses. However there are several things to sort out here.
 In the first place, we know experimentally that the weak interactions occur over very short ranges at low 
 energies (e.g., why Fermi's effective four fermion interaction was such a good description). This is consistent
@@ -586,19 +586,130 @@ In particular, we focus first on generating masses for the electroweak gauge bos
 Consider adding two complex scalar fields $\phi^{+}$ and $\phi^{0}$to the Standard Model embedded in a 
 weak isospin doublet $\phi$. We may write the doublet as
 \begin{equation}
-\phi = \begin{pmatrix}\phi^{+}\\\phi^{0}\end{pmatrix} = \begin{pmatrix}\phi_1+i\phi_2\\\phi_3+i\phi_4\end{pmatrix}
+\phi = \begin{pmatrix}\phi^{+}\\\phi^{0}\end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}\phi_1+i\phi_2\\\phi_3+i\phi_4\end{pmatrix}
 \end{equation}
 where we explicitly note the four available degrees of freedom.
 
 The Lagrangian for such a doublet takes the form
 \begin{equation}
-\mathcal{L} = (\partial_{\mu}\phi)^{\dagger}(\partial^{\mu}\phi) + V(\phi)
+\mathcal{L} = (\partial_{\mu}\phi)^{\dagger}(\partial^{\mu}\phi) - V(\phi)
 \end{equation}
 where $V$ is the corresponding potential. Considering the particular form
 \begin{equation}
-V(\phi) = -\mu^2\phi^{\dagger}\phi -\lambda(\phi^{\dagger}\phi)^2
+V(\phi) = \mu^2\phi^{\dagger}\phi + \lambda(\phi^{\dagger}\phi)^2
 \end{equation}
-we may notice that this has a 
+we may notice that this has some interesting properties. Considering, as illustration,
+a similar potential for a real scalar field, $\mu^2\chi^2 +\lambda\chi^4$, taking the derivative
+and setting it equal to 0 yields extrema when $\chi=0$ and $(\mu^2+2\lambda\chi^2) = 0 \implies \chi^2 = -\frac{\mu^2}{2\lambda}$.
+For $\mu^2 > 0$, there is a unique minimum at $\chi=0$, and for $\mu^2 < 0$ there are 
+degenerate minima at $\chi = \pm\sqrt{-\frac{\mu^2}{2\lambda}}$. Note that we take $\lambda > 0$, 
+otherwise the only minima in the theory are trivial.
+
+The same simple calculus for the complex Higgs doublet above yields degenerate minima for $\mu^2 < 0$ at
+\begin{equation}
+\phi^{\dagger}\phi = \frac{1}{2}(\phi_{1}^2+\phi_{2}^2+\phi_{3}^2+\phi_{4}^2) = \frac{v}{2}=-\frac{\mu^2}{2\lambda}
+\end{equation}
+
+However, though there is this degenerate set of minima, there can only be a single \emph{physical} vacuum state 
+(we say that the symmetry is \emph{spontaneously broken}). Without loss of generality, we may align our 
+axes such that the physical vacuum state is at 
+\begin{equation}
+\bra{0}\phi\ket{0} = \frac{1}{\sqrt{2}}\begin{pmatrix}0\\v\end{pmatrix}
+\end{equation}
+where we have explicitly chosen a real, non-zero vacuum expectation value for the neutral component of the Higgs 
+doublet to maintain a massless photon, as we shall see. Physically, however, this makes sense - the 
+vacuum is not electrically charged. 
+
+The vacuum is a classical state -- we want a quantum one. We may express fluctuations about this 
+nonzero expectation value via an expansion as $v+\eta(x)+i\xi(x)$. However, renaming of 
+fields is only meaningful for the non-zero vacuum component - we thus have:
+\begin{equation}
+\phi = \frac{1}{\sqrt{2}}\begin{pmatrix}\phi_1+i\phi_2\\v+\eta(x)+i\phi_4\end{pmatrix}.
+\end{equation}
+where we may expand the Lagrangian listed above:
+\begin{equation}
+\mathcal{L} = (\partial_{\mu}\phi)^{\dagger}(\partial^{\mu}\phi) -\mu^2\phi^{\dagger}\phi - \lambda(\phi^{\dagger}\phi)^2.
+\end{equation}
+It is an exercise in algebra to plug in the expansion about $v$ into this Lagrangian: first expanding the potential
+\begin{align}
+V(\phi) &= \mu^2\phi^{\dagger}\phi + \lambda(\phi^{\dagger}\phi)^2\\
+&= \mu^2(\sum\limits_{i} \phi_i(x)^2 + (v+\eta(x))^2) + \lambda(\sum\limits_{i} \phi_i(x)^2 + (v+\eta(x))^2)\\
+&= -\frac{1}{4}\lambda v^4 + \lambda v^2\eta^2 + \lambda v \eta^3 + \frac{1}{4}\lambda\eta^4\\
+&  +\frac{1}{2} \lambda \sum\limits_{i\neq j}\phi_i^2\phi_j^2+ \lambda v\eta\sum\limits_{i}\phi_i(x)^2+\frac{1}{2}\lambda\eta^2\sum\limits_{i}\phi_i(x)^2 + \frac{1}{4}\sum\limits_{i}\phi_i(x)^4
+\end{align}
+where the sums are over the $i\in {1,2,4}$, that is, the fields with $0$ vacuum expectation, and we have used
+the definition $\mu^2=-\lambda v^2$.
+
+Within this potential, we note a quadratic term in $\eta(x)$ which we may identify with a mass, namely
+$m_{\eta} = \sqrt{2\lambda v^2}$, whereas the $\phi_{i}$ are massless. These $\phi_{i}$ are known as 
+\emph{Goldstone bosons}, and correspond to quantum fluctuations along the minimum of the potential.
+Of particular note for this thesis are the interaction terms $\lambda v \eta^3$ and $\frac{1}{4}\lambda\eta^4$,
+expressing trilinear and quartic self-interactions of the $\eta$ field.
+
+Expanding the kinetic term
+\begin{align}
+(\partial_{\mu}\phi)^{\dagger}(\partial^{\mu}\phi) &= \frac{1}{2}\sum\limits_{i}(\partial_{\mu}\phi_i)(\partial^{\mu}\phi_i) + \frac{1}{2}(\partial_{\mu}(v+\eta(x)))(\partial^{\mu}(v+\eta(x)))\\
+&= \frac{1}{2}\sum\limits_{i}(\partial_{\mu}\phi_i)(\partial^{\mu}\phi_i) + \frac{1}{2}(\partial_{\mu}\eta)(\partial^{\mu}\eta)
+\end{align}
+in a similar way, completing the story of three massless degrees of freedom (Goldstone bosons) and one massive one.
+
+
+Now, this doublet is embedded in an $SU(2)_{L} \times U(1)$ theory, so we would like to preserve that gauge 
+invariance. This is achieved in the same way as for the Dirac fields, with the introduction of the electroweak 
+gauge covariant derivative such that the Lagrangian for the Higgs doublet and the electroweak bosons is just
+\begin{equation}
+\mathcal{L} = (D_{\mu}\phi)^{\dagger}(D^{\mu}\phi) -\mu^2\phi^{\dagger}\phi - \lambda(\phi^{\dagger}\phi)^2 -\frac{1}{4} W_{\mu\nu}^{k}W^{\mu\nu}_{k} - \frac{1}{4}F_{\mu\nu}F^{\mu\nu}
+\end{equation}
+with $D_{\mu} = \partial_{\mu} + ig_{W}W_{\mu}^{k}t^{k} + ig'\frac{Y}{2}B_{\mu}$.
+
+We note that it is convenient \todo{maybe more detail?} to pick a gauge such that the Goldstone fields
+do not appear in the Lagrangian, upon which we may identify the field $\eta(x)$ with the physical 
+Higgs field, $h(x)$. The field mass terms then very apparently come via the covariant derivative, namely,
+as 
+\begin{equation}
+W_{\mu}^{k}\sigma^{k}+B_{\mu} =
+\begin{pmatrix}W_{\mu}^3+B_{\mu} & W_{\mu}^1-iW_{\mu}^2\\W_{\mu}^1+iW_{\mu}^2 & -W_{\mu}^3+B_{\mu}\end{pmatrix}
+\end{equation}
+we may then write
+\begin{align}
+D_{\mu}\phi &= 
+\frac{1}{2\sqrt{2}}\begin{pmatrix}
+2\partial_{\mu}+ig_{W}W_{\mu}^3+ig'YB_{\mu} & 
+ig_{W}W_{\mu}^1+\frac{1}{2}g_{W}W_{\mu}^2\\
+ig_{W}W_{\mu}^1-g_{W}W_{\mu}^2 &
+2\partial_{\mu}-ig_{W}W_{\mu}^3+ig'YB_{\mu}\end{pmatrix}\begin{pmatrix}0\\ v+h\end{pmatrix}\\
+&=\frac{1}{2\sqrt{2}}
+\begin{pmatrix}
+ig_{W}(W_{\mu}^1-iW_{\mu}^2)(v+h)\\
+(2\partial_{\mu}-ig_{W}W_{\mu}^3+ig'YB_{\mu})(v+h)
+ \end{pmatrix}
+\end{align}
+As identified above, $Y = 2(Q-I_{W}^{(3)})$. The Higgs has $0$ electric charge, and the lower 
+doublet component has $I_{W}^{(3)} = -\frac{1}{2}$, yielding $Y=1$.
+
+Computing $(D_{\mu}\phi)^{\dagger}(D^{\mu}\phi)$, then, yields
+\begin{equation}
+\frac{1}{8}g_{W}^2(W_{\mu}^1+iW_{\mu}^2)(W^{\mu 1}-iW^{\mu 2})(v+h)^2 + 
+\frac{1}{8}(2\partial_{\mu}+ig_{W}W_{\mu 3}-ig'B_{\mu})(2\partial^{\mu}-ig_{W}W^{\mu 3}+ig'B^{\mu})(v+h)^2
+\end{equation}
+and extracting terms quadratic in the fields gives
+\begin{equation}
+\frac{1}{8}g_{W}^2v^2(W_{\mu 1}W^{\mu 1}+W_{\mu 2}W^{\mu 2}) + \frac{1}{8}v^2(g_{W}W^{\mu 3}-g'B^{\mu})^2
+\end{equation}
+meaning that $W_{\mu}^1$ and $W_{\mu}^2$ have masses $m_{W} = \frac{1}{2}g_{W}v$. The neutral boson case 
+is a bit more complicated. Writing the corresponding term as
+\begin{equation}
+\frac{1}{8}v^2\begin{pmatrix}W_{\mu}^3&B_{\mu}\end{pmatrix} 
+\begin{pmatrix}g_{W}^2 & -g_{W}g'\\-g_{W}g' & g_{W}^2\end{pmatrix} 
+\begin{pmatrix}W^{\mu 3}\\B^{\mu}\end{pmatrix}
+\end{equation}
+we note that we must diagonalize this mass matrix to get the physical mass eigenstates.
+
+
+
+
+
+
 
 
 
