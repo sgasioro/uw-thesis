@@ -148,6 +148,7 @@ on the parton showering.
 
 
 \section{Triggers and Object Definitions}
+\label{sec:trigger}
 To maximize analysis sensitivity, a combination of multi-\Pqb-jet triggers is used. Due to the 
 use of events with two \Pqb-tagged jets in the background estimate, such triggers have a maximum 
 requirement of two \Pqb-tagged jets. For the resonant analysis, a combination of triggers of 
@@ -171,12 +172,84 @@ To simplify this calculation, a set of hierarchical offline selections is applie
 mimicking the trigger selection. Based on these selections, events are sorted into categories
 (\emph{trigger buckets}), after which the decision of a \emph{single trigger} is checked. 
 
+The resonant search applies such categorization in the following way, with 
+selections considered in order:
+\begin{enumerate}
+	\item If the leading jet is $b$-tagged with $p_{T} > \SI{325}{\GeV}$, the event is in the $1b$ trigger category.
+	\item Otherwise, if the leading jet is not $b$-tagged, but has $p_{T} > \SI{168.75}{\GeV}$, the event is in the $2b+1j$
+	trigger category.
+	\item If neither of the first two selections pass, if the scalar sum of jet $p_{T}$s, $H_{T} > \SI{900}{\GeV}$,
+	the event falls into the $2b+HT$ trigger category.
+	\item Events that do not pass any of the above offline selections are in the $2b+2j$ trigger category.
+\end{enumerate}
+Corresponding triggers are then checked in each category, and the final set of events consists of those events that 
+pass the trigger decision in their respective categories. 
+
+For the resonant search, the $2b+1j$ and $2b+2j$ triggers are the dominant categories, containing roughly 26~\% and
+49~\% of spin-2 events, evaluated on MC16d samples with resonance masses between \SIlist{300;1200}{\GeV}. Notably, 
+the $1b$ trigger efficiency is largest at high $(>\SI{1}{\TeV})$ resonance masses.
+
+For the non-resonant search, it was noted that the $1b$ trigger has minimal contribution, while the $2b+HT$ events are 
+largely captured by the $2b+2j$ trigger. Therefore, for, a simplified scheme is considered, 
+with selections:
+\begin{enumerate}
+	\item If the 1st leading jet has $p_{T} > \SI{170}{\GeV}$ and the 3rd leading jet has $p_{T} > \SI{70}{\GeV}$,
+	the event is in the $2b+1j$ trigger category.
+	\item Otherwise, the event is in the $2b+2j$ trigger category.
+\end{enumerate}
+
+
 \section{Analysis Selection}
-\subsection{Common Preselection}
-\subsection{Resonant Search}
-\subsection{Non-resonant Search}
+After the trigger selections of Section \ref{sec:trigger}, a variety of selections on the analysis objects
+are made, with the goal of (1) reconstructing a $HH$-like topology and (2) suppressing contributions from 
+background processes. 
+
+Both analyses begin with a common pre-selection, requiring at least four $R=0.4$ anti-$k_{T}$ jets with 
+$|\eta| < 2.5$ and $p_{T} > \SI{40}{\GeV}$. The $|\eta| < 2.5$ requirement is necessary for $b$-tagging
+due to the coverage of the ATLAS tracking detector (see Chapter \ref{chap:experiment}) \todo{check}, 
+while the $p_{T} > \SI{40}{\GeV}$ requirement is motivated by the trigger thresholds \todo{mention low pT}.
+At least two of the jets passing this pre-selection are required to be $b$-tagged, and additional $b$-tagging 
+requirements are made to define the following regions:
+\begin{itemize}
+	\item ``2$b$ Region'': require exactly two $b$-tagged jets, used for background estimation
+	\item ``4$b$ Region'': require at least (but possibly more) four $b$-tagged jets, used as a signal
+	region for both resonant and non-resonant searches
+\end{itemize}
+
+The non-resonant analysis additionally defines two $3b$ regions:
+\begin{itemize}
+	\item ``3$b$+1 loose Region'': require exactly three $b$-tagged jets which 
+	pass the 77~\% b-tagging working point (nominal) and one additional jet that fails the  
+	77~\% b-tagging working point but passes the \emph{looser} 85~\% b-tagging working point. Used 
+	as a signal region for the non-resonant search.
+	\item ``3$b$+1 fail Region'': complement of 3$b$+1 loose. Require exactly three $b$-tagged jets 
+	which pass the 77~\% b-tagging working point, but require that none of the remaining jets pass 
+	the 85~\% b-tagging working point. Used as a validation region for the non-resonant search.
+\end{itemize}
+
+After these requirements, four jets are chosen, ranked first by $b$-tagging requirement and then 
+by $p_{T}$ (e.g. for the 2$b$ region, the jets chosen are the two $b$-tagged jets and the two 
+highest $p_{T}$ non-tagged jets; for the $4b$ region, the jets are the four highest $p_{T}$ $b$-tagged
+jets). To match the topology of a $HH\rightarrow \bbbb$ event, these four jets are then \emph{paired}
+into \emph{Higgs candidates}: the four jets are split into two sets of two, and each of these pairs is
+used to define a reconstructed object that is a proxy for a Higgs in a $HH$ event. \todo{Should pairAGraph go
+somewhere? Maybe a ``future ideas'' chapter}
+
+For four jets there are three possible pairings. For signal events, a correct pairing can be identified
+(provided all necessary jets pass pre-selection) using the truth information of the Monte Carlo simulation, 
+and such information may be used to design/select an appropriate pairing algorithm. This is only part of 
+the story, however. The vast majority of the events in data do \emph{not} include a real $HH$ decay (this is 
+a search for a reason!), either because the event originates from a background process (e.g. for $4b$ events), or 
+because the selection is not designed to maximize the signal (e.g. $2b$ events). As the pairing is 
+part of the selection, it must still be run on such events, such that various algorithms which achieve similar
+performance in terms of pairing efficiency may have vastly different impacts in terms of the shape of the background
+and the biases inherent in the background estimation procedure. The interplay between these two facets of the 
+pairing is an important part of the choices made for this analysis.
+
+For the resonant search
+
 \section{Background Estimation}
-fter the event selection described in Section \ref{sec:selection} there are
+After the event selection described in Section \ref{sec:selection} there are
 two major backgrounds, QCD and \ttbar, with relative proportions \todo{Fill in 
 appropriate ggF and VBF background composition}. Following the approach used for the 
 resonant analysis, a fully data-driven estimate is used here. This is warranted due to 
