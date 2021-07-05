@@ -226,7 +226,6 @@ The non-resonant analysis additionally defines two $3b$ regions:
 	which pass the 77~\% b-tagging working point, but require that none of the remaining jets pass 
 	the 85~\% b-tagging working point. Used as a validation region for the non-resonant search.
 \end{itemize}
-
 After these requirements, four jets are chosen, ranked first by $b$-tagging requirement and then 
 by $p_{T}$ (e.g. for the 2$b$ region, the jets chosen are the two $b$-tagged jets and the two 
 highest $p_{T}$ non-tagged jets; for the $4b$ region, the jets are the four highest $p_{T}$ $b$-tagged
@@ -244,9 +243,101 @@ because the selection is not designed to maximize the signal (e.g. $2b$ events).
 part of the selection, it must still be run on such events, such that various algorithms which achieve similar
 performance in terms of pairing efficiency may have vastly different impacts in terms of the shape of the background
 and the biases inherent in the background estimation procedure. The interplay between these two facets of the 
-pairing is an important part of the choices made for this analysis.
+pairing is an important part of the choices made for this analysis.\todo{compare massplanes}
 
-For the resonant search
+\subsection{Resonant Pairing Strategy}
+
+For the resonant analysis, a Boosted Decision Tree (BDT) is used for the pairing.
+The boosted decision tree is given the total separation between the two jets in
+each of the two pairs ($\Delta R_{1}$ and $\Delta R_{2}$), the pseudo-rapidity
+separation between the two jets in each pair ($\Delta \eta_{1}$ and
+$\Delta \eta_{2}$), and the angular separation between the two jets in each pair
+in the $x$~--~$y$ plane ($\Delta \phi_{1}$ and $\Delta \phi_{2}$). The total
+separations ($\Delta R$s) are provided in addition to the components in order to
+avoid requiring the boosted decision tree to reconstruct these variables in
+order to use them. For these variables, pair 1 is the pair with the highest
+scalar sum of jet \pt{}s, and pair 2 the other pair.
+
+The boosted decision tree is also parameterized on the di-Higgs mass (\mhh)
+by providing this as an additional feature. Since the boosted decision tree is
+trained on correct and incorrect pairings in signal events, there will be exactly one
+correct pairing and two incorrect pairings in the training set for each \mhh
+value present in that set. As a result, this variable cannot, in itself,
+distinguish a correct pairing from an incorrect pairing, and therefore the
+inclusion of this variable simply serves to parameterize the BDT on
+\mhh\footnote{That is, the conditions placed on the other variables by the BDT
+	vary with \mhh.}.
+
+The boosted decision tree was trained on one quarter of the total AFII
+simulated scalar MC statistics, using the Gradient-based One Side Sampling
+(GOSS) algorithm which allows rapid training with very large datasets. A
+preselection was applied requiring events to have four jets with a \pt of at
+least \SI{35}{\GeV}. Note that this is a looser requirement than the
+\SI{40}{\GeV} used in the analysis selection, and is meant to increase the
+available statistics for events with low \mhh and to ensure a better
+performance as a function of that variable. Events were also required to have
+four distinct jets that could be geometrically matched (to within
+$\Delta R \leq 0.4$) to the \bquarks. The events used to train the BDT were
+not included when the analysis was run on these signal simulations. The
+boosted decision tree was constructed with the following hyperparameters:\\
+\code{min_data_in_leaf=50,\\
+	num_leaves=180,\\
+	learning_rate=0.01}
+
+These hyperparameters were optimized using a Bayesian optimization
+procedure~\cite{skopt}. Three fold cross-validation was used to perform this
+optimization without the need for an additional sample, while avoiding
+over-training on signal events.
+
+\subsection{Non-resonant Pairing Strategy}
+For the non-resonant analysis, a simpler pairing algorithm is used, which 
+proceeds as follows: in a given event, Higgs candidates for each possible pairing
+are sorted by the scalar sum of constituent jet $p_{T}$. The angular separation,
+$\dr$ is computed between jets in the each of the leading Higgs candidates, and the 
+pairing with the smallest separation ($\dr_{jj}$) is selected. This method will be 
+referred to as $\min{\dr}$.
+
+\section{Background Reduction and Top Veto}
+% Back to main figure directory for this section
+\def\secforfig{evtselection}
+\def\figsversion{\oldfigsversion}
+
+Choosing a pairing of the four b-tagged jets fully defines the di-Higgs candidate system used for each event in the remainder of the analysis chain. A requirement of
+$\abs{\Delta\eta_{\higgs\higgs}} < 1.5$ on this di-Higgs candidate system mitigates
+QCD multijet background.
+
+\Fig{\ref{fig:deta-hh-plots}} illustrates this variable in the validation region
+(see \Sect{\ref{sec:kin-reg-def}}). It demonstrates that this selection rejects
+only a small fraction of signal, but a significant fraction of data (which, in
+the validation region, is a good approximation of pure background).
+
+
+In order to mitigate the hadronic \ttbar background, a top veto is then applied,
+removing events consistent with a \HepProcess{\Pqt \to \Pqb (\PW \to \Pq_{1} \Paq_{2})}
+decay.
+
+The jets in the event are separated into \emph{HC jets} which are
+the four jets used to build the Higgs candidates, and \emph{non-HC jets}, the
+other jets (passing the \pt and $\abs{\eta}$ requirements) in the event.
+
+\PW candidates are built by forming all possible pairs of all jets in each event.
+With $n$ jets, there are $\binom{n}{2}$ such pairs. \Pqt candidates are then built
+by pairing each \PW candidate with each HC jet (for $4\binom{n}{2}$ combinations).
+Note that all jets in a \Pqt candidate must be distinct (i.e. a HC jet may not be
+used both on its own and in a \PW candidate).
+
+With $m_{\Pqt}$ denoting the invariant mass of the \Pqt candidate, and $m_{\PW}$
+the invariant mass of the \PW candidate, the quantity
+\begin{equation}
+	\label{eqn:xwt-def}
+	X_{\PW\Pqt} = \sqrt{\qty(\frac{10\qty(m_{\PW} - \SI{80.4}{\GeV})}{m_{\PW}})^{2} + \qty(\frac{10\qty(m_{\Pqt} - \SI{172.5}{\GeV})}{m_{\Pqt}})^{2}}
+\end{equation}
+
+is constructed for each combination.
+
+Events are then vetoed if the minimum $X_{\PW\Pqt}$ over all combinations is
+less than \textbf{1.5}.
+
 
 \section{Background Estimation}
 After the event selection described in Section \ref{sec:selection} there are
