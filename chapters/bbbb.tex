@@ -441,28 +441,33 @@ in alternate validation regions. \todo{add more studies probs}
 
 \section{Background Estimation}
 After the event selection described in Section \ref{sec:selection} there are
-two major backgrounds, QCD and \ttbar, with relative proportions \todo{Fill in 
-appropriate ggF and VBF background composition}. Following the approach used for the 
-resonant analysis, a fully data-driven estimate is used here. This is warranted due to 
+two major backgrounds, QCD and \ttbar. A very similar approach is used 
+for both the resonant and the non-resonant analyses, with some small modifications. 
+This approach is notably fully data-driven, which is warranted due to 
 the flexibility of the estimation method, as well as the high relative proportion of 
-QCD background, and allows for the use of machine learning methods in the construction of
+QCD background ($>90~\%$), and allows for the use of machine learning methods in the construction of
 the background estimate. However, it sacrifices an explicit treatment of the
 \ttbar component. Performance of the background estimate on the \ttbar component
-is thus checked in Appendix \todo{update ttbar studies/do for VBF}. The approach and
-its benefits over other methods are discussed below.
+is checked explicitly \todo{add plots}, and minimal impact due to \ttbar 
+mismodeling is seen.
 
-\todo{Do small background checks, text here kept from resonant}
+\todo{Port over some checks}
 Contributions of single Higgs processes to the background are checked in 
 Appendix \ref{app:singleHiggs}. $\PZ\PZ$ and $\higgs\higgs$ backgrounds are checked 
 in Appendix \ref{app:minor-bkg}. All are found to be negligible.
 
 The foundation of the background estimate lies in the derivation of a
 reweighting function which matches the kinematics of events with exactly two
-\btagged jets to those of events with four or more \btagged jets. The
-reweighting function and overall normalization are derived in the control
-region. Systematic bias associated with extrapolating to the signal region in
-the Higgs candidate mass plane is assessed in the validation region. All
-derivation is done after the full event selection.
+\btagged jets to those of events in the higher tagged regions (three or four 
+\btagged jets). The reweighting function and overall normalization are derived in 
+the control region. Systematic bias of this estimate is assessed in the validation 
+region. 
+
+For the resonant analysis, the systematic bias is a bias due to extrapolation:
+the validation region lies between the control and signal regions. For the 
+non-resonant analysis, the bias instead comes from different possible interpolations
+of the signal region kinematics -- given the choice of nominal estimate, the validation
+region is a conceptually equivalent, but maximally different, signal region estimate.
 
 \subsection{The Two Tag Region}
 
@@ -554,64 +559,41 @@ with solution
 \end{equation}
 Taking the exponent then results in the desired reweighting function.
 
+Note that similar methods for density ratio estimation are available \todo{cite},
+e.g. from a more standard binary cross-entropy loss. However, these were found to
+perform no better than the formulation presented here.
+
 \subsubsection{Variables and Results}
 The neural network is trained on a variety of variables sensitive to two vs.
 four tag differences. To help bring out these differences, the natural logarithm 
 of some of the variables with a large, local change is taken. The 
-set of training variables for both ggF and VBF channels is shown in Table \ref{tbl:rw-vars}. 
-\todo{Update with final configuration/optimization when ready}
-\begin{table}[htbp]
-	\centering
-	\caption{\label{tbl:rw-vars} Set of input variables used for tthe 2\Pqb to 4\Pqb reweighting in the 
-	ggF and VBF channels respectively.}
-	\begin{tabular}{|p{7cm}|p{7cm}|}
-	\hline
-	{\bfseries ggF} & {\bfseries VBF} \\
-	\hline
-	\begin{enumerate}
-		\item $\log(p_T)$ of the 4th leading Higgs candidate jet
-		\item $\log(p_T)$ of the 2nd leading Higgs candidate jet
-		\item $\log(\Delta R)$ between the closest two Higgs candidate jets
-		\item $\log(\Delta R)$ between the other two Higgs candidate jets
-		\item Average absolute value of Higgs candidate jet $\eta$
-		\item $\log(p_T)$ of the di-Higgs system.
-		\item $\Delta R$ between the two Higgs candidates
-		\item $\Delta \phi$ between the jets in the leading Higgs candidate
-		\item $\Delta \phi$ between the jets in the subleading Higgs candidate
-		\item $\log(X_{\PW\Pqt})$, where $X_{\PW\Pqt}$ is the variable used for the top veto
-		\item Number of jets in the event.
-	\end{enumerate}
-	&
-	\begin{enumerate}
-		\item $\log(p_T)$ of the 4th leading Higgs candidate jet
-		\item $\log(p_T)$ of the 2nd leading Higgs candidate jet
-		\item $\log(\Delta R)$ between the closest two Higgs candidate jets
-		\item $\log(\Delta R)$ between the other two Higgs candidate jets
-		\item Average absolute value of Higgs candidate jet $\eta$
-		\item $\log(p_T)$ of the di-Higgs system.
-		\item $\Delta R$ between the two Higgs candidates
-		\item $\Delta \phi$ between the jets in the leading Higgs candidate
-		\item $\Delta \phi$ between the jets in the subleading Higgs candidate
-		\item $\log(X_{\PW\Pqt})$, where $X_{\PW\Pqt}$ is the variable used for the top veto
-		\item Number of jets in the event.	
-		\item $m_{jj}$ of the VBF jets
-		\item $\Delta \eta$ between the VBF jets
-		\item $\log(p_T)$ of 6 jets in the event - 4 HC jets and 2 initial scatter jets
-		\item $\log(p_T)$ of the leading VBF jet
-		\item $\log(p_T)$ of the sub-leading VBF jet
-		\item $\Delta \phi$ between VBF jets
-		\item Energy of the leading VBF jet
-		\item Energy of the sub-leading VBF jet. 
-	\end{enumerate}\\
-	\hline
-	\end{tabular}
-\end{table}
+set of training variables used for the resonant analysis is
+\begin{enumerate}
+	\item $\log(p_T)$ of the 4th leading Higgs candidate jet
+	\item $\log(p_T)$ of the 2nd leading Higgs candidate jet
+	\item $\log(\Delta R)$ between the closest two Higgs candidate jets
+	\item $\log(\Delta R)$ between the other two Higgs candidate jets
+	\item Average absolute value of Higgs candidate jet $\eta$
+	\item $\log(p_T)$ of the di-Higgs system.
+	\item $\Delta R$ between the two Higgs candidates
+	\item $\Delta \phi$ between the jets in the leading Higgs candidate
+	\item $\Delta \phi$ between the jets in the subleading Higgs candidate
+	\item $\log(X_{\PW\Pqt})$, where $X_{\PW\Pqt}$ is the variable used for the top veto
+	\item Number of jets in the event.
+\end{enumerate}
 
-As mentioned, this number of jets variable is used to address the combinatoric 
-bias of the two-tag region. The neural network used for the ggF reweighting has three 
+The non-resonant analysis uses an identical set of variables with two notable changes
+\begin{enumerate}
+	\item The definition of $X_{\PW\Pqt}$ differs from the resonant definition (as described 
+	in Section \todo{ref})
+	\item An integer encoding of the two trigger categories is used as an input (variable which 
+	takes on the value 0 or 1 corresponding to each of the two categories). This was found to improve
+	a mismodeling near the tradeoff in \mhh of the two buckets.
+\end{enumerate}
+
+The neural network used for both resonant and non-resonant reweighting has three 
 densely connected hidden layers of 50 nodes each with ReLU activation functions and a single node 
-linear output. The same applies to the neural network used for the VBF reweighting.
-These configuration demonstrates good performance in the modelling 
+linear output. This configuration demonstrates good performance in the modelling 
 of a variety of relevant variables, including \mhh, when compared to a 
 range of networks of similar size.
 
@@ -633,8 +615,8 @@ estimate and the estimate from the VR derived networks in the Signal Region is u
 assign a systematic uncertainty associated with extrapolating in the Higgs Candidate
 mass plane. Further details on this systematic uncertainty are shown in Section \ref{sec:systematics}.
 Note that although the same procedure is used for both Control and Validation Region trained 
-networks, only the median estimate from the VR derived reweighting is used for assessing the 
-extrapolation uncertainty -- no additional ``uncertainty on the uncertainty'' from 
+networks, only the median estimate from the VR derived reweighting is used for assessing a 
+systematic -- no additional ``uncertainty on the uncertainty'' from 
 VR ensemble variation is applied.
 
 Each reweighted estimate is normalized such that the reweighted $2b$ yield matches the $4b$ 
@@ -651,14 +633,15 @@ This normalization procedure applies for all instances of the reweighting (e.g. 
 in Section \ref{sec:bkgvalidation}), with appropriate substitutions of reweighting origin 
 (here $2b$) and reweighting target (here $4b$).
 
-Note that, though there are different trigger and pileup selections during each year, the 
-statistically limited VBF channel benefits from combining all years together in performing the 
-reweighting. The training input is the combined dataset from the years 2016 - 2018 with all configurations remaining unchanged except for the addition of the year of the given event as an input variable on top of the reweighting variables listed in Table~\ref{tbl:rw-vars}. More detailed studies comparing the nominal split-year training and training on all years together for the VBF reweighting is presented in \todo{ref appendix}. For the ggF channel, a similar approach was explored 
-\todo{ref appendix}, but was found to have minimal benefit over reweighting in each year separately. 
-As the trigger selections for each year significantly impact the kinematics of each year, 
-and thus categorizing by year is expected to reflect groupings of kinematically similar events and 
+Note that, due to different trigger and pileup selections during each year, 
+the reweighting is trained on each year separately. An approach of training all of the years 
+together with a one-hot encoding was explored \todo{reference study}, but was found to have minimal 
+benefit over the split years approach, and in fact to increase 
+the systematic bias of the corresponding background estimate.
+Because of this, and because trigger selections for each year significantly impact the kinematics of each year, 
+such that categorizing by year is expected to reflect groupings of kinematically similar events and 
 to provide a meaningful degree of freedom in the signal extraction fit, the split-year approach is
-kept by the ggF analysis.
+kept.
 
 \section{Uncertainties}
 A variety of uncertainties are assigned to account for known biases in the
@@ -786,17 +769,45 @@ description of the bootstrap variation.
 
 \subsection{Background Shape Uncertainties}
 To account for the systematic bias associated with deriving the reweighting function
-in the Control region and extrapolating to the Signal region, an alternative background
-model is derived in the Validation region. In contrast to previous work, this is
-done on the entire background model, due to the fully data-driven nature of the
-background used here. The alternative model and the baseline are consistent with
-the observed data in their regions and with each other. Differences between the
-alternative and baseline models are used to define a shape uncertainty on the \mhh
+in the control region and extrapolating to the signal region, an alternative background
+model is derived in the validation region. Because of the fully data-driven nature of the 
+background model, this is an uncertainty assessed on the full background. The alternative model 
+and the baseline are consistent with the observed data in their training regions and with each other, and 
+differences between the alternative and baseline models are used to define a shape uncertainty on the \mhh
 spectrum, with a two-sided uncertainty defined by symmetrizing the difference about
 the baseline.
 
-This uncertainty is split into two components to allow two independent
-variations of the \mhh spectrum: \todo{HT vs quad splitting}
+For the resonant analysis, this uncertainty is split into two components to allow for two 
+independent variations of the \mhh spectrum: : a low-$H_{T}$ and a high-$H_{T}$ component,
+where $H_{T}$ is the scalar sum of the $p_{T}$ of the four jets constituting the
+Higgs boson candidates, and serves as a proxy for \mhh, while avoiding
+introducing a sharp discontinuity. The boundary value is \SI{300}{\GeV}. The
+low-$H_{T}$ shape uncertainty primarily affects the \mhh spectrum below
+\SI{400}{\GeV} (close to the kinematic threshold) by up to around 5\%, and the
+high-$H_{T}$ uncertainty mainly \mhh above this by up to around 20\% relative to
+nominal. These separate \mhh regimes are by design -- the $H_{T}$ split is 
+introduced to prevent low mass bins from constraining the high mass uncertainty 
+and vice-versa. 
+
+This was the \emph{status quo} shape uncertainty decomposition from the
+Early~Run~2 analysis. A decomposition in terms of orthogonal polynomials, which
+would provide increased flexibility, was also evaluated. This study revealed
+that both decompositions are able to account for the systematic deviations
+between four tag data and the background estimate (evaluated in the kinematic
+validation region), and produce almost identical limits. This study is fully
+described in Appendix~\ref{app:poly-systs}.
+
+The simpler \emph{status quo} decomposition is therefore kept, with the
+technical ability to use the alternative decomposition for validation if
+necessary.
+
+For the non-resonant analysis, the quadrant nature of the background estimation
+leads to a natural breakdown of the nuisance parameters: quadrants are defined 
+in the signal region along the same axes as those used for the control and validation 
+region definitions. Variations are then assessed in each of these signal region quadrants,
+corresponding to regions that are ``closer to'' and ``further away from'' the 
+nominal and alternate estimate regions, fully leveraging the power of the two
+equivalent but systematically different estimates.
 
 \section{Statistical Analysis}
 \section{Results}
