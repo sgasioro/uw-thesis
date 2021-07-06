@@ -2217,6 +2217,7 @@
     <bcf:citekey order="29">NNloss1</bcf:citekey>
     <bcf:citekey order="30">DeepEnsembles</bcf:citekey>
     <bcf:citekey order="31">Bootstrap</bcf:citekey>
+    <bcf:citekey order="32">bbyyNote</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

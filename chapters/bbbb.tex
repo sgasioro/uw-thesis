@@ -439,6 +439,30 @@ the assumption that these events are more similar to signal region events, while
 from the signal region, mitigating signal contamination. This region selection is found to have good performance
 in alternate validation regions. \todo{add more studies probs}
 
+\subsection{Discriminating Variable}
+\label{subsec:disc-var}
+
+The discriminant used for the resonant analysis is \emph{corrected $m_{HH}$}. This
+variable is calculated by re-scaling the Higgs candidate four vectors such that
+each $m_{H} = \SI{125}{\GeV}$. These re-scaled four-vectors are then summed, and
+their invariant mass is the corrected $m_{HH}$. These re-scaled four-vectors are
+not used for any other purpose. The effect of this correction, which sharpens
+the $m_{HH}$ peak and correctly centres it, is shown
+in~\Fig{\ref{fig:m-hh-cor-effect}}.
+
+For the non-resonant analysis, due to the broad nature of the signal in \mhh, such a 
+correction is not as motivated, and, indeed, is found to have very minimal 
+impact. The uncorrected \mhh (just referred to as \mhh) is therefore used 
+as a discriminant. To maximize sensitivity, the non-resonant analysis 
+additionally uses two variables for categorization: $\Delta \eta_{HH}$, an angular 
+variable which, along with \mhh, fully characterizes the $HH$ system
+\todo{ref costhetastar paper?}, and $X_{HH}$, the variable used for the 
+signal region definition, which leverages the peaked structure of the 
+signal in the ($\mh1$, $\mh2$) plane to split the fit into lower and higher
+purity regions (highest purity near $X_{HH} = 0$, the center of the signal region).
+Distributions of these variables are shown in \todo{plots}
+
+
 \section{Background Estimation}
 After the event selection described in Section \ref{sec:selection} there are
 two major backgrounds, QCD and \ttbar. A very similar approach is used 
@@ -808,6 +832,96 @@ region definitions. Variations are then assessed in each of these signal region 
 corresponding to regions that are ``closer to'' and ``further away from'' the 
 nominal and alternate estimate regions, fully leveraging the power of the two
 equivalent but systematically different estimates.
+
+\subsection{Detector Modelling and Reconstruction Uncertainties}%
+\label{subsec:modelling-uncerts}
+Detector modelling and reconstruction uncertainties account for Monte Carlo
+simulation not being a faithful representation of real data as a result of
+mismodelling of the detector and differential performance of algorithms on
+simulation compared to data. In this analysis they consist of uncertainties
+related to jet properties, and uncertainties stemming from the flavour tagging
+procedure. The background modelling in this analysis is fully data-driven. As a
+result, these uncertainties are applied only to the signal simulation.
+
+The jet uncertainties are implemented as variations of the jet properties
+themselves. The category reduction (with \textasciitilde 30 nuisance parameters)
+is used for jet energy scale uncertainties and the \code{FullJER} configuration
+is used for jet energy resolution uncertainties (14 nuisance parameters). This
+is to preserve the ability to meaningfully statistically combine the results of
+this analysis with other di-Higgs analyses. The flavour tagging uncertainties
+meanwhile are implemented as scale factors applied to the Monte Carlo event
+weights.
+
+A systematic related to the PtReco \bjet energy correction has been studied in the
+\HepProcess{\higgs\higgs \to \gamma\gamma\Pqb\Paqb} analysis~\cite{bbyyNote} and found 
+to be negligible compared to \code{JER}. Following this example, such a systematic is 
+therefore neglected here.
+
+The pulls and impacts of these uncertainties on the statistical analysis are shown
+in Section~\ref{sec:stat-pull-impact}.
+
+\FloatBarrier
+\subsection{Trigger Uncertainties}
+Trigger uncertainties stem from imperfect knowledge of the ratio between the
+efficiency of a given trigger in data to its efficiency in Monte Carlo
+simulation. This ratio is applied as a scale factor to all simulated events (as
+described in \Sect{\ref{subsubsec:trig-sf}}), with the systematic variations
+produced by varying the scale factor up or down by one sigma.
+
+
+\subsection{Theoretical Uncertainties}
+The theoretical uncertainties on the acceptance times efficiency ($A \times \varepsilon$) are
+evaluated by analysis of specially-generated, particle-level signal samples. The
+generation of these samples follows the configuration of the baseline samples,
+but with modifications to probe the following theoretical uncertainties:
+uncertainties in the parton density functions (PDFs); uncertainties due to
+missing higher order terms in the matrix elements; and uncertainties in the
+modelling of the underlying event, which includes multi-parton interactions, of
+hadronic showers and of initial and final state radiation. 
+
+Uncertainties due to modelling of the parton shower and the underlying event
+(including multi-parton interactions) are evaluated by switching the MC generator
+used. For the scalar samples, this means switching from Herwig7.7.1.3
+to Pythia 8.235. Figure~\ref{fig:signal-PS-syst} shows the impact of these variations on the signal acceptance 
+for two resonance masses: \SI{500}{\GeV} and \SI{1}{\TeV}, covering the range of the resolved analysis. 
+No significant dependence on the variable of interest, \mhh, is observed. The disagreement observed in the tails 
+of $p_T (hh)$ and the number of jets multiplicities is negligible with respect to the final signal acceptance. 
+A 5\% flat systematic uncertainty is assigned to all signal samples, extracted from the acceptance comparison
+for the full 4-tag selection, as seen in Figs.~\ref{fig:signal-PS-syst-CF-500} and~\ref{fig:signal-PS-syst-CF-1000}. 
+
+
+
+
+To evaluate the potential effect of missing higher order terms in the matrix
+element, the renormalization and factorization scales used in the signal
+generation were varied coherently by factors of 0.5$\times$ and 2$\times$ for
+the signals. The alternative weights were generated as described on the TWiki
+\href{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/SignalTheoryUncertainties?rev=2}{here},
+applying on-the-fly variations using the ATLAS MadGraphControl framework. These
+weights correspond to variations of the scales either together or separately up
+and down by a factor of two. Seven-point scale variations are considered:
+($\mu_R$, $\mu_F$) = (0.5, 0.5), (1, 0.5), (0.5, 1), (1, 1), (2, 1), (1, 2), (2,
+2). The scale uncertainties are combined by taking an envelope of all of the
+uncertainties. These uncertainties are evaluated to be less than $\pm1\%$, thus
+neglected.
+
+PDF uncertainties are evaluated using the PDF4LHC15_nlo_mc set, which combined CT14,
+MMHT14 and NNPDF3.0 PDF sets. The uncertainty is evaluated by
+calculating the acceptance for each PDF replica. The standard deviation of these
+acceptance values divided by the baseline acceptance is taken as the PDF uncertainty.
+For each mass point the distribution of their corresponding ration is compatible
+with a Gaussian centered one. The measured 
+uncertainty in acceptance due to PDF uncertainties is less than $\pm1\%$ across the
+full mass range considered for the analysis. For this reason, it is
+neglected in the statistical analysis described in Section \ref{sec:statanalysis}.
+
+These uncertainties are implemented in the final statistical analysis as normalization
+uncertainties on the signals, with the value taken from the polynomial fit. This smooths
+out statistical fluctuations and allows interpolation between the generated mass points, if needed.
+
+\todo{add non-res ones}
+
+\section{Background Validation}
 
 \section{Statistical Analysis}
 \section{Results}
