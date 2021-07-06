@@ -370,24 +370,27 @@ described above, a signal region is defined by requiring $X_{\higgs\higgs} < 1.6
 \end{equation}
 with \mh1, \mh2 the leading and subleading Higgs candidate masses, $c_{1}$ and $c_{2}$ correspond
 to the center of the signal region, and the denominator provides a Higgs candidate mass 
-dependent resolution of 10~\%.
+dependent resolution of 10~\%. For consistency with the $HH$ decay hypothesis, $c_{1}$ and $c_{2}$
+are nominally (\SI{125}{\GeV}, \SI{125}{\GeV}). However, these are allowed to vary due to 
+energy loss, with specific values chosen described below. The selection of these values is 
+one of several significant differences between the regions defined for the resonant and non-resonant search.
+We describe both below.
 
 \subsection{Resonant Kinematic Regions}
- 
+For the resonant analysis, the signal region is centered at (\SI{120}{\GeV}, \SI{110}{\GeV}) 
+to account for energy loss leading to the Higgs masses being under-reconstructed. \todo{insert signal 
+location plot?} Note that leading and subleading Higgs candidates are defined according to the 
+\emph{scalar sum} of constituent jet $p_{T}$.
 
-This range is centred at (\SI{120}{\GeV}, \SI{110}{\GeV}) and not
-(\SI{125}{\GeV}, \SI{125}{\GeV}) to account for energy loss leading to the Higgs
-masses being under-reconstructed.
-
-The validation region consists of those events not in the signal region, but
-which do pass
+For the background estimation, two regions are defined which are roughly concentric around the 
+signal region: a \emph{validation region} which 
+consists of those events not in the signal region, but which do pass
 \begin{equation}
 	\label{eqn:val-reg-def}
 	\sqrt{\qty(\mh1 - 1.03 \times \SI{120}{\GeV})^{2} + \qty(\mh2 - 1.03 \times
 		\SI{110}{\GeV})^{2}} < \SI{30}{\GeV}
 \end{equation}
-
-and the control region consists of those events not in the signal or validation
+and a \emph{control region} whcih consists of those events not in the signal or validation
 regions, but which do pass
 \begin{equation}
 	\label{eqn:ctrl-reg-def}
@@ -395,17 +398,46 @@ regions, but which do pass
 		\SI{110}{\GeV})^{2}} < \SI{45}{\GeV}
 \end{equation}
 
-The definition of the regions was studied in Appendix~\ref{app:sigdef}. The results showed that
-the selection chosen by the analysis is close to optimal. For simplicity the previous iteration's
-SR/VR/CR definitions have been chosen for the resonant analysis.
+For simplicity, the \todo{cite old paper} SR/VR/CR definitions were chosen for the resonant analysis, 
+but were found to be close to optimal.
 
 \subsection{Non-resonant Kinematic Regions}
+For the non-resonant analysis the signal region is centered at (\SI{124}{\GeV}, \SI{117}{\GeV}),
+corresponding to the means of \emph{correctly paired} Standard Model signal events. The shape of 
+the signal region (other than this change of center) was found to remain optimal.
 
+For the non-resonant search, leading and subleading Higgs candidates are defined according to the 
+\emph{vector sum} of constituent jet $p_{T}$, more closely corresponding to the $1\rightarrow 2$ decay assumption
+behind the $\min{\dr}$ pairing algorithm. 
+
+Two areas for improvement were identified in the resonant analysis, which will be discussed in more detail below: 
+\emph{signal contamination} of the validation region (which impacts the uncertainty assessed due to extrapolation)
+and \emph{large nuisance parameter pulls} on this uncertainty, corresponding to a rough assumption that the 
+validation region is closer to the signal region in the mass plane, and so offers a better estimate of the 
+signal region.
+
+To mitigate these two issues, a redesign of the control and validation regions was performed for 
+the non-resonant analysis. The outer boundary defined by the shifted resonant control region:
 \begin{equation}
 	\label{eqn:ctrl-reg-def}
-	\sqrt{\qty(\mh1 - 1.05 \times \SI{120}{\GeV})^{2} + \qty(\mh2 - 1.05 \times
-		\SI{110}{\GeV})^{2}} < \SI{45}{\GeV}
+	\sqrt{\qty(\mh1 - 1.05 \times \SI{124}{\GeV})^{2} + \qty(\mh2 - 1.05 \times
+		\SI{117}{\GeV})^{2}} < \SI{45}{\GeV}
 \end{equation}
+is kept, rougly corresponding to combining the regions used for the resolved analysis. In order 
+to assess the variation of the background estimate, two sets of regions are desired, so this combined 
+region is split into \emph{quadrants}, that is, divided into four pieces along axes that intersect 
+with the signal region center. To avoid kinematic bias, quadrants on opposite sides of the signal 
+region are paired, with these pairs corresponding to the non-resonant control and validation regions.
+
+The particular orientation of the regions is chosen such that region centers align with the leading
+and subleading Higgs candidate masses, corresponding to a set of axes rotated at $45\circ$, with the ``top''
+and ``bottom'' quadrants together comprising the control region, and the other set (``left'' and ``right'')
+the validation region.
+
+This design of regions includes a set of events closer to the signal region in the mass plane, leveraging
+the assumption that these events are more similar to signal region events, while also including events further away
+from the signal region, mitigating signal contamination. This region selection is found to have good performance
+in alternate validation regions. \todo{add more studies probs}
 
 \section{Background Estimation}
 After the event selection described in Section \ref{sec:selection} there are
