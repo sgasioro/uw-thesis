@@ -292,15 +292,28 @@ over-training on signal events.
 \subsection{Non-resonant Pairing Strategy}
 For the non-resonant analysis, a simpler pairing algorithm is used, which 
 proceeds as follows: in a given event, Higgs candidates for each possible pairing
-are sorted by the scalar sum of constituent jet $p_{T}$. The angular separation,
+are sorted by the $p_{T}$ of the vector sum of constituent jets. The angular separation,
 $\dr$ is computed between jets in the each of the leading Higgs candidates, and the 
 pairing with the smallest separation ($\dr_{jj}$) is selected. This method will be 
-referred to as $\min{\dr}$.
+referred to as $\min{\dr}$ in the following.
+
+The primary motivation for the use of this pairing in the non-resonant search is a 
+\emph{smooth mass plane}: by efficiently discarding low mass events, $\min{\dr}$ removes 
+the background peak present in the resonant search while maintaining good pairing 
+efficiency for the non-resonant signal. This facilitates a background estimate with 
+small kinematic bias -- the region in which the background estimate is derived is 
+more similar to the signal region. 
+
+Along with discarding low mass background, there is a corresponding loss of low mass signal.
+In particular \todo{insert plot}, for higher $\kappa_{\lambda}$ points, in which the 
+\todo{check - I think it's triangle diagram?} dominates, there is a significant impact 
+on the resulting signal distribution. \todo{put in combination plot?} The $4b$ channel 
+has the strongest contribution near the Standard Model, however, and is optimized as such.
+Further, because of the large low mass background, the loss of significance is mitigated.
+This approach is thus adopted for the non-resonant search.
+
 
 \section{Background Reduction and Top Veto}
-% Back to main figure directory for this section
-\def\secforfig{evtselection}
-\def\figsversion{\oldfigsversion}
 
 Choosing a pairing of the four b-tagged jets fully defines the di-Higgs candidate system used for each event in the remainder of the analysis chain. A requirement of
 $\abs{\Delta\eta_{\higgs\higgs}} < 1.5$ on this di-Higgs candidate system mitigates
@@ -336,8 +349,63 @@ the invariant mass of the \PW candidate, the quantity
 is constructed for each combination.
 
 Events are then vetoed if the minimum $X_{\PW\Pqt}$ over all combinations is
-less than \textbf{1.5}.
+less than 1.5.
 
+The same definitions and procedures are used for both the resonant and non-resonant analyses.
+However, for the non-resonant search, the top candidates considered for $X_{\PW\Pqt}$ have the 
+additional requirement that the jet used for the $b$ is $b$-tagged. While this is identical
+to the resonant analysis by definition for $4b$ events, it does change the set of events 
+considered in lower tag regions, in particular for the $2b$ events considered in the derivation
+of the background estimate. Such a change is found to reduce the impact of background systematics
+by increasing $2b$ support in the high $X_{\PW\Pqt}$ kinematic region. \todo{Insert plot}
+
+\section{Kinematic Region Definition}
+As has been mentioned, an important piece of the analysis is the plane defined by the 
+two Higgs candidate masses (the \emph{Higgs candidate mass plane}). After the selection
+described above, a signal region is defined by requiring $X_{\higgs\higgs} < 1.6$, where:
+\begin{equation}
+	\label{eqn:xhh-def}
+	X_{\higgs\higgs} = \sqrt{\qty(\frac{\mh1 - c_1}{0.1\cdot\mh1})^{2} + 
+	\qty(\frac{\mh2 - c_2}{0.1\cdot\mh2})^{2}}
+\end{equation}
+with \mh1, \mh2 the leading and subleading Higgs candidate masses, $c_{1}$ and $c_{2}$ correspond
+to the center of the signal region, and the denominator provides a Higgs candidate mass 
+dependent resolution of 10~\%.
+
+\subsection{Resonant Kinematic Regions}
+ 
+
+This range is centred at (\SI{120}{\GeV}, \SI{110}{\GeV}) and not
+(\SI{125}{\GeV}, \SI{125}{\GeV}) to account for energy loss leading to the Higgs
+masses being under-reconstructed.
+
+The validation region consists of those events not in the signal region, but
+which do pass
+\begin{equation}
+	\label{eqn:val-reg-def}
+	\sqrt{\qty(\mh1 - 1.03 \times \SI{120}{\GeV})^{2} + \qty(\mh2 - 1.03 \times
+		\SI{110}{\GeV})^{2}} < \SI{30}{\GeV}
+\end{equation}
+
+and the control region consists of those events not in the signal or validation
+regions, but which do pass
+\begin{equation}
+	\label{eqn:ctrl-reg-def}
+	\sqrt{\qty(\mh1 - 1.05 \times \SI{120}{\GeV})^{2} + \qty(\mh2 - 1.05 \times
+		\SI{110}{\GeV})^{2}} < \SI{45}{\GeV}
+\end{equation}
+
+The definition of the regions was studied in Appendix~\ref{app:sigdef}. The results showed that
+the selection chosen by the analysis is close to optimal. For simplicity the previous iteration's
+SR/VR/CR definitions have been chosen for the resonant analysis.
+
+\subsection{Non-resonant Kinematic Regions}
+
+\begin{equation}
+	\label{eqn:ctrl-reg-def}
+	\sqrt{\qty(\mh1 - 1.05 \times \SI{120}{\GeV})^{2} + \qty(\mh2 - 1.05 \times
+		\SI{110}{\GeV})^{2}} < \SI{45}{\GeV}
+\end{equation}
 
 \section{Background Estimation}
 After the event selection described in Section \ref{sec:selection} there are
