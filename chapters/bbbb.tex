@@ -952,10 +952,50 @@ set of results is presented below (\todo{or will be combined for VBF?}). We ther
 summarize the analyses here.
 
 \subsection{Resonant: Boosted Channel}
+The boosted analysis selection targets resonance masses from \SI{900}{\GeV} to \SI{5}{\TeV}.
+In such events, $\higgs$ decays have a high Lorentz boost, such that the $b\bar{b}$ decays are
+very collimated. The resolved analysis fails to reconstruct such $\higgs\higgs$ events, as the 
+$R=0.4$ jets start to overlap. 
+
+The boosted analysis instead reconstructs $\higgs$ decays as large radius, $R=1.0$ jets, with 
+corresponding $\Pqb$-quarks identified with variable radius subjets, that is jets with a 
+radius that scales as $\rho / p_{T}$, the $p_{T}$ is that of the jet in question, and
+$\rho$ is a fixed parameter, here chosen to be \SI{30}{\GeV}, which is optimized to maintain 
+truth-level double b-labelling efficiency across the full range of Higgs jet $p_{T}$ 
+\todo{cite: https://cds.cern.ch/record/2268678}.
+
+Due to limited boosted b-tagging efficiency \todo{cite} and to maintain sensitivity 
+even when \bjets are highly collimated, the boosted analysis is divided into three categories 
+based on the number of \btagged jets associated to each large radius jet:
+\begin{itemize}
+	\item $4b$ category: two \btagged jets in each
+	\item $2b-1$ category: two \btagged jets in one, one in the other
+	\item $1b-1$ category: one \btagged jet in each
+\end{itemize} 
+
+The analysis then procedes in each of these categories.
+\todo{what other boosted details?}
+
+The resolved and boosted channels are combined for resonance masses from \SI{900}{\GeV} 
+to \SI{1.5}{\TeV} inclusive. To keep the channels statistically independent, the boosted channel 
+vetos events passing the resolved analysis selection.
+
 
 \subsection{Non-resonant: VBF Channel} 
+The vector boson fusion channel is only considered for the non-resonant search. While the 
+sensitivity is in general much more limited than the gluon-gluon fusion analysis due to the 
+much smaller production cross section, VBF is sensitive to a variety of Beyond the Standard 
+Model physics, both complementary and orthogonal to the theoretical scope of gluon-gluon fusion. 
+\todo{I'll probably mention more details in the pheno section}
 
+The VBF channel proceeds very similarly to the ggF, with the primary differences being the 
+kinematic selections and the categorization.
 
+\todo{fill in kinematics}
+
+Note that the background estimation is inherited from the resonant and ggF analyses, 
+an ancillary, but significant, contribution of this thesis work.
 
 \section{Statistical Analysis}
+
 \section{Results}
