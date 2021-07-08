@@ -423,14 +423,14 @@ the non-resonant analysis. The outer boundary defined by the shifted resonant co
 	\sqrt{\qty(\mh1 - 1.05 \times \SI{124}{\GeV})^{2} + \qty(\mh2 - 1.05 \times
 		\SI{117}{\GeV})^{2}} < \SI{45}{\GeV}
 \end{equation}
-is kept, rougly corresponding to combining the regions used for the resolved analysis. In order 
+is kept, rougly corresponding to combining the regions used for the resonant analysis. In order 
 to assess the variation of the background estimate, two sets of regions are desired, so this combined 
 region is split into \emph{quadrants}, that is, divided into four pieces along axes that intersect 
 with the signal region center. To avoid kinematic bias, quadrants on opposite sides of the signal 
 region are paired, with these pairs corresponding to the non-resonant control and validation regions.
 
 The particular orientation of the regions is chosen such that region centers align with the leading
-and subleading Higgs candidate masses, corresponding to a set of axes rotated at $45\circ$, with the ``top''
+and subleading Higgs candidate masses, corresponding to a set of axes rotated at $45^{\circ}$, with the ``top''
 and ``bottom'' quadrants together comprising the control region, and the other set (``left'' and ``right'')
 the validation region.
 
@@ -458,7 +458,7 @@ additionally uses two variables for categorization: $\Delta \eta_{HH}$, an angul
 variable which, along with \mhh, fully characterizes the $HH$ system
 \todo{ref costhetastar paper?}, and $X_{HH}$, the variable used for the 
 signal region definition, which leverages the peaked structure of the 
-signal in the ($\mh1$, $\mh2$) plane to split the fit into lower and higher
+signal in the ($\mh1$, $\mh2$) plane to split the signal extraction fit into lower and higher
 purity regions (highest purity near $X_{HH} = 0$, the center of the signal region).
 Distributions of these variables are shown in \todo{plots}
 
@@ -482,7 +482,7 @@ in Appendix \ref{app:minor-bkg}. All are found to be negligible.
 
 The foundation of the background estimate lies in the derivation of a
 reweighting function which matches the kinematics of events with exactly two
-\btagged jets to those of events in the higher tagged regions (three or four 
+\btagged jets to those of events in the higher tagged regions (events with three or four 
 \btagged jets). The reweighting function and overall normalization are derived in 
 the control region. Systematic bias of this estimate is assessed in the validation 
 region. 
@@ -605,7 +605,6 @@ set of training variables used for the resonant analysis is
 	\item $\log(X_{\PW\Pqt})$, where $X_{\PW\Pqt}$ is the variable used for the top veto
 	\item Number of jets in the event.
 \end{enumerate}
-
 The non-resonant analysis uses an identical set of variables with two notable changes
 \begin{enumerate}
 	\item The definition of $X_{\PW\Pqt}$ differs from the resonant definition (as described 
@@ -922,6 +921,41 @@ out statistical fluctuations and allows interpolation between the generated mass
 \todo{add non-res ones}
 
 \section{Background Validation}
+In addition to checking the performance of the background estimate in the control and 
+validation regions, a variety of alternative selections are defined to allow for a 
+full ``dress rehearsal'' of the background estimation procedure. 
+
+Both the resonant and non-resonant analyses make use of a \emph{reversed $\Delta \eta$}
+region, in which the kinematic cut on $\Delta \eta_{HH}$ is reversed, so that events are
+required to have $\Delta \eta_{HH} > 1.5$. This is orthogonal to the nominal signal 
+region and has minimal sensitivity, allowing for the comparison of the background
+estimate $4b$ data in the corresponding ``signal region''. For this validation, 
+a new reweighting is trained following nominal procedures, but entirely in the 
+$\Delta \eta_{HH} > 1.5$ region.
+
+The non-resonant analysis additionally makes use of the $3b+1$ fail region mentioned 
+above, which again is orthogonal to the nominal signal regions and has minimal sensitivity.
+The reweighting in this case is between $2b$ and $3b+1$ fail events rather than between 
+$2b$ and $3b+1$ loose or $2b$ and $4b$. However, the kinematic selections of signal 
+region events are otherwise identical, allowing for a complementary test of the 
+background estimate.
+
+\todo{Add shifted regions if they're ready}
+
+Results are shown in \todo{add figures}
+
+\section{Overview of Other \bbbb Channels}
+The results discussed above have been developed in conjunction with (1) a boosted channel 
+for the resonant search and (2) a vector boson fusion (VBF) channel for the non-resonant search. 
+Detailed discussions of these two channels are beyond the scope of this thesis. However, a combined
+set of results is presented below (\todo{or will be combined for VBF?}). We therefore briefly 
+summarize the analyses here.
+
+\subsection{Resonant: Boosted Channel}
+
+\subsection{Non-resonant: VBF Channel} 
+
+
 
 \section{Statistical Analysis}
 \section{Results}
