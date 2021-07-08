@@ -997,5 +997,44 @@ Note that the background estimation is inherited from the resonant and ggF analy
 an ancillary, but significant, contribution of this thesis work.
 
 \section{Statistical Analysis}
+The resonant analysis is used to set a 95\% confidence level upper limit on the
+\HepProcess{\Pp \Pp \to \PScal \to \higgs \higgs \to \Pqb \Paqb \Pqb \Paqb} and
+\HepProcess{\Pp \Pp \to \PGrav \to \higgs \higgs \to \Pqb \Paqb \Pqb \Paqb} cross-sections, 
+while the non-resonant analysis is used to set a 95\% confidence level upper limit on the
+\HepProcess{\Pp \Pp \to \higgs \higgs \to \Pqb \Paqb \Pqb \Paqb} cross sections for a 
+variety of values of the trilinear Higgs coupling.
+
+The upper limit is extracted using the \CLs method \cite{Read02}. The test statistic 
+used is \qmu \cite{Cowan11}, where $\mu$ is the signal strength, and $\mathbf{\theta}$ represents the nuisance
+parameters. Due to the use of signals normalized to \SI{1}{\femto\barn}, $\mu$
+is also the signal cross-section in \si{\femto\barn}. A single hat represents
+the maximum likelihood estimate of a parameter, while
+$\doublehat{\mathbf{\theta}}\qty(x)$ represents the conditional maximum
+likelihood estimate of the nuisance parameters if the signal cross-section is
+fixed at $x$.
+
+
+\begin{equation}
+	\label{eqn:qmu-def}
+	\qmu =
+	\begin{cases}
+		-2\ln(\frac{\lhood\qty(\mu, \doublehat{\mathbf{\theta}}\qty(\mu))}{\lhood\qty(\hat{\mu},
+		\hat{\mathbf{\theta}})})              & \hat{\mu} \le \mu \\
+		0                                     & \hat{\mu} > \mu
+	\end{cases}
+\end{equation}
+
+\CLs for some test value of $\mu$ is then defined by
+
+\begin{equation}
+	\label{eqn:cls-def}
+	\CLs = \frac{\CLsb}{\CLb} = \frac{p\qty(\qmu \ge \qmuobs | s + b)}{p\qty(\qmu \ge \qmuobs | b)},
+\end{equation}
+
+where the $p$-values are calculated in the asymptotic approximation
+\cite{Cowan11}, which is valid in the large sample limit.
+
+The signal cross-section {$\mu$}~\si{\femto\barn} is excluded at the 95\% confidence level if $\CLs < 0.05$.
+
 
 \section{Results}
