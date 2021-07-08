@@ -1,11 +1,44 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[63] biber-darwin:322> INFO - === Tue Jun 22, 2021, 22:13:15
-[77] Biber.pm:415> INFO - Reading 'thesis.bcf'
-[157] Biber.pm:943> INFO - Found 5 citekeys in bib section 0
-[169] Biber.pm:4256> INFO - Processing section 0
-[169] Utils.pm:75> INFO - Globbing data source 'thesis.bib'
-[169] Utils.pm:91> INFO - Globbed data source 'thesis.bib' to thesis.bib
-[177] Biber.pm:4455> INFO - Looking for bibtex format file 'thesis.bib' for section 0
-[288] Utils.pm:320> ERROR - Cannot find 'thesis.bib'!
-[288] Biber.pm:132> INFO - ERRORS: 1
+[60] biber-darwin:322> INFO - === Thu Jul  8, 2021, 16:48:27
+[74] Biber.pm:415> INFO - Reading 'thesis.bcf'
+[154] Biber.pm:943> INFO - Found 40 citekeys in bib section 0
+[165] Biber.pm:4256> INFO - Processing section 0
+[165] Utils.pm:75> INFO - Globbing data source 'bib/ATLAS.bib'
+[165] Utils.pm:91> INFO - Globbed data source 'bib/ATLAS.bib' to bib/ATLAS.bib
+[165] Utils.pm:75> INFO - Globbing data source 'bib/CMS.bib'
+[165] Utils.pm:91> INFO - Globbed data source 'bib/CMS.bib' to bib/CMS.bib
+[165] Utils.pm:75> INFO - Globbing data source 'bib/ConfNotes.bib'
+[165] Utils.pm:91> INFO - Globbed data source 'bib/ConfNotes.bib' to bib/ConfNotes.bib
+[165] Utils.pm:75> INFO - Globbing data source 'bib/PubNotes.bib'
+[165] Utils.pm:91> INFO - Globbed data source 'bib/PubNotes.bib' to bib/PubNotes.bib
+[165] Utils.pm:75> INFO - Globbing data source 'bib/Extra.bib'
+[165] Utils.pm:91> INFO - Globbed data source 'bib/Extra.bib' to bib/Extra.bib
+[173] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/ATLAS.bib' for section 0
+[207] bibtex.pm:1653> INFO - LaTeX decoding ...
+[1451] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/ATLAS.bib'
+[1556] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/CMS.bib' for section 0
+[1586] bibtex.pm:1653> INFO - LaTeX decoding ...
+[2669] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/CMS.bib'
+[2734] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/ConfNotes.bib' for section 0
+[2757] bibtex.pm:1653> INFO - LaTeX decoding ...
+[3410] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/ConfNotes.bib'
+[3465] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/PubNotes.bib' for section 0
+[3472] bibtex.pm:1653> INFO - LaTeX decoding ...
+[3682] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/PubNotes.bib'
+[3702] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/Extra.bib' for section 0
+[3704] bibtex.pm:1653> INFO - LaTeX decoding ...
+[3767] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/Extra.bib'
+[3770] Utils.pm:304> WARN - Possible typo (case mismatch) between datasource keys: 'HerwigPP' and 'Herwigpp' in file 'bib/Extra.bib'
+[3770] Utils.pm:304> WARN - Duplicate entry key: 'EvtGen' in file 'bib/Extra.bib', skipping ...
+[3774] Utils.pm:304> WARN - month field 'Aug' in entry 'Gravitons' is not an integer - this will probably not sort properly.
+[3806] Utils.pm:304> WARN - month field 'Sep' in entry 'ATL-COM-DAQ-2019-150' is not an integer - this will probably not sort properly.
+[3930] Utils.pm:304> WARN - month field 'Mar' in entry 'bbyyNote' is not an integer - this will probably not sort properly.
+[3937] Utils.pm:304> WARN - I didn't find a database entry for 'Abbott:2708605' (section 0)
+[3970] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3970] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3970] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[3970] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[3995] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[4042] bbl.pm:755> INFO - Output to thesis.bbl
+[4043] Biber.pm:128> INFO - WARNINGS: 6

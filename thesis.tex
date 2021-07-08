@@ -1,19 +1,23 @@
 
-\documentclass [11pt, proquest]{uwthesis}[2020/02/24]
+\documentclass[11pt, proquest, english]{uwthesis}[2020/02/24]
 \setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
 
 \newcommand*{\ATLASLATEXPATH}{latex/}
 
-\usepackage[subfig]{\ATLASLATEXPATH atlaspackage}
+\usepackage[subfig, backend=biber]{\ATLASLATEXPATH atlaspackage}
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
 \usepackage[hepparticle,hepprocess]{\ATLASLATEXPATH atlasphysics}
+
+\addbibresource{bib/ATLAS.bib}
+\addbibresource{bib/CMS.bib}
+\addbibresource{bib/ConfNotes.bib}
+\addbibresource{bib/PubNotes.bib}
+\addbibresource{bib/Extra.bib}
+
 \usepackage{amsfonts}
 \usepackage{physics}
 
 \usepackage{thesis-defs}
-
-%\bibliographystyle{plain}
-\bibliography{thesis}
-
 
 \begin{document}
 % preliminary pages
@@ -42,11 +46,9 @@
 \include{chapters/intro-reconstruct}
 \include{chapters/search-outline}
 \include{chapters/bbbb}
-%\include{chap2}
-%\include{chap3}
-%\include{chap4}
-% bibliography
-%
+
+
+\printbibliography
 
 % appendices
 %
