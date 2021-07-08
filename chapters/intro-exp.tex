@@ -1,6 +1,25 @@
 \chapter{Experimental Apparatus}
 \label{chap:experiment}
+
+What machines must we build to examine the smallest pieces of the universe? The famous equation 
+$E = m$ provides that to create massive particles, we need to provide enough energy. In order to give 
+kinematic phase space to the types of processes that are examined in this thesis (and many others besides),
+a system must be created in which there is enough energy to (at bare minimum), overcome kinematic thresholds:
+if you want to search for $HH$ decays, you should have at least \SI{250}{\GeV} ($= 2\times m_{H}$) to work with.
+It is not enough to simply induce such processes, however. These processes need to be captured in some way, emitted 
+energy and particles must be characterized and identified, and in the end all of this information must be put into a 
+useful and useable form such that selections can be made, statistics can be run, and a meaningful statement 
+can be made about the universe. In this chapter, we describe the machines behind the physics, namely the Large 
+Hadron Collider and the ATLAS experiment.
+
+\section{The Large Hadron Collider}
+
+
+\section{The ATLAS Experiment}
+
+\section{}
 \todo{Straight template copy}
+
 % Footnote with ATLAS coordinate system
 \newcommand{\AtlasCoordFootnote}{%
 ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP)
@@ -12,10 +31,14 @@ Cylindrical coordinates \((r,\phi)\) are used in the transverse plane,
 The pseudorapidity is defined in terms of the polar angle \(\theta\) as \(\eta = -\ln \tan(\theta/2)\).
 Angular distance is measured in units of \(\Delta R \equiv \sqrt{(\Delta\eta)^{2} + (\Delta\phi)^{2}}\).}
 
-%-------------------------------------------------------------------------------
-\section{Run 2 ATLAS detector example for a paper making use of the whole detector}
-\label{sec:atlas2b}
-%-------------------------------------------------------------------------------
+
+\begin{figure}[ht]
+\centering
+\subfloat{\label{fig:ATLAS-det}
+		  \includegraphics[width=0.8\textwidth]{figures/ATLAS-det.jpeg}
+		 }
+\caption{Diagram of the ATLAS detector \cite{DetectorImage}}
+\end{figure}
 
 The ATLAS detector~\cite{PERF-2007-01} at the LHC covers nearly the entire solid angle around the collision point.\footnote{\AtlasCoordFootnote}
 It consists of an inner tracking detector surrounded by a thin superconducting solenoid, electromagnetic and hadron calorimeters,
