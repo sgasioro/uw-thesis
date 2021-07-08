@@ -1,17 +1,25 @@
 \chapter{Di-Higgs Phenomenology and Physics Beyond the Standard Model}
-This thesis focuses on searches for pair production of Higgs bosons. Such searches are split into two 
-major theoretical categories: a \emph{resonant search}, in which a physical resonance is produced that subsequently
-decays into two Higgs bosons, and a \emph{non-resonant search} in which no physical resonance is produced, but
-where the $HH$ production cross section has a contribution from an exchange of a \emph{virtual} or \emph{off-shell}
-particle. 
+This thesis focuses on searches for di-Higgs production in the \bbbb final state. In this chapter,
+we will provide a brief overview of the practical theoretical information motivating such searches. 
+Though the searches test for physics beyond the Standard Model, particularly in the search for 
+resonances, the goal of the experimental results is to be somewhat agnostic to particular 
+theoretical frameworks. An in depth treatment of such models is therefore beyond the scope 
+of this thesis, though we will attempt to provide a grounding for the models that we consider.
+
+\section{Intro to Di-Higgs}
+Di-Higgs searches can be split into two major theoretical categories: \emph{resonant searches}, in which a physical resonance is produced that subsequently decays into two Higgs bosons, and a \emph{non-resonant searches} in which no physical resonance is produced, but where the $HH$ production cross section has a contribution from an exchange of a \emph{virtual} or \emph{off-shell} particle. 
 
 The focus of this thesis is gluon initiated processes -- in the case of di-Higgs this is termed gluon-glon fusion
 (ggF). $\higgs\higgs$ production may also occur via vector boson fusion \todo{cite https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HDBS-2018-18/}. However the cross section for such production is significantly smaller. Representative Feynman diagrams are shown in\todo{add diagrams}.
 
-\todo{show heavier couples more strongly to Higgs}. However, the top quark has a mass of \SI{173}{\GeV}, whereas the 
-$\higgs$ has a mass of \SI{125}{\GeV}.
+\todo{show heavier couples more strongly to Higgs - just fill in Yukawa above}. However, the top quark has a mass of \SI{173}{\GeV}, whereas the $\higgs$ has a mass of \SI{125}{\GeV}, such that \HepProcess{\higgs \to \Pqt\Paqt} is kinematically 
+disfavored. \HepProcess{\higgs \to \Pqb\Paqb} is therefore the dominant fermionic Higgs decay mode, and, in fact, 
+the dominant overall decay mode, with a branching fraction of around 58~\%. The dominant top quark Yukawa coupling to 
+the \higgs does play a role in \higgs production, however -- gluon-gluon fusion is dominated by processes including 
+a top loop.
 
-A diagram of $HH$ branching fractions is shown in Figure \todo{add}
+The single \higgs properties translate to $\higgs\higgs$ production, with \HepProcess{\higgs\higgs \to \bbbb} accounting
+for around 34~\% of all $\higgs\higgs$ decays. The \higgs\higgs branching fractions are shown in Figure \todo{add}.
 
 \section{Resonant $HH$ Searches}
 Resonant di-Higgs production is predicted in a variety of extensions to the
@@ -28,8 +36,7 @@ across much of the relevant mass range.
 The primary theoretical focus of this work is therefore the spin-0 result, which 
 is implemented as a generic resonance with width below detector resolution. Scalar 
 resonances are interesting, for instance, in the context of two Higgs doublet models~\cite{2HDM}, which 
-posit the existence of a heavy spin-0 scalar \PScal{} that may decay to \higgs pairs.
-Such models posit the existence of a second Higgs doublet, which implies the existence of five scalar
+posit the existence of a second Higgs doublet. This leads to the existence of five scalar
 particles in the Higgs sector -- roughly, two complex doublets provide eight degrees of freedom, three of 
 which are ``eaten'' by the electroweak bosons, leaving five degrees of freedom which may correspond
 to physical fields.
@@ -37,4 +44,31 @@ to physical fields.
 \todo{check out other theory motivation - there are some good HH talks}
 
 \section{Non-resonant $HH$ Searches}
+Non-resonant $HH$ production is predicted by the Standard Model via the trilinear coupling discussed above,
+as well as via production in a fermion loop. More explicitly, after electroweak symmetry breaking, we have \todo{add Yukawa}
+\begin{align}
+\mathcal{L}_{SM} &\supset -\lambda v^2h^2 - \lambda v h^3 - \frac{1}{4}\lambda h^4\\
+&= -\frac{1}{2}m_{H}^2 - \lambda_{HHH}^{SM}vh^3 - \lambda_{HHHH}^{SM}h^4
+\end{align}
+where $m_{H} = \sqrt{2\lambda v^2}$ so that 
+\begin{equation}
+\lambda_{HHH}^{SM} = \frac{m_{H}^2}{2v^2}.
+\end{equation}
+The mass of the SM Higgs boson has been experimentally measured to be \SI{125}{\GeV} \todo{cite}, and 
+the vacuum expectation value $v=$\SI{246}{\GeV} has a precise determination from the muon lifetime \todo{cite}. 
+This coupling is therefore precisely predicted in the Standard Model, such that an observed deviation from 
+this prediction would be a clear sign of new physics. 
 
+The relevant diagrams for non-resonant $HH$ production are shown in Figure \todo{add diagrams}.
+Notably, the diagrams \emph{interfere} with each other, which can be easily seen by counting the fermion lines.
+\todo{Some good stuff in here https://arxiv.org/pdf/1504.05596.pdf}.
+
+For the searches presented here, the quark couplings to the Higgs are considered to be consistent with the Standard 
+Model value, with measurements of the dominant top Yukawa coupling left to more sensitive direct measurements \todo{cite 
+e.g. https://arxiv.org/pdf/2009.07123.pdf}. Variations of the trilinear coupling away from the Standard 
+Model are considered, however. Such variations are parametrized via 
+\begin{equation}
+\kappa_{\lambda} = \frac{\lambda_{HHH}}{\lambda_{HHH}^{SM}}
+\end{equation}
+where $\lambda_{HHH}$ is a varied coupling, whereas $\lambda_{HHH}^{SM}$ is the Standard Model prediction, given by
+As this variation only impacts the \emph{triangle} diagram, significant and interesting effects are observed due to this interference. Examples of the impact of this tradeoff on the di-Higgs invariant mass are shown in \todo{include plot}. Generally speaking, for positive values of $\kappa_{\lambda}$, more events are predicted at low mass, whereas for negative values of $\kappa_{\lambda}$, more events are predicted at high mass.
