@@ -13,11 +13,56 @@ can be made about the universe. In this chapter, we describe the machines behind
 Hadron Collider and the ATLAS experiment.
 
 \section{The Large Hadron Collider}
+The Large Hadron Collider is a particle accelerator near Geneva, Switzerland, 
+operating at a center of mass energy $\sqrt{s} = \SI{13}{\TeV}$. In broad scope, it is a 
+ring with a 27 kilometer circumference. Hadrons (usually protons or heavy ions) move in two 
+counter-circulating beams, which are made to collide at four collision points at various 
+points on the ring. These four collision points correspond to the four detectors placed 
+around the ring: two ``general purpose'' experiments: ATLAS and CMS; LHCb, focused primarily 
+on flavor physics; and ALICE, focused primarily on heavy ions.
+
+For proton-proton collisions, the focus of this thesis, the acceleration chain proceeds as follows:
+first, and electric field strips hydrogen of its electrons, creating protons. A linear accelerator,
+LINAC 2, accelerates protons to \SI{50}{\MeV}. The resulting beam is injected into the Proton 
+Synchrotron Booster (PSB), which pushes the protons to \SI{1.4}{\GeV}, and then the Proton Synchrotron,
+which brings the beam to \SI{25}{\GeV}.
+
+Protons are then transferred to the Super Proton Synchrotron (SPS), which ramps up the energy to 
+\SI{450}{\GeV}. Finally, the protons enter the LHC itself, bringing the beam up to \SI{6.5}{\TeV}. \todo{cite: https://home.cern/science/accelerators/accelerator-complex}
+
+While there is, of course, much that goes into the Large Hadron Collider development and operation, perhaps
+two of the most fundamental ideas are (1) how are the beams directed and manipulated and (2) what do we 
+mean when we say ``protons are accelerated''. These questions both are directly answered by pieces of hardware,
+namely (1) magnets and (2) radiofrequency (RF) cavities.
+
+One of fundamental components of the LHC is a large set of superconducting magnets \todo{material?}. These 
+are cooled by liquid helium to achieve superconducting temperatures, and there are several types with very 
+specific purposes. The obvious first question with a circular accelerator is how to keep the particle beam 
+moving around in that circle. This job is done via a set of dipole magnets placed around the \emph{beam pipes}: the 
+tubes containing the beam. These are designed such that the magnetic field in the center of the beam pipe runs 
+perpendicular to the velocity of the charged particles, providing the necessary centripetal force for 
+the synchrotron motion.
+
+A proton beam is not made of a single proton, however, but of many protons, grouped into a series of \emph{bunches}.
+As all of these are positively charged, if unchecked, these bunches would become diffuse and break apart. What we 
+want is a stable beam with tightly clustered protons to maximize the chance of a high energy collision.
+Such clustering is done via a series of quadropole magnets, with field distributed as in 
+\todo{grab image from General Exam}. Alternating sets of quadropoles provide the necessary forces for a tight, 
+stable beam. While these are the two major components of the LHC magnet system, it is not the full story -- higher order 
+magnets are used to correct for small imperfections in the beam \todo{expand}.
+
+Magnetic fields do no work, however, so the magnet system is unable to do the job of the actual acceleration. This is 
+accomplished via a set of radiofrequency (RF) cavities. Within these cavities, an electric field is made to 
+oscillate (switch direction) at a precise rate. These rates interact with the beam via in RF \emph{buckets}, with 
+bunches corresponding to groups of protons that fill a given bucket. The timing is such that protons will always 
+experience an accelerating voltage, corresponding to the \SI{25}{\ns} bunch spacing used at the LHC.
+
+A nice property of this bucket/bunch configuration is that there is some self-correction -- there is 
+some finite spread in the grouping of particles. If a particle arrives too early, it will experience some 
+decelerating voltage; if too late, it will experience a higher accelerating voltage.
 
 
 \section{The ATLAS Experiment}
-
-\section{}
 \todo{Straight template copy}
 
 % Footnote with ATLAS coordinate system
