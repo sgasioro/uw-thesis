@@ -163,6 +163,34 @@
       \verb https://cds.cern.ch/record/1095924
       \endverb
     \endentry
+    \entry{PERF-2007-01}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
+           family={{ATLAS Collaboration}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{fullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{bibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \field{extraname}{1}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{hep-ex}
+      \field{journaltitle}{JINST}
+      \field{title}{{The ATLAS Experiment at the CERN Large Hadron Collider}}
+      \field{volume}{3}
+      \field{year}{2008}
+      \field{pages}{S08003}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1088/1748-0221/3/08/S08003
+      \endverb
+    \endentry
     \entry{ShowerImage}{unpublished}{}
       \name{author}{2}{}{%
         {{hash=09e214119185ac51997b4face21351a1}{%
@@ -182,8 +210,8 @@
       \strng{authorbibnamehash}{82c0c43cf344b7cbd7027f43ea1f4e0d}
       \strng{authornamehash}{82c0c43cf344b7cbd7027f43ea1f4e0d}
       \strng{authorfullhash}{82c0c43cf344b7cbd7027f43ea1f4e0d}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{1}
@@ -194,34 +222,6 @@
       \endverb
       \verb{url}
       \verb https://cds.cern.ch/record/1505342
-      \endverb
-    \endentry
-    \entry{PERF-2007-01}{article}{}
-      \name{author}{1}{}{%
-        {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
-           family={{ATLAS Collaboration}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{fullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{bibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \field{extraname}{1}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{hep-ex}
-      \field{journaltitle}{JINST}
-      \field{title}{{The ATLAS Experiment at the CERN Large Hadron Collider}}
-      \field{volume}{3}
-      \field{year}{2008}
-      \field{pages}{S08003}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1088/1748-0221/3/08/S08003
       \endverb
     \endentry
     \entry{ATLAS-TDR-19}{report}{}

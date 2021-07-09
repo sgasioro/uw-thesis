@@ -63,39 +63,50 @@ decelerating voltage; if too late, it will experience a higher accelerating volt
 
 
 \section{The ATLAS Experiment}
-\todo{Straight template copy}
-
-% Footnote with ATLAS coordinate system
-\newcommand{\AtlasCoordFootnote}{%
-ATLAS uses a right-handed coordinate system with its origin at the nominal interaction point (IP)
-in the centre of the detector and the \(z\)-axis along the beam pipe.
-The \(x\)-axis points from the IP to the centre of the LHC ring,
-and the \(y\)-axis points upwards.
-Cylindrical coordinates \((r,\phi)\) are used in the transverse plane, 
-\(\phi\) being the azimuthal angle around the \(z\)-axis.
-The pseudorapidity is defined in terms of the polar angle \(\theta\) as \(\eta = -\ln \tan(\theta/2)\).
-Angular distance is measured in units of \(\Delta R \equiv \sqrt{(\Delta\eta)^{2} + (\Delta\phi)^{2}}\).}
-
+\label{sec:ATLAS}
 
 \begin{figure}[ht]
 \centering
-\subfloat{\label{fig:ATLAS-det}
+\subfloat{
 		  \includegraphics[width=0.8\textwidth]{figures/ATLAS-det.jpeg}
 		 }
-\caption{Diagram of the ATLAS detector \cite{DetectorImage}}
+\caption{Diagram of the ATLAS detector \cite{DetectorImage} \label{fig:ATLAS-det}}
 \end{figure}
+
+This thesis focuses on searches done with the ATLAS experiment. As mentioned, this is 
+one of two ``general purpose'' experiments at the LHC, by which we mean there is a 
+very large and broad variety of physics done within the experimental collaboration. 
+This broad physics focus has a direct relation to the design of the ATLAS detector~\cite{PERF-2007-01}, pictured 
+in Figure \ref{fig:ATLAS-det}, which is composed of a sophisticated set of subsystems designed 
+to fully characterize the physics of a given high energy particle collision. It consists of an inner 
+tracking detector surrounded by a thin superconducting solenoid, electromagnetic and hadronic calorimeters,
+and a muon spectrometer incorporating three large superconducting toroidal magnets. The ATLAS detector 
+covers nearly the entire solid angle around the collision point, fully characterizing the ``visible'' 
+components of a collision and allowing for indirect sensitivity to particles that do not interact with the detector 
+(e.g. neutrinos) via ``missing'' energy (roughly momentum balance). We will go through the design and physics 
+contribution of each of the detector components in the following. A schematic of how various particles 
+interact with the detector is shown in Figure \ref{fig:ATLAS-shower}.
 
 \begin{figure}[ht]
 \centering
-\subfloat{\label{fig:ATLAS-shower}
+\subfloat{
 		  \includegraphics[width=0.8\textwidth]{figures/ATLAS-shower.jpeg}
 		 }
-\caption{Cross section of the ATLAS detector showing how particles interact with various detector components \cite{ShowerImage}}
+\caption{Cross section of the ATLAS detector showing how particles interact with various detector components \cite{ShowerImage} \label{fig:ATLAS-shower}}
 \end{figure}
 
-The ATLAS detector~\cite{PERF-2007-01} at the LHC covers nearly the entire solid angle around the collision point.\footnote{\AtlasCoordFootnote}
-It consists of an inner tracking detector surrounded by a thin superconducting solenoid, electromagnetic and hadron calorimeters,
-and a muon spectrometer incorporating three large superconducting air-core toroidal magnets.
+\subsection{ATLAS Coordinate System} 
+Of relevance for the following discussion, as well as for the analysis presented in Chapter \ref{chap:bbbb},
+is the ATLAS coordinate system. ATLAS uses a right-handed coordinate system with its origin at the nominal 
+interaction point (IP) in the center of the detector and the \(z\)-axis along the beam pipe.
+The \(x\)-axis points from the IP to the centre of the LHC ring, and the \(y\)-axis points upwards.
+Cylindrical coordinates \((r,\phi)\) are used in the transverse plane, \(\phi\) being the azimuthal angle 
+around the \(z\)-axis. The pseudorapidity is defined in terms of the polar angle \(\theta\) as 
+\(\eta = -\ln \tan(\theta/2)\). Angular distance is measured in units of 
+\(\Delta R \equiv \sqrt{(\Delta\eta)^{2} + (\Delta\phi)^{2}}\). These coordinates are shown in Figure 
+\todo{add coordinate figure}
+
+\subsection{Inner Detector}
 
 The inner-detector system (ID) is immersed in a \SI{2}{\tesla} axial magnetic field 
 and provides charged-particle tracking in the range \(|\eta| < 2.5\).
@@ -107,6 +118,7 @@ which enables radially extended track reconstruction up to \(|\eta| = 2.0\).
 The TRT also provides electron identification information 
 based on the fraction of hits (typically 30 in total) above a higher energy-deposit threshold corresponding to transition radiation.
 
+\subsection{Calorimeter}
 The calorimeter system covers the pseudorapidity range \(|\eta| < 4.9\).
 Within the region \(|\eta|< 3.2\), electromagnetic calorimetry is provided by barrel and 
 endcap high-granularity lead/liquid-argon (LAr) calorimeters,
@@ -117,6 +129,7 @@ segmented into three barrel structures within \(|\eta| < 1.7\), and two copper/L
 The solid angle coverage is completed with forward copper/LAr and tungsten/LAr calorimeter modules
 optimised for electromagnetic and hadronic energy measurements respectively.
 
+\subsection{Muon Spectrometer}
 The muon spectrometer (MS) comprises separate trigger and
 high-precision tracking chambers measuring the deflection of muons in a magnetic field generated by the superconducting air-core toroidal magnets.
 The field integral of the toroids ranges between \num{2.0} and \SI{6.0}{\tesla\metre}
@@ -125,6 +138,7 @@ A set of precision chambers covers the region \(|\eta| < 2.7\) with three layers
 complemented by cathode-strip chambers in the forward region, where the background is highest.
 The muon trigger system covers the range \(|\eta| < 2.4\) with resistive-plate chambers in the barrel, and thin-gap chambers in the endcap regions.
 
+\subsection{Triggering}
 Interesting events are selected by the first-level trigger system implemented in custom hardware,
 followed by selections made by algorithms implemented in software in the high-level trigger~\cite{TRIG-2016-01}. 
 The first-level trigger accepts events from the \SI{40}{\MHz} bunch crossings at a rate below \SI{100}{\kHz},
