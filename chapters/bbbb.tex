@@ -243,7 +243,33 @@ because the selection is not designed to maximize the signal (e.g. $2b$ events).
 part of the selection, it must still be run on such events, such that various algorithms which achieve similar
 performance in terms of pairing efficiency may have vastly different impacts in terms of the shape of the background
 and the biases inherent in the background estimation procedure. The interplay between these two facets of the 
-pairing is an important part of the choices made for this analysis.\todo{compare massplanes}
+pairing is an important part of the choices made for this analysis.
+
+A comparison of different shapes due to three different paring strategies is shown in
+Figure \ref{fig:pairing-massplanes}.
+
+
+\begin{figure}[ht]
+\label{fig:pairing-massplanes}
+\centering
+\subfloat[BDT pairing]{\label{fig:BDT-massplane}
+		  \includegraphics[width=0.48\textwidth]{figures/BDT-pairing-2b-massplane.png}
+		 }
+\subfloat[$\min\Delta R$ pairing]{\label{fig:mindR-massplane}
+		  \includegraphics[width=0.48\textwidth]{figures/mindR-pairing-2b-massplane.png}
+		 }
+
+\subfloat[$D_{HH}$ pairing]{\label{fig:DHH-massplane}
+		  \includegraphics[width=0.48\textwidth]{figures/DHH-pairing-2b-massplane.png}
+		 }
+\caption{Comparison of $m_{H1}$ vs $m_{H2}$ planes for the full Run 2 $2b$ dataset with different 
+ pairings. As evidenced, this choice significantly impacts where events fall in this plane, and therefore
+ which events fall into the various kinematic regions defined in this plane (see Section \ref{sec:kinematic-reg}).
+ Respective signal regions are shown for reference, with the $\min\Delta R$ signal region shifted slightly up and 
+ to the right to match the non-resonant selection. Note that the band structure around \SI{80}{\GeV} in both 
+ $m_{H1}$ and $m_{H2}$ is introduced by the top veto described in Section \ref{sec:kinematic-cuts}.}
+\end{figure}
+
 
 \subsection{Resonant Pairing Strategy}
 
@@ -312,8 +338,10 @@ has the strongest contribution near the Standard Model, however, and is optimize
 Further, because of the large low mass background, the loss of significance is mitigated.
 This approach is thus adopted for the non-resonant search.
 
-
+\FloatBarrier
+\clearpage
 \section{Background Reduction and Top Veto}
+\label{sec:kinematic-cuts}
 
 Choosing a pairing of the four b-tagged jets fully defines the di-Higgs candidate system used for each event in the remainder of the analysis chain. A requirement of
 $\abs{\Delta\eta_{\higgs\higgs}} < 1.5$ on this di-Higgs candidate system mitigates
@@ -359,7 +387,10 @@ considered in lower tag regions, in particular for the $2b$ events considered in
 of the background estimate. Such a change is found to reduce the impact of background systematics
 by increasing $2b$ support in the high $X_{\PW\Pqt}$ kinematic region. \todo{Insert plot}
 
+\FloatBarrier
+\clearpage
 \section{Kinematic Region Definition}
+\label{sec:kinematic-reg}
 As has been mentioned, an important piece of the analysis is the plane defined by the 
 two Higgs candidate masses (the \emph{Higgs candidate mass plane}). After the selection
 described above, a signal region is defined by requiring $X_{\higgs\higgs} < 1.6$, where:
@@ -463,6 +494,8 @@ purity regions (highest purity near $X_{HH} = 0$, the center of the signal regio
 Distributions of these variables are shown in \todo{plots}
 
 
+\FloatBarrier
+\clearpage
 \section{Background Estimation}
 After the event selection described in Section \ref{sec:selection} there are
 two major backgrounds, QCD and \ttbar. A very similar approach is used 
@@ -666,6 +699,8 @@ such that categorizing by year is expected to reflect groupings of kinematically
 to provide a meaningful degree of freedom in the signal extraction fit, the split-year approach is
 kept.
 
+\FloatBarrier
+\clearpage
 \section{Uncertainties}
 A variety of uncertainties are assigned to account for known biases in the
 underlying methods, calibrations, and objects used for this analysis. The
@@ -856,10 +891,6 @@ A systematic related to the PtReco \bjet energy correction has been studied in t
 to be negligible compared to \code{JER}. Following this example, such a systematic is 
 therefore neglected here.
 
-The pulls and impacts of these uncertainties on the statistical analysis are shown
-in Section~\ref{sec:stat-pull-impact}.
-
-\FloatBarrier
 \subsection{Trigger Uncertainties}
 Trigger uncertainties stem from imperfect knowledge of the ratio between the
 efficiency of a given trigger in data to its efficiency in Monte Carlo
@@ -920,6 +951,8 @@ out statistical fluctuations and allows interpolation between the generated mass
 
 \todo{add non-res ones}
 
+\FloatBarrier
+\clearpage
 \section{Background Validation}
 In addition to checking the performance of the background estimate in the control and 
 validation regions, a variety of alternative selections are defined to allow for a 
@@ -944,6 +977,8 @@ background estimate.
 
 Results are shown in \todo{add figures}
 
+\FloatBarrier
+\clearpage
 \section{Overview of Other \bbbb Channels}
 The results discussed above have been developed in conjunction with (1) a boosted channel 
 for the resonant search and (2) a vector boson fusion (VBF) channel for the non-resonant search. 
@@ -996,6 +1031,8 @@ kinematic selections and the categorization.
 Note that the background estimation is inherited from the resonant and ggF analyses, 
 an ancillary, but significant, contribution of this thesis work.
 
+\FloatBarrier
+\clearpage
 \section{Statistical Analysis}
 The resonant analysis is used to set a 95\% confidence level upper limit on the
 \HepProcess{\Pp \Pp \to \PScal \to \higgs \higgs \to \Pqb \Paqb \Pqb \Paqb} and
@@ -1036,5 +1073,6 @@ where the $p$-values are calculated in the asymptotic approximation
 
 The signal cross-section {$\mu$}~\si{\femto\barn} is excluded at the 95\% confidence level if $\CLs < 0.05$.
 
-
+\FloatBarrier
+\clearpage
 \section{Results}
