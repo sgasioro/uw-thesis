@@ -113,7 +113,7 @@ described in \Sect{\ref{sec:bkgdestimation}}.
 
 The scalar resonance signal model is simulated at leading order in \alphas using
 \MADGRAPH\cite{MG5}. Hadronization and parton showering are done using
-\HERWIGV{7}~\cite{Herwig7}\cite{HerwigPP} with \textsc{EvtGen}~\cite{EvtGen},
+\HERWIG[7]~\cite{Herwig7}\cite{HerwigPP} with \textsc{EvtGen}~\cite{EvtGen},
 and the nominal PDF is NNPDF 2.3 LO. In practice this is implemented as a two
 Higgs doublet model where the new neutral scalar is produced through gluon
 fusion and required to decay to a pair of SM Higgs bosons. The heavy scalar is
@@ -132,7 +132,7 @@ simulation in these two regimes.
 
 The spin-2 resonance signal model is also simulated at LO in \alphas using
 \MADGRAPH. Hadronization and parton showering are done using
-\PYTHIAV{8}~\cite{Pythia} with \textsc{EvtGen}, and the nominal PDF is NNPDF 2.3
+\PYTHIA[8]~\cite{Pythia} with \textsc{EvtGen}, and the nominal PDF is NNPDF 2.3
 LO. In practice this is implemented as a Randall-Sundrum graviton with $c=1.0$.
 
 Spin-2 resonance samples are produced at masses between \SIlist{251;5000}{\GeV}, 
@@ -141,9 +141,9 @@ and these samples are all produced with full detector simulation.
 For the non-resonant search, samples are produced at values of $\kappa_{\lambda} = 1.0$ and $10.0$, and are simulated
 using \POWHEGBOX v2 generator~\cite{Powheg1, Powheg2, Powheg3} at next-to-leading order (NLO), with full 
 NLO corrections with finite top mass, using the PDF4LHC~\cite{Butterworth:2015oua} parton distribution 
-function (PDF) set. Parton showers and hadronization are simulated with \PYTHIAV{8}.
+function (PDF) set. Parton showers and hadronization are simulated with \PYTHIA[8].
 
-Alternative ggF samples are simulated at NLO using \POWHEGBOX v2, but instead using \Herwig7~\cite{Herwigpp} 
+Alternative ggF samples are simulated at NLO using \POWHEGBOX v2, but instead using \HERWIG[7]~\cite{Herwigpp} 
 for parton showering and hadronization. The comparison between these two is used to assess an uncertainty 
 on the parton showering.
 

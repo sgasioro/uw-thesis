@@ -23,7 +23,11 @@ quarks. A hard scatter event is therefore characterized by the corresponding par
 diagrams, but additionally by a set of \emph{parton distribution functions} (PDFs), which describe the 
 probablity to find constituent quarks or gluons at carrying various momenta at a given energy 
 scale (often written $Q^2$). Such PDFs are measured experimentally \todo{cite} and the selection 
-of a ``PDF set'' and a given physics process characterizes the hard scatter.
+of a ``PDF set'' and a given physics process characterizes the hard scatter. Depending on the model being 
+considered and the particular theoretical constraints, processes are often simulated at either leading (LO) 
+or next to leading order (NLO), corresponding to the order of the perturbative expansion (i.e. tree level 
+or 1 loop diagrams). Various additional tools are developed for such NLO calculations, 
+including \POWHEGBOX v2~\cite{Powheg1, Powheg2, Powheg3}, which is used for this thesis.
 
 The hard scatter is not the only component of a given collider event, however. Incoming and outgoing 
 particles are themselves very energetic and may radiate particles along their trajectory. In particular,
@@ -31,12 +35,12 @@ gluons, which have a self-interaction term as described in Chapter \ref{chap:int
 which subesquently themselves radiate gluons or decay to quarks which can also radiate gluons, in a 
 whole mess of QCD that both contributes to the particle content of a collider event and is not directly 
 described by the hard scatter. This cascade, called a \emph{parton shower}, has a dedicated set of simulation
-tools, commonly \HERWIGV{7}~\cite{Herwig7}\cite{HerwigPP} and \PYTHIAV{8}~\cite{Pythia}, which interface with 
+tools, commonly \HERWIG[7]~\cite{Herwig7}\cite{HerwigPP} and \PYTHIA[8]~\cite{Pythia}, which interface with 
 tools such as \MADGRAPH for simulation. 
 
 Due to color confinement (Chapter \ref{chap:intro-SM}), quarks and gluons cannot be observed free particles, but 
 rather undergo a process called hadronization, in which they are grouped into colorless hadrons (e.g. \emph{mesons},
-consisting of one quark and one antiquark). In simulation, this is also handled with \HERWIGV{7} and \PYTHIAV{8}.
+consisting of one quark and one antiquark). In simulation, this is also handled with \HERWIG[7] and \PYTHIA[8].
 
 The physics of \Pqb-quarks is quite important for a variety of searches for new physics and measurements of 
 the Standard Model, including this thesis work \todo{ref flavor tagging sec?}. Correspondingly, the decay of ``heavy flavor'' particles 
@@ -46,4 +50,11 @@ a dedicated simulation tool, \textsc{EvtGen}~\cite{EvtGen}, is used for such pro
 \todo{add nice parton shower image}
 
 \section{Detector Simulation}
-\todo{describe showering in detector section}
+Event generation provides a full description of the particle content of a given collider event. In reality, however, we 
+do not have access to such a description, and must rely on physical detectors to collect information about said particle 
+content. The design and components of the ATLAS detector are described in Chapter \ref{chap:intro-exp}. 
+As mentioned, this quickly becomes complicated -- there are a variety of different materials and subdetectors, each with 
+particular configurations and resolutions. Interactions of particles with the detector materials can cause, e.g., showering, and such showers must be simulated and characterized. 
+
+In ATLAS, the \GEANT~\cite{GEANT4} simulation toolkit is used 
+
