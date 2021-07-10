@@ -1,2 +1,49 @@
 \chapter{Simulation}
 \label{chap:simulation}
+
+Simulated physics samples are a core piece of the physics output of the Large Hadron Collider, 
+providing a map from a physics theory into what is observed in our detector. This is crucial for 
+searches for new physics, where simulation is necessary to describe what a given signal model looks 
+like, but also extremely valuable for describing the physics of the Standard Model, providing detailed 
+predictions of background processes for use in everything from designing simple cuts to training 
+multivariate discriminators. Broadly, simulation can be split into two stages: \emph{event generation}, in which 
+physics theory is used to generate a description of particles present after a proton-proton collision, and 
+\emph{detector simulation}, which passes this particle description through a simulation of the detector 
+material, providing a view of the physics event as it would be seen in ATLAS data. Such simulation 
+is often called Monte Carlo in reference to the underlying mathematical framework, which relies on random 
+sampling. 
+
+\section{Event Generation}
+A variety of tools are used to simulate various aspects of event generation. \MADGRAPH\cite{MG5} 
+is commonly used for the generation of the ``hard scatter'' event, i.e., two protons collide and 
+some desired physics process happens. In practice, this is not quite as simple as two quarks or 
+gluons interacting. Protons are composed of three ``valence'' quarks with various momenta interacting 
+with each other via exchange of gluons, but also a sea of virtual gluons which may decay into other
+quarks. A hard scatter event is therefore characterized by the corresponding particle level 
+diagrams, but additionally by a set of \emph{parton distribution functions} (PDFs), which describe the 
+probablity to find constituent quarks or gluons at carrying various momenta at a given energy 
+scale (often written $Q^2$). Such PDFs are measured experimentally \todo{cite} and the selection 
+of a ``PDF set'' and a given physics process characterizes the hard scatter.
+
+The hard scatter is not the only component of a given collider event, however. Incoming and outgoing 
+particles are themselves very energetic and may radiate particles along their trajectory. In particular,
+gluons, which have a self-interaction term as described in Chapter \ref{chap:intro-SM}, may be radiated,  
+which subesquently themselves radiate gluons or decay to quarks which can also radiate gluons, in a 
+whole mess of QCD that both contributes to the particle content of a collider event and is not directly 
+described by the hard scatter. This cascade, called a \emph{parton shower}, has a dedicated set of simulation
+tools, commonly \HERWIGV{7}~\cite{Herwig7}\cite{HerwigPP} and \PYTHIAV{8}~\cite{Pythia}, which interface with 
+tools such as \MADGRAPH for simulation. 
+
+Due to color confinement (Chapter \ref{chap:intro-SM}), quarks and gluons cannot be observed free particles, but 
+rather undergo a process called hadronization, in which they are grouped into colorless hadrons (e.g. \emph{mesons},
+consisting of one quark and one antiquark). In simulation, this is also handled with \HERWIGV{7} and \PYTHIAV{8}.
+
+The physics of \Pqb-quarks is quite important for a variety of searches for new physics and measurements of 
+the Standard Model, including this thesis work \todo{ref flavor tagging sec?}. Correspondingly, the decay of ``heavy flavor'' particles 
+(e.g. $B$ and $D$ mesons, containing $b$ and $c$ quarks respectively) has been very well studied, and 
+a dedicated simulation tool, \textsc{EvtGen}~\cite{EvtGen}, is used for such processes.
+
+\todo{add nice parton shower image}
+
+\section{Detector Simulation}
+\todo{describe showering in detector section}
