@@ -52,9 +52,165 @@ a dedicated simulation tool, \textsc{EvtGen}~\cite{EvtGen}, is used for such pro
 \section{Detector Simulation}
 Event generation provides a full description of the particle content of a given collider event. In reality, however, we 
 do not have access to such a description, and must rely on physical detectors to collect information about said particle 
-content. The design and components of the ATLAS detector are described in Chapter \ref{chap:intro-exp}. 
-As mentioned, this quickly becomes complicated -- there are a variety of different materials and subdetectors, each with 
-particular configurations and resolutions. Interactions of particles with the detector materials can cause, e.g., showering, and such showers must be simulated and characterized. 
+content. The design and components of the ATLAS detector are described in Chapter \ref{chap:experiment}. 
+Simulation of this detector quickly becomes complicated -- there are a variety of different materials and subdetectors, each with particular configurations and resolutions. Interactions of particles with the detector materials can cause showering, and such showers must be simulated and characterized. 
 
-In ATLAS, the \GEANT~\cite{GEANT4} simulation toolkit is used 
+In ATLAS, the \GEANT~\cite{GEANT4} simulation toolkit is used for detailed simulation of the ATLAS detector, often 
+referred to as \emph{full simulation}. The method can be thought of as proceeding step by step as a particle moves 
+through the detector, simulating the interaction of the material at each stage, and following each branch of each resulting 
+shower with a similarly detailed step by step simulation. 
+
+This type of simulation is very computationally intensive, especially in the calorimeter, which has a high density of 
+material, leading to an extremely large set of material interactions to simulate. There is correspondingly a large 
+effort within ATLAS to develop techniques to decrease the computational load -- these techniques will be of increasing 
+importance for Run 3 and the HL-LHC \todo{include classic budget plot}.
+
+The fast simulation used for this thesis, AtlFast-II~\cite{SOFT-2010-01}, is one such technique, which uses
+a parametrized simulation of the calorimeter, called FastCaloSim, in conjunction with full simulation of the 
+inner detector, to achieve an order of magnitude speed up in simulation time. This parametrized simulation uses 
+a simplified detector geometry, in conjunction with a simulation of particle shower development based on statistical 
+sampling of distributions from fully simulated events, to massively speed up simulation time and computational load.
+
+Such a speed up comes at a bit of a cost in performance. In particular, the modeling of jet substructure (see Chapter 
+\ref{chap:reconstruction}) historically has been an issue for FastCaloSim. The ATLAS authorship qualification work 
+supporting this thesis is an effort to improve such modeling, and is part of a suite of updates being considered for 
+a new fast simulation targeting Run 3. We briefly describe this work in the following.
+
+\section{Correlated Fluctuations in FastCaloSim}
+A variety of developments have been made to FastCaloSim, improving on the version used 
+for AtlFast-II. This new fast calorimeter simulation~\cite{ATL-SOFT-PUB-2018-002} is largely 
+based on two components: one which describes the \emph{total energy} deposited in each calorimeter layer as a 
+shower moves from the interaction point outward, and one which describes the \emph{shape}, i.e., the 
+pattern of energy deposits, of a shower in each respective calorimeter layer. Both methods are 
+parametrizations of the full simulation, and therefore are considered to be performing well if 
+they are able to reproduce corresponding full simulation distributions. Of course, directly sampling 
+from a library of showers would identically reproduce such distributions -- however a statistical 
+sampling of various shower \emph{properties} provides much more generality in the simulation.
+
+For the simulation of total energy in each given layer, the primary challenge is that such energy deposits are highly correlated. The new FastCaloSim thus relies on a technique called Principal Component Analysis (PCA) \todo{cite https://root.cern.ch/doc/master/classTPrincipal.html} to de-correlate the layers, aiding parametrisation.
+
+The PCA chain transforms $N$ energy inputs into $N$ Gaussians and projects these Gaussians onto the eigenvectors of the corresponding covariance matrix. This results in $N$ de-correlated components, as the eigenvectors are orthogonal. The component of the PCA decomposition with the largest corresponding eigenvalue is then used to define bins, in which showers demonstrate similar patterns of energy deposition across the calorimeter layers. To further de-correlate the inputs, the PCA chain is repeated on the showers within each such bin. This full process is reversed for the particle simulation. A full description of the method can be found in \cite{ATL-SOFT-PUB-2018-002}.
+
+Modeling of the lateral shower shape makes use of 2D histograms filled with \GEANT hit energies in each layer and PCA bin.
+Binned in polar $\alpha-R$ coordinates in a local plane tangential to the surface of the calorimeter system, these histograms 
+represent the spatial distribution of energy deposits for a given particle shower. Such histograms are constructed for a 
+number of Geant4 events, and the histograms for each event are normalized to total energy deposited in the given layer. The 
+average of these histograms is then taken (what is called here the ``average shape'').
+
+In simulation, these average shape histograms are used as probability distributions, from which a finite number of equal 
+energy hits are drawn. This finite drawing of hits induces a statistical fluctuation about the average shape which is tuned 
+to match the expected calorimeter sampling uncertainty.
+
+As an example, the intrinsic resolution of the ATLAS Liquid Argon calorimeter has a sampling term of 
+$\sigma_{\text{samp}} \approx 10\%/\sqrt{E}$ \cite{SamplingCalo}. The number of hits to be drawn for each layer, 
+$N_{\text{hits}}^{\text{layer}}$, is thus taken from a Poisson distribution with mean $1/\sigma_{\text{samp}}^2$, where the 
+energy assigned to each hit is then just $E_{\text{hit}} = \frac{E_{\text{layer}}}{N_{\text{hits}}^{\text{layer}}}$. This 
+induces a fluctuation of the order of $10\%/\sqrt{E_{\text{bin}}}$ for each bin in the average shape.
+
+Figure \ref{fig-1} shows a comparison of energy and weta2~\cite{ATLAS-CONF-2010-077}, defined as the energy weighted lateral width of a 
+shower in the second electromagnetic calorimeter layer, for 16 GeV photons simulated with the new FastCaloSim and with full 
+\GEANT simulation. The agreement is quite good, with FastCaloSim matching the Geant4 mean to within 0.3 and 0.03 percent 
+respectively. Similar results are seen for other photon energies and $\eta$ points.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/CHEP-photon-energy.pdf}
+\includegraphics[width=0.48\textwidth]{figures/CHEP-photon-weta2.pdf}
+\caption{Energy and lateral shower width variable, weta2, for 16 GeV photons with full simulation (G4) and FastCaloSimV2 (FCSV2) \cite{ATL-SOFT-PUB-2018-002}.}
+\label{fig-1} 
+\end{figure}
+
+
+\subsection{Fluctuation Modeling}
+\label{fluct-modeling}
+Figure \ref{fig-2} shows the ratio of calorimeter cell energies for single \GEANT photon and pion events to the corresponding 
+cell energies in their respective average shapes. While the photon event is quite close to the corresponding average, the 
+pion event shows a deviation from the average which is much larger and has a non-trivial structure, reflecting the different 
+natures of electromagnetic and hadronic showering.
+
+While the shape parametrization described above is thus sufficient for describing electromagnetic showers, we will demonstrate below that it is not sufficient for describing hadronic showers (Figures \ref{fig-5} and \ref{fig-6}). We therefore present and validate methods to improve this hadronic shower modeling.
+
+\begin{figure}[ht!]
+% Use the relevant command for your figure-insertion program
+% to insert the figure file.
+\centering
+\includegraphics[width=0.7\textwidth]{figures/approved-example-pion-photon-ave-ratios-ATLASstyle.pdf}
+\caption{Example of photon and pion average shapes in 5 $\times$ 5 calorimeter cells. The left column shows the average shape over a sample of 10000 events, while the right column shows the energy ratio, in each cell, of single \GEANT events with respect to this average. The photon ratios are all close to 1, while the pion ratios show significant deviation from the average.}
+\label{fig-2}       % Give a unique label
+\end{figure}
+
+Two methods for modeling deviations from the average shape have been studied: 
+(1) a neural network based approach using a Variational 
+Autoencoder (VAE) \cite{VAE} and (2) a map through cumulative distributions to an $n$-dimensional Gaussian. 
+With both methods, the shape simulation then proceeds as described in Section \ref{shapepara}, with the drawing of hits 
+according to the average shape. However, these hits no longer have equal energy, but have weights applied to increase or 
+decrease their energy depending on their spatial position. This application of weights is designed to mimic a realistic 
+shower structure and to encode correlations between energy deposits.
+
+Both methods are trained on ratios of energy in binned units called voxels. This voxelization is performed in the same polar 
+$\alpha-R$ coordinates as the average shape, with a 5 mm core in $R$ and 20 mm binning thereafter. There are a total of 8 
+$\alpha$ bins from 0 to $2\pi$ and 8 additional $R$ bins from 5 mm to 165 mm. The 5 mm core is filled with the average value 
+of core voxels across the 8 $\alpha$ bins when creating the parametrisation. However, during simulation, each of these 8 core 
+bins is treated independently. The outputs of both methods mimic these energy ratios and are used in the shape simulation as 
+the weights described above. In contrast to an approach based on, e.g., calorimeter cells, using voxels allows for 
+flexibility in tuning the binning used in creating the parametrisation. Further, due to their relatively large size, using 
+calorimeter cells is subject to ``edge effects'', where the splitting of energy between cells has a non-trivial effect on the 
+observed energy ratio. The binning used here is of the order of half of a cell size, mitigating this effect.
+
+The Gaussian method operates by using cumulative distributions to map \GEANT energy ratios to a multidimensional Gaussian 
+distribution. New events are generated by randomly sampling from this Gaussian distribution.
+
+For the VAE method, a system of two linked neural networks is trained to generate events. The first ``encoder'' neural 
+network maps input \GEANT energy ratios to a lower dimensional latent space. A second ``decoder'' neural network then samples 
+from that latent space and tries to reproduce the inputs. In simulation, events are generated by taking random samples from 
+the latent space and passing them through the trained decoder.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/FCS-fig-02.pdf}
+\caption{Distribution of the ratio of voxel energy in single events to the corresponding voxel energy in the average shape, with \GEANT events in blue and Gaussian model events in orange, for 65 GeV central pions in EMB2. Moving top to bottom corresponds to increasing $\alpha$, left to right corresponds to increasing $R$, with core voxels numbered 1, 10, 19, \ldots. Agreement is quite good across all voxels. Results are similar for the VAE method.}
+\label{fig-3}       % Give a unique label
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/FCS-fig-01-new.pdf}
+\caption{Correlation coefficient of ratios of voxel energy in single events to the corresponding voxel energy in the average shape, examined between the core bin from $\alpha = 0$ to $2\pi/8$ and each of the other voxels. The periodic structure represents the binning in $\alpha$, and the increasing numbers in each of these periods correspond to increasing $R$, where the eight points with correlation coefficient 1 are the eight core bins. Both the Gaussian and VAE generated toy events are able to reproduce the major correlation structures for 65 GeV central pions in EMB2.}
+\label{fig-4}       % Give a unique label
+\end{figure}
+
+Figure \ref{fig-3} shows the distributions of input \GEANT and Gaussian method generated energy ratios in the grid of voxels. Figure \ref{fig-4} shows the correlation coefficient between the center voxel from $\alpha = 0$ to $2\pi/8$ for input \GEANT and the Gaussian and VAE fluctuation methods. Agreement is good throughout. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-03.pdf}
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-04.pdf}
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-05.pdf}
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-06.pdf}
+\caption{Comparison of the RMS fluctuations about the average shape with the Gaussian fluctuation model (red), the VAE fluctuation model (green), and without correlated fluctuations (blue) for a range of pion energies, $\eta$ points, and layers.}
+\label{fig-5} 
+\end{figure}
+
+Validation of the Gaussian and VAE fluctuation methods was performed within FastCaloSimV2. Figure \ref{fig-5} shows the energy ratio of cells for a given simulation to the corresponding cells in the average shape as a function of the distance from the shower center. The mean for all simulation methods is expected to be around 1, with deviation from the average (the RMS fluctuation) shown by the error bars. The Gaussian method RMS (red) and VAE method RMS (green) both match the \GEANT RMS (yellow) better than the case without correlated fluctuations (blue) for a variety of energies, $\eta$ points, and layers, often reproducing $80 - 100\,\%$ of the \GEANT RMS magnitude, compared to the $5 - 30\,\%$ observed in the no correlated fluctuations case.
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-07.pdf}
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-08.pdf}
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-10.pdf}
+\includegraphics[width=0.48\textwidth]{figures/FCS-fig-11.pdf}
+\caption{Comparison of the Gaussian fluctuation model to the default FCSV2 version and to G4 simulation, using pions of 65 GeV energy and $0.2 < |\eta| < 0.25$. With the correlated fluctuations, several shape variables demonstrate improved modeling.}
+\label{fig-6} 
+\end{figure}
+
+
+Figure \ref{fig-6} shows the result of a simulation with full ATLAS reconstruction for 65 GeV central pions with the Gaussian fluctuation model. The simulation with the Gaussian fluctuation model demonstrates improved modeling of several shape variables relative to baseline FastCaloSimV2, reproducing the distributions of events simulated with \GEANT.
+
+The new fast calorimeter simulation is a crucial part of the future of simulation for the ATLAS Experiment at the LHC. 
+The per event simulation time of the full detector with \GEANT, calculated over 100 $t\bar{t}$ events, is 228.9 s. 
+Using FastCaloSim for the calorimeter simulation reduces this to 26.6 s, of which FastCaloSim itself is only 0.015 s. 
+Good physics modeling is achieved, the correlated fluctuations method shows good proof of concept improvement for 
+the modeling of hadronic showers.
+
+
+
 
