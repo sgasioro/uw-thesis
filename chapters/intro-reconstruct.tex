@@ -67,8 +67,55 @@ with a set of associated variables and tools developed for exploiting this struc
  
 \section{Flavor Tagging}
 For this this thesis, the physics process being considered is $HH\rightarrow \bbbb$. From the previous section, we 
-know that the standard practice is to identify these $b$ quarks (or, rather, the resulting $B$ hadrons, due to confinement) with jets -- in our case, $R=0.4$ anti-$k_{T}$ particle flow jets (see Chapter \ref{chap:bbbb}). However, there are many 
-types of jets that may be produced at the LHC
+know that the standard practice is to identify these $b$ quarks (or, rather, the resulting $B$ hadrons, due to confinement) 
+with jets -- in our case, these \emph{$b$-jets} are R=0.4 anti-$k_{T}$ particle flow jets (see Chapter \ref{chap:bbbb}). 
+However, not all jets produced at the LHC are from $B$ hadrons; rather, there are a variety of different types of jets 
+corresponding to different flavors of quarks. These are often classified as light jets (from $u$, $d$, or $s$ quarks, or 
+gluons) or as other \emph{heavy flavor} jets, e.g. $c$-jets, involving $c$ quarks. Distinguishing between these different 
+categories is a very active area of work in ATLAS, termed \emph{flavor tagging}, with much focus on \emph{$b$-tagging} in 
+particular, that is, the identification of jets from $B$ hadron decays. We here briefly describe the techniques used 
+for flavor tagging in ATLAS.
+
+What distinguishes a $b$-jet from any other jet? This question is fundamental to the design of the various $b$-tagging 
+algorithms, and has two major answers: (1) $B$ hadrons have long lifetimes, and (2) $B$ hadrons have large masses. 
+It is most illustrative to compare the $B$ hadron properties to a common light meson, e.g. $\pi^{0}$, the neutral 
+pion, with quark content $\frac{1}{\sqrt{2}}(u\bar{u}-d\bar{d})$. $B$ hadrons have lifetimes around \SI{1.5}{\ps},
+corresponding to a decay length $c\tau\approx 0.45$mm. In contrast, $\pi^0$ has a lifetime of $8.4\times 10^{-5}$ps, 
+which is around 20,000 times shorter! Theoretically, this comes from CKM suppresion of the $b$ to $c$ transition \todo{check}, which dominates the $B$ decay modes. Experimentally, this difference pops up as shown in 
+Figure \ref{fig:bjet-diagram} -- light flavor initiated jets decay almost immediately at the proton-proton 
+interaction point, whereas b-jets are distinguished by a displaced secondary vertex, corresponding to the 5 mm decay 
+length calculated above.
+
+\begin{figure}[ht]
+\label{fig:bjet-diagram}
+\centering
+\includegraphics[width=0.8\textwidth]{figures/bjet-diagram.pdf}
+\caption{Illustration of an interaction producing two light jets and one $b$-jet. While the light jets 
+decay ``promptly'', coinciding with the primary vertex of the proton-proton interaction, the longer lifetime of 
+$B$ hadrons leads to a secondary decay vertex, displaced from the primary vertex by length $L_{xy}$. This is 
+typically a few mm, and therefore is not directly visible in the detector, but leads to a large transverse impact 
+parameter, $d_{0}$, for the resulting tracks~\cite{bjettrigger}}
+\end{figure}
+
+Coming to the mass, $B$ mesons have masses of around \SI{5.2}{\GeV}, whereas the $\pi^{0}$ mass is around \SI{0.134}{\GeV},
+(around 40 times lighter). This higher mass gives access to a larger decay phase space, leading to a high multiplicity 
+for $b$-jets (average of 5 charged particles per decay).
+
+One final distinguishing feature of $B$ hadrons is their \emph{fragmentation function}, a function describing the 
+production of an observed final state. For $B$ hadrons, this is particularly ``hard'', with the $B$ hadrons themselves 
+contributing to an average of around 75~\% of the $b$-jet energy. Thus, the identification of $b$-jets with $B$ hadrons 
+is, in some sense, descriptive.
+
+We have contrasted $b$-jets and light jets, demonstrating that there are several handles available for making this 
+distinction. $c$-jets are slightly more similar to $b$-jets, but the same handles still apply -- $c$-hadron lifetimes are
+between \SIlist{0.5;1}{\ps}, a factor of 2 smaller than $B$ hadrons. Their mass is around \SI{1.9}{\GeV}, 2 to 3 times 
+smaller than $B$ hadrons, and $c$-hadrons contribute to an average of around 55~\% of $c$-jet energy. Therefore, while 
+the gap is slightly smaller, a distinction may still be made.
+
+The ATLAS flavor tagging framework~\cite{FTAG-2018-01} relies on developing a suite of low level taggers and 
+aggregating the results of these low level taggers into a high level discriminant. We discuss each component of 
+this in the following.
+
 
 
 

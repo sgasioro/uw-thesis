@@ -51,8 +51,8 @@
       \strng{authorbibnamehash}{36cb1bc6c27b471ec71c4d73d82e6003}
       \strng{authornamehash}{4a3cb7c170d020fa1c3233336f880c28}
       \strng{authorfullhash}{36cb1bc6c27b471ec71c4d73d82e6003}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issue}{3}
@@ -112,8 +112,8 @@
       \strng{authorbibnamehash}{68804c4d6b2da67488ae198916a984b5}
       \strng{authornamehash}{68804c4d6b2da67488ae198916a984b5}
       \strng{authorfullhash}{396dd7ed4cf0ff5991ad444b50edfaef}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0370-1573}
@@ -149,8 +149,8 @@
       \strng{authorbibnamehash}{09e214119185ac51997b4face21351a1}
       \strng{authornamehash}{09e214119185ac51997b4face21351a1}
       \strng{authorfullhash}{09e214119185ac51997b4face21351a1}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{3}
@@ -176,8 +176,8 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{1}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -210,8 +210,8 @@
       \strng{authorbibnamehash}{82c0c43cf344b7cbd7027f43ea1f4e0d}
       \strng{authornamehash}{82c0c43cf344b7cbd7027f43ea1f4e0d}
       \strng{authorfullhash}{82c0c43cf344b7cbd7027f43ea1f4e0d}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{1}
@@ -837,8 +837,8 @@
       \strng{authorbibnamehash}{a715e86dac9869f4a0f8dfc641c3d806}
       \strng{authornamehash}{a715e86dac9869f4a0f8dfc641c3d806}
       \strng{authorfullhash}{a715e86dac9869f4a0f8dfc641c3d806}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -1740,8 +1740,8 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{8}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -1910,7 +1910,33 @@
       \verb http://dx.doi.org/10.1140/epjc/s10052-010-1314-6
       \endverb
     \endentry
-    \entry{HIGG-2016-27}{article}{}
+    \entry{bjettrigger}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a3364242a05dc5a80a93fa55804031af}{%
+           family={Collaboration},
+           familyi={C\bibinitperiod},
+           given={ATLAS},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a3364242a05dc5a80a93fa55804031af}
+      \strng{fullhash}{a3364242a05dc5a80a93fa55804031af}
+      \strng{bibnamehash}{a3364242a05dc5a80a93fa55804031af}
+      \strng{authorbibnamehash}{a3364242a05dc5a80a93fa55804031af}
+      \strng{authornamehash}{a3364242a05dc5a80a93fa55804031af}
+      \strng{authorfullhash}{a3364242a05dc5a80a93fa55804031af}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{hep-ex}
+      \field{eprinttype}{arXiv}
+      \field{title}{Configuration and performance of the ATLAS $b$-jet triggers in Run 2}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2106.03584
+      \endverb
+    \endentry
+    \entry{FTAG-2018-01}{article}{}
       \name{author}{1}{}{%
         {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
            family={{ATLAS Collaboration}},
@@ -1923,6 +1949,38 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{11}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{hep-ex}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{Eur. Phys. J. C}
+      \field{title}{{ATLAS \(b\)-jet identification performance and efficiency measurement with \(t\bar{t}\) events in \(pp\) collisions at \(\sqrt{s} = 13\,\text{TeV}\)}}
+      \field{volume}{79}
+      \field{year}{2019}
+      \field{pages}{970}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1140/epjc/s10052-019-7450-8
+      \endverb
+      \verb{eprint}
+      \verb 1907.05120
+      \endverb
+    \endentry
+    \entry{HIGG-2016-27}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
+           family={{ATLAS Collaboration}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{fullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{bibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
+      \field{extraname}{12}
       \field{sortinit}{3}
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
@@ -1954,7 +2012,7 @@
       \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \field{extraname}{12}
+      \field{extraname}{13}
       \field{sortinit}{3}
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
@@ -1988,9 +2046,9 @@
       \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \field{extraname}{13}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{extraname}{14}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -2020,9 +2078,9 @@
       \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \field{extraname}{14}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{extraname}{15}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -2052,9 +2110,9 @@
       \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \field{extraname}{15}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{extraname}{16}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -2084,9 +2142,9 @@
       \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \field{extraname}{16}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{extraname}{17}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -2198,38 +2256,6 @@
       \endverb
       \verb{eprint}
       \verb 1811.09689
-      \endverb
-    \endentry
-    \entry{FTAG-2018-01}{article}{}
-      \name{author}{1}{}{%
-        {{hash=ebfe6052e5f504e4a3579c49c44afe41}{%
-           family={{ATLAS Collaboration}},
-           familyi={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{fullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{bibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{authorbibnamehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
-      \field{extraname}{17}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{hep-ex}
-      \field{eprinttype}{arXiv}
-      \field{journaltitle}{Eur. Phys. J. C}
-      \field{title}{{ATLAS \(b\)-jet identification performance and efficiency measurement with \(t\bar{t}\) events in \(pp\) collisions at \(\sqrt{s} = 13\,\text{TeV}\)}}
-      \field{volume}{79}
-      \field{year}{2019}
-      \field{pages}{970}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1140/epjc/s10052-019-7450-8
-      \endverb
-      \verb{eprint}
-      \verb 1907.05120
       \endverb
     \endentry
     \entry{ATL-COM-DAQ-2019-150}{report}{}
@@ -2461,8 +2487,8 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{18}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{{ATLAS-CONF-2019-021}}
@@ -2691,8 +2717,8 @@
       \strng{authorbibnamehash}{149cc1cc519308cf41f5b6ce0996019c}
       \strng{authornamehash}{149cc1cc519308cf41f5b6ce0996019c}
       \strng{authorfullhash}{863fdac2df9d6c4fce038b6482f8094f}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{3}
@@ -2728,8 +2754,8 @@
       \strng{authorbibnamehash}{5cef82ec2f1d3498891b36fd90d23422}
       \strng{authornamehash}{5cef82ec2f1d3498891b36fd90d23422}
       \strng{authorfullhash}{5cef82ec2f1d3498891b36fd90d23422}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{eess.SP}
@@ -2767,8 +2793,8 @@
       \strng{authorbibnamehash}{6c38932cd33a72b09990f6f23e9a00ca}
       \strng{authornamehash}{6c38932cd33a72b09990f6f23e9a00ca}
       \strng{authorfullhash}{6c38932cd33a72b09990f6f23e9a00ca}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1532-4435}
@@ -2804,8 +2830,8 @@
       \strng{authorbibnamehash}{24b179d865548b668c4c2c841be96868}
       \strng{authornamehash}{24b179d865548b668c4c2c841be96868}
       \strng{authorfullhash}{24b179d865548b668c4c2c841be96868}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{stat.ML}
