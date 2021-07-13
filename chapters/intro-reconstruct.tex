@@ -1,2 +1,75 @@
 \chapter{Reconstruction}
 \label{chap:reconstruction}
+
+Chapter \ref{chap:experiment} discusses how a proton-proton collision may be captured by a physical 
+detector and turned into data that may be stored and analyzed. Chapter \ref{chap:simulation} discusses 
+the simulation of this same process. At this most basic level, however, the ATLAS detector is only a machine 
+for turning particles into a set of electrical signals, albeit in a very sophisticated, physics motivated way. 
+This chapter discusses the step of turning these electrical signals into objects which may be identified 
+with the underlying physics processes, and therefore used to make statements about what occured within 
+a given collision event. This process is termed \emph{reconstruction}, and we will focus particularly on jets and flavor tagging, as the most relevant pieces for this thesis work.
+
+\section{Jets}
+As discussed in Chapters \ref{chap:experiment} and \ref{chap:simulation}, the production of particles with color 
+charge from a proton-proton interaction is complicated both by parton showering and by confinement: a quark produced 
+from a hard scatter is not seen as a quark, but rather, as a spray of particles with a variety of hadrons in the final 
+state, which subsequently shower upon interaction with the calorimeter in a complicated way. 
+
+For hard scatter electrons, photons, or muons on the other hand, the picture is much clearer: there is no parton 
+showering, and each has a distinct signature in the detector: photons have no tracks and a very localized calorimeter
+shower, electrons are associated with tracks and are similarly localized in the calorimeter, and muons are associated 
+with tracks, pass through the calorimeter due to their large mass, and leave signatures in the muon spectrometer.
+
+Jets are a tool to deal with the messiness of quarks and gluons. The basic concept is to group the multitude of
+particles produced by a quark or gluon decay into a single object. Such an object then has associated properties, 
+including a four-vector, which may be identified with the corresponding initial state particle. In practice a variety 
+of information from the ATLAS detector is used for such a reconstruction. The analysis considered in this thesis uses 
+particle flow jets~\cite{PERF-2015-09}, which combines information from both the tracker and the calorimeter, where the 
+combined objects may be identified with underlying particles. However, jets built from clusters of calorimeter cells~\cite{PERF-2014-07} as well as from charged particle tracks~\cite{ATL-PHYS-PUB-2017-010} have also been used very effectively.
+
+A variety of algorithms are used to associate detector level objects to a given jet. The most commonly used 
+in ATLAS is the anti-$k_{T}$ algorithm~\cite{Antikt}, which is a successor to the $k_{T}$ algorithm, among others~\cite{Jetography}, and develops as follows. Both algorithms are sequential recombination algorithms, which begin with the smallest distance, $d_{ij}$ between considered objects (e.g. particles or intermediate groupings of particles). If $d_{ij}$
+is less than a parameter $d_{iB}$ (B for ``beam'') object $i$ is combined with object $j$, the distance $d_{ij}$ is recomputed, and the process repeats. This proceeds until $d_{ij} \geq d_{iB}$, at which point the jet is ``complete''
+and removed from the list of considered objects.
+
+The definitional difference between $k_{T}$ and anti-$k_{T}$ is these distance parameters. In 
+general form, these are defined as 
+\begin{align}
+d_{ij} &= \min(p_{Ti}^{2p},p_{Tj}^{2p})\frac{\Delta R_{ij}^2}{R^2}\\
+d_{iB} &= p_{Ti}^{2p}
+\end{align}
+where $p_{Ti}$ is the transverse momentum of object $i$, $\Delta R_{ij}$ is the angular distance between 
+objects $i$ and $j$, $R$ is a radius parameter, and $p$ controls the tradeoff between the $p_{T}$ and angular 
+distance terms. For the $k_{T}$ algorithm $p=1$; for the anti-$k_{T}$ algorithm, $p=-1$. This is a simple 
+change, but results in significantly different behavior. 
+
+The anti-$k_{T}$ algorithm can be understood as follows: for a single high $p_{T}$ particle ($p_{T1}$) 
+surrounded by a bunch of low $p_{T}$ particles, the low $p_{T}$ particles will be clustered with the high $p_{T}$ one if
+\begin{align}
+&d_{1j} = \frac{1}{p_{T1}^2}\frac{\Delta R_{1j}^2}{R^2} < \frac{1}{p_{T1}^2}\\
+&\implies \Delta R_{1j} < R.
+\end{align}
+Therefore, a single high $p_{T}$ particle ($p_{T1}$) surrounded by a bunch of low $p_{T}$ particles results 
+in a perfectly conical jet. This shape may change with the presence of other high momentum particles, but the
+key feature of the dynamics is that the jet shape is determined by high $p_{T}$ objects due to the $\frac{1}{p_{T}}$
+nature of this definition. In contrast, the $k_{T}$ algorithm results in jets influenced by low momentum particles, 
+which results in a less regular shape. This property, of regular jet shapes determined by high momentum objects, 
+as well as demonstrated good practical performance, makes the anti-$k_{T}$ algorithm the favored jet algorithm in ATLAS.
+
+Because jets are composed of multiple objects, a useful property of jets is jet \emph{substructure}, that is, 
+acknowledging that jets are composite objects, analyzing the structure of a given jet to infer physics information. 
+This leads to the use of \emph{subjets}; that is, after running jet clustering, often to create a``large-R'', $R=1.0$ 
+anti-$k_{T}$ jet, a smaller radius jet clustering algorithm is run within the jet. Subjets are often chosen using the 
+$k_{T}$ algorithm, which again is sensitive to lower momentum particles, with $R=0.2$ or 0.3. For the boosted version 
+of this thesis analysis, such a strategy is used, in which the subjets are \emph{variable radius} and depend on the 
+momentum of the (proto)jet in question. Beyond this thesis work, substructure is used in a large variety of analyses, 
+with a set of associated variables and tools developed for exploiting this structure \todo{Cite some?}.
+ 
+\section{Flavor Tagging}
+For this this thesis, the physics process being considered is $HH\rightarrow \bbbb$. From the previous section, we 
+know that the standard practice is to identify these $b$ quarks (or, rather, the resulting $B$ hadrons, due to confinement) with jets -- in our case, $R=0.4$ anti-$k_{T}$ particle flow jets (see Chapter \ref{chap:bbbb}). However, there are many 
+types of jets that may be produced at the LHC
+
+
+
+
