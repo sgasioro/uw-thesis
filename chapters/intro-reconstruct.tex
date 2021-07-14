@@ -84,17 +84,18 @@ corresponding to a decay length $c\tau\approx 0.45$mm. In contrast, $\pi^0$ has 
 which is around 20,000 times shorter! Theoretically, this comes from CKM suppresion of the $b$ to $c$ transition \todo{check}, which dominates the $B$ decay modes. Experimentally, this difference pops up as shown in 
 Figure \ref{fig:bjet-diagram} -- light flavor initiated jets decay almost immediately at the proton-proton 
 interaction point, whereas b-jets are distinguished by a displaced secondary vertex, corresponding to the 5 mm decay 
-length calculated above.
+length calculated above. This displaced vertex falls short of the detector itself, but may be inferred from larger 
+transverse (perpendicular to beam) and longitudinal (parallel to beam) impact parameters of the resulting tracks, 
+termed $d_{0}$ and $z_{0}$ respectively.
 
 \begin{figure}[ht]
-\label{fig:bjet-diagram}
 \centering
 \includegraphics[width=0.8\textwidth]{figures/bjet-diagram.pdf}
-\caption{Illustration of an interaction producing two light jets and one $b$-jet. While the light jets 
-decay ``promptly'', coinciding with the primary vertex of the proton-proton interaction, the longer lifetime of 
-$B$ hadrons leads to a secondary decay vertex, displaced from the primary vertex by length $L_{xy}$. This is 
-typically a few mm, and therefore is not directly visible in the detector, but leads to a large transverse impact 
-parameter, $d_{0}$, for the resulting tracks~\cite{bjettrigger}}
+\caption{\label{fig:bjet-diagram} Illustration of an interaction producing two light jets and one $b$-jet 
+in the transverse plane. While the light jets decay ``promptly'', coinciding with the primary vertex of the 
+proton-proton interaction, the longer lifetime of $B$ hadrons leads to a secondary decay vertex, displaced from 
+the primary vertex by length $L_{xy}$. This is typically a few mm, and therefore is not directly visible in the 
+detector, but leads to a large transverse impact parameter, $d_{0}$, for the resulting tracks.~\cite{bjettrigger}}
 \end{figure}
 
 Coming to the mass, $B$ mesons have masses of around \SI{5.2}{\GeV}, whereas the $\pi^{0}$ mass is around \SI{0.134}{\GeV},
@@ -112,11 +113,155 @@ between \SIlist{0.5;1}{\ps}, a factor of 2 smaller than $B$ hadrons. Their mass 
 smaller than $B$ hadrons, and $c$-hadrons contribute to an average of around 55~\% of $c$-jet energy. Therefore, while 
 the gap is slightly smaller, a distinction may still be made.
 
-The ATLAS flavor tagging framework~\cite{FTAG-2018-01} relies on developing a suite of low level taggers and 
-aggregating the results of these low level taggers into a high level discriminant. We discuss each component of 
-this in the following.
+The ATLAS flavor tagging framework~\cite{FTAG-2018-01} relies on developing a suite of ``low-level'' taggers, which 
+use a variety of information about tracks and vertices as inputs. The output of these lower level taggers are then 
+fed into a higher level tagger, which aggregates these results into a high level discriminant. Each of these taggers 
+is described below.
+
+\FloatBarrier
+\subsection{IP2D/3D}
+IP2D and IP3D are taggers based on the large track impact parameter (IP) nature of $B$ hadron decays. Both are 
+based on histogram templates derived from Monte Carlo simulation, which are used as probability density 
+functions to construct log-likelihood discriminants. IP2D incorporates just the transverse impact parameter 
+information using 1D histogram templates, whereas IP3D uses both transverse and longitudinal impact parameters 
+in a 2D template, which accounts for correlations. Importantly, these are \emph{signed} impact 
+parameters, with sign based on the angle between the impact parameter and the considered jet -- positive impact 
+parameters are consistent with a track extrapolation in front of the jet (angle between impact parameter 
+line and jet $<90^{\circ}$), and therefore more consistent with tracks originating from a displaced decay.
+
+Rather than using the impact parameters directly, an impact parameter \emph{significance} is used which 
+incorporates an uncertainty on the impact parameter -- tracks with a lower uncertainty but the same impact 
+parameter will contribute more in the calculation. This signed significance is what is used to sample from the 
+PDF templates, with the resulting discriminants the sum of probability ratios between given jet hypotheses over 
+tracks associated to a given jet, namely $\sum_{i=1}^{N} \log{\frac{p_{b}}{p_{light}}}$ between $b$-jet and 
+light jet hypotheses, where $p_{b}$ and $p_{light}$ are the per-track probabilities. Similar discriminants 
+are defined between $b$- and $c$-jets and $c$ and light jets. \todo{show distributions?}
+
+\subsection{SV1}
+SV1 is an algorithm which aims to find a secondary vertex (SV) in a given jet. Operating on all 
+vertices associated with a considered jet, the algorithm discards tracks based on a variety of cleaning 
+requirements. It then proceeds to first construct all two-track vertices, and then iterates over all the 
+tracks involved in these two track vertices to try to fit a single secondary vertex, which would then be 
+identified with the secondary vertex from the $b$ or $c$ hadron decay. This fit proceeds by evaluating 
+a $\chi^2$ for the association of a track and vertex, removing the track with the largest $\chi^2$, 
+and iterating until the $\chi^2$ is acceptable and the vertex has an invariant mass of less than 
+\SI{6}{\GeV} (for consistency with $b$ or $c$ hadron decay).
+
+A variety of discriminating variables may then be constructed, including (1) invariant mass of the secondary 
+vertex, (2) number of tracks associated with the secondary vertex, (3) number of two-track vertices, 
+(4) energy fraction of the tracks associated to the secondary vertex (relative to all of the tracks 
+associated to the jet), and various metrics associated with the secondary vertex position and decay length, 
+including (5) transverse distance between the primary and secondary vertex, (6) distance between the primary 
+and secondary vertex (7) distance between the primary and secondary vertex divided by its uncertainty, 
+and (8) $\Delta R$ between the jet axis and the direction of the secondary vertex relative to the primary
+vertex.
+
+While all eight of these variables are used as inputs to the higher level taggers, the number of two-track vertices, 
+the vertex mass, and the vertex energy fraction are additionaly used with 3D histogram templates to evaluate 
+flavor tagging performance by constructing log-likelihood discriminants, similar to the procedure for 
+IP2D/3D.
+
+\subsection{JetFitter}
+Rather than focusing on a particular aspect of the $B$ hadron or $D$ hadron decay topology (e.g impact parameter 
+or secondary vertex), the third low level tagger, \textsc{JetFitter}\xspace~\cite{ATL-PHYS-PUB-2018-025}, 
+tries to reconstruct the full decay chain, including all involved vertices. This is structured around a 
+Kalman filter formalism~\cite{Kalman}, and has the strong underlying assumption that all tracks which stem 
+from $B$ and $D$ hadron decay must intersect a common flight path. This assumption provides significant constraints, 
+allowing for the reconstruction of vertices from even a single track, reducing the number of degrees of 
+freedom in the fit, and allowing the use of ``downstream'' information, e.g., compatibility of tracks with 
+a $B\rightarrow D$-like decay. The constructed topology, including primary vertex location and $B$-hadron flight 
+path, is iteratively updated over tracks associated to a given jet, and a variety of discriminating variables 
+related to the resulting topology and reconstructed decay are used as inputs to the high level taggers.
+
+\subsection{RNNIP}
+The IP2D and IP3D algorithms rely on per-track probabilities, and the final discriminating variables (and inputs 
+to the higher level taggers) are sums (products) over these independently considered quantities. In practice, 
+however, the tracks are not independent -- this is merely a simplifying assumption to allow for the use of a 
+binned likelihood, as treatment of all of the interdependencies in such a framework quickly becomes intractable. 
+To address this issue, a recurrent neural network-based algorithm, RNNIP~\cite{ATL-PHYS-PUB-2017-003}, is used, 
+which takes as input a variety of per-track variables, including the signed impact parameter significances (as in 
+IP3D) as well as track momentum fraction relative to the jet and $\Delta R$ between the track and the jet. RNNs 
+are sequence-based, and vectors of input variables corresponding to tracks for a given jet are ordered by magnitude of 
+transverse impact parameter significance and then passed to the network, which outputs class probabilities corresponding 
+to b-jet, c-jet, light-jet, and $\tau$-jet hypotheses. Such a procedure allows the network to learn interdependencies between tracks, improving performance.
+
+\subsection{MV2 and DL1}
+Outputs from the above taggers are combined into high level taggers to aggregate all of the information and 
+improve discriminating power relative to the respective individual taggers as, as shown in Figure 
+\ref{fig:low-vs-high-tag}. These high level taggers are primarily in two forms: MV2, which uses a Boosted 
+Decision Tree (BDT) for this aggregation, and DL1, which uses a deep neural network. For the baseline versions of 
+these taggers, only inputs from IP2D, IP3D, SV1, and JetFitter are used. The tagger used for this thesis analysis, 
+DL1r, additionally incorporates RNNIP, demonstrating improved performance over the baseline DL1, as shown in 
+Figure \ref{fig:DL1-vs-DL1r}. All high level taggers also include jet $p_{T}$ and $|\eta|$.
+
+DL1 offers a variety of improvements over MV2. Rather than a single discriminant output, 
+as with MV2, DL1 has a multidimensional output, corresponding to probabilities for a jet to be a $b$-jet, $c$-jet, 
+or light jet. This allows the trained network to be used for both $b$- and $c$-jet tagging. The final discriminant 
+for $b$-tagging with DL1 correspondingly takes the form
+\begin{equation}
+D_{\text{DL1}} = \ln{\qty(\frac{p_{b}}{f_{c}\cdot p_c+(1-f_c)\cdot p_{\text{light}}})}
+\end{equation}
+where $p_b$, $p_c$, and $p_{light}$ are the output $b$, $c$, and light jet probabilities, and $f_{c}$
+corresponds to an effective $c$-jet fraction, which may tuned to optimize performance.
+
+DL1 further includes an additional set of \textsc{JetFitter}\xspace input variables relative to MV2 
+which correspond to $c$-tagging -- notably properties of secondary and tertiary vertices, as would be 
+seen in a $B\rightarrow D$ decay chain. 
+
+\begin{figure}[ht]
+\centering
+\subfloat{
+	\includegraphics[width=0.48\textwidth]{figures/DL1-vs-low-level-light-jet.pdf}
+}
+\subfloat{
+	\includegraphics[width=0.48\textwidth]{figures/DL1-vs-low-level-c-jet.pdf}
+}
+\caption{\label{fig:low-vs-high-tag} Performance of the various low and high level flavor tagging algorithms 
+in $t\bar{t}$ simulation, demonstrating the tradeoff between $b$-jet efficiency and light and $c$-jet rejection. 
+The high level taggers demonstrate significantly better performance than any of the individual low level 
+taggers, with DL1 offering slight improvements over MV2 due to the inclusion of additional input variables.}
+\end{figure}
 
 
+Figure \ref{fig:low-vs-high-tag} shows a comparison of the performance of the various taggers. 
+The $b$-tagging performance of DL1 and MV2 is found to be similar, with some improvements in 
+light jet and $c$-jet rejection from the additional variables used in DL1. 
+The performance of these high level taggers additionaly is seen to be significantly better than any of the 
+individual low level ones, even in regimes where only a single low level tagger is relevant (such as high 
+b-tagging efficiencies, where SV1 and \textsc{JetFitter}\xspace are limited by selections on tracks 
+entering the respective algorithms).
+
+The inclusion of RNNIP offers a significant improvement on top of baseline DL1, as shown in Figure 
+\ref{fig:DL1-vs-DL1r}, strongly motivating the choice of DL1r for this thesis. 
+
+\begin{figure}[ht]
+\centering
+\subfloat{
+	\includegraphics[width=0.48\textwidth]{figures/pflow-DL1-DL1r-light-jet.pdf}
+}
+\subfloat{
+	\includegraphics[width=0.48\textwidth]{figures/pflow-DL1-DL1r-c-jet.pdf}
+}
+\caption{\label{fig:DL1-vs-DL1r} Performance of the MV2, DL1, and DL1r algorithms in $t\bar{t}$ simulation, 
+demonstrating the tradeoff between $b$-jet efficiency and light and $c$-jet rejection. $f_{c}$ controls the 
+importance of $c$-jet rejection in the discriminating variable, and values shown have been optimized separately 
+for each DL1 configuration. DL1r demonstrates a significant improvement in both light and $c$ jet rejection over 
+MV2 and DL1.~\cite{PFlowPublicPlots2019}}
+\end{figure}
 
 
+\subsection{Some Practical Notes}
+The $b$-tagging metrics presented in Figures \ref{fig:low-vs-high-tag} and \ref{fig:DL1-vs-DL1r} correspond 
+to evaluating a tradeoff between $b$-jet efficiency and light jet and $c$-jet rejection. In this case, $b$-jet 
+efficiency is defined such that, e.g. for a 77~\% efficiency, 77~\% of the real $b$-jets will be tagged 
+as such. Somewhat counterintuitively, this means that a lower $b$-jet efficiency corresponds 
+to a more aggressive (``tighter'') selection on the discriminating variable, while a higher 
+$b$-jet efficiency corresponds to a less aggressive (``looser'') cut (100~\% efficiency means 
+no cut). Light and $c$ jet efficiencies are defined similarly, with rejection defined as $1 /$ the 
+corresponding efficiency.
+
+In ATLAS, the respective $b$-tagging efficiencies are used to define various $b$-tagging 
+working points. The working point used for the nominal $b$-jet identification in this 
+thesis is 77~\% with DL1r. A loosened (less aggressive) selection at the 85~\% working point 
+is additionally used. See Chapter \ref{chap:bbbb} for further details.
 
