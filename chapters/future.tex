@@ -97,4 +97,38 @@ thesis.
 The choice of a pairing algorithm that results in a smooth mass plane (such as $\min{\Delta R}$) 
 opens up a variety of options for the background estimation. While the method based on 
 reweighting of $2b$ events used for this thesis performs well and has been extensively 
-studied and validated, it also relies on several assumptions. 
+studied and validated, it also relies on several assumptions. In particular, the reweighting is derived 
+between e.g., $2b$ and $4b$ events \emph{outside} of the signal region and then applied to $2b$ 
+events \emph{inside} the signal region, with the assumption that the $2b$ to $4b$ transfer function 
+will be sufficiently similar in both regions of the mass plane. An uncertainty is assigned to 
+account for the bias due to this assumption, but the extrapolation in the mass plane is never 
+explicitly treated in the nominal estimate. While the approach of reweighting $2b$ events within the 
+signal region does have the advantage of incorporating explicit signal region information (that is, 
+the $2b$ signal region events), the importance of the extrapolation bias motivates consideration 
+of a method that operates within the $4b$ mass plane. This additionally removes the reliance on lower 
+$b$-tagging regions, allowing for the use of, e.g. $3b$ triggers, and future-proofing the analysis 
+against trigger bandwidth constraints in the low tag regions.
+
+The method considered here relies on the following: for a given vector of 
+input variables (event kinematics, etc), $\vec{x}$, the joint probability in the $HH$ mass 
+plane may be written as:
+\begin{equation}
+p(\vec{x}, m_{H1}, m_{H2}) = p(\vec{x}| m_{H1}, m_{H2})p(m_{H1}, m_{H2})
+\end{equation}
+by the chain rule of probability. This means that the full dynamics of events 
+in the $HH$ mass plane may be described by (1) the conditional probability of 
+considered variables $\vec{x}$, given values of $m_{H1}$ and $m_{H2}$, and (2) the 
+density of the mass plane itself. 
+
+We present here an approach which uses normalizing flows \todo{cite} to model the 
+conditional probabilities of events in the mass plane and Gaussian processes to 
+model the mass plane density. These models are trained in a region around, but not 
+including, the signal region, and the trained models are then used to construct an 
+\emph{interpolated} estimate of the signal region kinematics. This approach therefore 
+explicitly treats event behavior within the mass plane, avoiding the concerns associated 
+with a reweighted estimate. Validation of such a method, as well as assessing of closure and 
+biases of the method, may be done in alternate $b$-tagging or kinematic regions, notably the 
+now unused $2b$ region, results of which are shown below.
+
+
+
