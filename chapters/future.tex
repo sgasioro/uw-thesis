@@ -4,12 +4,97 @@
 The searches presented in this thesis make use of a large suite of sophisticated techniques, selected 
 through careful study and validation. During this process, a variety of interesting 
 directions for the $HH\rightarrow b\bar{b}b\bar{b}$ analysis were explored by this thesis author, 
-in collaboration with a few others\footnote{Notably Nicole Hartman (SLAC), for spearheading much of the 
+in collaboration with a few others\footnote{Notably Nicole Hartman (SLAC), who spearheaded much of the 
 development and proof of concept work, in collaboration with Michael Kagan and Rafael Teixeira De Lima.}, 
 but were not used due to a variety of constraints. We present two such interesting directions here, 
 with the hope of encouraging further exploration of these techniques in future work.
 
 \section{pairAGraph: A New Method for Jet Pairing}
+As discussed in Chapter \ref{chap:bbbb}, one of the main problems to solve is the pairing of 
+$b$-jets into Higgs candidates. Figure \ref{fig:pairing-massplanes} demonstrates that the choice 
+of the pairing method, while important for achieving good reconstruction of signal events, also 
+significantly impacts the structure of non-$HH$ events, leading to various biases in the 
+background estimate. Evaluation of the pairing method therefore must take both of these factors 
+into account. While we have presented some advantages in respective contexts for the pairing 
+methods considered here, we of course would like to explore further improvements to this important 
+component of the analysis.
 
+To that end, we note that all of the pairing methods considered here share a common feature: 
+four jets are selected, and the pairing is some discrimination between the available three pairings 
+of these four jets. For the methods used in this analysis, the jet selection proceeds via a 
+simple $p_{T}$ ordering, with $b$-tagged jets recieving a higher priority than non-tagged jets.
+
+With the advent of a variety of machine learning methods for dealing with a variable number of 
+inputs \todo{cite: RNNs, Deep Sets, GNNs, Transformers}, a natural place to improve on the 
+pairing is to consider more than just four jets. The pairing and jet selection is then performed 
+simultaneously, allowing for the incorporation of more event information in the pairing decision and 
+the incorporation of jet correlation structure in the jet selection.
+
+In practice, the majority of $HH\rightarrow\bbbb$ events have either four or five jets which pass 
+the kinematic preselection, and any gain from this additional freedom would come from events with 
+greater than or equal to five jets. However, this five jet topology is particularly exciting 
+for scenarios such as events with initial state radiation (ISR), in which the $HH->4b$ jets are offset by 
+a single jet with $p_{T}$ similar in magnitude to that of the $HH->4b$ system. Such events have explicit 
+event level information which is not encoded with the inclusion of only the $HH->4b$ jets, and are 
+pathological if the ISR jet happens to pass $b$-tagging requirements.
+
+Additionally, with the use of lower tagged regions for background estimation and alternate 
+signal regions, this extra flexibility in jet selection may provide a very useful bias -- 
+since the algorithm is trained on signal, the selected jets for the pairing will be the 
+most ``4b-like'' jets available in the considered set.
+
+For the studies considered here, a transformer \todo{cite Attention} based architecture is used. This is 
+best visualized by considering the event as a graph with jets corresponding to nodes and 
+edges corresponding to potential connections -- for this reason, we term this algorithm ``pairAGraph''.
+The approach is as follows: each jet, $i$, is represented by some vector of input variables, 
+$\vec{x}_i$, in our case the four-vector information, $(p_{T}, \eta, \phi, E)$ of each jet, plus 
+information on the $b$-tagging decision. A multi-layer perceptron (MLP) is used to create a latent 
+embedding, $\mathbf{h}(\vec{x}_i)$, of this input vector.
+
+To describe the relationship between various jets in the event, we then define a vector $\vec{z}_{i}$ 
+for each jet as 
+\begin{equation}
+\vec{z}_i = \sum\limits_j w_{ij}\mathbf{h}(\vec{x}_j)
+\end{equation}
+where $j$ runs over all jets in the event (including $i=j$), the $w_{ij}$ can be thought of as 
+edge weights, and $\mathbf{h}(\vec{x}_j)$ is the latent embedding for jet $j$ mentioned above.
+
+Within this formula, both $\mathbf{h}$ and the $w_{ij}$ are learnable. To learn an appropriate 
+latent mapping and set of edge weights, we define a similarity metric corresponding to each 
+possible jet pairing:
+\begin{equation}
+\vec{z}_{1a}\cdot \vec{z}_{1b} + \vec{z}_{2a}\cdot \vec{z}_{2b}
+\end{equation}
+where subscripts $1a$ and $1b$ correspond to the two jets in pair 1, $2a$ and $2b$ to 
+the jets in pair 2 for a given pairing of four distinct jets.
+
+This similarity metric is calculated for all possible pairings, which are then passed through a 
+softmax \todo{cite} activation function, which compresses these scores to between $0$ and $1$ 
+with sum of $1$, lending an interpretation as probability of each pairing.
+
+In training, the ground truth pairing is set by \emph{truth matching} jets to the $b$-jets 
+in the $HH$ signal simulation -- a jet is considered to match if it is $< 0.3$ in $\Delta R$
+away from a $b$-jet in the simulation record. Given this ground truth, a cross-entropy loss \todo{cite}
+is used on the softmax outputs, and $w_{ij}$ and $\mathbf{h}$ are updated correspondingly.
+Training in such a way corresponds to updating $w_{ij}$ and $\mathbf{h}$ to maximize the similarity 
+metric for the correct pairing.
+
+In evaluation, the pairings with a higher score (and therefore higher softmax output) given 
+the trained $h$ and $w_{ij}$ therefore correspond to the pairings that are most ``HH-like''. 
+The maximum over these scores is therefore the pairing used as the predicted result from 
+the algorithm.
+
+Because the majority of $HH\rightarrow\bbbb$ events have either four or five jets, it was 
+found to be sufficient to only consider a maximum of 5 jets. Consideration of more is in 
+principle possible, but the quickly expanding combinatorics leads to a rapidly more 
+difficult problem. The jets considered are the five leading jets in $p_{T}$. Notably, 
+this set of jets may include jets which are not $b$-tagged, even for the nominal $4b$ 
+region -- therefore events with $4$ $b$-jets are not required to use all of them 
+in the construction of Higgs candidates, in contrast to the other algorithms used in this 
+thesis.
 
 \section{Background Estimation with Mass Plane Interpolation}
+The choice of a pairing algorithm that results in a smooth mass plane (such as $\min{\Delta R}$) 
+opens up a variety of options for the background estimation. While the method based on 
+reweighting of $2b$ events used for this thesis performs well and has been extensively 
+studied and validated, it also relies on several assumptions. 
