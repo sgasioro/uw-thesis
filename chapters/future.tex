@@ -130,5 +130,62 @@ with a reweighted estimate. Validation of such a method, as well as assessing of
 biases of the method, may be done in alternate $b$-tagging or kinematic regions, notably the 
 now unused $2b$ region, results of which are shown below.
 
+\subsection{Normalizing Flows}
+Normalizing flows model observed data $x\in X$, with $x \sim p_{X}$, as the output of an 
+invertible, differentiable function $f: X \rightarrow Z$, with $z\in Z$ a latent 
+variable with a simple prior probability distribution (often standard normal), $z\sim p_{Z}$. 
+From a change of variables, given such a function, we may write
+\begin{equation}
+p_{X}(x) = p_{Z}(f(x))\qty|\det\qty(\frac{d(f(x))}{dx})|
+\end{equation}
+where $\qty(\frac{d(f(x))}{dx})$ is the Jacobian of $f$ at $x$.
 
+The problem of normalizing flows then reduces to (1) choosing sets of $f$ which are 
+both tractable and sufficiently expressive to describe observed data, and (2) optimizing 
+associated sets of functional parameters on observed data via maximum likelihood esitmation 
+using the above formula. Sampling from the learned density is done by drawing from the 
+latent distribution $z\sim p_Z$ (cf. inverse transform sampling) -- the corresponding 
+sample is then $x\sim p_X$ with $x=f^{-1}(z)$.
+
+A standard approach to the definition of these $f$ is as a composition of affine transformations (e.g. 
+RealNVP \todo{cite}), 
+that is, transformations of the form $\alpha z + \beta$, with $\alpha$ and $\beta$ learnable 
+parameter vectors. This can roughly be though of as shifting and squeezing the input
+input prior density in order to match the data densitiy. However, this has somewhat limited expressivity, 
+for instance in the case of a multi-modal density.
+
+This work thus instead relies on neural spline flows \todo{cite: https://arxiv.org/pdf/1906.04032.pdf} 
+in which the functions considered are monotonic rational-quadratic splines, which have an analytic inverse.
+A rational quadratic function has the form of a quotient of two quadratic polynomials, namely,
+\begin{equation}
+f_j(x_i) = \frac{a_{ij} x_i^2 + b_{ij} x_{ij} + c_{ij}}{d_{ij}x_i^2 + e_{ij} x_i + f_{ij}}
+\end{equation}
+with six associated parameters ($a_{ij}$ through $f_{ij}$) per each piecewise bin $j$ of the spline and 
+each input dimension $i$. This is explicitly more flexible and expressive than a simple affine 
+transformation, allowing, e.g., the treatment of multi-modality via the piecewise nature of the spline. 
+
+The rational quadratic spline is defined on an set interval. The transformation outside of this interval 
+is set to the identity, with these linear tails allowing for unconstrained inputs. The boundaries between 
+bins of the spline are set by coordinates scalled \emph{knots}, with $K+1$ knots for $K$ bins -- the two 
+endpoints for the spline interval plus the $K-1$ internal boundaries. The derivatives 
+at these points are constrained to be positive for the internal knots, and boundary 
+derivatives are set to 1 to match the linear tails. 
+
+The bin widths and heights are learnable ($2\cdot K$ parameters) as are the internal knot derivatives
+($K-1$ parameters), and these $3K-1$ ouputs of the neural network are sufficient to define a monotonic 
+rational-quadratic spline which passes through each knot and has the given derivative value at each knot.
+
+In the context of the $HH\rightarrow 4b$ analysis, a neural spline flow is used to model the four vector 
+information of each Higgs candidate, conditional on their respective masses. The resulting flow is 
+therefore five dimensional, with inputs $x$ = ($p_{T, H1}$, $p_{T, H2}$, $\eta_{H1}$, $\eta_{H2}$, 
+$\Delta\phi_{HH}$), where the ATLAS $\phi$ symmetry has been encdoded by assuming $\phi_{H1} = 0$. 
+Conditional variables $m_{H1}$ and $m_{H2}$ are not modeled by the flow, but ``come along for the ride''. 
+A standard normal distribution in $5$ dimensions is used for the underlying prior. Modeling of the four 
+vectors was chosen in order to reduce bias from modeling $m_{HH}$ directly.
+
+The trained flow model then gives a model for $p(x|m_{H1}, m_{H2})$ which may be sampled from to reconstruct 
+distributions of $HH$ kinematics given values of $m_{H1}$ and $m_{H2}$.
+
+\subsection{Gaussian Processes}
+The second piece of this background estimate is the modeling of 
 
