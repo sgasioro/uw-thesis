@@ -187,5 +187,39 @@ The trained flow model then gives a model for $p(x|m_{H1}, m_{H2})$ which may be
 distributions of $HH$ kinematics given values of $m_{H1}$ and $m_{H2}$.
 
 \subsection{Gaussian Processes}
-The second piece of this background estimate is the modeling of 
+The second piece of this background estimate is the modeling of the mass plane density, $p(m_{H1}, m_{H2})$. 
+This is done using Gaussian process regression -- note that a similar procedure is used to define a systematic 
+in the boosted $4b$ analysis. Generally, Gaussian processes are a collection of random variables in which every 
+finite collection of said variables is distributed according to a multivariate normal distribution. For the 
+context of Gaussian process regression, what we consider is a Gaussian process over function space, that is, 
+for a collection of points, $x_{1}, \ldots, x_{N}$, the space of corresponding function 
+values, $(f(x_{1}), \ldots, f(x_{N}))$ is Gaussian process distributed, that is, described by an $N$ dimensional 
+normal distribution with mean $\mu$, covariance matrix $\Sigma$.
 
+For a single point, this would correspond to a function space described entirely by a normal distribution, 
+with various samples from that distribution yielding various candidate functions. For multiple points, the 
+covariance matrix describes the relationship between each pair of points -- correspondingly, it is represented 
+via a \emph{kernel function}, $K(x, x')$. As, in practice, $\mu$ may always be set to 0 via a centering of the 
+data, the kernel function fully defines the considered family of functions.
+
+The considered family of functions describes a Bayesian \emph{prior} for the data. This prior may be conditioned 
+on a set of training data points $(X_{1}, \vec{y}_1)$. This conditional \emph{posterior} may then be used to make 
+predictions $\vec{y}_2 = f(X_2)$ at a set of new points $X_2$. Because of the Gaussian process prior assumption, 
+$\vec{y}_1$ and $\vec{y}_2$ are assumed to be jointly Gaussian. We may therefore write
+\begin{equation}
+\begin{pmatrix}\vec{y}_1 \\ \vec{y}_2\end{pmatrix} \sim 
+\mathcal{N}\begin{pmatrix}\begin{pmatrix}0\\0 \end{pmatrix}, 
+\begin{pmatrix}K(X_1, X_1) & K(X_1, X_2)\\ K(X_1, X_2) & K(X_2, X_2)\end{pmatrix}\end{pmatrix}
+\end{equation}
+where we have used that the kernel function is symmetric and assumed prior mean 0. 
+
+By standard conditioning properties of Gaussian distributions, 
+\begin{equation}
+\vec{y}_2 | \vec{y}_1 \sim \mathcal{N}(K(X_2, X_1)K(X_1,X_1)^{-1}\vec{y}_1, K(X_2, X_2)-K(X_2,X_1)K(X_1,X_1)^{-1}K(X_1, X_2))
+\end{equation}
+and which is the sampling distribution for a Gaussian process given kernel $K$. In practice, the 
+mean of this sampling distribution is used as the function estimate, with an uncertainty from the
+predicted variance at a given point.
+
+The choice of kernel function has a very strong impact on the fitted curve, and must therefore be chosen to 
+express the expected dynamics of the data. A common such choice is a radial basis function (RBF) kernel
