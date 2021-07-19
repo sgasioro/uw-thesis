@@ -1,6 +1,6 @@
 \chapter{The Standard Model of Particle Physics}
 \label{chap:intro-SM}
-\emph{``I may be bad, but I'm perfectly good at it'' - Rihanna re: the Standard Model (SM), or so I've been told}\\\\
+%\emph{``I may be bad, but I'm perfectly good at it'' - Rihanna re: the Standard Model (SM), or so I've been told}\\\\
 
 The Standard Model of Particle Physics (SM) is a monumental historical achievement, providing a 
 formalism with which one may describe everything from the physics of everyday experience to the 
@@ -520,8 +520,6 @@ This then leaves our Lagrangian as
 where we have expanded the covariant derivative for clarity. You may note that we have dropped the mass term in the equation 
 above -- we will discuss this in detail in just a moment. 
 
-\todo{Add in stuff about physical bosons}
-
 First, however, we return to the above comment about fermion content -- we neglected to include the sum over fermions
 in our QED derivation for simplicity. However, all of the fermions considered in the discussion of the weak 
 interaction have an electric charge (except for the neutrinos). It would be nice to repackage the theory into a coherent
@@ -552,13 +550,16 @@ into the relation between the charges of $SU(2)_L \times U(1)_{Y}$ and electric 
 we know that the hypercharge, $Y$, of $e^{-}$ ($I_W^{(3)} = -\frac{1}{2}$) and $\nu_{e}$ 
 ($I_W^{(3)} = +\frac{1}{2}$) is the same. 
 
-Supposing that $Y=\alpha I_{W}^{(3)} + \beta Q$ \todo{why this form?}, we must have
+Supposing that $Y=\alpha I_{W}^{(3)} + \beta Q$, we must have
 $-\alpha \frac{1}{2} - \beta = \alpha \frac{1}{2} \implies \beta = -\alpha$. Therefore, choosing 
 an overall scaling from convention,
 \begin{equation}
 Y = 2(Q-I_{W}^{(3)}).
 \end{equation}
-\todo{Weinberg things}
+
+Some of these particular forms are best understood in the context of the Higgs mechanism -- we will return to 
+this discussion below.
+
 
 \section{The Higgs Potential and the SM}
 In the above, we have neglected a discussion of masses. However there are several things to sort out here.
@@ -689,6 +690,7 @@ doublet component has $I_{W}^{(3)} = -\frac{1}{2}$, yielding $Y=1$.
 
 Computing $(D_{\mu}\phi)^{\dagger}(D^{\mu}\phi)$, then, yields
 \begin{equation}
+\label{eq:hVV}
 \frac{1}{8}g_{W}^2(W_{\mu}^1+iW_{\mu}^2)(W^{\mu 1}-iW^{\mu 2})(v+h)^2 + 
 \frac{1}{8}(2\partial_{\mu}+ig_{W}W_{\mu 3}-ig'B_{\mu})(2\partial^{\mu}-ig_{W}W^{\mu 3}+ig'B^{\mu})(v+h)^2
 \end{equation}
@@ -705,10 +707,101 @@ is a bit more complicated. Writing the corresponding term as
 \end{equation}
 we note that we must diagonalize this mass matrix to get the physical mass eigenstates. Doing
 so in the usual way yields eigenvalues $0$, $g'^2+g_{W}^2$, thus corresponding to $m_{\gamma} = 0$ 
-and $m_{Z} =\frac{1}{2}v\sqrt{g'^2+g_{W}^2}$, and eigenvectors
-\todo{insert physical field/Weinberg}
+and $m_{Z} =\frac{1}{2}v\sqrt{g'^2+g_{W}^2}$, with physical fields as the (normalized) eigenvectors
+\begin{align}
+A_{\mu} &= \frac{g' W_{\mu}^{3} + g_{W}B_{\mu}}{\sqrt{g_{W}^2+g'^2}}\\
+Z_{\mu} &= \frac{g_{W} W_{\mu}^{3} - g'B_{\mu}}{\sqrt{g_{W}^2+g'^2}}
+\end{align}
 
-\todo{yukawa things}
+From this form, the angular parametrization of the physical fields is very apparent, namely, defining 
+\begin{equation}
+\tan{\theta_{W}} = \frac{g'}{g_{W}},
+\end{equation}
+these equations may be written in terms of the single parameter $\theta_{W}$ as
+\begin{align}
+A_{\mu} &= \cos\theta_{W}B_{\mu} + \sin\theta_{W}W_{\mu}^3\\
+Z_{\mu} &= -\sin\theta_{W}B_{\mu} + \cos\theta_{W}W_{\mu}^{3}
+\end{align}
+and, notably, from the above equations, 
+\begin{equation}
+\frac{m_{W}}{m_{Z}} = \cos\theta_{W}.
+\end{equation}
+
+To get the mass terms from Equation \ref{eq:hVV}, we extracted those terms quadratic in fields, i.e., the
+$v^2$ terms within $(v+h)^2$. However there are also terms of the form $VVh$ and $VVhh$ that arise, which 
+describe the Higgs interactions with the corresponding vector bosons $V = W^{\pm}, Z$. Namely, identifying 
+physical $W$ bosons as
+\begin{equation}
+W^{\pm} = \frac{1}{\sqrt{2}}(W^1\mp iW^2)
+\end{equation}
+we may express the first term of Equation \ref{eq:hVV} as 
+\begin{equation}
+\frac{1}{4}g_{W}^2W^{-}_{\mu}W^{+ \mu}(v+h)^2 = 
+\frac{1}{4}g_{W}^2v^2W^{-}_{\mu}W^{+ \mu}+\frac{1}{2}g_{W}^2vW^{-}_{\mu}W^{+ \mu}h + 
+\frac{1}{4}g_{W}^2W^{-}_{\mu}W^{+ \mu}h^2
+\end{equation}
+with the first term corresponding to the mass term $m_{W} = \frac{1}{2}g_{W}v$, and 
+the second two terms corresponding to $hW^{+}W^{-}$ and $hhW^{+}W^{-}$ vertices. Of particular 
+note is the coupling strength
+\begin{equation}
+g_{HWW} = \frac{1}{2}g_{W}^2v = g_{W}m_{W}
+\end{equation}
+which is proportional to the $W$ mass -- an analysis with the form of the 
+physical $Z$ boson finds that the coupling $g_{HZZ}$ is also proportional to the $Z$ 
+mass.
+
+The Higgs coupling to fermions (in particular to quarks) is of particular interest for this thesis. 
+We showed above that a naive introduction of a mass term 
+\begin{equation}
+m\bar{f}f = m(\bar{f}_{L}f_{R} + \bar{f}_Rf_{L})
+\end{equation}
+is manifestly not gauge invariant because right and left handed particles transform differently 
+under $SU(2)_L$. However, because the Higgs is constructed via an $SU(2)_L$ doublet, $\phi$, 
+writing a fermion doublet as $L$ and conjugate $\bar{L}$, it is apparent that $\bar{L}\phi$ is 
+invariant under $SU(2)_L$. 
+
+Combining with the right handed singlet, $R$, creates a term invariant under $SU(2)_{L} \times U(1)_{Y}$, 
+$\bar{L}\phi R$ (and correspondingly $(\bar{L}\phi R)^{\dagger}$), such that we may include Yukawa \todo{cite}
+terms
+\begin{equation}
+\mathcal{L}_{Yukawa} = -g_{f}\qty[\begin{pmatrix}\bar{f}_{1} &\bar{f}_2\end{pmatrix}_L 
+\begin{pmatrix}\phi^{+}\\\phi^{0}\end{pmatrix}f_R +
+\bar{f}_R\begin{pmatrix}\phi^{+*} & \phi^{0*}\end{pmatrix}\begin{pmatrix}f_{1} \\f_2\end{pmatrix}_L]
+\end{equation}
+where $g_{f}$ is a corresponding Yukawa coupling, $f_{1}$ and $f_{2}$ have been used to denote 
+components of the left-handed doublet and $f_{R}$ the corresponding right-handed singlet.
+
+After spontaneous symmetry breaking, with the gauge as described above to remove the Goldstone fields, 
+the Higgs doublet becomes 
+\begin{equation}
+\phi(x) = \begin{pmatrix}0\\v+h(x)\end{pmatrix}
+\end{equation}
+giving rise to terms such as
+\begin{equation}
+-\frac{1}{\sqrt{2}}g_{f}v(\bar{f}_{2L}\bar{f}_R + \bar{f}_Rf_{2L}) -\frac{1}{\sqrt{2}}g_{f}h(\bar{f}_{2L}\bar{f}_R + \bar{f}_Rf_{2L}) 
+\end{equation}
+where we have kept the subscript $f_{2L}$ to emphasize that these terms \emph{only} impact the lower component 
+of the left-handed doublet because of the $0$ in the upper component of the Higgs doublet. Leaving this aside 
+for a second, we note that the first term has the form of the desired mass term above (identifying $f_{2L}$ to $f_L$)
+while the second term describes the coupling of the fermion to the physical Higgs field. The corresponding Yukawa 
+coupling may be chosen to be consistent with the observed fermion mass, namely
+\begin{equation}
+g_{f} = \sqrt{2}\frac{m_f}{v}
+\end{equation}
+such that
+\begin{equation}
+\mathcal{L}_f = -m_{f}\bar{f}f -\frac{m_{f}}{v}\bar{f}fh.
+\end{equation}
+Notably here, the fermion coupling to the Higgs boson scales with the mass of the fermion, a fact that is 
+extremely relevant for this thesis analysis.
+
+As we said above, these terms \emph{only} impact the lower component of the left-handed doublet. The inclusion 
+of terms for the upper component is accomplished via the introduction of a Higgs conjugate doublet, defined as
+\begin{equation}
+\phi_c = -i\sigma_2\phi^{*} = \begin{pmatrix}-\phi^{0*}\\ \phi^{-}\end{pmatrix}.
+\end{equation}
+The argument proceeds similarly to the above, with similar results for couplings and masses of upper 
+components.
 
 \section{The Standard Model: A Summary}
 After all of the above, we may write the Standard Model as a theory with a local $SU(3) \times SU(2)_{L} \times U(1)_{Y}$
@@ -720,9 +813,10 @@ gauge symmetry, described by the Lagrangian
 where $D_{\mu} = \partial_{\mu} + ig_{W}W_{\mu}^{k}t^{k} + ig'\frac{Y}{2}B_{\mu}+ig_{S}G_{\mu}^{a}t^{a}$.
 
 The $SU(2)_{L} \times U(1)_{Y}$ subgroup is spontaneously broken to a $U(1)$ symmetry, lending mass to the
-associated gauge bosons and associated fermions. Of relevance for this thesis is the resulting physical 
+associated gauge bosons and fermions. Of relevance for this thesis is the resulting physical 
 Higgs field, with a predicted trilinear self-interaction and associated coupling $\lambda v$, related 
-to the experimentally observed Higgs boson mass by \todo{insert}
+to the experimentally observed Higgs boson mass by $m_{H} = \sqrt{2\lambda v^2}$, as well as the 
+fact that the strength of the Higgs coupling to fermions scales proportionally with the fermion mass.
 
 The Standard Model has been monumentally successful, with predictions consistent across many varied experimental cross-checks. 
 This thesis participates in one such cross check. However, the Standard Model is notably not a complete theory of the 
