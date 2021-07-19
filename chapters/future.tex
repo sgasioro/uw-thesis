@@ -197,7 +197,7 @@ values, $(f(x_{1}), \ldots, f(x_{N}))$ is Gaussian process distributed, that is,
 normal distribution with mean $\mu$, covariance matrix $\Sigma$.
 
 For a single point, this would correspond to a function space described entirely by a normal distribution, 
-with various samples from that distribution yielding various candidate functions. For multiple points, the 
+with various samples from that distribution yielding various candidate functions. For multiple points, a 
 covariance matrix describes the relationship between each pair of points -- correspondingly, it is represented 
 via a \emph{kernel function}, $K(x, x')$. As, in practice, $\mu$ may always be set to 0 via a centering of the 
 data, the kernel function fully defines the considered family of functions.
@@ -217,9 +217,76 @@ By standard conditioning properties of Gaussian distributions,
 \begin{equation}
 \vec{y}_2 | \vec{y}_1 \sim \mathcal{N}(K(X_2, X_1)K(X_1,X_1)^{-1}\vec{y}_1, K(X_2, X_2)-K(X_2,X_1)K(X_1,X_1)^{-1}K(X_1, X_2))
 \end{equation}
-and which is the sampling distribution for a Gaussian process given kernel $K$. In practice, the 
+which is the sampling distribution for a Gaussian process given kernel $K$. In practice, the 
 mean of this sampling distribution is used as the function estimate, with an uncertainty from the
 predicted variance at a given point.
 
 The choice of kernel function has a very strong impact on the fitted curve, and must therefore be chosen to 
-express the expected dynamics of the data. A common such choice is a radial basis function (RBF) kernel
+express the expected dynamics of the data. A common such choice is a radial basis function (RBF) kernel, which 
+takes the form
+\begin{equation}
+K(x, x') = \exp\qty(-\frac{d(x, x')^2}{2l^2})
+\end{equation}
+where $d(\cdot, \cdot)$ is the Euclidean distance and $l > 0$ is a length scale parameter. Conceptually, 
+as distances $d(x, x')$ increase relative to the chosen length scale, the kernel smoothly dies off -- 
+further away points influence each other less. 
+
+Coming back to our case of the mass plane, the procedure runs as follows:
+\begin{enumerate}
+	\item A binned 2d histogram of the blinded mass plane is created in a window 
+	around the ``standard'' analysis regions. Bins which have any overlap with the 
+	signal region are excluded.
+	\item A Gaussian process is trained using the bin centers, values as training points. 
+	The scikit-learn \todo{cite} implementation is used, with RBF kernel with anisotropic length scale 
+	($l$ is dimension 2).  The length scale is initialized to $(50, 50)$ to cover the signal region, 
+	and optimized by minimizing the negative log-marginal likelihood on the training data, 
+	$-\log p(\vec{y}|\theta)$. Training data is centered and scaled to mean $0$, variance $1$, 
+	and a statistical error is included in the fit.
+	\item The Gaussian process is then used to predict the density $p(m_{H1}, m_{H2})$ in the signal region. 
+	This may then be sampled from via an inverse transform sampling to generate values $(m_{H1}, m_{H2})$ 
+	according to the density (specifically, according to the mean of the Gaussian process posterior). 
+	Though in principle the Gaussian process sampling is not limited 
+	to bin centers, this is kept for simplicity, with a uniform smearing applied within each 
+	sampled bin to approximate the contiuous estimate, namely, if a bin is sampled from, the 
+	returned value is drawn uniformly at random within the sampled bin. 
+	\item The sampling in the previous step can be arbitrary -- to set the overall normalization, 
+	a Monte Carlo sampling of the Gaussian process is done to approximate the relative fraction 
+	of events predicted both inside ($f_{in}$) and outside ($f_{out}$) of the signal region, within 
+	the training box. The number of events outside of the signal region ($n_{out}$) is known, therefore, 
+	the number of events inside of the signal region, $n_{in}$, may be estimated as 
+	\begin{equation}
+	n_{in} = \frac{n_{out}}{f_{out}}\cdot f_{in}.
+	\end{equation}
+	Note that the Monte Carlo sampling procedure is simply a set of samples of the Gaussian 
+	process from uniformly random values of $m_{H1}, m_{H2}$, and is the most convenient 
+	approach given the irregular shape of the signal region.
+\end{enumerate}
+This procedure results in a generated set of predicted $m_{H1}, m_{H2}$ values for signal region, 
+background events, along with an overall yield prediction.
+
+\subsection{The Full Prediction}
+Given the normalizing flow parametrization of $p(x | m_{H1}, m_{H2})$ and the Gaussian process generation of 
+$(m_{H1}, m_{H2}) \sim p(m_{H1}, m_{H2})$ and prediction of the signal region yield, all of the pieces are 
+in place to construct an interpolation background estimate. Namely
+\begin{enumerate}
+	\item Gaussian process sampled $(m_{H1}, m_{H2})$ values are provided to the normalizing flow to predict 
+	the other variables for the Higgs candidate four-vectors. These are used to construct the $HH$ system (notably 
+	$m_{HH}, \cos{\theta^{*}}$).
+	\item These final distributions are normalized according to the predicted background yield.
+\end{enumerate}
+
+\subsection{Outstanding Points}
+While good performance is demonstrated from the nominal interpolated background estimate, various 
+uncertainties must be assigned according to the various stages of the estimate. These notably include
+\begin{itemize}
+	\item Assessing a statistical uncertainty on the normalizing flow training (cf. bootstrap uncertainty).
+	\item Propagation of the Gaussian process uncertainty through the sampling procedure.
+	\item Validation of the resulting estimate and assessment of necessary systematic uncertainties (e.g. from 
+	validation region non-closure).
+\end{itemize}
+These are all quite tractable, but some, especially the choice of an appropriate systematic uncertainty, 
+are certainly not obvious and require detailed study. In this respect, the reweighting validation work of the 
+non-resonant analysis is certainly quite useful as a starting place in terms of the available regions 
+and their correspondence to the nominal $4b$ signal region.
+
+
