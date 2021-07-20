@@ -35,7 +35,7 @@ two of the most fundamental ideas are (1) how are the beams directed and manipul
 mean when we say ``protons are accelerated''. These questions both are directly answered by pieces of hardware,
 namely (1) magnets and (2) radiofrequency (RF) cavities.
 
-One of fundamental components of the LHC is a large set of superconducting magnets \todo{material?}. These 
+One of fundamental components of the LHC is a large set of superconducting niobium-titanium magnets. These 
 are cooled by liquid helium to achieve superconducting temperatures, and there are several types with very 
 specific purposes. The obvious first question with a circular accelerator is how to keep the particle beam 
 moving around in that circle. This job is done via a set of dipole magnets placed around the \emph{beam pipes}: the 
@@ -96,6 +96,14 @@ interact with the detector is shown in Figure \ref{fig:ATLAS-shower}.
 \end{figure}
 
 \subsection{ATLAS Coordinate System} 
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=1.0\textwidth]{figures/ATLAS-coords.pdf}
+		 }
+\caption{2D projections of the ATLAS coordinate system\label{fig:ATLAS-coords}}
+\end{figure}
+
 Of relevance for the following discussion, as well as for the analysis presented in Chapter \ref{chap:bbbb},
 is the ATLAS coordinate system. ATLAS uses a right-handed coordinate system with its origin at the nominal 
 interaction point (IP) in the center of the detector and the \(z\)-axis along the beam pipe.
@@ -104,45 +112,107 @@ Cylindrical coordinates \((r,\phi)\) are used in the transverse plane, \(\phi\) 
 around the \(z\)-axis. The pseudorapidity is defined in terms of the polar angle \(\theta\) as 
 \(\eta = -\ln \tan(\theta/2)\). Angular distance is measured in units of 
 \(\Delta R \equiv \sqrt{(\Delta\eta)^{2} + (\Delta\phi)^{2}}\). These coordinates are shown in Figure 
-\todo{add coordinate figure}
+\ref{fig:ATLAS-coords}.
 
 \subsection{Inner Detector}
+The purpose of the inner detector is the reconstruction of the trajectory of charged particles, called 
+\emph{tracking}. This is accomplished primarily through the collection of electrons displaced when a 
+charged particle passes through a tracking detector. By setting up multiple layers of such detectors, 
+such that a given particle leaves a signature, known as a``hit'', in each layer, the trajectory of 
+the particle may be inferred via ``connecting the dots'' between these hits.
 
-The inner-detector system (ID) is immersed in a \SI{2}{\tesla} axial magnetic field 
-and provides charged-particle tracking in the range \(|\eta| < 2.5\).
-The high-granularity silicon pixel detector covers the vertex region and typically provides four measurements per track, 
-the first hit normally being in the insertable B-layer (IBL) installed before Run~2~\cite{ATLAS-TDR-19,PIX-2018-001}.
-It is followed by the silicon microstrip tracker (SCT), which usually provides eight measurements per track.
-These silicon detectors are complemented by the transition radiation tracker (TRT),
-which enables radially extended track reconstruction up to \(|\eta| = 2.0\). 
-The TRT also provides electron identification information 
-based on the fraction of hits (typically 30 in total) above a higher energy-deposit threshold corresponding to transition radiation.
+The raw trajectory of a particle only provides positional information. However, the trajectory 
+of a charged particle in a known magnetic field additionally provides information on particle 
+momentum and charge via the curvature of the corresponding track (cf. $\vec{F} = q\vec{v}\times \vec{B}$).
+The inner detector system is therefore surrounded by a solenoid magnet, providing a \SI{2}{\tesla} magnetic 
+field along the $z$-axis (yielding curvature in the transverse $x-y$ plane).
+
+The inner detector provides charged particle tracking in the range \(|\eta| < 2.5\) via a series of 
+detector layers. The innermost of these is
+the high-granularity silicon pixel detector which typically provides four measurements per track, with the 
+first hit in the insertable B-layer (IBL) installed before Run~2~\cite{ATLAS-TDR-19,PIX-2018-001}. This 
+is very close to the interaction point with a high degree of positional information, and is therefore 
+very important for e.g. $b$-tagging (see Chapter \ref{chap:reconstruction}). It is followed by the silicon 
+microstrip tracker (SCT), which usually provides eight measurements per track. This is lower granularity, but 
+similar in concept to the pixel detector.
+
+Both of these silicon detectors are complemented by the transition radiation tracker (TRT),
+which extends the radial track reconstruction within the range \(|\eta| < 2.0\). This is a different 
+design, composed of \emph{drift tubes}, i.e. straws filled with Xenon gas with a wire in the center, 
+but similarly collects electrons displaced by ionizing particles. In addition, the TRT includes materials 
+with widely varying indices of refraction, which leads to the production of transition radiation, namely 
+radiation produced by a charged particle passing through an inhomogeneous medium. The energy loss on 
+such a transition is proportional to the Lorentz factor $\gamma = E/m$ -- correspondingly, lighter 
+particles (e.g. electrons) tend to lose more energy and emit more photons compared to heavier particles 
+(e.g. pions). In the detector, this corresponds to a larger fraction of hits (typically 30 in total) above a 
+given high energy-deposit threshold for electrons, providing particle identification information.
 
 \subsection{Calorimeter}
-The calorimeter system covers the pseudorapidity range \(|\eta| < 4.9\).
-Within the region \(|\eta|< 3.2\), electromagnetic calorimetry is provided by barrel and 
-endcap high-granularity lead/liquid-argon (LAr) calorimeters,
-with an additional thin LAr presampler covering \(|\eta| < 1.8\)
-to correct for energy loss in material upstream of the calorimeters.
-Hadron calorimetry is provided by the steel/scintillator-tile calorimeter,
-segmented into three barrel structures within \(|\eta| < 1.7\), and two copper/LAr hadron endcap calorimeters.
-The solid angle coverage is completed with forward copper/LAr and tungsten/LAr calorimeter modules
-optimised for electromagnetic and hadronic energy measurements respectively.
+Surrounding the inner detector in ATLAS is the calorimeter. The principle of the calorimeter is to 
+completely absorb the energy of a produced particle in order to measure it. However, a pure block 
+of absorber does not provide much information about the particle interaction with the material. 
+The ATLAS calorimeter therefore has a \emph{sampling calorimeter} structure, namely, layers 
+of absorber interspersed with layers of sensitive material, giving the calorimeter ``stopping power'' 
+while allowing detailed measurement of the resulting particle shower and corresponding deposited energy.
+
+The ATLAS calorimetersystem covers the pseudorapidity range \(|\eta| < 4.9\), 
+and is primarily composed of two components, an electromagnetic calorimeter, 
+designed to measure particles which primarily interact via electromagnetism 
+(e.g. photons and electrons), and a hadronic calorimeter, designed to measure 
+particles which interact via the strong force (e.g. pions, other hadrons). We 
+will return to the differences between these in a moment. 
+
+In ATLAS, the electromagnetic calorimeter covers the region of \(|\eta|< 3.2\),
+and uses lead for the absorbers and liquid-argon for the sensitive material. It is high 
+granularity and, geometrically, has two components: the ``barrel'', which covers the cylindrical body 
+of the detector volume and the ``endcap'', covering the ends. An additional thin liquid-argon presampler 
+covers \(|\eta| < 1.8\) to correct for energy loss in material upstream of the calorimeters.
+
+The hadronic calorimeter is composed of alternating steel and plastic scintillator tiles,
+segmented into three barrel structures within \(|\eta| < 1.7\), in addition to two copper/liquid-argon 
+endcap calorimeters.
+
+The solid angle coverage is completed with forward copper/liquid-argon and tungsten/liquid-argon 
+calorimeter modules optimized for electromagnetic and hadronic energy measurements respectively.
 
 \subsection{Muon Spectrometer}
-The muon spectrometer (MS) comprises separate trigger and
-high-precision tracking chambers measuring the deflection of muons in a magnetic field generated by the superconducting air-core toroidal magnets.
-The field integral of the toroids ranges between \num{2.0} and \SI{6.0}{\tesla\metre}
-across most of the detector. 
-A set of precision chambers covers the region \(|\eta| < 2.7\) with three layers of monitored drift tubes,
-complemented by cathode-strip chambers in the forward region, where the background is highest.
+While muons interact electromagnetically, they are around 200 times heavier than electrons 
+($m_{\mu}$ = \SI{106}{\MeV}, while $m_{e}$ = \SI{0.510}{\MeV}. 
+Therefore, electormagnetic interactions with, e.g., electrons in the absorbers of the calorimeter 
+are not sufficient to stop them, and as they do not interact via the strong force, hard scattering with 
+nuclei is rare. A dedicated system for muon measurements is therefore required. 
+
+The muon spectrometer (MS) is the outermost layer of ATLAS and is designed for this purpose. It is composed 
+of three parts: a set of triggering chambers, which detect if there is a muon and provide 
+a coordiate meaurement, in conjunction with high-precision tracking chambers, which measure the deflection of 
+muons in a magnetic field to measure muon momentum, similar to the inner detector solenoid. The magnetic 
+field is generated by the superconducting air-core toroidal magnets, with a field integral between 
+\num{2.0} and \SI{6.0}{\tesla\metre} across most of the detector. The toroid magnetic field runs roughly 
+in a circle in the $x-y$ plane around the beam line, leading to muon curvature along the z-axis.
+
+The precision tracking system covers the region \(|\eta| < 2.7\) via three layers of monitored drift 
+tubes, and is complemented by cathode-strip chambers in the forward region, where the background is highest.
 The muon trigger system covers the range \(|\eta| < 2.4\) with resistive-plate chambers in the barrel, and thin-gap chambers in the endcap regions.
 
 \subsection{Triggering}
-Interesting events are selected by the first-level trigger system implemented in custom hardware,
-followed by selections made by algorithms implemented in software in the high-level trigger~\cite{TRIG-2016-01}. 
-The first-level trigger accepts events from the \SI{40}{\MHz} bunch crossings at a rate below \SI{100}{\kHz},
-which the high-level trigger further reduces in order to record events to disk at about \SI{1}{\kHz}.
+During a typical run of the LHC, there are roughly 1 billion collisions in ATLAS per second (\SI{1}{\GHz}), corresponding
+to a \SI{40}{\MHz} bunch crossing rate. 
+\todo{cite: https://cds.cern.ch/record/1457044/files/ATLAS\%20fact\%20sheet.pdf}
+Saving the information from all of them is not only unnecessary, but infeasible. The ATLAS trigger 
+system provides a sophisticated set of selections to filter the collision data and only keep those 
+collision events useful for downstream analysis.
 
-An extensive software suite~\cite{ATL-SOFT-PUB-2021-001} is used for real and simulated data reconstruction
-and analysis, for operation and in the trigger and data acquisition systems of the experiment.
+These events are selected by the first-level trigger system, which is implemented in custom hardware,
+and accepts events at a rate below \SI{100}{\kHz}. Selections are then made by algorithms implemented in software 
+in the high-level trigger~\cite{TRIG-2016-01}, reducing this further, and, in the end, events 
+are recorded to disk at much more manageable rate of about \SI{1}{\kHz}.
+
+An extensive set of ATLAS software~\cite{ATL-SOFT-PUB-2021-001} is open source, including the software used for real and simulated data reconstruction and analysis and that used in the trigger and data acquisition systems of the experiment.
+
+\subsection{Particle Showers and the Calorimeter}
+The design of the ATLAS detector is directly tied to the physics it is trying to detect. Of these, 
+the most non-trival distinction is in the calorimeter design. It is therefore useful to discuss in more 
+detail the various properties of electromagnetic and 
+hadronic interactions with material, and how these correspond to the particle showers measured 
+by the detector described above. 
+

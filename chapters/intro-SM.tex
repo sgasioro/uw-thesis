@@ -24,7 +24,10 @@ effort, and the topic of this thesis.
 The formalism for describing these particles and their interactions is that of quantum field theory. Classical field theory is most familiar in the context of, e.g., electromagnetism -- an electric field exists in some region of space, and a charged point-particle experiences a force characterized by the charge of the point-particle and the magnitude of the field at the location of the point-particle in spacetime. The same language translates to quantum field theory. Here, particles are described in terms of quantum fields in some region of spacetime. These fields have associated charges which describe the forces they experience when interacting with other quantum fields. Most familiar is electric charge -- however this applies to e.g., the strong interaction as well, where quantum fields have an associated \emph{color charge} describing behavior under the strong force.
 
 Particles are observed to behave in different ways under different forces. These behaviors respect certain \emph{symmetries}, which are most naturally described in the language of group theory. The respective fields, charges, and 
-generators of these symmetry groups are the basic pieces of the SM Lagrangian, which describes the full dynamics of the theory. In the following, we will build up the basic components of this Lagrangian.
+generators of these symmetry groups are the basic pieces of the SM Lagrangian, which describes the full dynamics of the theory. In the following, we will build up the basic components of this Lagrangian. The treatment presented here 
+relies heavily on Jackson's Classical Electrodynamics~\cite{Jackson} for the build-up, and Thomson's Modern Particle 
+Physics~\cite{Thomson} for the rest, with reference to Srednicki's Quantum Field Theory~\cite{Srednicki}, and some 
+personal biases and interjections.
 
 \section{Quantum Electrodynamics}
 Classical electrodynamics is familiar to the general physics audience: electric ($\vec{E}$) and magnetic ($\vec{B}$) 
@@ -40,14 +43,15 @@ and magnetic \emph{potentials}: $\phi$ and $\vec{A}$ respectively, with
 \vec{B} &= \grad \times \vec{A}
 \end{align}
 
-It is then natural to fully repackage into a relativistic \emph{four-vector}: $A_{\mu} = (\phi, \vec{A})$. 
+It is then natural to fully repackage into a relativistic \emph{four-vector}: $A^{\mu} = (\phi, \vec{A})$. 
 Considering $\partial^{\mu} = (\frac{\partial}{\partial t}, \grad)$, the $x$ components of these above 
 two equations become:
-\todo{Check signs and units!! Add Jackson reference?}
 \begin{align}
-E_{x} &= -\frac{\partial \phi}{\partial x} + \frac{\partial A_{x}}{\partial t} = ( \partial^0 A^1 - \partial^1 A^0)\\
-B_{x} &= \frac{\partial A_{z}}{\partial y} - \frac{\partial A_{y}}{\partial z} = (\partial^2 A^3 - \partial^3 A^2)
+E_{x} &= -\frac{\partial \phi}{\partial x} - \frac{\partial A_{x}}{\partial t} = -( \partial^0 A^1 - \partial^1 A^0)\\
+B_{x} &= \frac{\partial A_{z}}{\partial y} - \frac{\partial A_{y}}{\partial z} = -(\partial^2 A^3 - \partial^3 A^2)
 \end{align}
+where we have used the sign convention $(+, -, -, -)$, such that 
+$\partial^{\mu} = (\frac{\partial}{\partial x_0}, -\grad)$.
 
 This is naturally suggestive of a second rank, antisymmetric tensor to describe both the electric and magnetic 
 fields (the \emph{field strength tensor}), defined as:
