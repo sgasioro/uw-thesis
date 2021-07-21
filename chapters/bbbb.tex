@@ -232,8 +232,7 @@ by $p_{T}$ (e.g. for the 2$b$ region, the jets chosen are the two $b$-tagged jet
 highest $p_{T}$ non-tagged jets; for the $4b$ region, the jets are the four highest $p_{T}$ $b$-tagged
 jets). To match the topology of a $HH\rightarrow \bbbb$ event, these four jets are then \emph{paired}
 into \emph{Higgs candidates}: the four jets are split into two sets of two, and each of these pairs is
-used to define a reconstructed object that is a proxy for a Higgs in a $HH$ event. \todo{Should pairAGraph go
-somewhere? Maybe a ``future ideas'' chapter}
+used to define a reconstructed object that is a proxy for a Higgs in a $HH$ event.
 
 For four jets there are three possible pairings. For signal events, a correct pairing can be identified
 (provided all necessary jets pass pre-selection) using the truth information of the Monte Carlo simulation, 
@@ -592,8 +591,7 @@ the available statistics after each set of corresponding selections (cf. binning
 more sophisticated way), limiting the expressivity of the learned reweighting function.
 
 To solve these issues, a neural network based reweighting procedure is used
-here, following the success of the method used for the resonant search~\cite{Abbott:2708605}. 
-This is a truly multivariate approach, allowing for proper treatment of
+here. This is a truly multivariate approach, allowing for proper treatment of
 variable correlations. It further overcomes the issues associated with binned
 approaches by learning the reweighting function directly, allowing for greater
 sensitivity to local differences and helping to avoid the curse of
@@ -692,8 +690,8 @@ Control Region. The prediction of these networks in the Signal Region is then us
 for the nominal background estimate. In addition, a separate ensemble of networks is 
 trained in the Validation Region. The difference between the prediction of the nominal 
 estimate and the estimate from the VR derived networks in the Signal Region is used to 
-assign a systematic uncertainty associated with extrapolating in the Higgs Candidate
-mass plane. Further details on this systematic uncertainty are shown in Section \ref{sec:systematics}.
+assign a systematic uncertainty. Further details on this systematic uncertainty are shown 
+in Section \ref{sec:systematics}.
 Note that although the same procedure is used for both Control and Validation Region trained 
 networks, only the median estimate from the VR derived reweighting is used for assessing a 
 systematic -- no additional ``uncertainty on the uncertainty'' from 
@@ -854,7 +852,7 @@ To account for the systematic bias associated with deriving the reweighting func
 in the control region and extrapolating to the signal region, an alternative background
 model is derived in the validation region. Because of the fully data-driven nature of the 
 background model, this is an uncertainty assessed on the full background. The alternative model 
-and the baseline are consistent with the observed data in their training regions and with each other, and 
+and the baseline are consistent with the observed data in their training regions, and 
 differences between the alternative and baseline models are used to define a shape uncertainty on the \mhh
 spectrum, with a two-sided uncertainty defined by symmetrizing the difference about
 the baseline.

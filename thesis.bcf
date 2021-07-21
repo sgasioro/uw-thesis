@@ -2255,15 +2255,14 @@
     <bcf:citekey order="67">Butterworth:2015oua</bcf:citekey>
     <bcf:citekey order="68">Herwigpp</bcf:citekey>
     <bcf:citekey order="69">skopt</bcf:citekey>
-    <bcf:citekey order="70">Abbott:2708605</bcf:citekey>
-    <bcf:citekey order="71">NNloss</bcf:citekey>
-    <bcf:citekey order="71">NNloss1</bcf:citekey>
-    <bcf:citekey order="72">DeepEnsembles</bcf:citekey>
-    <bcf:citekey order="73">Bootstrap</bcf:citekey>
-    <bcf:citekey order="74">bbyyNote</bcf:citekey>
-    <bcf:citekey order="75">Read02</bcf:citekey>
+    <bcf:citekey order="70">NNloss</bcf:citekey>
+    <bcf:citekey order="70">NNloss1</bcf:citekey>
+    <bcf:citekey order="71">DeepEnsembles</bcf:citekey>
+    <bcf:citekey order="72">Bootstrap</bcf:citekey>
+    <bcf:citekey order="73">bbyyNote</bcf:citekey>
+    <bcf:citekey order="74">Read02</bcf:citekey>
+    <bcf:citekey order="75">Cowan11</bcf:citekey>
     <bcf:citekey order="76">Cowan11</bcf:citekey>
-    <bcf:citekey order="77">Cowan11</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
