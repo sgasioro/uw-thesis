@@ -520,7 +520,7 @@ Distributions of these variables are shown in \todo{plots}
 \FloatBarrier
 \clearpage
 \section{Background Estimation}
-After the event selection described in Section \ref{sec:selection} there are
+After the event selection described above there are
 two major backgrounds, QCD and \ttbar. A very similar approach is used 
 for both the resonant and the non-resonant analyses, with some small modifications. 
 This approach is notably fully data-driven, which is warranted due to 
@@ -531,10 +531,9 @@ the background estimate. However, it sacrifices an explicit treatment of the
 is checked explicitly \todo{add plots}, and minimal impact due to \ttbar 
 mismodeling is seen.
 
-\todo{Port over some checks}
-Contributions of single Higgs processes to the background are checked in 
-Appendix \ref{app:singleHiggs}. $\PZ\PZ$ and $\higgs\higgs$ backgrounds are checked 
-in Appendix \ref{app:minor-bkg}. All are found to be negligible.
+Contributions of single Higgs processes and $\PZ\PZ$ are found 
+to be negligible, and the Standard Model $\higgs\higgs$ background
+is found to have no impact on the resonant search.
 
 The foundation of the background estimate lies in the derivation of a
 reweighting function which matches the kinematics of events with exactly two
@@ -721,9 +720,31 @@ such that categorizing by year is expected to reflect groupings of kinematically
 to provide a meaningful degree of freedom in the signal extraction fit, the split-year approach is
 kept.
 
+The control region closure for the 2018 dataset is shown for the resonant search in Figures \ref{fig:res-control-NN18-1} 
+through \ref{fig:res-control-NN18-8} and for the non-resonant search in Figures \ref{fig:nonres-control-NN18-1} 
+through \ref{fig:nonres-control-NN18-8}. The impact of this control 
+region derived reweighting on the validation region is shown in Figures \ref{fig:res-validation-NN18-1} 
+through \ref{fig:res-validation-NN18-8} for the resonant search and Figures \ref{fig:nonres-validation-NN18-1} 
+through \ref{fig:nonres-validation-NN18-8} for the non-resonant 
+search. Generally good performance is seen, with some occasional mis-modeling. For the resonant 
+search, this is most notable in the case of individual jet $p_{T}$. Such mis-modeling may be corrected 
+by including the variables in the input set, but this was found to not improve the modeling of $m_{HH}$, a
+nd so is not done here. This mis-modeling is notable for the non-resonant search in the leading Higgs candidate 
+jet $p_{T}$, and is a direct consequence of the trigger category input, which improves modeling of $m_{HH}$.
+Results are similar for other years, but are not included here for brevity. 
+
+One other salient feature of the non-resonant plots is the distributions of $m_{H1}$ and $m_{H2}$, which 
+emphasize the quadrant region definitions -- the control region has a peak around \SI{125}{\GeV} in $m_{H1}$, 
+which may be thought of as ``signal region-like'', motivating this alignment, though consequently the 
+distribution of $m_{H2}$ is quite bimodal. The reverse is true for the validation region.
+
+\input{chapters/res-bkg-template}
+\input{chapters/nonres-bkg-template}
+
 \FloatBarrier
 \clearpage
 \section{Uncertainties}
+\label{sec:systematics}
 A variety of uncertainties are assigned to account for known biases in the
 underlying methods, calibrations, and objects used for this analysis. The
 largest such uncertainty is associated with the kinematic bias inherent in
@@ -732,18 +753,11 @@ statistical biasing of this same estimate has an effect of a similar magnitude.
 Additionally, due to the use of Monte Carlo for signal modelling and \btag
 calibration, uncertainties related to mismodellings in simulation must also be
 accounted for. These components, and their impact on this analysis, are
-described here in detail. Relative magnitudes of the uncertainties for
-each year are shown in Tables \ref{tbl:errs18}, \ref{tbl:errs17}, and
-\ref{tbl:errs16} along with an estimate of the impact of the statistics of 4b
-data in the signal region on the total error. Note that, while the Poisson
+described here in detail. Note that, while the Poisson
 error (from 2b data statistics) is negligible relative to the bootstrap error 
 in the bulk of the distribution, it becomes relevant in the high \mhh tail. 
 The final statistical uncertainty used for the limit setting is therefore the 
 sum (in quadrature) of these two components. 
-
-%\foreach \yr in {18, 17, 16}{
-%	\input{sections/tables/\tablesversion/\NNTtag-error-table-\yr.tex}
-%}
 
 \subsection{Statistical Uncertainties and Bootstrapping}
 There are two components to the statistical error for the neural network
@@ -874,8 +888,7 @@ Early~Run~2 analysis. A decomposition in terms of orthogonal polynomials, which
 would provide increased flexibility, was also evaluated. This study revealed
 that both decompositions are able to account for the systematic deviations
 between four tag data and the background estimate (evaluated in the kinematic
-validation region), and produce almost identical limits. This study is fully
-described in Appendix~\ref{app:poly-systs}.
+validation region), and produce almost identical limits.
 
 The simpler \emph{status quo} decomposition is therefore kept, with the
 technical ability to use the alternative decomposition for validation if
