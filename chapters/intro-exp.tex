@@ -178,8 +178,8 @@ calorimeter modules optimized for electromagnetic and hadronic energy measuremen
 \subsection{Muon Spectrometer}
 While muons interact electromagnetically, they are around 200 times heavier than electrons 
 ($m_{\mu}$ = \SI{106}{\MeV}, while $m_{e}$ = \SI{0.510}{\MeV}. 
-Therefore, electormagnetic interactions with, e.g., electrons in the absorbers of the calorimeter 
-are not sufficient to stop them, and as they do not interact via the strong force, hard scattering with 
+Therefore, electromagnetic interactions with absorbers in the calorimeter 
+are not sufficient to stop them, and, as they do not interact via the strong force, hard scattering with 
 nuclei is rare. A dedicated system for muon measurements is therefore required. 
 
 The muon spectrometer (MS) is the outermost layer of ATLAS and is designed for this purpose. It is composed 
@@ -211,8 +211,58 @@ An extensive set of ATLAS software~\cite{ATL-SOFT-PUB-2021-001} is open source, 
 
 \subsection{Particle Showers and the Calorimeter}
 The design of the ATLAS detector is directly tied to the physics it is trying to detect. Of these, 
-the most non-trival distinction is in the calorimeter design. It is therefore useful to discuss in more 
-detail the various properties of electromagnetic and 
-hadronic interactions with material, and how these correspond to the particle showers measured 
-by the detector described above. 
+possibly the most non-trival distinction is in the calorimeter design. It is therefore useful to discuss in more 
+detail the various properties of electromagnetic and hadronic interactions with material, and how these 
+correspond to the particle showers measured by the detector described above. 
 
+Electromagnetic showers in ATLAS predominantly occur via bremsstrahlung, or ``braking radiation'', and electron-positron 
+pair production. This proceeds rougly as follows: an electron entering a material is deflected by the electromagnetic 
+field of a heavy nucleus. This results in the radiation of a photon. That photon produces an electron-positron 
+pair, and the process repeats, resulting in a shower structure. At each step, characterized by 
+\emph{radiation length}, $X_{0}$, the number of particles approximately doubles and the average particle 
+energy decreases by approximately a factor of two. \todo{Include nice Thomson image}
+
+Note that bremsstrahlung and pair production only dominate in specific energy regimes, with other processes 
+taking over depending on particle energy. For electrons, bremsstrahlung only dominates for higher energies,  
+as low energy electrons will form ions with the atoms of the material. The point where the rates for the 
+two processes are equal is called the \emph{critical energy}, and is roughly
+\begin{equation}
+E_{c} \approx \frac{\SI{800}{\MeV}}{Z}
+\end{equation}
+where $Z$ is the nuclear charge. From a similar analysis of rates, we may see that the bremsstrahlung 
+rate is inversely proportional to the square of the mass of the particle. This explains why muons do not 
+shower in a similar way, as the rate of bremsstrahlung is suppressed by $(m_{e}/m_{\mu})^2$ relative to electrons.
+
+For lead, the absorber used for the ATLAS electromagnetic calorimeter, which has $Z=82$, this critical energy 
+is therefore around \SI{10}{\MeV}. Electrons resulting from LHC collisions are of a $\SI{}{\GeV}$ scale. 
+With the approximation of a reduction in particle energy by a factor of two every radiation length, the number of radiation lengths before the critical energy is reached is 
+\begin{equation}
+x = \frac{\ln{(E/E_{c})}}{\ln{2}}
+\end{equation}
+such that for a \SI{100}{\GeV} shower in lead, $x\sim 13$. The radiation length for lead is around \SI{0.56}{\cm},
+such that an electromagnetic shower could be expected to be captured within \SI{10}{\cm} of lead. 
+
+Electromagnetic showers are therefore characterized by depositing much of their energy within a small region 
+of space. As we show below (Chapter \ref{chap:simulation}) though electromagnetic showering is not deterministic, 
+the large number of particles and the restricted set of processes involved means that the shower development as a whole 
+is very similar between individual electromagnetic showers of the same energy.
+
+For completeness, note as well that pair production dominates for photons of energy greater than around \SI{10}{\MeV}, 
+whereas for lower energies (below around \SI{1}{\MeV}), the photoelectric effect, namely atomic photon absorption and electron emission, dominates.
+
+Hadronic showers are distinguished by the fact that they interact strongly with atomic nuclei. They are 
+correspondingly more complex because (1) they involve a wider variety of processes than electromagnetic 
+showers, and (2) these processes have a wide variety of associated length scales. Because these are 
+heavier than electrons (e.g. protons and charged pions) bremsstrahlung is suppressed, but ionization interactions 
+with the electrons will cause these particles to lose energy as they pass through the material. Hadronic 
+showering occurs on interaction with atomic nuclei. This may lead to production of, e.g. both charged ($\pi^{\pm}$)
+and neutral ($\pi^{0}$) pions. The $\pi^{0}$ lifetime is much much shorter than that of the charged pions (around 
+a factor of $10^8$), and immediately decays to two photons, starting an electromagnetic shower, as described 
+above. The longer lived $\pi^{\pm}$ travel further in the detector before experiencing another strong interaction 
+with more particles produced, also with varying lifetimes and decay properties. 
+
+It is therefore immediately apparent that hadronic showers are more complex than electromagnetic ones 
+(electromagnetic showers can be a subset of the hadronic!), and therefore much more variable from shower 
+to shower. The length scales involved are also significantly larger due to the reliance on nuclear interactions,
+characterized by length $\lambda_{I}$, which is around \SI{17}{\cm} for iron (used in the ATLAS hadronic calorimeter). 
+This motivates the calorimeter design, and results in the properties demonstrated in Figure \ref{fig:ATLAS-shower}.
