@@ -39,8 +39,8 @@
       \strng{authorbibnamehash}{bc51fc62aec5c2fb2968eb631d48cf2a}
       \strng{authornamehash}{bc51fc62aec5c2fb2968eb631d48cf2a}
       \strng{authorfullhash}{bc51fc62aec5c2fb2968eb631d48cf2a}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{{Classical electrodynamics; 2nd ed.}}
@@ -66,8 +66,8 @@
       \strng{authorbibnamehash}{57f5b607cec3b22885f854f4c4baf257}
       \strng{authornamehash}{57f5b607cec3b22885f854f4c4baf257}
       \strng{authorfullhash}{57f5b607cec3b22885f854f4c4baf257}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-1-107-03426-6}
@@ -94,8 +94,8 @@
       \strng{authorbibnamehash}{dcf0b6d39b9c28db1835e7d435784d7b}
       \strng{authornamehash}{dcf0b6d39b9c28db1835e7d435784d7b}
       \strng{authorfullhash}{dcf0b6d39b9c28db1835e7d435784d7b}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinit}{9}
+      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{{Quantum Field Theory}}
@@ -133,8 +133,8 @@
       \strng{authorbibnamehash}{36cb1bc6c27b471ec71c4d73d82e6003}
       \strng{authornamehash}{4a3cb7c170d020fa1c3233336f880c28}
       \strng{authorfullhash}{36cb1bc6c27b471ec71c4d73d82e6003}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issue}{3}
@@ -492,8 +492,8 @@
       \strng{authorbibnamehash}{98c22186c090664cd0aa787235a12e76}
       \strng{authornamehash}{98c22186c090664cd0aa787235a12e76}
       \strng{authorfullhash}{261fa39fa69c14924b0287f2a0cd40a4}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of High Energy Physics}
@@ -1728,8 +1728,8 @@
       \strng{authorbibnamehash}{387e0f407454dd53f013d45cb56409e1}
       \strng{authornamehash}{387e0f407454dd53f013d45cb56409e1}
       \strng{authorfullhash}{8344f07e040288ce764278954a705363}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{0168-9002}
@@ -2006,8 +2006,8 @@
       \strng{authorbibnamehash}{a3364242a05dc5a80a93fa55804031af}
       \strng{authornamehash}{a3364242a05dc5a80a93fa55804031af}
       \strng{authorfullhash}{a3364242a05dc5a80a93fa55804031af}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -2228,8 +2228,8 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{16}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -2668,8 +2668,8 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{20}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{{ATLAS-CONF-2019-021}}
@@ -2898,8 +2898,8 @@
       \strng{authorbibnamehash}{149cc1cc519308cf41f5b6ce0996019c}
       \strng{authornamehash}{149cc1cc519308cf41f5b6ce0996019c}
       \strng{authorfullhash}{863fdac2df9d6c4fce038b6482f8094f}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{3}
@@ -3511,6 +3511,7 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{Oliveira:2014kla}
 \endrefsection
 \endinput
 

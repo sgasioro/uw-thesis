@@ -855,12 +855,41 @@ the variable of interest while the second term describes the normalization varia
 The difference between the varied histogram and the nominal histogram is then
 taken to be the bootstrap statistical uncertainty on the nominal histogram.
 
-Figure \todo{include figure} demonstrates how each of the components described above
-contribute to the uncertainty envelope for the 2017 Control Region 
+Figure \ref{fig:bootstrap-breakdown} demonstrates how each of the components described above
+contribute to the uncertainty envelope for the non-resonant 2017 Control Region 
 and compares this approximate band to the variation of histograms from individual bootstrap 
 estimates. The error band constructed from the above procedure is seen to provide a good 
 description of the bootstrap variation.
 
+\begin{figure}[ht]
+	\centering
+	\subfloat[IQR varied histogram (before normalizing)]{\label{fig:bstrap-IQR-hist}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-Xhh-45-bootstrap-exp-plots-weightIQR-up-down-2017-CR.pdf}
+	}
+	\subfloat[Normalization correction]{\label{fig:bstrap-norm}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-Xhh-45-bootstrap-exp-plots-norm-up-down-2017-CR.pdf}
+	}
+
+	\subfloat[Final bootstrap error band]{\label{fig:bstrap-band}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-Xhh-45-bootstrap-exp-plots-nominal-band-2017-CR.pdf}
+	}
+	\subfloat[Comparison with histogram bin IQR]{\label{fig:bstrap-band-vs-hist-iqr}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-Xhh-45-bootstrap-exp-plots-nominal-band-compare-with-hist-IQR-2017-CR.pdf}
+	}
+
+	\caption{Illustration of the approximate bootstrap band procedure, shown as a ratio to the nominal estimate 
+	for the 2017 non-resonant background estimate. Each grey line is from the \mhh prediction for a 
+	single bootstrap training. Figure \ref{fig:bstrap-IQR-hist} shows 
+	the variation histograms constructed from median weight $\pm$ the IQR of the replica weights. It can be seen 
+	that this captures the rough shape of the bootstrap envelope, but is not good estimate for the overall magnitude
+	of the variation. Figure \ref{fig:bstrap-norm} demonstrates the applied normalization correction, and Figure 
+	\ref{fig:bstrap-band} shows the final band (normalized Figure \ref{fig:bstrap-IQR-hist} + 
+	Figure \ref{fig:bstrap-norm}). Comparing this with the IQR variation for the prediction from each bootstrap 
+	in each bin in Figure \ref{fig:bstrap-band-vs-hist-iqr}, the approximate envelope describes a very similar variation.}
+	\label{fig:bootstrap-breakdown}
+\end{figure}
+
+\FloatBarrier
 \subsection{Background Shape Uncertainties}
 To account for the systematic bias associated with deriving the reweighting function
 in the control region and extrapolating to the signal region, an alternative background
@@ -888,11 +917,8 @@ Early~Run~2 analysis. A decomposition in terms of orthogonal polynomials, which
 would provide increased flexibility, was also evaluated. This study revealed
 that both decompositions are able to account for the systematic deviations
 between four tag data and the background estimate (evaluated in the kinematic
-validation region), and produce almost identical limits.
-
-The simpler \emph{status quo} decomposition is therefore kept, with the
-technical ability to use the alternative decomposition for validation if
-necessary.
+validation region), and produce almost identical limits. The simpler \emph{status quo} decomposition 
+is therefore kept.
 
 For the non-resonant analysis, the quadrant nature of the background estimation
 leads to a natural breakdown of the nuisance parameters: quadrants are defined 
@@ -902,6 +928,44 @@ corresponding to regions that are ``closer to'' and ``further away from'' the
 nominal and alternate estimate regions, fully leveraging the power of the two
 equivalent but systematically different estimates.
 
+Figure \ref{fig:res-shapesyst-var-18} shows an example of the variation in each 
+$H_{T}$ region for the 2018 resonant analysis. Figure \ref{fig:nonres-shapesyst-var-18}
+shows the example quadrant variation for the 2018 $4b$ non-resonant analysis.
+\begin{figure}[ht]
+	\centering
+	\subfloat[Low $H_{T}$]{\label{fig:lowHT-shapesyst-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-res-lowHT-HTsplit-syst-m-hh-cor-Signal-NN-18-4b.pdf}
+	}
+	\subfloat[High $H_{T}$]{\label{fig:highHT-shapesyst-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-res-highHT-HTsplit-syst-m-hh-cor-Signal-NN-18-4b.pdf}
+	}
+	\caption{\textbf{Resonant Search}: Example of CR vs VR variation in each $H_{T}$ region 
+	for 2018. The variation nicely factorizes into low and high mass components.}
+	\label{fig:res-shapesyst-var-18}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\vspace*{-3cm}
+	\subfloat[Q1 (top)]{\label{fig:Q1-shapesyst-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-SR-Q1-SR-quads-rot-Xhh-syst-m-hh-Signal-NN-18-4b.pdf}
+	}
+
+	\subfloat[Q2 (left)]{\label{fig:Q2-shapesyst-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-SR-Q2-SR-quads-rot-Xhh-syst-m-hh-Signal-NN-18-4b.pdf}
+	}
+	\subfloat[Q4 (right)]{\label{fig:Q4-shapesyst-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-SR-Q4-SR-quads-rot-Xhh-syst-m-hh-Signal-NN-18-4b.pdf}
+	}
+
+	\subfloat[Q3 (bottom)]{\label{fig:Q3-shapesyst-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-SR-Q3-SR-quads-rot-Xhh-syst-m-hh-Signal-NN-18-4b.pdf}
+	}
+	\caption{\textbf{Non-resonant Search (4b)}: Example of CR vs VR variation in each signal region quadrant 
+	for 2018. Significantly different behavior is seen between quadrants, with the largest variation in quadrant 
+	1 and the smallest in quadrant 4. \label{fig:nonres-shapesyst-var-18}}
+\end{figure}
+
+\FloatBarrier
 \subsection{Detector Modelling and Reconstruction Uncertainties}%
 \label{subsec:modelling-uncerts}
 Detector modelling and reconstruction uncertainties account for Monte Carlo
@@ -1111,3 +1175,26 @@ The signal cross-section {$\mu$}~\si{\femto\barn} is excluded at the 95\% confid
 \FloatBarrier
 \clearpage
 \section{Results}
+Figure \ref{fig:limits} shows
+\begin{figure}[ht]
+  \centering
+  \vspace*{-3cm}
+  \subfloat[]{
+    \label{fig:limits-spin0}
+    \includegraphics[width=0.65\textwidth]{figures/limits-scalar.pdf}
+  }
+
+  \subfloat[]{
+    \label{fig:limits-spin2}
+    \includegraphics[width=0.65\textwidth]{figures/limits-graviton.pdf}
+  }
+  \caption{\label{fig:limits}
+    Expected (dashed black lines) and observed (solid black lines) 95\% CL upper limits on the cross-section times branching ratio of resonant \(X/G_{KK}^{*} \rightarrow HH\) production for spin-0 and spin-2.
+    The \(\pm 1\sigma\) and \(\pm 2\sigma\) ranges for the expected limits (colored bands) are shown.
+    Expected limits using each of the resolved and boosted channels individually (dashed colored lines) are shown.
+    The theoretical prediction for the bulk RS model with \(k/\overline{M}_{\mathrm{Pl}} = 1\)~\cite{Oliveira:2014kla} (solid red line) is shown;
+    the decrease below \SI{350}{\GeV} is due to a sharp reduction in the \(G_{KK}^{*} \rightarrow HH\) branching ratio.
+    The nominal \(H \rightarrow b\bar{b}\) branching ratio is taken as 0.582.
+  }
+\end{figure}
+
