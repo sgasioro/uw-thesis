@@ -7,7 +7,7 @@ signal models being considered: resonant production, in which a new spin-0 or
 spin-2 particle is produced and decays to two Standard Model Higgs bosons, and 
 non-resonant production, which is sensitive to the value of the Higgs self-coupling
 $\lambda_{HHH}$. Further information on the theory behind both channels can be 
-found in Chapter \todo{Fill in theory chapter.}
+found in Chapter \ref{chap:hh-bsm}.
 
 While the searches face many similar challenges and proceed (in broad strokes) in a very 
 similar manner, separate optimizations are performed to maximize the respective sensitivities 
@@ -34,7 +34,7 @@ than would be obtained with a more generic approach.
 Both searches are presented in the following, with emphasis on particular motivations for, and consequences
 of, the various design decisions involved for each respective set of signal hypotheses. 
 
-The analyses improve upon previous work \todo{cite} in several notable ways. The resonant search leverages 
+The analyses improve upon previous work \ref{EXOT-2016-31} in several notable ways. The resonant search leverages 
 a Boosted Decision Tree (BDT) based pairing algorithm, offering improved HH pairing efficiency over a broad 
 mass spectrum. The non-resonant adopts a different approach, with a simplified algorithm based on the minimum
 angular distance ($\Delta R$) between jets in a Higgs candidate. Such an approach very efficiently discards 
@@ -153,15 +153,14 @@ on the parton showering.
 To maximize analysis sensitivity, a combination of multi-\Pqb-jet triggers is used. Due to the 
 use of events with two \Pqb-tagged jets in the background estimate, such triggers have a maximum 
 requirement of two \Pqb-tagged jets. For the resonant analysis, a combination of triggers of 
-various topologies is used, namely \todo{describe}
+various topologies is used, namely
 \begin{itemize}
-	\item 2b + HT
-	\item 2b + 2j
-	\item 2b + 1j
-	\item 1b
+	\item 2b + HT, which requires two $b$-tagged jets and a minimum value of of $H_{T}$, defined to be the scalar sum of $p_{T}$ across all jets in the event.
+	\item 2b + 2j, which requires two $b$-tagged jets and two other jets matching some kinematic requirements
+	\item 2b + 1j, which requires two $b$-tagged jets and one other jet matching some kinematic requirements
+	\item 1b, which requires one $b$-tagged jet
 \end{itemize}
-The non-resonant analysis uses a simplified strategy relying entirely on $2b+1j$ and $2b+2j$
-triggers.\todo{why?}
+Due to minimal contributions from some of these triggers for the Standard Model non-resonant signal, a simplified strategy relying entirely on $2b+1j$ and $2b+2j$ triggers is used for the non-resonant search.
 
 While the use of multiple triggers is beneficial for analysis sensitivity, it comes with some
 complications. Namely, a set of scale factors must be assigned to simulated events 
@@ -272,7 +271,7 @@ by the top veto described in Section \ref{sec:kinematic-cuts}.}
 
 
 \begin{figure}[ht]
-\label{fig:pairing-signal}
+
 \centering
 \subfloat[$\kappa_{\lambda} = 1$ (SM)]{\label{fig:mindR-Dhh-sig-kl1}
 		  \includegraphics[width=0.48\textwidth]{figures/mindR-vs-Dhh-kl-1.pdf}
@@ -287,7 +286,8 @@ by the top veto described in Section \ref{sec:kinematic-cuts}.}
 \subfloat[$\kappa_{\lambda} = 10$]{\label{fig:mindR-Dhh-sig-kl-10}
 		  \includegraphics[width=0.48\textwidth]{figures/mindR-vs-Dhh-kl-10.pdf}
 		 }
-\caption{Comparison of signal distributions in the respective signal regions for the $\min\Delta R$ and 
+\caption{\label{fig:pairing-signal} 
+Comparison of signal distributions in the respective signal regions for the $\min\Delta R$ and 
 $D_{HH}$ pairing for various values of the Higgs trilinear coupling in the respective signal regions. The 
 distributions are quite similar at the Standard Model point, but for other variations, $\min\Delta R$ does not 
 pick up the low mass features.}
@@ -349,17 +349,15 @@ referred to as $\min{\dr}$ in the following.
 The primary motivation for the use of this pairing in the non-resonant search is a 
 \emph{smooth mass plane}: by efficiently discarding low mass events, $\min{\dr}$ removes 
 the background peak present in the resonant search while maintaining good pairing 
-efficiency for the non-resonant signal. This facilitates a background estimate with 
+efficiency for the Standard Model non-resonant signal. This facilitates a background estimate with 
 small kinematic bias -- the region in which the background estimate is derived is 
 more similar to the signal region. 
 
 Along with discarding low mass background, there is a corresponding loss of low mass signal.
-In particular \todo{insert plot}, for higher $\kappa_{\lambda}$ points, in which the 
-\todo{check - I think it's triangle diagram?} dominates, there is a significant impact 
-on the resulting signal distribution. \todo{put in combination plot?} The $4b$ channel 
-has the strongest contribution near the Standard Model, however, and is optimized as such.
-Further, because of the large low mass background, the loss of significance is mitigated.
-This approach is thus adopted for the non-resonant search.
+This predominantly impacts points away from the Standard Model (see Figure \ref{fig:pairing-signal}), 
+but, because the $4b$ channel has the strongest contribution near the Standard Model and because of the 
+large low mass background present with other pairing methods, the impact on analysis sensitivity 
+is mitigated. The $\min{\dr}$ pairing is thus adopted for the non-resonant search.
 
 \FloatBarrier
 \clearpage
@@ -394,7 +392,7 @@ With $m_{\Pqt}$ denoting the invariant mass of the \Pqt candidate, and $m_{\PW}$
 the invariant mass of the \PW candidate, the quantity
 \begin{equation}
 	\label{eqn:xwt-def}
-	X_{\PW\Pqt} = \sqrt{\qty(\frac{10\qty(m_{\PW} - \SI{80.4}{\GeV})}{m_{\PW}})^{2} + \qty(\frac{10\qty(m_{\Pqt} - \SI{172.5}{\GeV})}{m_{\Pqt}})^{2}}
+	X_{\PW\Pqt} = \sqrt{\qty(\frac{m_{\PW} - \SI{80.4}{\GeV}}{0.1\cdot m_{\PW}})^{2} + \qty(\frac{m_{\Pqt} - \SI{172.5}{\GeV}}{0.1\cdot m_{\Pqt}})^{2}}
 \end{equation}
 
 is constructed for each combination.
@@ -452,8 +450,8 @@ regions, but which do pass
 		\SI{110}{\GeV})^{2}} < \SI{45}{\GeV}
 \end{equation}
 
-For simplicity, the \todo{cite old paper} SR/VR/CR definitions were chosen for the resonant analysis, 
-but were found to be close to optimal.
+For simplicity, the SR/VR/CR definitions from the early Run 2 paper~\cite{EXOT-2016-31} were chosen 
+for the resonant analysis, but were found to be close to optimal.
 
 \subsection{Non-resonant Kinematic Regions}
 For the non-resonant analysis the signal region is centered at (\SI{124}{\GeV}, \SI{117}{\GeV}),
@@ -520,6 +518,7 @@ Distributions of these variables are shown in \todo{plots}
 \FloatBarrier
 \clearpage
 \section{Background Estimation}
+\label{sec:bkgdestimation}
 After the event selection described above there are
 two major backgrounds, QCD and \ttbar. A very similar approach is used 
 for both the resonant and the non-resonant analyses, with some small modifications. 
@@ -576,8 +575,8 @@ the full event selection may be run on two tagged events.
 The set of two tagged data events is the fundamental piece of the data driven
 background estimate. However, kinematic differences from the four tag region
 exist and must be corrected in order for this estimate to be useful. Binned 
-approaches based on ratios of histograms (\todo{Cite either 15+16 or full Run 2 VBF})
-have been previously considered, but are limited in their handling of correlations 
+approaches based on ratios of histograms have been previously considered~\cite{EXOT-2016-31},~\cite{HDBS-2018-18}, 
+but are limited in their handling of correlations 
 between variables and by the ``curse of dimensionality'', i.e. the dataset
 becomes sparser and sparser in ``reweighting space'' as the number of dimensions
 in which to reweight increases, limiting the number of variables used for reweighting. 
@@ -720,12 +719,14 @@ such that categorizing by year is expected to reflect groupings of kinematically
 to provide a meaningful degree of freedom in the signal extraction fit, the split-year approach is
 kept.
 
-The control region closure for the 2018 dataset is shown for the resonant search in Figures \ref{fig:res-control-NN18-1} 
-through \ref{fig:res-control-NN18-8} and for the non-resonant search in Figures \ref{fig:nonres-control-NN18-1} 
-through \ref{fig:nonres-control-NN18-8}. The impact of this control 
-region derived reweighting on the validation region is shown in Figures \ref{fig:res-validation-NN18-1} 
-through \ref{fig:res-validation-NN18-8} for the resonant search and Figures \ref{fig:nonres-validation-NN18-1} 
-through \ref{fig:nonres-validation-NN18-8} for the non-resonant 
+The control region closure for the 2018 dataset is shown for the resonant search in Figures \ref{fig:res-Control18-1} 
+through \ref{fig:res-Control18-8} and for the non-resonant search in Figures \ref{fig:nonres-Control184b-1} 
+through \ref{fig:nonres-Control184b-8} for $4b$ and Figures \ref{fig:nonres-Control183b1l-1} 
+through \ref{fig:nonres-Control183b1l-8} for $3b1l$. The impact of this control 
+region derived reweighting on the validation region is shown in Figures \ref{fig:res-Validation18-1} 
+through \ref{fig:res-Validation18-8} for the resonant search and Figures \ref{fig:nonres-Validation184b-1} 
+through \ref{fig:nonres-Validation184b-8} for $4b$ and Figures \ref{fig:nonres-Validation183b1l-1} 
+through \ref{fig:nonres-Validation183b1l-8} for $3b1l$ for the non-resonant 
 search. Generally good performance is seen, with some occasional mis-modeling. For the resonant 
 search, this is most notable in the case of individual jet $p_{T}$. Such mis-modeling may be corrected 
 by including the variables in the input set, but this was found to not improve the modeling of $m_{HH}$, a
@@ -1019,8 +1020,6 @@ A 5\% flat systematic uncertainty is assigned to all signal samples, extracted f
 for the full 4-tag selection, as seen in Figs.~\ref{fig:signal-PS-syst-CF-500} and~\ref{fig:signal-PS-syst-CF-1000}. 
 
 
-
-
 To evaluate the potential effect of missing higher order terms in the matrix
 element, the renormalization and factorization scales used in the signal
 generation were varied coherently by factors of 0.5$\times$ and 2$\times$ for
@@ -1048,7 +1047,9 @@ These uncertainties are implemented in the final statistical analysis as normali
 uncertainties on the signals, with the value taken from the polynomial fit. This smooths
 out statistical fluctuations and allows interpolation between the generated mass points, if needed.
 
-\todo{add non-res ones}
+The results for the non-resonant analysis presented here are preliminary and only include 
+background systematics. However, these are expected to be by far the dominant uncertainties, 
+and should therefore be reflective of the final results.
 
 \FloatBarrier
 \clearpage
@@ -1175,7 +1176,13 @@ The signal cross-section {$\mu$}~\si{\femto\barn} is excluded at the 95\% confid
 \FloatBarrier
 \clearpage
 \section{Results}
-Figure \ref{fig:limits} shows
+Figure \ref{fig:res-limits} shows the expected limit for the spin-0 and spin-2 resonant search. The 
+resolved channel covers the range between \SIlist{251;1500}{\GeV} and is combined with the boosted channel between \SIlist{900;1500}{\GeV}. The boosted channel then extends to \SI{3}{\TeV}. The most significant excess is seen 
+for a signal mass of \SI{1100}{\GeV}, with local significance of $2.6\sigma$ for the spin-0 signal and 
+$2.7\sigma$ for the spin-2 signal. This is reduced to $1.0\sigma$ and $1.2\sigma$ globally. 
+
+The spin-2 bulk Randall-Sundrum model with $k/\overline{M}_{\mathrm{Pl}} = 1$ is excluded for 
+graviton masses between \SIlist{298;1440}{\GeV}.
 \begin{figure}[ht]
   \centering
   \vspace*{-3cm}
@@ -1188,13 +1195,30 @@ Figure \ref{fig:limits} shows
     \label{fig:limits-spin2}
     \includegraphics[width=0.65\textwidth]{figures/limits-graviton.pdf}
   }
-  \caption{\label{fig:limits}
-    Expected (dashed black lines) and observed (solid black lines) 95\% CL upper limits on the cross-section times branching ratio of resonant \(X/G_{KK}^{*} \rightarrow HH\) production for spin-0 and spin-2.
-    The \(\pm 1\sigma\) and \(\pm 2\sigma\) ranges for the expected limits (colored bands) are shown.
-    Expected limits using each of the resolved and boosted channels individually (dashed colored lines) are shown.
-    The theoretical prediction for the bulk RS model with \(k/\overline{M}_{\mathrm{Pl}} = 1\)~\cite{Oliveira:2014kla} (solid red line) is shown;
-    the decrease below \SI{350}{\GeV} is due to a sharp reduction in the \(G_{KK}^{*} \rightarrow HH\) branching ratio.
-    The nominal \(H \rightarrow b\bar{b}\) branching ratio is taken as 0.582.
+  \caption{\label{fig:res-limits}
+    Expected (dashed black) and observed (solid black) 95\% CL upper limits on the cross-section times branching ratio of resonant production for spin-0 (\(X \rightarrow HH\)) and spin-2 \(G_{KK}^{*} \rightarrow HH\). 
+    The \(\pm 1\sigma\) and \(\pm 2\sigma\) ranges for the expected limits are shown in the colored bands. 
+    The resolved channel expected limit is shown in dashed pink and covers the range from \SIlist{251;1500}{\GeV}. 
+    It is combined with the boosted channel (dashed blue) between \SIlist{900;1500}{\GeV}.
+    The theoretical prediction for the bulk RS model with \(k/\overline{M}_{\mathrm{Pl}} = 1\)~\cite{Oliveira:2014kla} 
+    (solid red line) is shown, with the decrease below \SI{350}{\GeV} due to a sharp reduction in the \(G_{KK}^{*} \rightarrow HH\) branching ratio. The nominal \(H \rightarrow b\bar{b}\) branching ratio is taken as 0.582.
   }
 \end{figure}
 
+Preliminary results are presented here for the gluon-gluon fusion non-resonant search. These results will be combined with a VBF channel as discussed, but this is left for future work. Limits are set for $\kappa_{\lambda}$ values 
+from $-20$ to $20$.   The cross section limit for $HH$ production is set at \SI{180}{\fb} (expected), corresponding to 
+$5.9$ (expected) times the Standard Model prediction. $\kappa_{\lambda}$ is constrained to be within the range $-3.9 \leq \kappa_{\lambda} \leq 10.9$ (expected) at 95~\% CL. These results are shown in Figure \ref{fig:nonres-limits}.
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \label{fig:limits-kl}
+    \includegraphics[width=0.8\textwidth]{figures/exp-limit-2x2.pdf}
+  }
+  \caption{\label{fig:nonres-limits}
+    Expected (dashed black)  95\% CL upper limits on the cross-section times branching ratio of non-resonant production 
+    for a range of values of the Higgs self-coupling, with the Standard Model value ($\kappa_{\lambda} = 1$) illustrated 
+    with a star. The \(\pm 1\sigma\) and \(\pm 2\sigma\) ranges for the expected limits are shown in the colored bands. 
+    The cross section limit for $HH$ production is set at \SI{180}{\fb} (expected), corresponding to $5.9$ (expected) times the Standard Model prediction. $\kappa_{\lambda}$ is constrained to be within the range $-3.9 \leq \kappa_{\lambda} \leq 10.9$ (expected). The nominal \(H \rightarrow b\bar{b}\) branching ratio is taken as 0.582.
+  }
+\end{figure}

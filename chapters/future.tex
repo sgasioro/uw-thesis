@@ -237,7 +237,7 @@ Coming back to our case of the mass plane, the procedure runs as follows:
 	around the ``standard'' analysis regions. Bins which have any overlap with the 
 	signal region are excluded.
 	\item A Gaussian process is trained using the bin centers, values as training points. 
-	The scikit-learn \todo{cite} implementation is used, with RBF kernel with anisotropic length scale 
+	The scikit-learn implementation~\cite{scikit-learn} is used, with RBF kernel with anisotropic length scale 
 	($l$ is dimension 2).  The length scale is initialized to $(50, 50)$ to cover the signal region, 
 	and optimized by minimizing the negative log-marginal likelihood on the training data, 
 	$-\log p(\vec{y}|\theta)$. Training data is centered and scaled to mean $0$, variance $1$, 
@@ -261,7 +261,7 @@ Coming back to our case of the mass plane, the procedure runs as follows:
 	process from uniformly random values of $m_{H1}, m_{H2}$, and is the most convenient 
 	approach given the irregular shape of the signal region.
 \end{enumerate}
-This procedure results in a generated set of predicted $m_{H1}, m_{H2}$ values for signal region, 
+This procedure results in a generated set of predicted $m_{H1}, m_{H2}$ values for signal region
 background events, along with an overall yield prediction.
 
 \subsection{The Full Prediction}

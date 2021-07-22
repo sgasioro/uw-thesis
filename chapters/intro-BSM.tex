@@ -1,4 +1,5 @@
 \chapter{Di-Higgs Phenomenology and Physics Beyond the Standard Model}
+\label{chap:hh-bsm}
 This thesis focuses on searches for di-Higgs production in the \bbbb final state. In this chapter,
 we will provide a brief overview of the practical theoretical information motivating such searches. 
 Though the searches test for physics beyond the Standard Model, particularly in the search for 
@@ -10,10 +11,27 @@ of this thesis, though we will attempt to provide a grounding for the models tha
 Di-Higgs searches can be split into two major theoretical categories: \emph{resonant searches}, in which a physical resonance is produced that subsequently decays into two Higgs bosons, and a \emph{non-resonant searches} in which no physical resonance is produced, but where the $HH$ production cross section has a contribution from an exchange of a \emph{virtual} or \emph{off-shell} particle. 
 
 The focus of this thesis is gluon initiated processes -- in the case of di-Higgs this is termed gluon-glon fusion
-(ggF). $\higgs\higgs$ production may also occur via vector boson fusion \todo{cite https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PAPERS/HDBS-2018-18/}. However the cross section for such production is significantly smaller. Representative Feynman diagrams are shown in\todo{add diagrams}.
+(ggF). $\higgs\higgs$ production may also occur via vector boson fusion~\cite{HDBS-2018-18}. However the cross section for such production is significantly smaller. Representative Feynman diagrams are shown in for gluon-gluon fusion 
+non-resonant production in Figure \ref{fig:ggF-diagrams}.
 
-\todo{show heavier couples more strongly to Higgs - just fill in Yukawa above}. However, the top quark has a mass of \SI{173}{\GeV}, whereas the $\higgs$ has a mass of \SI{125}{\GeV}, such that \HepProcess{\higgs \to \Pqt\Paqt} is kinematically 
-disfavored. \HepProcess{\higgs \to \Pqb\Paqb} is therefore the dominant fermionic Higgs decay mode, and, in fact, 
+\begin{figure}[ht]
+\centering
+\subfloat[]{\label{fig:ggF-tri}
+		  \includegraphics[width=0.48\textwidth]{figures/ggF-tri.pdf}
+		 }
+\subfloat[]{\label{fig:ggF-box}
+		  \includegraphics[width=0.48\textwidth]{figures/ggF-box.pdf}
+		 }
+
+\caption{\label{fig:ggF-diagrams} Dominant contributing diagrams for non-resonant gluon-gluon fusion production of 
+$HH$. $\kappa_{\lambda}$ and $\kappa_{t}$ represent variations of the Higgs self-coupling and coupling to top quarks 
+respectively, relative to that predicted by the Standard Model.}
+\end{figure}
+
+As shown in Chapter \ref{chap:intro-SM}, the Higgs coupling to fermions scales with particle mass. 
+As the top quark has a mass of \SI{173}{\GeV}, whereas the $\higgs$ has a mass of \SI{125}{\GeV}, such that 
+\HepProcess{\higgs \to \Pqt\Paqt} is kinematically disfavored, \HepProcess{\higgs \to \Pqb\Paqb} is the dominant 
+fermionic Higgs decay mode, and, in fact, 
 the dominant overall decay mode, with a branching fraction of around 58~\%. The dominant top quark Yukawa coupling to 
 the \higgs does play a role in \higgs production, however -- gluon-gluon fusion is dominated by processes including 
 a top loop.
@@ -45,7 +63,7 @@ to physical fields.
 
 \section{Non-resonant $HH$ Searches}
 Non-resonant $HH$ production is predicted by the Standard Model via the trilinear coupling discussed above,
-as well as via production in a fermion loop. More explicitly, after electroweak symmetry breaking, we have \todo{add Yukawa}
+as well as via production in a fermion loop. More explicitly, after electroweak symmetry breaking, we have
 \begin{align}
 \mathcal{L}_{SM} &\supset -\lambda v^2h^2 - \lambda v h^3 - \frac{1}{4}\lambda h^4\\
 &= -\frac{1}{2}m_{H}^2 - \lambda_{HHH}^{SM}vh^3 - \lambda_{HHHH}^{SM}h^4
@@ -59,7 +77,7 @@ the vacuum expectation value $v=$\SI{246}{\GeV} has a precise determination from
 This coupling is therefore precisely predicted in the Standard Model, such that an observed deviation from 
 this prediction would be a clear sign of new physics. 
 
-The relevant diagrams for non-resonant $HH$ production are shown in Figure \todo{add diagrams}.
+The relevant diagrams for non-resonant $HH$ production are shown in Figure \ref{fig:ggF-diagrams}.
 Notably, the diagrams \emph{interfere} with each other, which can be easily seen by counting the fermion lines.
 \todo{Some good stuff in here https://arxiv.org/pdf/1504.05596.pdf}.
 
