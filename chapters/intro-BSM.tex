@@ -37,19 +37,33 @@ the \higgs does play a role in \higgs production, however -- gluon-gluon fusion 
 a top loop.
 
 The single \higgs properties translate to $\higgs\higgs$ production, with \HepProcess{\higgs\higgs \to \bbbb} accounting
-for around 34~\% of all $\higgs\higgs$ decays. The \higgs\higgs branching fractions are shown in Figure \todo{add}.
+for around 34~\% of all $\higgs\higgs$ decays. The \higgs\higgs branching fractions are shown in Figure \ref{fig:hh-br}.
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=0.8\textwidth]{figures/branching-ratios.pdf}
+		 }
+\caption{\label{fig:hh-br} Illustration of dominant $HH$ branching ratios. $HH\rightarrow \bbbb$ is the most common 
+decay mode, representing 34~\% of all $HH$ events produced at the LHC.}
+\end{figure}
 
 \section{Resonant $HH$ Searches}
 Resonant di-Higgs production is predicted in a variety of extensions to the
-Standard Model. In particular, due to \todo{constraints}, this thesis presents
-searches for both spin-0 and spin-2 resonances. Each are implemented in a particular 
-theoretical context, but set up experimental results for generic searches.
+Standard Model. In particular, this thesis presents searches for both spin-0 and spin-2 resonances. 
+The decay of spin-1 resonances to two identical spin-0 bosons is prohibited, as the final state 
+must correspondingly be symmetric under particle exchange, but this process would require 
+orbital angular momentum $\ell = 1$, and thus an anti-symmetric final state.
+Each model considered here is implemented in a particular theoretical context, but set up experimental results 
+for generic searches.
 
 The spin-2 signal considered is implemented within the bulk Randall-Sundrum (RS)
-model~\cite{Gravitons}, which features spin-2 Kaluza-Klein gravitons,
-\PGrav, that are produced via gluon-fusion and which may decay to a pair of Higgs bosons.
-This model was considered in the early Run 2 analysis \todo{cite}, and was excluded 
-across much of the relevant mass range. 
+model~\cite{Gravitons,Carvalho}, which features spin-2 Kaluza-Klein gravitons,
+\PGrav, that are produced via gluon-fusion and which may decay to a pair of Higgs bosons. The model
+predicts such gravitons as a consequence of warped extra dimensions, and is correspondingly 
+parametrized by a value $c=k/\overline{M}_{\mathrm{Pl}} = 1$, where $k$ describes a curvature 
+scale for the extra dimension and $\overline{M}_{\mathrm{Pl}}$ is the Planck mass. The model considered 
+here has $c=1.0$. However, this model was considered in the early Run 2 $HH$ analyses~\cite{HDBS-2018-58},
+and was excluded across much of the relevant mass range. 
 
 The primary theoretical focus of this work is therefore the spin-0 result, which 
 is implemented as a generic resonance with width below detector resolution. Scalar 
@@ -58,8 +72,6 @@ posit the existence of a second Higgs doublet. This leads to the existence of fi
 particles in the Higgs sector -- roughly, two complex doublets provide eight degrees of freedom, three of 
 which are ``eaten'' by the electroweak bosons, leaving five degrees of freedom which may correspond
 to physical fields.
-
-\todo{check out other theory motivation - there are some good HH talks}
 
 \section{Non-resonant $HH$ Searches}
 Non-resonant $HH$ production is predicted by the Standard Model via the trilinear coupling discussed above,
@@ -72,21 +84,21 @@ where $m_{H} = \sqrt{2\lambda v^2}$ so that
 \begin{equation}
 \lambda_{HHH}^{SM} = \frac{m_{H}^2}{2v^2}.
 \end{equation}
-The mass of the SM Higgs boson has been experimentally measured to be \SI{125}{\GeV} \todo{cite}, and 
-the vacuum expectation value $v=$\SI{246}{\GeV} has a precise determination from the muon lifetime \todo{cite}. 
+The mass of the SM Higgs boson has been experimentally measured to be \SI{125}{\GeV}~\cite{Higgs-Mass}, and 
+the vacuum expectation value $v=$\SI{246}{\GeV} has a precise determination from the muon lifetime~\cite{Higgs-vac}. 
 This coupling is therefore precisely predicted in the Standard Model, such that an observed deviation from 
 this prediction would be a clear sign of new physics. 
 
 The relevant diagrams for non-resonant $HH$ production are shown in Figure \ref{fig:ggF-diagrams}.
-Notably, the diagrams \emph{interfere} with each other, which can be easily seen by counting the fermion lines.
-\todo{Some good stuff in here https://arxiv.org/pdf/1504.05596.pdf}.
+Notably, the diagrams \emph{interfere} with each other, which can be easily seen by counting the fermion lines. 
+A detailed theoretical discussion is provided by, e.g.~\cite{Dawson-2015}.
 
 For the searches presented here, the quark couplings to the Higgs are considered to be consistent with the Standard 
-Model value, with measurements of the dominant top Yukawa coupling left to more sensitive direct measurements \todo{cite 
-e.g. https://arxiv.org/pdf/2009.07123.pdf}. Variations of the trilinear coupling away from the Standard 
+Model value, with measurements of the dominant top Yukawa coupling left to more sensitive direct measurements, e.g. from 
+$t\bar{t}$ final states~\cite{top-Yukawa}. Variations of the trilinear coupling away from the Standard 
 Model are considered, however. Such variations are parametrized via 
 \begin{equation}
 \kappa_{\lambda} = \frac{\lambda_{HHH}}{\lambda_{HHH}^{SM}}
 \end{equation}
 where $\lambda_{HHH}$ is a varied coupling, whereas $\lambda_{HHH}^{SM}$ is the Standard Model prediction, given by
-As this variation only impacts the \emph{triangle} diagram, significant and interesting effects are observed due to this interference. Examples of the impact of this tradeoff on the di-Higgs invariant mass are shown in \todo{include plot}. Generally speaking, for positive values of $\kappa_{\lambda}$, more events are predicted at low mass, whereas for negative values of $\kappa_{\lambda}$, more events are predicted at high mass.
+As this variation only impacts the \emph{triangle} diagram, significant and interesting effects are observed due to the interference. Examples of the impact of this tradeoff on the di-Higgs invariant mass are shown in \todo{include plot}. Generally speaking, the triangle diagram contributes more at low mass, while the box diagram contributes more at high mass, and for positive values of $\kappa_{\lambda}$, more events are predicted at low mass, whereas for negative values of $\kappa_{\lambda}$, more events are predicted at high mass.

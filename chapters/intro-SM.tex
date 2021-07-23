@@ -10,8 +10,17 @@ construction of such a model. The primary focus of this thesis is searches for p
 Higgs bosons decaying to four $b$-quarks. Consequently, we will pay particular attention to the 
 relevant pieces of the Higgs Mechanism, as well as the theory behind searches at a hadronic collider.
 
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \includegraphics[width=0.8\textwidth]{figures/SM-graphic.pdf}
+  }
+  \caption{\label{fig:SM-fig} Diagram of the elementary particles described by the Standard Model \cite{SM-figure}.
+  }
+\end{figure}
+
 \section{Introduction: Particles and Fields}
-What is a particle? The Standard Model describes a set of fundamental, point-like, objects (shown in Figure SM FIGURE). 
+What is a particle? The Standard Model describes a set of fundamental, point-like, objects shown in Figure \ref{fig:SM-fig}. 
 These objects have distinguishing characteristics (e.g., mass and spin). These objects interact in very specific 
 ways. The set of objects and their interactions result in a set of observable effects, and these effects are the basis of a field of experimental physics. 
 
@@ -29,6 +38,7 @@ relies heavily on Jackson's Classical Electrodynamics~\cite{Jackson} for the bui
 Physics~\cite{Thomson} for the rest, with reference to Srednicki's Quantum Field Theory~\cite{Srednicki}, and some 
 personal biases and interjections.
 
+\FloatBarrier
 \section{Quantum Electrodynamics}
 Classical electrodynamics is familiar to the general physics audience: electric ($\vec{E}$) and magnetic ($\vec{B}$) 
 fields are used to describe behavior of particles with charge $q$ moving with velocity $\vec{v}$, with 
@@ -90,9 +100,15 @@ famous Dirac equation:
 \end{equation}
 where $\partial_{\mu}$ is as defined above, $\psi$ is a Dirac \emph{spinor}, i.e. a four-component 
 wavefunction, $m$ is the mass of the particle, and $\gamma^{\mu}$ are the Dirac gamma matrices, 
-which define the algebraic structure of the theory.
-
-\todo{Add some stuff about the conjugate?}
+which define the algebraic structure of the theory. For the following, we also define a conjugate spinor,
+\begin{equation}
+\bar{\psi} = \psi^{\dagger}\gamma^{0}
+\end{equation}
+which satisfies the conjgate Dirac equation
+\begin{equation}
+\bar{\psi}(i\gamma^{\mu}\partial_{\mu} - m) = 0
+\end{equation}
+where the derivative acts to the left.
 
 The Dirac equation is the dynamical equation for spin-1/2, but we'd like to express these dynamics 
 via a Lagrangian density. Further, to have a relativistic description, we'd like to have this be 
@@ -118,10 +134,12 @@ $i\frac{\partial}{\partial t}$, this identification becomes
 i\partial_{\mu} \rightarrow i\partial_{\mu}-q A_{\mu}
 \end{equation}
 
-Allowing for the naive substitution in the Dirac Lagrangian \todo{Source term?}:
+Allowing for the naive substitution in the Dirac Lagrangian:
 \begin{equation}
 \mathcal{L} = \bar{\psi}(i\gamma^{\mu}(\partial_{\mu}+iq A_{\mu}) - m)\psi -\frac{1}{4} F_{\mu\nu}F^{\mu\nu}.
 \end{equation}
+where the source term may be interpreted as coming from the Dirac fields themselves, 
+namely, $-q\bar{\psi}\gamma^{\mu}\psi A_{\mu}$.
 
 Setting $q=e$ here (as appropriate for the case of an electron), and defining 
 $D_{\mu} \equiv \partial_{\mu} + ieA_{\mu}$, this may then be written in the form
@@ -163,13 +181,11 @@ for any scalar function $\lambda$.
 Under the same transformation of $\vec{A}$, the electric field $\vec{E}$ becomes $-\grad\phi - \frac{\partial \vec{A}}{\partial t} - \frac{\partial \grad\lambda}{\partial t} = -\grad(\phi + \frac{\partial\lambda}{\partial t}) - \frac{\partial\vec{A}}{\partial t}$, such that, for the $\vec{E}$ field to be unchanged, we must additionally apply the transformation 
 $\phi \rightarrow \phi - \frac{\partial\lambda}{\partial t}$.
 
-\todo{Check signs here too!}
-This is set of transformations to the potentials that leave the physical degrees of freedom invariant is expressed 
+This set of transformations to the potentials that leave the physical degrees of freedom invariant is expressed 
 in our four vector notation naturally as
 \begin{equation}
 A_{\mu} \rightarrow A_{\mu} - \partial_{\mu}\lambda
 \end{equation}
-
 where $A_{\mu} = (\phi, -\vec{A})$ with our sign convention. It should be noted that this 
 function $\lambda$ is an arbitrary function of \emph{local} spacetime, and thus expresses 
 invariance of the physics content under a local transformation.
@@ -236,7 +252,6 @@ of a QED vertex: the $U(1)$ invariance of the theory and the interaction between
 inextricably tied together.
 
 \section{An Aside on Group Theory}
-\todo{word on exponential representation?}
 Quantum electrodynamics is very familiar and well covered, and provides (both historically and in this thesis) 
 a nice bridge between ``standard'' physics and the language of symmetries and quantum field theory. However, now 
 that we are acquainted with the language, we may set up to dive a bit deeper. To begin, let us look again at the $U(1)$ 
@@ -277,15 +292,15 @@ and the general framing of the arguments for QED will serve us well in the follo
 \section{Quantum Chromodynamics}
 In some sense, the simplest extension the development of QED is quantum chromodynamics (QCD). QCD is a 
 theory in which, once the basic dynamics are framed (a non-trivial task!) the group structure becomes 
-apparent. The quark model, developed by Murray Gell-Mann and George Zweig\todo{cite}, provided the 
+apparent. The quark model, developed by Murray Gell-Mann~\cite{Gell-Mann} and George Zweig~\cite{Zweig}, provided the 
 fundamental particles involved in the theory, and had great success in explaining the expanding zoo 
 of experimentally observed hadronic states.
 
 Some puzzles were still apparent -- the $\Delta^{++}$ baryon, e.g., is composed of three up quarks, 
 $u$, with aligned spins. As quarks are fermions, such a state should not be allowed by the Pauli exclusion 
 principle. The existence of such a state in nature implies the existence of another quantum number, and 
-a triplet of values, called \emph{color charge} was proposed by Oscar Greenburg \todo{cite}. With these
-pieces in place, the structure becomes more apparent, as elucidated by Han and Nambu \todo{cite: https://digital.library.unt.edu/ark:/67531/metadc1031342/m1/6/}.
+a triplet of values, called \emph{color charge} was proposed by Oscar Greenberg~\cite{Greenberg}. With these
+pieces in place, the structure becomes more apparent, as elucidated by Han and Nambu~\cite{Han-Nambu}.
 
 Let us reason our way to the symmetries using color charge. Experimentally, we know that there is this triplet
 of color charge values $r, g, b$ (the ``plus'' values, cf. electric charge) and correspondingly anti-color charge
@@ -399,23 +414,24 @@ and we have constructed QCD.
 
 
 \section{The Weak Interaction}
-One of the first theories of the weak interaction was from Enrico Fermi \todo{cite}, in an effort to 
+One of the first theories of the weak interaction was from Enrico Fermi~\cite{Fermi}, in an effort to 
 explain beta decay, a process in which an electron or positron is emitted from an atomic nucleus, resulting 
 in the conversion of a neutron to a proton or proton to a neutron respectively. Fermi's hypothesis was 
 of a direct interaction between four fermions. However, in the advent of QED, it is natural to wonder if 
 a theory of based on mediator particles and gauge symmetries applies to the weak force as well. The modern formulation 
-of such a theory is due to Sheldon Glashow, Steven Weinberg, and Abdus Salam \todo{cite}, and is what we will 
+of such a theory is due to Sheldon Glashow, Steven Weinberg, and Abdus Salam ~\cite{Glashow}, and is what we will 
 describe in the following.
 
 Considering emission of an electron, Fermi's theory involves an initial state neutron that transitions 
-to a proton with the emission of an electron and a neutrino. Schematically \todo{include figure}. 
-This transition gives a hint that something slightly more complicated is happening than in QED: there is 
-an apparent mixing between particle types. 
+to a proton with the emission of an electron and a neutrino. This transition gives a hint that something 
+slightly more complicated is happening than in QED: there is an apparent mixing between particle types. 
 
 Now, with the assumption there are mediators for such an interaction, we further know from beta decay and 
 charge conservation that there must be at least two such degrees of freedom: e.g. one that decays to an electron 
-and neutrino ($W^{-}$) and one that decays to a positron and neutrino ($W^{+}$). \todo{Motivation for 
-Z boson - grab Thomson 15.1.2}.
+and neutrino ($W^{-}$) and one that decays to a positron and neutrino ($W^{+}$). From consideration of the process 
+$e^{+}e^{-}\rightarrow W^{+}W^{-}$, it turns out that with just these two degrees of freedom, the cross section for this process increases without limit as a function of center-of-mass energy, ultimately violating unitarity (more $W^{+}W^{-}$ 
+pairs come out than $e^{+}e^{-}$ pairs go in). This is resolved with a third, neutral degree of freedom, the $Z$
+boson, whose contribution interferes negatively, regulating this process.
 
 This leads to three degrees of freedom for the gauge symmetry of the weak interactions, so we thus need a theory 
 which is locally invariant under transformations of a group with three generators. The simplest such choice is $SU(2)$. 
@@ -484,7 +500,7 @@ P_{R} = \frac{1}{2}(1+\gamma^{5}) \hspace{0.2in}\text{and}\hspace{0.2in}P_{L} = 
 for right and left-handed chiralities respectively -- acting on a Dirac field with such operators 
 projects the field onto the corresponding chiral state.
 
-Experimentally, this pops up via parity violation and the famous $V - A$ theory \todo{more detail?}. 
+Experimentally, this pops up via parity violation and the famous $V - A$ theory. 
 For the scope of this thesis, it is sufficient to say that the weak interaction is only observed to take
 place for left-handed particles (and correspondingly, right-handed anti-particles). We therefore modify the 
 theory stated above by projecting all fermions participating in the weak interaction onto respective chiral
@@ -585,10 +601,12 @@ where we have used that $f_{L, R} = P_{L,R}f$, $\bar{f}_{L,R} = \bar{f}P_{R,L}$,
 As left and right-handed particles transform differently under $SU(2)_{L}$, this is manifestly not gauge invariant.
 
 The question then becomes: how do we include particle masses while preserving the gauge properties of our theory?
-The answer, due to Higgs, Englert \todo{cite}, comes via the Higgs mechanism, which we will describe in the following.
-In particular, we focus first on generating masses for the electroweak gauge bosons. 
+The answer, due to Robert Brout and François Englert~\cite{Englert}, Peter Higgs~\cite{Higgs}, and Gerald Guralnik, Richard Hagen, and Tom Kibble~\cite{GHK} comes via the Higgs mechanism, which we will describe in the following.
+Importantly for this thesis, this mechanism predicts the existence of a physical particle, the Higgs boson, 
+and a particle consistent with the Higgs boson was seen by both ATLAS~\cite{HIGG-2012-27} and 
+CMS~\cite{CMS-HIG-12-028} in 2012.
 
-Consider adding two complex scalar fields $\phi^{+}$ and $\phi^{0}$to the Standard Model embedded in a 
+To explain the Higgs, we focus first on generating masses for the electroweak gauge bosons. Consider adding two complex scalar fields $\phi^{+}$ and $\phi^{0}$to the Standard Model embedded in a 
 weak isospin doublet $\phi$. We may write the doublet as
 \begin{equation}
 \phi = \begin{pmatrix}\phi^{+}\\\phi^{0}\end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix}\phi_1+i\phi_2\\\phi_3+i\phi_4\end{pmatrix}
@@ -667,7 +685,7 @@ gauge covariant derivative such that the Lagrangian for the Higgs doublet and th
 \end{equation}
 with $D_{\mu} = \partial_{\mu} + ig_{W}W_{\mu}^{k}t^{k} + ig'\frac{Y}{2}B_{\mu}$.
 
-We note that it is convenient \todo{maybe more detail?} to pick a gauge such that the Goldstone fields
+We note that it is convenient to pick a gauge such that the Goldstone fields
 do not appear in the Lagrangian, upon which we may identify the field $\eta(x)$ with the physical 
 Higgs field, $h(x)$. The field mass terms then very apparently come via the covariant derivative, namely,
 as 
