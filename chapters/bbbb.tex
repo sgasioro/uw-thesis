@@ -1209,19 +1209,70 @@ Preliminary results are presented here for the gluon-gluon fusion non-resonant s
 and $3b+1l$ signal regions in the $2\times 2$ category scheme in $\Delta \eta_{HH}$ and $X_{HH}$. These results will be 
 further combined with a VBF channel as discussed, but this is left for future work. Results shown here include background 
 systematics only. Limits are set for $\kappa_{\lambda}$ values from $-20$ to $20$. 
-The cross section limit for $HH$ production is set at \SI{180}{\fb} (expected), corresponding to 
-$5.9$ (expected) times the Standard Model prediction. $\kappa_{\lambda}$ is constrained to be within the range $-3.9 \leq \kappa_{\lambda} \leq 10.9$ (expected) at 95~\% CL. These results are shown in Figure \ref{fig:nonres-limits}.
+The cross section limit for $HH$ production is set at \SI{140}{\fb} (\SI{180}{\fb}) observed (expected), 
+corresponding to an observed (expected) limit of $4.4$ ($5.9$) times the Standard Model prediction. 
+$\kappa_{\lambda}$ is constrained to be within the range $-4.9 \leq \kappa_{\lambda} \leq 14.4$ observed 
+($-3.9 \leq \kappa_{\lambda} \leq 10.9$ expected). These results are shown in Figure \ref{fig:nonres-limits}.
+
+We note that this is a significant improvement over the early Run 2 result, which achieved an observed (expected) 
+limit of 12.9 (20.7) times the Standard Model prediction. The dataset is 4.6 times larger, and a naive scaling 
+of the early Run 2 result (Poisson statistics $\implies$ a factor of $1/\sqrt{4.6}$) would predict an observed (expected)
+limit of 6.0 (9.7) times the Standard Model. The result of 4.4 (5.9) observed (expected) presented here is 
+therefore both an improvement by a factor of 3 (3.5) over the previous result and also beats the statistical 
+scaling by around 30 (40)~\%, demonstrating the impact of the various analysis improvements presented here. We 
+note again that these results do not include the complete set of uncertainties -- however we expect the addition 
+of the remaining uncertainties to have no more than a few percent impact.
 
 \begin{figure}[ht]
   \centering
   \subfloat{
     \label{fig:limits-kl}
-    \includegraphics[width=0.8\textwidth]{figures/exp-limit-2x2.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/obs-limit-2x2.pdf}
   }
   \caption{\label{fig:nonres-limits}
-    Expected (dashed black)  95\% CL upper limits on the cross-section times branching ratio of non-resonant production 
+    Expected (dashed black) and observed (solid black) 95\% CL upper limits on the cross-section times 
+    branching ratio of non-resonant production 
     for a range of values of the Higgs self-coupling, with the Standard Model value ($\kappa_{\lambda} = 1$) illustrated 
     with a star. The \(\pm 1\sigma\) and \(\pm 2\sigma\) ranges for the expected limits are shown in the colored bands. 
-    The cross section limit for $HH$ production is set at \SI{180}{\fb} (expected), corresponding to $5.9$ (expected) times the Standard Model prediction. $\kappa_{\lambda}$ is constrained to be within the range $-3.9 \leq \kappa_{\lambda} \leq 10.9$ (expected). The nominal \(H \rightarrow b\bar{b}\) branching ratio is taken as 0.582.
+    The cross section limit for $HH$ production is set at \SI{140}{\fb} (\SI{180}{\fb}) observed (expected), 
+    corresponding to an observed (expected) limit of $4.4$ ($5.9$) times the Standard Model prediction. 
+    $\kappa_{\lambda}$ is constrained to be within the range $-4.9 \leq \kappa_{\lambda} \leq 14.4$ observed 
+    ($-3.9 \leq \kappa_{\lambda} \leq 10.9$ expected). The nominal \(H \rightarrow b\bar{b}\) branching ratio is 
+    taken as 0.582. We note that the excess present for $\kappa_{\lambda}\geq 5$ is thought to be due to a low mass 
+    background mis-modeling, present due to the optimization of this analysis for the Standard Model point, and is not present in more sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$).
+  }
+\end{figure}
+
+The observed limits presented in Figure \ref{fig:nonres-limits} are consistently above the $2\sigma$ band for values of 
+$\kappa_{\lambda} \geq 5$. As this analysis is optimized for points near the Standard Model, and as there is no excess present in more sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$), we do not believe this 
+is a real effect, but rather due to a mis-modeling of the background at low mass, where the $\min{\Delta R}$ pairing 
+has poor signal efficiency and the assumption of well behaved background in the mass plane breaks down. 
+It was considered, but not implemented, for this analysis to impose a cut on $m_{HH}$ near $350$ or \SI{400}{\GeV} to avoid such an issue.
+
+To check the impact if we would have imposed such a cut, and to verify that the excess is due to the low mass regime, 
+we therefore run the same set of limits without the low mass bins. In this case, we choose to simply drop the 
+first few bins in $m_{HH}$ such that everything else, including the higher mass bin edges, is kept the same. Due to 
+the variable width binning, this corresponds to an $m_{HH}$ cut of \SI{381}{\GeV}. The results of this check are shown 
+in Figure \ref{fig:nonres-limits-with-cut}, overlaid with the limits of Figure \ref{fig:nonres-limits} for reference.
+With the $m_{HH}$ cut imposed, there is a slight degradation in the expected limits for larger positive and negative 
+values of $\kappa_{\lambda}$, but the points near the Standard Model are nearly identical. Further, the observed excess 
+is significantly reduced, with observed limits for $\kappa_{\lambda} \geq 5$ now falling entirely within the expected 
+$1\sigma$ band. Due to the preliminary nature of these results, further study is left for future work. However, 
+we believe, in conjunction with the $HH\rightarrow bb\gamma\gamma$ results and our expectations about the difficulty 
+of the background estimation at low mass, that this is demonstrative of a mismodeling rather than a real excess. 
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \label{fig:limits-kl-with-cut}
+    \includegraphics[width=0.8\textwidth]{figures/obs-limit-2x2-with-mhh-cut.pdf}
+  }
+  \caption{\label{fig:nonres-limits-with-cut} Comparison of the limits in Figure \ref{fig:nonres-limits}
+  with an equivalent set of limits that drop the $m_{HH}$ bins below \SI{381}{\GeV}, with the value 
+  of \SI{381}{\GeV} determined by the optimized variable width binning. The expected limit band with 
+  this mass cut is shown in dashed blue, and the observed is shown in solid blue. The excess 
+  at and above $\kappa_{\lambda} = 5$ is significantly reduced, demonstrating that this is driven by 
+  low mass. Notably, there is minimal impact on the expected sensitivity with this $m_{HH}$ cut, and 
+  and the background modeling is known to be difficult for the low mass region.
   }
 \end{figure}
