@@ -1131,6 +1131,103 @@ kinematic selections and the categorization.
 Note that the background estimation is inherited from the resonant and ggF analyses, 
 an ancillary, but significant, contribution of this thesis work.
 
+\section{$m_{HH}$ Distributions}
+\subsection{Resonant Search}
+The final discriminant used for the resonant search is corrected $m_{HH}$. Histogram binning was 
+optimized for the resonant search to be 84 equal width bins from \SI{250}{\GeV} to \SI{1450}{\GeV}, 
+corresponding to a bin width of \SI{14.3}{\GeV}, and overflow events (events above \SI{1450}{\GeV}) 
+are included in the last bin. A demonstration of the performance of the reweighting on this 
+distribution is shown in Figure \ref{fig:res-cr-mhh} for the the control region and Figure \ref{fig:res-vr-mhh} for 
+the the validation region. A background-only profile likelihood fit is run for the distribution in the signal 
+region, and results with spin-0 signals overlaid are shown in Figure \ref{fig:res-sr-mhh}. Note that 
+the plots show the sum across all years, but the signal extraction fit and background estimate are run with the 
+years separately. Agreement is generally good throughout.
+
+\begin{figure}[ht]
+  \centering
+  \subfloat[Before Reweighting]{
+    \label{fig:res-cr-norw}
+    \includegraphics[width=0.48\textwidth]{figures/resolved-mhhcorr-cr-norw.pdf}
+  }
+  \subfloat[After Reweighting]{
+    \label{fig:res-cr-rw}
+    \includegraphics[width=0.48\textwidth]{figures/resolved-mhhcorr-cr-rw.pdf}
+  }
+  \caption{\label{fig:res-cr-mhh} \textbf{Resonant Search}: Demonstration of the performance of the nominal 
+  reweighting in the control region on corrected $m_{HH}$, with Figure \ref{fig:res-cr-norw} showing 
+  $2b$ events normalized to the total $4b$ yield and Figure \ref{fig:res-cr-rw} applying the 
+  reweighting procedure. Agreement is much improved with the reweighting. Note that overall 
+  reweighted $2b$ yield agrees with $4b$ yield in the control region by construction.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \includegraphics[width=0.65\textwidth]{figures/resolved-vr-mhh.pdf}
+  }
+  \caption{\label{fig:res-vr-mhh} \textbf{Resonant Search}: Demonstration of the performance 
+  of the control region derived reweighting in the validation region on corrected $m_{HH}$. Agreement 
+  is generally good for this extrapolated estimate. Note that the uncertainty band includes the 
+  extrapolation systematic, which is defined by a reweighting trained in the validation region.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \includegraphics[width=0.65\textwidth]{figures/resolved-mhh.pdf}
+  }
+  \caption{\label{fig:res-sr-mhh} Signal region agreement of the background estimate and 
+  observed data after a background-only profile likelihood fit. The closure is generally quite good, 
+  though there is an evident deficit in the background estimate relative to the data for higher values 
+  of corrected $m_{HH}$.}
+\end{figure}
+
+\FloatBarrier
+\subsection{Non-resonant Search}
+As discussed above, the non-resonant search splits the signal extraction into two categories of 
+$\Delta\eta_{HH}$ ($0 \leq \Delta\eta_{HH} < 0.75$ and $0.75 \leq \Delta\eta_{HH} < 1.5$), 
+and two categories of $X_{HH}$ ($0 \leq X_{HH} < 0.95$ and $0.95 \leq X_{HH} < 1.6$). 
+To maintain reasonable statistics in each bin entering the signal extraction fit, a 
+variable width binning is considered defined by a resolution parameter, $r$, and a set range in 
+$m_{HH}$, where bin edges are determined iteratively as
+\begin{equation}
+b_{low}^{i+1} = b_{low}^{i} + r\cdot b_{low}^{i},
+\end{equation}
+where $b_{low}^{i}$ is the low edge of bin $i$. The parameters used here are 
+$r=0.08$ over a range from \SI{280}{\GeV} to \SI{975}{\GeV}, and underflow and 
+overflow are included in the intial and final bin contents respectively. $m_{HH}$ with 
+no correction is used as the final discriminant in each category.
+
+A demonstration of the performance of the reweighting on distributions unrolled across categories is shown 
+in Figure \todo{insert} for the the control region and Figure \todo{insert} for 
+the the validation region. A background-only profile likelihood fit is run for the distribution in the signal 
+region, and results with the Standard Model $HH$ signal overlaid are shown for $4b$ in Figure \ref{fig:nonres-sr-mhh-4b}
+and $3b1l$ in Figure \ref{fig:nonres-sr-mhh-3b1l}. Note that 
+the plots show the sum across all years, but the signal extraction fit and background estimate are run with the 
+years separately. All bins are normalized to represent a density of Events / \SI{15}{\GeV}.
+
+\begin{figure}[ht]
+  \centering
+  \hspace*{-2cm}
+  \subfloat{
+    \includegraphics[width=1.2\textwidth]{figures/post-bonly-fit-4b-nonres-with-SM-HH.pdf}
+  }
+  \caption{\label{fig:nonres-sr-mhh-4b} \textbf{Non-resonant Search}: Signal region agreement of the background estimate and observed data after a background-only profile likelihood fit for the $4b$ channels, with Standard Model 
+  signal overlaid for reference. Modeling is generally quite good near the Standard Model peak, but disagreements 
+  are seen at very low and high masses. A deficit is present in low $\Delta\eta_{HH}$ bins near \SI{600}{\GeV}.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+   \hspace*{-2cm}
+  \subfloat{
+    \includegraphics[width=1.2\textwidth]{figures/post-bonly-fit-3b1l-nonres-with-SM-HH.pdf}
+  }
+  \caption{\label{fig:nonres-sr-mhh-3b1l} \textbf{Non-resonant Search}: Signal region agreement of the background estimate and observed data after a background-only profile likelihood fit for the $3b1l$ channels, with Standard Model 
+  signal overlaid for reference. Conclusions are very similar to the $4b$ channels, with generally good modeling near 
+  the Standard Model peak, but disagreements at very low and high masses. A deficit is present near \SI{600}{\GeV}.}
+\end{figure}
+
 \FloatBarrier
 \clearpage
 \section{Statistical Analysis}
