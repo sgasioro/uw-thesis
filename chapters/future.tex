@@ -277,7 +277,80 @@ in place to construct an interpolation background estimate. Namely
 \end{enumerate}
 
 \subsection{Results}
-Figures 
+The Gaussian process sampling procedure is trained on a small fraction ($0.01$) of $2b$ data to mimic 
+the available $4b$ statistics. This fraction of $2b$ data is blinded, and the prediction of the estimate trained on 
+this blinded region may then be compared to real $2b$ data in the signal region. The 
+predictions for signal region $m_{H1}$ and $m_{H2}$ individually are shown in 
+Figure \ref{fig:gp-marginals-18}, and the resulting mass planes are compared in Figure \ref{fig:gp-massplane-18}.
+Good agreement is seen.
+\begin{figure}[ht]
+	\centering
+	\subfloat{\label{fig:gp-mh1-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-pure2b-GP-vs-real2b-0.01subsamp-2018-Signal-m-h1.pdf}
+	}
+	\subfloat{\label{fig:gp-mh2-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-pure2b-GP-vs-real2b-0.01subsamp-2018-Signal-m-h2.pdf}
+	}
+	\caption{\label{fig:gp-marginals-18} Gaussian process sampling prediction of marginals $m_{H1}$ and $m_{H2}$ 
+	for $2b$ signal region events compared to real $2b$ signal region events for the 2018 dataset. Good agreement 
+	is seen. Only a small fraction ($0.01$) of the $2b$ dataset is used for both training and this final 
+	comparison to mimic $4b$ statistics.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\subfloat[Real 2b Data]{\label{fig:gp-real-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-massplane-real-2b-0.01-2018-PAG.png}
+	}
+	\subfloat[Gaussian Process Sample]{\label{fig:gp-gen-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-massplane-gen-2b-0.01-2018-PAG.png}
+	}
+
+	\subfloat[Ratio]{\label{fig:gp-ratio-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-massplane-ratio-real-2b-gen-2b-0.01-2018-PAG.png}
+	}
+	\caption{\label{fig:gp-massplane-18} Gaussian process sampling prediction for the mass plane compared to the real 
+	$2b$ dataset for 2018. Only a small fraction ($0.01$) of the $2b$ dataset is used for both training and this final 
+	comparison to mimic $4b$ statistics. Good agreement is seen.}
+\end{figure}
+
+The $4b$ region is kept blinded for this work, meaning that a direct comparison of the Gaussian process 
+estimate in the $4b$ signal region is not done. However, a Gaussian process is trained on the blinded $4b$ 
+region and compared to the corresponding reweighted $2b$ estimate, trained per the nominal procedures from
+the analyses above. The predictions for signal region $m_{H1}$ and $m_{H2}$ individually are shown in 
+Figure \ref{fig:gp-marginals-4b-18}, compared to both the control and validation region derived reweighting estimates,
+and the resulting signal region mass planes are compared in Figure \ref{fig:gp-massplane-4b-18}. The 
+estimates are seen to be compatible.
+
+\begin{figure}[ht]
+	\centering
+	\subfloat{\label{fig:gp-4b-mh1-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-pure4b-GP-vs-rw2b-withVR-2018-Signal-m-h1.pdf}
+	}
+	\subfloat{\label{fig:gp-4b-mh2-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-pure4b-GP-vs-rw2b-withVR-2018-Signal-m-h1.pdf}
+	}
+	\caption{\label{fig:gp-marginals-4b-18} Gaussian process sampling prediction of marginals $m_{H1}$ and $m_{H2}$ 
+	for $4b$ signal region events compared to both control and validation reweighting predictions. While there
+	are some differences, the estimates are compatible.}
+\end{figure}
+
+
+\begin{figure}[ht]
+	\centering
+	\subfloat[Reweighted 2b Data]{\label{fig:gp-rw2b-18}%
+		\includegraphics[width=0.48\textwidth]{figures/massplane-rw-2b-2018-PAG.png}
+	}
+	\subfloat[Gaussian Process Sample]{\label{fig:gp-gen-4b-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-massplane-gen-4b-2018-PAG.png}
+	}
+
+	\subfloat[Ratio]{\label{fig:gp-ratio-4b-rw-2b-18}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-massplane-ratio-gen-4b-rw-2b-2018-PAG.png}
+	}
+	\caption{\label{fig:gp-massplane-4b-18} Gaussian process sampling prediction for the $4b$ mass plane compared to 
+	the reweighted $2b$ estimate in the signal region. Both estimates are compatible.}
+\end{figure}
 
 \subsection{Outstanding Points}
 While good performance is demonstrated from the nominal interpolated background estimate, various 
