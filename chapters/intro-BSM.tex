@@ -11,8 +11,24 @@ of this thesis, though we will attempt to provide a grounding for the models tha
 Di-Higgs searches can be split into two major theoretical categories: \emph{resonant searches}, in which a physical resonance is produced that subsequently decays into two Higgs bosons, and a \emph{non-resonant searches} in which no physical resonance is produced, but where the $HH$ production cross section has a contribution from an exchange of a \emph{virtual} or \emph{off-shell} particle. 
 
 The focus of this thesis is gluon initiated processes -- in the case of di-Higgs this is termed gluon-glon fusion
-(ggF). $\higgs\higgs$ production may also occur via vector boson fusion~\cite{HDBS-2018-18}. However the cross section for such production is significantly smaller. Representative Feynman diagrams are shown in for gluon-gluon fusion 
-non-resonant production in Figure \ref{fig:ggF-diagrams}.
+(ggF). $\higgs\higgs$ production may also occur via vector boson fusion~\cite{HDBS-2018-18}. However the cross section for such production is significantly smaller. Representative Feynman diagrams are shown for gluon-gluon fusion 
+resonant production in Figure \ref{fig:ggF-diagrams-res} and for non-resonant production in 
+Figure \ref{fig:ggF-diagrams-nonres}.
+
+\begin{figure}[ht]
+\centering
+\subfloat[]{\label{fig:scalar-diagram}
+		  \includegraphics[width=0.48\textwidth]{figures/feyn-scalar.pdf}
+		 }
+\subfloat[]{\label{fig:grav-diagram}
+		  \includegraphics[width=0.48\textwidth]{figures/feyn-graviton.pdf}
+		 }
+
+\caption{\label{fig:ggF-diagrams-res} Representative diagrams for the gluon-gluon fusion production of spin-0 ($X$) 
+and spin-2 ($G_{KK}^{*}$) resonances which decay to two Standard Model Higgs bosons.The spin-0 resonance considered
+for this thesis is a generic narrow width resonance which may be interpreted in the context of 
+two Higgs doublet models~\cite{2HDM}, whereas the spin-2 resonance is considered as a Kaluza-Klein graviton within the bulk Randall-Sundrum (RS) model~\cite{Gravitons,Carvalho}.}
+\end{figure}
 
 \begin{figure}[ht]
 \centering
@@ -23,7 +39,7 @@ non-resonant production in Figure \ref{fig:ggF-diagrams}.
 		  \includegraphics[width=0.48\textwidth]{figures/ggF-box.pdf}
 		 }
 
-\caption{\label{fig:ggF-diagrams} Dominant contributing diagrams for non-resonant gluon-gluon fusion production of 
+\caption{\label{fig:ggF-diagrams-nonres} Dominant contributing diagrams for non-resonant gluon-gluon fusion production of 
 $HH$. $\kappa_{\lambda}$ and $\kappa_{t}$ represent variations of the Higgs self-coupling and coupling to top quarks 
 respectively, relative to that predicted by the Standard Model.}
 \end{figure}
@@ -89,7 +105,7 @@ the vacuum expectation value $v=$\SI{246}{\GeV} has a precise determination from
 This coupling is therefore precisely predicted in the Standard Model, such that an observed deviation from 
 this prediction would be a clear sign of new physics. 
 
-The relevant diagrams for non-resonant $HH$ production are shown in Figure \ref{fig:ggF-diagrams}.
+The relevant diagrams for non-resonant $HH$ production are shown in Figure \ref{fig:ggF-diagrams-nonres}.
 Notably, the diagrams \emph{interfere} with each other, which can be easily seen by counting the fermion lines. 
 A detailed theoretical discussion is provided by, e.g.~\cite{Dawson-2015}.
 
@@ -100,5 +116,43 @@ Model are considered, however. Such variations are parametrized via
 \begin{equation}
 \kappa_{\lambda} = \frac{\lambda_{HHH}}{\lambda_{HHH}^{SM}}
 \end{equation}
-where $\lambda_{HHH}$ is a varied coupling, whereas $\lambda_{HHH}^{SM}$ is the Standard Model prediction, given by
-As this variation only impacts the \emph{triangle} diagram, significant and interesting effects are observed due to the interference. Examples of the impact of this tradeoff on the di-Higgs invariant mass are shown in \todo{include plot}. Generally speaking, the triangle diagram contributes more at low mass, while the box diagram contributes more at high mass, and for positive values of $\kappa_{\lambda}$, more events are predicted at low mass, whereas for negative values of $\kappa_{\lambda}$, more events are predicted at high mass.
+where $\lambda_{HHH}$ is a varied coupling and $\lambda_{HHH}^{SM}$ is the Standard Model prediction.
+As this variation only comes as a prefactor only with the \emph{triangle} diagram, significant and interesting 
+effects are observed due to the interference. Examples of the impact of this tradeoff on the di-Higgs invariant 
+mass are shown in Figure \ref{fig:kl-shapes}. Generally speaking, the triangle diagram contributes more at low mass, 
+while the box diagram contributes more at high mass. 
+
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=0.48\textwidth]{figures/kl-0-2-5-combination.pdf}
+		 }
+\subfloat{
+		  \includegraphics[width=0.48\textwidth]{figures/kl--5-1-10-combination.pdf}
+		 }
+\caption{\label{fig:kl-shapes} Monte Carlo generator level $m_{HH}$ distributions for various values of 
+$\kappa_{\lambda}$, demonstrating the impact of the interference between the two diagrams of Figure \ref{fig:ggF-diagrams-nonres} 
+on the resulting $m_{HH}$ distribution. For $\kappa_{\lambda} = 0$ there is no triangle diagram contribution, 
+demonstrating the shape of the box diagram contribution, whereas for $\kappa_{\lambda}=10$, the triangle diagram 
+dominates, with a strong low mass peak. The interplay between the two is quite evident for other values, resulting in, 
+e.g., the double peaked structure present for $\kappa_{\lambda} = 2$ (near maximal destructive interference) and $\kappa_{\lambda}=-5$. ~\cite{HDBS-2018-58}}
+\end{figure}
+
+From a quick analysis of Figure \ref{fig:ggF-diagrams-nonres}, one may see that, at leading order, the box diagram, $B$ 
+has amplitude proportional to $\kappa_{t}^2$, defined as the ratio of the top Yukawa coupling to the value 
+predicted by the Standard Model, whereas the triangle diagram, $T$ has amplitude proportional to 
+$\kappa_{t}\kappa_{\lambda}$. Therefore, the cross section is proportional to 
+\begin{align}
+\sigma(\kappa_{t}, \kappa_{\lambda}) &= |A(\kappa_{t}, \kappa_{\lambda})|^2 \\
+&\sim |\kappa_{t}^2B +\kappa_{t}\kappa_{\lambda}T|^2\\
+&= \kappa_{t}^4|B|^2 + \kappa_{t}^3\kappa_{\lambda}(BT+TB) + \kappa_{t}^2\kappa_{\lambda}^2|T|^2,
+\end{align} 
+and thus non-resonant $HH$ production cross section may be parametrized as a second order 
+polynomial in $\kappa_{lambda}$.
+
+For positive values of $\kappa_{\lambda}$, due to the relative minus sign between the triangle 
+and box diagrams, the interference between the two diagrams is \emph{destructive}, with a maximum interference 
+near $\kappa_{\lambda} = 2.3$, corresponding to the minimum cross section prediction. One may note that the 
+Standard Model value of $\kappa_{\lambda} = 1$ is not far away from this minimum -- correspondingly the 
+Standard Model cross section for $HH$ production is quite small, namely \SI{31.05}{\fb} at $\sqrt{s} = \SI{13}{\TeV}$ for production via gluon-gluon fusion ~\cite{HH1,HH2,HH3,HH4,HH5,HH6,HH7,HH8} compared to, e.g. single Higgs 
+production, with a gluon-gluon fusion production cross section of \SI{46.86}{\pb} at $\sqrt{s} = \SI{13}{\TeV}$~\cite{Higgsxs} roughly 1500 times larger! For negative values of $\kappa_{\lambda}$, the interference is constructive.
