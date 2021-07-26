@@ -13,16 +13,16 @@ can be made about the universe. In this chapter, we describe the machines behind
 Hadron Collider and the ATLAS experiment.
 
 \section{The Large Hadron Collider}
-The Large Hadron Collider is a particle accelerator near Geneva, Switzerland, 
-operating at a center of mass energy $\sqrt{s} = \SI{13}{\TeV}$. In broad scope, it is a 
+The Large Hadron Collider is a particle accelerator near Geneva, Switzerland. In broad scope, it is a 
 ring with a 27 kilometer circumference. Hadrons (usually protons or heavy ions) move in two 
 counter-circulating beams, which are made to collide at four collision points at various 
 points on the ring. These four collision points correspond to the four detectors placed 
 around the ring: two ``general purpose'' experiments: ATLAS and CMS; LHCb, focused primarily 
 on flavor physics; and ALICE, focused primarily on heavy ions.
 
-For proton-proton collisions, the focus of this thesis, the acceleration chain proceeds as follows:
-first, and electric field strips hydrogen of its electrons, creating protons. A linear accelerator,
+The focus of this thesis is proton-proton collisions at center of mass energy $\sqrt{s}=\SI{13}{\TeV}$. 
+The process to achieve such collisions proceeds as follows:
+first, an electric field strips hydrogen of its electrons, creating protons. A linear accelerator,
 LINAC 2, accelerates protons to \SI{50}{\MeV}. The resulting beam is injected into the Proton 
 Synchrotron Booster (PSB), which pushes the protons to \SI{1.4}{\GeV}, and then the Proton Synchrotron,
 which brings the beam to \SI{25}{\GeV}.
@@ -60,6 +60,30 @@ experience an accelerating voltage, corresponding to the \SI{25}{\ns} bunch spac
 A nice property of this bucket/bunch configuration is that there is some self-correction -- there is 
 some finite spread in the grouping of particles. If a particle arrives too early, it will experience some 
 decelerating voltage; if too late, it will experience a higher accelerating voltage.
+
+\subsection{The LHC Schedule}
+The physics program at the Large Hadron Collider is split into a variety of data taking periods called \emph{runs}.
+these runs correspond to various detector/accelerator configurations, and are interspersed with \emph{long shutdowns} -- 
+periods used for detector/accelerator upgrades in preparation for the next run. The LHC timeline is as follows 
+\begin{enumerate}
+	\item Run 1 (2010--2013): First run of the LHC, operating at center of mass energy $\sqrt{s}=\SI{7}{\TeV}$, 
+	increased to \SI{8}{\TeV} in 2012. ATLAS recorded \SI{4.57}{\ifb} and \SI{20.3}{\ifb} of data usable for physics
+	at $\sqrt{s}=$\SI{7}{\TeV} and \SI{8}{\TeV} respectively.
+	\item Long Shutdown 1 (LS1; 2013--2015): Upgrades to accelerator complex, magnet system, to allow for increase 
+	in energy. Design energy was $\sqrt{s}=\SI{14}{\TeV}$, delays in ``training'' of superconducting magnets 
+	led to decrease to $\sqrt{s}=\SI{13}{\TeV}$.
+	\item Run 2 (2015--2018): Second run of the LHC, operating at center of mass energy $\sqrt{s}=\SI{13}{\TeV}$. 
+	Data from this run is used in this thesis, with \SI{139}{\ifb} of data available for physics from the ATLAS
+	experiment.
+	\item Long Shutdown 2 (LS2; 2019--2021): Upgrades to ATLAS muon spectrometer (New Small Wheel), liquid argon 
+	calorimeter; upgrades in preparation for the High Luminosity LHC (HL-LHC).
+	\item Run 3 (2021--2023?): Third run of the LHC, target center of mass energy $\sqrt{s}=13-\SI{14}{\TeV}$, 
+	total target luminosity \SI{300}{\ifb}.
+	\item Long Shutdown 3 (LS3; 2024?--2026?): Further upgrades for the HL-LHC.
+	\item Run 4, 5, \ldots ? (2026? onward): High Luminosity LHC -- goal is to achieve instantaneous luminosities 
+	by a factor of five, massively enlarging available statistics for physics. Projected 3000 to \SI{4000}{\ifb}, 
+	$> 20$ times the full Run 2 ATLAS dataset.
+\end{enumerate}
 
 
 \section{The ATLAS Experiment}
