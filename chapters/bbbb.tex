@@ -501,18 +501,31 @@ their invariant mass is the corrected $m_{HH}$. These re-scaled four-vectors are
 not used for any other purpose. The effect of this correction, which sharpens
 the $m_{HH}$ peak and correctly centres it, is shown
 in~\Fig{\ref{fig:m-hh-cor-effect}}.
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=0.8\textwidth]{figures/resolved-m-hh-cor.pdf}
+  }
+\caption{\label{fig:m-hh-cor-effect} Impact of the $m_{HH}$ correction on a range of spin-0 
+resonant signals. The corrected $m_{HH}$ distributions (solid lines) are much sharper and 
+more centered on the corresponding resonance masses than the uncorrected $m_{HH}$ distributions 
+(dashed).}
+\end{figure}
 
 For the non-resonant analysis, due to the broad nature of the signal in \mhh, such a 
 correction is not as motivated, and, indeed, is found to have very minimal 
 impact. The uncorrected \mhh (just referred to as \mhh) is therefore used 
 as a discriminant. To maximize sensitivity, the non-resonant analysis 
 additionally uses two variables for categorization: $\Delta \eta_{HH}$, an angular 
-variable which, along with \mhh, fully characterizes the $HH$ system
-\todo{ref costhetastar paper?}, and $X_{HH}$, the variable used for the 
+variable which, along with \mhh, fully characterizes the $HH$ system~\cite{cosThetastar}, 
+and $X_{HH}$, the variable used for the 
 signal region definition, which leverages the peaked structure of the 
 signal in the ($\mh1$, $\mh2$) plane to split the signal extraction fit into lower and higher
 purity regions (highest purity near $X_{HH} = 0$, the center of the signal region).
-Distributions of these variables are shown in \todo{plots}
+Distributions of these variables are shown in \todo{plots}. The categorization used for this 
+thesis has been optimized to be $2\times 2$ in these variables, with corresponding selections 
+$0 \leq \Delta \eta_{HH} \leq 0.75$ and $0.75 \leq \Delta \eta_{HH} \leq 1.5$ for $\Delta \eta_{HH}$, 
+and $0 \leq X_{HH} \leq 0.95$ and $0.95 \leq X_{HH} \leq 1.6$ for $X_{HH}$.
 
 
 \FloatBarrier
@@ -1075,7 +1088,31 @@ background estimate.
 
 \todo{Add shifted regions if they're ready}
 
-Results are shown in \todo{add figures}
+\begin{figure}[ht]
+	\centering
+	\subfloat{
+		\includegraphics[width=0.65\textwidth]{figures/res-rev-deta.pdf}
+	}
+	\caption{\label{fig:res-rev-deta} \textbf{Resonant Search}: Performance of the background estimation method in the 
+	resonant analysis reversed $\Delta \eta_{HH}$ kinematic signal region. A new background estimate is trained 
+	following nominal procedures entirely within the reversed $\Delta \eta_{HH}$ region, and the resulting model, 
+	including uncertainties, is compared with $4b$ data in the corresponding signal region. Good agreement is shown. The 
+	the quoted $p$-value uses the $\chi^{2}$ test statistic, and demonstrates no evidence that the data differs from the 
+	assessed background.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \hspace*{-2cm}
+  \subfloat{
+    \includegraphics[width=1.2\textwidth]{figures/nonres-3b1f-validation.pdf}
+  }
+  \caption{\label{fig:nonres-sr-mhh-3b1f} \textbf{Non-resonant Search}: Performance of the background estimation 
+  method in the $3b+1$ fail validation region. A new background estimate is trained following nominal procedures 
+  but with a reweighting from $2b$ to $3b+1$ fail events. Generally good agreement is seen, though there is some 
+  deviation at very low masses in the low $\Delta\eta_{HH}$ low $X_{HH}$ category.}
+\end{figure}
+
 
 \FloatBarrier
 \clearpage
@@ -1176,7 +1213,7 @@ years separately. Agreement is generally good throughout.
   \subfloat{
     \includegraphics[width=0.65\textwidth]{figures/resolved-mhh.pdf}
   }
-  \caption{\label{fig:res-sr-mhh} Signal region agreement of the background estimate and 
+  \caption{\label{fig:res-sr-mhh} \textbf{Resonant Search}: Signal region agreement of the background estimate and 
   observed data after a background-only profile likelihood fit. The closure is generally quite good, 
   though there is an evident deficit in the background estimate relative to the data for higher values 
   of corrected $m_{HH}$.}
@@ -1201,8 +1238,7 @@ no correction is used as the final discriminant in each category.
 A demonstration of the performance of the reweighting on distributions unrolled across categories is shown 
 in Figure \todo{insert} for the the control region and Figure \todo{insert} for 
 the the validation region. A background-only profile likelihood fit is run for the distribution in the signal 
-region, and results with the Standard Model $HH$ signal overlaid are shown for $4b$ in Figure \ref{fig:nonres-sr-mhh-4b}
-and $3b1l$ in Figure \ref{fig:nonres-sr-mhh-3b1l}. Note that 
+region, and results with the Standard Model $HH$ signal $\kappa_{\lambda}=6$ signal overlaid are shown for $4b$ in Figure \ref{fig:nonres-sr-mhh-4b} and $3b1l$ in Figure \ref{fig:nonres-sr-mhh-3b1l}. Note that 
 the plots show the sum across all years, but the signal extraction fit and background estimate are run with the 
 years separately. All bins are normalized to represent a density of Events / \SI{15}{\GeV}.
 
@@ -1210,22 +1246,20 @@ years separately. All bins are normalized to represent a density of Events / \SI
   \centering
   \hspace*{-2cm}
   \subfloat{
-    \includegraphics[width=1.2\textwidth]{figures/post-bonly-fit-4b-nonres-with-SM-HH.pdf}
+    \includegraphics[width=1.2\textwidth]{figures/post-bonly-fit-4b-nonres-with-SM-HH-and-kl-6.pdf}
   }
-  \caption{\label{fig:nonres-sr-mhh-4b} \textbf{Non-resonant Search}: Signal region agreement of the background estimate and observed data after a background-only profile likelihood fit for the $4b$ channels, with Standard Model 
-  signal overlaid for reference. Modeling is generally quite good near the Standard Model peak, but disagreements 
-  are seen at very low and high masses. A deficit is present in low $\Delta\eta_{HH}$ bins near \SI{600}{\GeV}.}
+  \caption{\label{fig:nonres-sr-mhh-4b} \textbf{Non-resonant Search (4b)}: Signal region agreement of the background estimate and observed data after a background-only profile likelihood fit for the $4b$ channels, with Standard Model 
+  and $\kappa_{\lambda}=6$ signal overlaid for reference. Modeling is generally quite good near the Standard Model peak, but disagreements are seen at very low and high masses. A deficit is present in low $\Delta\eta_{HH}$ bins near \SI{600}{\GeV}.}
 \end{figure}
 
 \begin{figure}[ht]
   \centering
    \hspace*{-2cm}
   \subfloat{
-    \includegraphics[width=1.2\textwidth]{figures/post-bonly-fit-3b1l-nonres-with-SM-HH.pdf}
+    \includegraphics[width=1.2\textwidth]{figures/post-bonly-fit-3b1l-nonres-with-SM-HH-and-kl-6.pdf}
   }
-  \caption{\label{fig:nonres-sr-mhh-3b1l} \textbf{Non-resonant Search}: Signal region agreement of the background estimate and observed data after a background-only profile likelihood fit for the $3b1l$ channels, with Standard Model 
-  signal overlaid for reference. Conclusions are very similar to the $4b$ channels, with generally good modeling near 
-  the Standard Model peak, but disagreements at very low and high masses. A deficit is present near \SI{600}{\GeV}.}
+  \caption{\label{fig:nonres-sr-mhh-3b1l} \textbf{Non-resonant Search (3b1l)}: Signal region agreement of the background estimate and observed data after a background-only profile likelihood fit for the $3b1l$ channels, with Standard Model
+  and $\kappa_{\lambda}=6$ signal overlaid for reference. Conclusions are very similar to the $4b$ channels, with generally good modeling near he Standard Model peak, but disagreements at very low and high masses. A deficit is present near \SI{600}{\GeV}.}
 \end{figure}
 
 \FloatBarrier
@@ -1307,9 +1341,22 @@ and $3b+1l$ signal regions in the $2\times 2$ category scheme in $\Delta \eta_{H
 further combined with a VBF channel as discussed, but this is left for future work. Results shown here include background 
 systematics only. Limits are set for $\kappa_{\lambda}$ values from $-20$ to $20$. 
 The cross section limit for $HH$ production is set at \SI{140}{\fb} (\SI{180}{\fb}) observed (expected), 
-corresponding to an observed (expected) limit of $4.4$ ($5.9$) times the Standard Model prediction. 
+corresponding to an observed (expected) limit of $4.4$ ($5.9$) times the Standard Model prediction (see Table \ref{tbl:SM-HH-limits}). 
 $\kappa_{\lambda}$ is constrained to be within the range $-4.9 \leq \kappa_{\lambda} \leq 14.4$ observed 
 ($-3.9 \leq \kappa_{\lambda} \leq 10.9$ expected). These results are shown in Figure \ref{fig:nonres-limits}.
+
+\begin{table}
+\centering
+\begin{tabular}{ |c|c|c|c|c|c| } 
+\hline
+\textbf{Observed} & $-2\sigma$ & $-1\sigma$ & \textbf{Expected} & $+1\sigma$ & $+2\sigma$\\
+ \hline
+\textbf{4.4}	& 3.1	& 4.2 & \textbf{5.9}	& 8.2 & 11.0\\
+ \hline
+\end{tabular}
+ \caption{\label{tbl:SM-HH-limits} Limits on Standard Model $HH\rightarrow \bbbb$ production, presented in units of the 
+predicted Standard Model cross section. Results include background systematics only.}
+\end{table}
 
 We note that this is a significant improvement over the early Run 2 result, which achieved an observed (expected) 
 limit of 12.9 (20.7) times the Standard Model prediction. The dataset is 4.6 times larger, and a naive scaling 
@@ -1341,10 +1388,14 @@ of the remaining uncertainties to have no more than a few percent impact.
 \end{figure}
 
 The observed limits presented in Figure \ref{fig:nonres-limits} are consistently above the $2\sigma$ band for values of 
-$\kappa_{\lambda} \geq 5$. As this analysis is optimized for points near the Standard Model, and as there is no excess present in more sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$), we do not believe this 
-is a real effect, but is rather due to a mis-modeling of the background at low mass, where the $\min{\Delta R}$ pairing 
-has poor signal efficiency and the assumption of well behaved background in the mass plane breaks down. 
-It was considered, but not implemented, for this analysis to impose a cut on $m_{HH}$ near $350$ or \SI{400}{\GeV} to avoid such an issue.
+$\kappa_{\lambda} \geq 5$, peaking at a local significance of $3.8\sigma$ for $\kappa_{\lambda} = 6$. 
+As this analysis is optimized for points near the Standard Model, and as there is no excess present in more 
+sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$\todo{include comparison}), we do 
+not believe this is a real effect, but is rather due to a mis-modeling of the background at low mass, where 
+the $\min{\Delta R}$ pairing 
+has poor signal efficiency and the assumption of well behaved background in the mass plane breaks down. This is 
+consistent with the location of the $\kappa_{\lambda} = 6$ signal in $m_{HH}$, as shown in Figures \ref{fig:nonres-sr-mhh-4b} and \ref{fig:nonres-sr-mhh-3b1l}.
+It was considered, but not implemented, for this analysis to impose a cut on $m_{HH}$ near $350$ or \SI{400}{\GeV} to avoid such a low mass modeling issue.
 
 To check the impact of if we would have imposed such a cut, and to verify that the excess is due to the low mass regime, 
 we therefore run the same set of limits without the low mass bins. In this case, we choose to simply drop the 

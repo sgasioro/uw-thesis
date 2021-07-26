@@ -2277,19 +2277,26 @@
     <bcf:citekey order="90">Herwigpp</bcf:citekey>
     <bcf:citekey order="91">skopt</bcf:citekey>
     <bcf:citekey order="92">EXOT-2016-31</bcf:citekey>
-    <bcf:citekey order="93">EXOT-2016-31</bcf:citekey>
-    <bcf:citekey order="94">HDBS-2018-18</bcf:citekey>
-    <bcf:citekey order="95">NNloss</bcf:citekey>
-    <bcf:citekey order="95">NNloss1</bcf:citekey>
-    <bcf:citekey order="96">DeepEnsembles</bcf:citekey>
-    <bcf:citekey order="97">Bootstrap</bcf:citekey>
-    <bcf:citekey order="98">bbyyNote</bcf:citekey>
-    <bcf:citekey order="99">Read02</bcf:citekey>
-    <bcf:citekey order="100">Cowan11</bcf:citekey>
+    <bcf:citekey order="93">cosThetastar</bcf:citekey>
+    <bcf:citekey order="94">EXOT-2016-31</bcf:citekey>
+    <bcf:citekey order="95">HDBS-2018-18</bcf:citekey>
+    <bcf:citekey order="96">NNloss</bcf:citekey>
+    <bcf:citekey order="96">NNloss1</bcf:citekey>
+    <bcf:citekey order="97">DeepEnsembles</bcf:citekey>
+    <bcf:citekey order="98">Bootstrap</bcf:citekey>
+    <bcf:citekey order="99">bbyyNote</bcf:citekey>
+    <bcf:citekey order="100">Read02</bcf:citekey>
     <bcf:citekey order="101">Cowan11</bcf:citekey>
-    <bcf:citekey order="102">Carvalho</bcf:citekey>
+    <bcf:citekey order="102">Cowan11</bcf:citekey>
     <bcf:citekey order="103">Carvalho</bcf:citekey>
-    <bcf:citekey order="104">scikit-learn</bcf:citekey>
+    <bcf:citekey order="104">Carvalho</bcf:citekey>
+    <bcf:citekey order="105">RNNs</bcf:citekey>
+    <bcf:citekey order="106">DeepSets</bcf:citekey>
+    <bcf:citekey order="107">GNNs</bcf:citekey>
+    <bcf:citekey order="108">Transformers</bcf:citekey>
+    <bcf:citekey order="109">Transformers</bcf:citekey>
+    <bcf:citekey order="110">Softmax</bcf:citekey>
+    <bcf:citekey order="111">scikit-learn</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

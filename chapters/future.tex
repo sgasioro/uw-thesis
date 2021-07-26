@@ -25,7 +25,8 @@ of these four jets. For the methods used in this analysis, the jet selection pro
 simple $p_{T}$ ordering, with $b$-tagged jets recieving a higher priority than non-tagged jets.
 
 With the advent of a variety of machine learning methods for dealing with a variable number of 
-inputs \todo{cite: RNNs, Deep Sets, GNNs, Transformers}, a natural place to improve on the 
+inputs (e.g. recurrent neural networks~\cite{RNNs}, deep sets~\cite{DeepSets}, graph neural networks~\cite{GNNs}, 
+and transformers~\cite{Transformers}), a natural place to improve on the 
 pairing is to consider more than just four jets. The pairing and jet selection is then performed 
 simultaneously, allowing for the incorporation of more event information in the pairing decision and 
 the incorporation of jet correlation structure in the jet selection.
@@ -43,7 +44,7 @@ signal regions, this extra flexibility in jet selection may provide a very usefu
 since the algorithm is trained on signal, the selected jets for the pairing will be the 
 most ``4b-like'' jets available in the considered set.
 
-For the studies considered here, a transformer \todo{cite Attention} based architecture is used. This is 
+For the studies considered here, a transformer~\cite{Transformers} based architecture is used. This is 
 best visualized by considering the event as a graph with jets corresponding to nodes and 
 edges corresponding to potential connections -- for this reason, we term this algorithm ``pairAGraph''.
 The approach is as follows: each jet, $i$, is represented by some vector of input variables, 
@@ -69,7 +70,7 @@ where subscripts $1a$ and $1b$ correspond to the two jets in pair 1, $2a$ and $2
 the jets in pair 2 for a given pairing of four distinct jets.
 
 This similarity metric is calculated for all possible pairings, which are then passed through a 
-softmax \todo{cite} activation function, which compresses these scores to between $0$ and $1$ 
+softmax~\cite{Softmax} activation function, which compresses these scores to between $0$ and $1$ 
 with sum of $1$, lending an interpretation as probability of each pairing.
 
 In training, the ground truth pairing is set by \emph{truth matching} jets to the $b$-jets 
@@ -274,6 +275,9 @@ in place to construct an interpolation background estimate. Namely
 	$m_{HH}, \cos{\theta^{*}}$).
 	\item These final distributions are normalized according to the predicted background yield.
 \end{enumerate}
+
+\subsection{Results}
+Figures 
 
 \subsection{Outstanding Points}
 While good performance is demonstrated from the nominal interpolated background estimate, various 
