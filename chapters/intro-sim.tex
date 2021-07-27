@@ -14,8 +14,8 @@ is often called Monte Carlo in reference to the underlying mathematical framewor
 sampling. 
 
 \section{Event Generation}
-A variety of tools are used to simulate various aspects of event generation. \MADGRAPH\cite{MG5} 
-is commonly used for the generation of the ``hard scatter'' event, i.e., two protons collide and 
+A variety of tools are used to simulate various aspects of event generation. 
+One such aspect is generation of the ``hard scatter'' event, i.e., two protons collide and 
 some desired physics process happens. In practice, this is not quite as simple as two quarks or 
 gluons interacting. Protons are composed of three ``valence'' quarks with various momenta interacting 
 with each other via exchange of gluons, but also a sea of virtual gluons which may decay into other
@@ -27,7 +27,8 @@ of a ``PDF set'' and a given physics process characterizes the hard scatter. Dep
 considered and the particular theoretical constraints, processes are often simulated at either leading (LO) 
 or next to leading order (NLO), corresponding to the order of the perturbative expansion (i.e. tree level 
 or 1 loop diagrams). Various additional tools are developed for such NLO calculations, 
-including \POWHEGBOX v2~\cite{Powheg1, Powheg2, Powheg3}, which is used for this thesis.
+including \POWHEGBOX v2~\cite{Powheg1, Powheg2, Powheg3}, which is used for this thesis. \MADGRAPH\cite{MG5} is 
+used in this thesis for leading order simulation.
 
 The hard scatter is not the only component of a given collider event, however. Incoming and outgoing 
 particles are themselves very energetic and may radiate particles along their trajectory. In particular,
@@ -35,24 +36,38 @@ gluons, which have a self-interaction term as described in Chapter \ref{chap:int
 which subesquently themselves radiate gluons or decay to quarks which can also radiate gluons, in a 
 whole mess of QCD that both contributes to the particle content of a collider event and is not directly 
 described by the hard scatter. This cascade, called a \emph{parton shower}, has a dedicated set of simulation
-tools, commonly \HERWIG[7]~\cite{Herwig7}\cite{HerwigPP} and \PYTHIA[8]~\cite{Pythia}, which interface with 
-tools such as \MADGRAPH for simulation. 
+tools. For this thesis, \HERWIG[7]~\cite{Herwig7}\cite{HerwigPP} and \PYTHIA[8]~\cite{Pythia} are used, which 
+interface with tools such as \MADGRAPH for simulation. 
 
 Due to color confinement (Chapter \ref{chap:intro-SM}), quarks and gluons cannot be observed free particles, but 
 rather undergo a process called hadronization, in which they are grouped into colorless hadrons (e.g. \emph{mesons},
-consisting of one quark and one antiquark). In simulation, this is also handled with \HERWIG[7] and \PYTHIA[8].
+consisting of one quark and one antiquark). In simulation, this is also handled with tools such as \HERWIG[7] or \PYTHIA[8].
 
 The physics of \Pqb-quarks is quite important for a variety of searches for new physics and measurements of 
-the Standard Model, including this thesis work \todo{ref flavor tagging sec?}. Correspondingly, the decay of ``heavy flavor'' particles 
+the Standard Model, including this thesis work. Correspondingly, the decay of ``heavy flavor'' particles 
 (e.g. $B$ and $D$ mesons, containing $b$ and $c$ quarks respectively) has been very well studied, and 
 a dedicated simulation tool, \textsc{EvtGen}~\cite{EvtGen}, is used for such processes.
 
-\todo{add nice parton shower image}
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=0.7\textwidth]{figures/parton-shower}
+		 }
+\caption{\label{fig:parton-shower} Schematic diagram of the Monte Carlo simulation of a hadron-hadron collision. The 
+incoming hadrons are the green blobs with the arrows on the left and right, with the red blob in the center 
+representing the hard scatter event, and the purple representing a secondary hard scatter. Radiation from 
+both incoming and outgoing particles is shown, and the light green blobs represent hadronization, with the outermost 
+dark green circles corresponding to the final state hadrons. Yellow lines are radiated photons. ~\cite{parton-shower}}
+\end{figure}
 
+\FloatBarrier
 \section{Detector Simulation}
-Event generation provides a full description of the particle content of a given collider event. In reality, however, we 
-do not have access to such a description, and must rely on physical detectors to collect information about said particle 
-content. The design and components of the ATLAS detector are described in Chapter \ref{chap:experiment}. 
+Event generation provides a full and exact description of the particle content of a given collider event. 
+This description is useful, but is an artifact of the simulation -- for real physics events, we must rely on 
+the information collected by sophisticated detectors (Chapter \ref{chap:experiment}) to make statements about the 
+physics content of collider events. The simulation of how particles interact with the physical detector and of
+the corresponding information that is collected is therefore a necessary step of physics simulation at the 
+LHC. The design and components of the ATLAS detector are described in Chapter \ref{chap:experiment}. 
 Simulation of this detector quickly becomes complicated -- there are a variety of different materials and subdetectors, each with particular configurations and resolutions. Interactions of particles with the detector materials can cause showering, and such showers must be simulated and characterized. 
 
 In ATLAS, the \GEANT~\cite{GEANT4} simulation toolkit is used for detailed simulation of the ATLAS detector, often 
@@ -63,7 +78,19 @@ shower with a similarly detailed step by step simulation.
 This type of simulation is very computationally intensive, especially in the calorimeter, which has a high density of 
 material, leading to an extremely large set of material interactions to simulate. There is correspondingly a large 
 effort within ATLAS to develop techniques to decrease the computational load -- these techniques will be of increasing 
-importance for Run 3 and the HL-LHC \todo{include classic budget plot}.
+importance for Run 3 and the HL-LHC, which will have increased computational need due to the high complexity and large 
+volume of collected physics events, along with the corresponding set of simulated physics events~\cite{HLLHC-compute}. 
+The divergence of the baseline computing model from the projected computing budget is shown in Figure \ref{fig:budget-plot}.
+
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=0.7\textwidth]{figures/cpuHLLHC-ATLAS.pdf}
+		 }
+\caption{\label{fig:budget-plot} The projected ATLAS computational requirements for Run 3 and the HL-LHC 
+relative to the projected computing budget. Aggressive R\&D is required to keep resources within 
+budget~\cite{computing-budget}.}
+\end{figure}
 
 The fast simulation used for this thesis, AtlFast-II~\cite{SOFT-2010-01}, is one such technique, which uses
 a parametrized simulation of the calorimeter, called FastCaloSim, in conjunction with full simulation of the 
@@ -76,7 +103,9 @@ Such a speed up comes at a bit of a cost in performance. In particular, the mode
 supporting this thesis is an effort to improve such modeling, and is part of a suite of updates being considered for 
 a new fast simulation targeting Run 3. We briefly describe this work in the following.
 
+\FloatBarrier
 \section{Correlated Fluctuations in FastCaloSim}
+\label{shapepara}
 A variety of developments have been made to FastCaloSim, improving on the version used 
 for AtlFast-II. This new fast calorimeter simulation~\cite{ATL-SOFT-PUB-2018-002} is largely 
 based on two components: one which describes the \emph{total energy} deposited in each calorimeter layer as a 
@@ -87,7 +116,7 @@ they are able to reproduce corresponding full simulation distributions. Of cours
 from a library of showers would identically reproduce such distributions -- however a statistical 
 sampling of various shower \emph{properties} provides much more generality in the simulation.
 
-For the simulation of total energy in each given layer, the primary challenge is that such energy deposits are highly correlated. The new FastCaloSim thus relies on a technique called Principal Component Analysis (PCA) \todo{cite https://root.cern.ch/doc/master/classTPrincipal.html} to de-correlate the layers, aiding parametrisation.
+For the simulation of total energy in each given layer, the primary challenge is that such energy deposits are highly correlated. The new FastCaloSim thus relies on a technique called Principal Component Analysis (PCA)~\cite{TPrincipal} to de-correlate the layers, aiding parametrization.
 
 The PCA chain transforms $N$ energy inputs into $N$ Gaussians and projects these Gaussians onto the eigenvectors of the corresponding covariance matrix. This results in $N$ de-correlated components, as the eigenvectors are orthogonal. The component of the PCA decomposition with the largest corresponding eigenvalue is then used to define bins, in which showers demonstrate similar patterns of energy deposition across the calorimeter layers. To further de-correlate the inputs, the PCA chain is repeated on the showers within each such bin. This full process is reversed for the particle simulation. A full description of the method can be found in \cite{ATL-SOFT-PUB-2018-002}.
 
@@ -115,11 +144,11 @@ respectively. Similar results are seen for other photon energies and $\eta$ poin
 \centering
 \includegraphics[width=0.48\textwidth]{figures/CHEP-photon-energy.pdf}
 \includegraphics[width=0.48\textwidth]{figures/CHEP-photon-weta2.pdf}
-\caption{Energy and lateral shower width variable, weta2, for 16 GeV photons with full simulation (G4) and FastCaloSimV2 (FCSV2) \cite{ATL-SOFT-PUB-2018-002}.}
+\caption{Energy and variable weta2, defined as the energy weighted lateral width of a shower in the second electromagnetic calorimeter layer, for 16 GeV photons with full simulation (G4) and FastCaloSimV2 (FCSV2) \cite{ATL-SOFT-PUB-2018-002}.}
 \label{fig-1} 
 \end{figure}
 
-
+\FloatBarrier
 \subsection{Fluctuation Modeling}
 \label{fluct-modeling}
 Figure \ref{fig-2} shows the ratio of calorimeter cell energies for single \GEANT photon and pion events to the corresponding 
@@ -127,15 +156,13 @@ cell energies in their respective average shapes. While the photon event is quit
 pion event shows a deviation from the average which is much larger and has a non-trivial structure, reflecting the different 
 natures of electromagnetic and hadronic showering.
 
-While the shape parametrization described above is thus sufficient for describing electromagnetic showers, we will demonstrate below that it is not sufficient for describing hadronic showers (Figures \ref{fig-5} and \ref{fig-6}). We therefore present and validate methods to improve this hadronic shower modeling.
+While the shape parametrization described above is thus sufficient for describing electromagnetic showers, we will demonstrate below that it is not sufficient for describing hadronic showers (Figures \ref{fig-5} and \ref{fig-6}). We therefore present and validate methods to improve this hadronic shower modeling. Such methods have been presented as well in~\cite{CHEP-proceedings}.
 
 \begin{figure}[ht!]
-% Use the relevant command for your figure-insertion program
-% to insert the figure file.
 \centering
 \includegraphics[width=0.7\textwidth]{figures/approved-example-pion-photon-ave-ratios-ATLASstyle.pdf}
 \caption{Example of photon and pion average shapes in 5 $\times$ 5 calorimeter cells. The left column shows the average shape over a sample of 10000 events, while the right column shows the energy ratio, in each cell, of single \GEANT events with respect to this average. The photon ratios are all close to 1, while the pion ratios show significant deviation from the average.}
-\label{fig-2}       % Give a unique label
+\label{fig-2}
 \end{figure}
 
 Two methods for modeling deviations from the average shape have been studied: 
@@ -198,16 +225,51 @@ Validation of the Gaussian and VAE fluctuation methods was performed within Fast
 \includegraphics[width=0.48\textwidth]{figures/FCS-fig-08.pdf}
 \includegraphics[width=0.48\textwidth]{figures/FCS-fig-10.pdf}
 \includegraphics[width=0.48\textwidth]{figures/FCS-fig-11.pdf}
-\caption{Comparison of the Gaussian fluctuation model to the default FCSV2 version and to G4 simulation, using pions of 65 GeV energy and $0.2 < |\eta| < 0.25$. With the correlated fluctuations, several shape variables demonstrate improved modeling.}
+\caption{Comparison of the Gaussian fluctuation model to the default FCSV2 version and to G4 simulation, using pions of 65 GeV 
+energy and $0.2 < |\eta| < 0.25$. Variables shown relate to calorimeter clusters, three-dimensional spatial groupings 
+of cells~\cite{TopoCluster} which provide powerful insight on the structure of energy deposits in the calorimeter. 
+Variables considered include number and energy of clusters, the 2nd moment in lambda, ($<\lambda^2>$), which 
+describes the square of the longitudinal extension of a cluster, where $\lambda$ is the distance of a cell from the 
+shower center along the shower axis, and a cluster moment is defined as $<x^n> =\frac{\sum E_{i}x_i}{\sum E_i}$, 
+and the distance $\Delta R$, between the cluster and the true pion. With the correlated fluctuations, variables demonstrate 
+improved modeling relative to default FastCaloSimV2.}
 \label{fig-6} 
 \end{figure}
 
 
-Figure \ref{fig-6} shows the result of a simulation with full ATLAS reconstruction for 65 GeV central pions with the Gaussian fluctuation model. The simulation with the Gaussian fluctuation model demonstrates improved modeling of several shape variables relative to baseline FastCaloSimV2, reproducing the distributions of events simulated with \GEANT.
+Figure \ref{fig-6} shows the result of a simulation with full ATLAS reconstruction for 65 GeV central pions with 
+the Gaussian fluctuation model. Here a \emph{cluster}~\cite{TopoCluster} is defined as a three-dimensional spatial 
+grouping of calorimeter cells which are summed based on the input signals relative to their neighboring cells. 
+The multiplicity, shape, and spatial distribution of such clusters provides a powerful insight on the structure of energy deposits 
+in the calorimeter, and good performance in cluster variables is a promising step towards good performance in the 
+modeling of jet substructure, as these clusters may themselves be summed to form jets (see Chapter \ref{chap:reconstruction}). 
+The simulation with the Gaussian fluctuation model demonstrates improved modeling of several of these cluster variables 
+relative to baseline FastCaloSimV2, reproducing the distributions of events simulated with \GEANT. These include number and 
+energy of clusters, the 2nd moment in lambda, ($<\lambda^2>$), which describes the square of the longitudinal extension of a 
+cluster, where $\lambda$ is the distance of a cell from the shower center along the shower axis, and a cluster moment is defined 
+as $<x^n> =\frac{\sum E_{i}x_i}{\sum E_i}$, and the distance $\Delta R$, between the cluster and the true pion.
 
 The new fast calorimeter simulation is a crucial part of the future of simulation for the ATLAS Experiment at the LHC. 
 The per event simulation time of the full detector with \GEANT, calculated over 100 $t\bar{t}$ events, is 228.9 s. 
-Using FastCaloSim for the calorimeter simulation reduces this to 26.6 s, of which FastCaloSim itself is only 0.015 s. 
-Good physics modeling is achieved, the correlated fluctuations method shows good proof of concept improvement for 
+Using FastCaloSim for the calorimeter simulation reduces this to 26.6 s, of which FastCaloSim itself is only 0.015 s, 
+with the majority of the remaining simulation time due to \GEANT.
+Good physics modeling is achieved, and the correlated fluctuations method shows good proof of concept improvement for 
 the modeling of hadronic showers.
+
+\FloatBarrier
+\section{Outlook}
+There has been significant effort in the community to develop a set of fast simulation tools, with the use of machine 
+learning methods at the forefront of such approaches (e.g. ~\cite{GAN-sim}, ~\cite{DijetGAN}). Most fast simulation approaches 
+generally are based on parametrizations of fully simulated events, but fall into two paradigms - a ``by hand'' simulation, which 
+focuses on the modeling of individual detector effects, or a fully parametrized simulation, 
+in which a generative model (e.g. a Generative Adversarial Network or Variational Autoencoder) is trained to directly 
+reproduce the input events. Both approaches can be extremely powerful, but each suffer from certain drawbacks. 
+The ``by hand'' approach offers the advantage of direct encoding of expert knowledge -- if an effect needs to be modeled, 
+a new parametrization is introduced. However, by the same token, it requires dedicated parametrizations for each effect. 
+Fully parametrizing the simulation with a generative model offloads this burden onto the network itself. However, by doing so, 
+the ability to use expert knowledge is diminished -- the network is required to learn all relevant effects.
+
+The method presented here represents an effort to step towards a hybrid between these two approaches, leveraging the power of 
+machine learning techniques for individual parametrizations within the by hand framework. Such hybrid solutions have the 
+potential to be extremely powerful, and further work on the development of these solutions is an interesting direction of future study.
 

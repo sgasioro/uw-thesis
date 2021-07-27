@@ -34,8 +34,8 @@ than would be obtained with a more generic approach.
 Both searches are presented in the following, with emphasis on particular motivations for, and consequences
 of, the various design decisions involved for each respective set of signal hypotheses. 
 
-The analyses improve upon previous work \ref{EXOT-2016-31} in several notable ways. The resonant search leverages 
-a Boosted Decision Tree (BDT) based pairing algorithm, offering improved HH pairing efficiency over a broad 
+The analyses improve upon previous work~\cite{EXOT-2016-31} in several notable ways. The resonant search leverages 
+a Boosted Decision Tree (BDT) based pairing algorithm, offering improved $HH$ pairing efficiency over a broad 
 mass spectrum. The non-resonant adopts a different approach, with a simplified algorithm based on the minimum
 angular distance ($\Delta R$) between jets in a Higgs candidate. Such an approach very efficiently discards 
 low mass background events, resulting in an easier to estimate background with reduced systematic uncertainties.
@@ -48,12 +48,15 @@ other associated decisions, really is the core of the $HH\rightarrow \bbbb$ anal
 of this procedure, and all associated decisions, is similarly the core of this thesis work.
 
 ATLAS has performed a variety of searches in complementary decay channels as well,
-notably in the $\bbbar\Wplus\Wminus$~\cite{HIGG-2016-27},
+notably for early Run 2 in the $\bbbar\Wplus\Wminus$~\cite{HIGG-2016-27},
 $\bbbar\tautau$~\cite{HIGG-2016-16},
 $\Wplus\Wminus\Wplus\Wminus$~\cite{HIGG-2016-24},
 $\bbbar\gamma\gamma$~\cite{HIGG-2016-15}, and
 $\Wplus\Wminus\gamma\gamma$~\cite{HIGG-2016-20} final states, which were combined
-along with $\bbbar\bbbar$ in~\cite{HDBS-2018-58}.
+along with $\bbbar\bbbar$ in~\cite{HDBS-2018-58}. ATLAS has also released 
+a variety of full Run 2 results, including boosted $\bbbar\tautau$~\cite{HDBS-2019-22}, 
+VBF $\bbbb$~\cite{HDBS-2018-18}, $\bbbar\ell\nu\ell\nu$~\cite{HDBS-2018-33}, and 
+$\bbbar\gamma\gamma$~\cite{ATLAS-CONF-2021-016}.
 
 CMS has also performed searches for resonant production of Higgs boson pairs in
 the $\bbbar\bbbar$ final state (among others) at
@@ -164,9 +167,9 @@ Due to minimal contributions from some of these triggers for the Standard Model 
 
 While the use of multiple triggers is beneficial for analysis sensitivity, it comes with some
 complications. Namely, a set of scale factors must be assigned to simulated events 
-account for trigger inefficiencies in data\todo{check}. Because these scale factors may differ between 
-triggers, the use of multiple triggers becomes complicated: an event may pass more than one trigger,
-while trigger scale factors are only provided for individual triggers.
+account for differences in trigger efficiency between real and simulated events. Because these scale 
+factors may differ between triggers, the use of multiple triggers becomes complicated: an event may pass 
+more than one trigger,while trigger scale factors are only provided for individual triggers.
 
 To simplify this calculation, a set of hierarchical offline selections is applied, closely 
 mimicking the trigger selection. Based on these selections, events are sorted into categories
@@ -200,14 +203,17 @@ with selections:
 
 
 \section{Analysis Selection}
+\label{sec:analysis-selection}
 After the trigger selections of Section \ref{sec:trigger}, a variety of selections on the analysis objects
 are made, with the goal of (1) reconstructing a $HH$-like topology and (2) suppressing contributions from 
 background processes. 
 
 Both analyses begin with a common pre-selection, requiring at least four $R=0.4$ anti-$k_{T}$ jets with 
 $|\eta| < 2.5$ and $p_{T} > \SI{40}{\GeV}$. The $|\eta| < 2.5$ requirement is necessary for $b$-tagging
-due to the coverage of the ATLAS tracking detector (see Chapter \ref{chap:experiment}) \todo{check}, 
-while the $p_{T} > \SI{40}{\GeV}$ requirement is motivated by the trigger thresholds \todo{mention low pT}.
+due to the coverage of the ATLAS tracking detector (see Chapter \ref{chap:experiment}), 
+while the $p_{T} > \SI{40}{\GeV}$ requirement is motivated by the trigger thresholds. A low $p_{T}$ category, 
+which would include events failing the analysis selection due to this $p_{T}$ cut, 
+was considered for the non-resonant search, but was found to contribute minimal sensitivity.
 At least two of the jets passing this pre-selection are required to be $b$-tagged, and additional $b$-tagging 
 requirements are made to define the following regions:
 \begin{itemize}
@@ -430,8 +436,8 @@ We describe both below.
 
 \subsection{Resonant Kinematic Regions}
 For the resonant analysis, the signal region is centered at (\SI{120}{\GeV}, \SI{110}{\GeV}) 
-to account for energy loss leading to the Higgs masses being under-reconstructed. \todo{insert signal 
-location plot?} Note that leading and subleading Higgs candidates are defined according to the 
+to account for energy loss leading to the Higgs masses being under-reconstructed. Note that leading and 
+subleading Higgs candidates are defined according to the 
 \emph{scalar sum} of constituent jet $p_{T}$.
 
 For the background estimation, two regions are defined which are roughly concentric around the 
@@ -442,7 +448,7 @@ consists of those events not in the signal region, but which do pass
 	\sqrt{\qty(\mh1 - 1.03 \times \SI{120}{\GeV})^{2} + \qty(\mh2 - 1.03 \times
 		\SI{110}{\GeV})^{2}} < \SI{30}{\GeV}
 \end{equation}
-and a \emph{control region} whcih consists of those events not in the signal or validation
+and a \emph{control region} which consists of those events not in the signal or validation
 regions, but which do pass
 \begin{equation}
 	\label{eqn:ctrl-reg-def}
@@ -592,9 +598,9 @@ multiple \btagged jets, the kinematics of such events are similar to the
 kinematics of events in higher b-tagged regions (i.e. events with three and 
 four \btagged jets, respectively), and any differences can be corrected by a 
 reweighting procedure. The region with three \btagged jets is split into 
-two $b$-tagging regions, with the 3$b$ + 1 loose region used as an additional signal 
-region (see Section \todo{Add ref}). The lower tagged 3$b$ component 
-(3$b$ + 1 fail, as described in Section~\ref{3b1f}) is reserved for validation
+two $b$-tagging regions, as described in Section \ref{sec:analysis-selection}, 
+with the 3$b$ + 1 loose region used as an additional signal 
+region. The lower tagged 3$b$ component (3$b$ + 1 fail) is reserved for validation
 of the background modelling procedure. Events with fewer than two \btagged jets are not 
 used for this analysis, as they are relatively more different from the higher tag regions.
 
@@ -620,7 +626,7 @@ in which to reweight increases, limiting the number of variables used for reweig
 This leads either to an unstable fit result (overfitting with finely grained bins) or a 
 lower quality fit result (underfitting with coarse bins).
 
-Note that even machine learning methods such as Boosted Decision Trees (BDTs), may suffer
+Note that even machine learning methods such as Boosted Decision Trees (BDTs)~\cite{BDT-RW}, may suffer
 from this curse of dimensionality, as the depth of each decision tree used is limited by 
 the available statistics after each set of corresponding selections (cf. binning in a 
 more sophisticated way), limiting the expressivity of the learned reweighting function.
@@ -634,8 +640,9 @@ dimensionality.
 
 
 \subsubsection{Neural Network Reweighting}
-Let $p_{4b}(x)$ and $p_{2b}(x)$ be the probability density functions for four and two tag data respectively across some input variables $x$. 
-The problem of learning the reweighting function between two and four tag data is then the problem of learning a function $w(x)$ such that
+Let $p_{4b}(x)$ and $p_{2b}(x)$ be the probability density functions for four and two tag data respectively across 
+some input variables $x$. The problem of learning the reweighting function between two and four tag data 
+is then the problem of learning a function $w(x)$ such that
 \begin{equation}
 p_{2b}(x) \cdot w(x) = p_{4b}(x)
 \end{equation}
@@ -654,8 +661,7 @@ a loss function of the form
 where $R(x)$ is some estimator dependent on $x$ and $\mathbb{E}_{x\sim p_{2b}}$ and 
 $\mathbb{E}_{x\sim p_{4b}}$ are the expectation values with respect to the 2b and 4b probability 
 densities. A neural network trained with such a loss function has the objective of finding
-the estimator, $R(x)$, that minimizes this loss. It is straightforward to show
-(Appendix \ref{app:nnderiv}) that
+the estimator, $R(x)$, that minimizes this loss. It is straightforward to show that
 \begin{equation}
 \arg \min_{R}\mathcal{L}(R(x)) = \frac{p_{4b}(x)}{p_{2b}(x)}
 \end{equation}
@@ -673,7 +679,7 @@ with solution
 \end{equation}
 Taking the exponent then results in the desired reweighting function.
 
-Note that similar methods for density ratio estimation are available \todo{cite},
+Note that similar methods for density ratio estimation are available~\cite{NNRW-Nachman},
 e.g. from a more standard binary cross-entropy loss. However, these were found to
 perform no better than the formulation presented here.
 
@@ -698,7 +704,7 @@ set of training variables used for the resonant analysis is
 The non-resonant analysis uses an identical set of variables with two notable changes
 \begin{enumerate}
 	\item The definition of $X_{\PW\Pqt}$ differs from the resonant definition (as described 
-	in Section \todo{ref})
+	in Section \ref{sec:kinematic-cuts}).
 	\item An integer encoding of the two trigger categories is used as an input (variable which 
 	takes on the value 0 or 1 corresponding to each of the two categories). This was found to improve
 	a mismodeling near the tradeoff in \mhh of the two buckets.
@@ -743,12 +749,12 @@ the training, this ratio of number of $4b$ events ($n(4b)$) over number of $2b$ 
 folded into the learned weights. Correspondingly, the set of normalization factors described above is 
 near $1$ and the learned weights are centered around $n(4b) / n(2b)$ (roughly 0.01 over the full dataset). 
 This normalization procedure applies for all instances of the reweighting (e.g. those used for validations 
-in Section \ref{sec:bkgvalidation}), with appropriate substitutions of reweighting origin 
+in Section \ref{sec:bkg-validation}), with appropriate substitutions of reweighting origin 
 (here $2b$) and reweighting target (here $4b$).
 
 Note that, due to different trigger and pileup selections during each year, 
 the reweighting is trained on each year separately. An approach of training all of the years 
-together with a one-hot encoding was explored \todo{reference study}, but was found to have minimal 
+together with a one-hot encoding was explored, but was found to have minimal 
 benefit over the split years approach, and in fact to increase 
 the systematic bias of the corresponding background estimate.
 Because of this, and because trigger selections for each year significantly impact the kinematics of each year, 
@@ -766,8 +772,8 @@ through \ref{fig:nonres-Validation184b-8} for $4b$ and Figures \ref{fig:nonres-V
 through \ref{fig:nonres-Validation183b1l-8} for $3b1l$ for the non-resonant 
 search. Generally good performance is seen, with some occasional mis-modeling. For the resonant 
 search, this is most notable in the case of individual jet $p_{T}$. Such mis-modeling may be corrected 
-by including the variables in the input set, but this was found to not improve the modeling of $m_{HH}$, a
-nd so is not done here. This mis-modeling is notable for the non-resonant search in the leading Higgs candidate 
+by including the variables in the input set, but this was found to not improve the modeling of $m_{HH}$, 
+and so is not done here. This mis-modeling is notable for the non-resonant search in the leading Higgs candidate 
 jet $p_{T}$, and is a direct consequence of the trigger category input, which improves modeling of $m_{HH}$.
 Results are similar for other years, but are not included here for brevity. 
 
@@ -786,16 +792,14 @@ distribution of $m_{H2}$ is quite bimodal. The reverse is true for the validatio
 A variety of uncertainties are assigned to account for known biases in the
 underlying methods, calibrations, and objects used for this analysis. The
 largest such uncertainty is associated with the kinematic bias inherent in
-deriving the background estimate away from the signal region. However, a
-statistical biasing of this same estimate has an effect of a similar magnitude.
+deriving the background estimate outside of the signal region. However, a
+statistical biasing of this same estimate also has a significant impact.
 Additionally, due to the use of Monte Carlo for signal modelling and \btag
 calibration, uncertainties related to mismodellings in simulation must also be
-accounted for. These components, and their impact on this analysis, are
-described here in detail. Note that, while the Poisson
-error (from 2b data statistics) is negligible relative to the bootstrap error 
-in the bulk of the distribution, it becomes relevant in the high \mhh tail. 
-The final statistical uncertainty used for the limit setting is therefore the 
-sum (in quadrature) of these two components. 
+accounted for. Note that the results for the non-resonant analysis presented here are 
+preliminary and only include background systematic, such that the discussion of the 
+signal systematics \emph{only} applies for the resonant search. However, these background 
+systematics are expected to be by far the dominant uncertainties.
 
 \subsection{Statistical Uncertainties and Bootstrapping}
 There are two components to the statistical error for the neural network
@@ -1004,89 +1008,64 @@ shows the example quadrant variation for the 2018 $4b$ non-resonant analysis.
 \end{figure}
 
 \FloatBarrier
-\subsection{Detector Modelling and Reconstruction Uncertainties}%
+\subsection{Signal Uncertainties}%
 \label{subsec:modelling-uncerts}
-Detector modelling and reconstruction uncertainties account for Monte Carlo
-simulation not being a faithful representation of real data as a result of
-mismodelling of the detector and differential performance of algorithms on
-simulation compared to data. In this analysis they consist of uncertainties
-related to jet properties, and uncertainties stemming from the flavour tagging
-procedure. The background modelling in this analysis is fully data-driven. As a
-result, these uncertainties are applied only to the signal simulation.
+A variety of uncertainties are assessed on the the signal Monte Carlo simulation.  
+As the background estimate is fully data driven, such uncertainties are not needed for 
+the background estimate. Note again that the results presented for the non-resonant search only 
+include the background systematics described above.
 
-The jet uncertainties are implemented as variations of the jet properties
-themselves. The category reduction (with \textasciitilde 30 nuisance parameters)
-is used for jet energy scale uncertainties and the \code{FullJER} configuration
-is used for jet energy resolution uncertainties (14 nuisance parameters). This
-is to preserve the ability to meaningfully statistically combine the results of
-this analysis with other di-Higgs analyses. The flavour tagging uncertainties
-meanwhile are implemented as scale factors applied to the Monte Carlo event
-weights.
+Detector modeling and reconstruction uncertainties account for differences 
+between Monte Carlo simulation and real data due to mismodelling of the detector
+as well as due to the different performance of algorithms on simulation compared to data. 
+In this analysis they consist of uncertainties related to jet properties and uncertainties stemming 
+from the flavor tagging procedure. The jet uncertainties are treated according to the prescription in 
+~\cite{JETM-2018-05} and are implemented as variations of the jet properties. These cover 
+uncertainty in jet energy scale and resolution. Uncertainties in $b$-tagging efficiency are 
+treated according to the prescription in Ref.~\cite{FTAG-2018-01} and implemented 
+as scale factors applied to the Monte Carlo event weights. A systematic related to the PtReco \bjet 
+energy correction has been studied in the \HepProcess{\higgs\higgs \to \gamma\gamma\Pqb\Paqb} 
+analysis~\cite{bbyyNote} and found to be negligible compared to the other jet uncertainties. Following this 
+example, such a systematic is therefore neglected here.
 
-A systematic related to the PtReco \bjet energy correction has been studied in the
-\HepProcess{\higgs\higgs \to \gamma\gamma\Pqb\Paqb} analysis~\cite{bbyyNote} and found 
-to be negligible compared to \code{JER}. Following this example, such a systematic is 
-therefore neglected here.
-
-\subsection{Trigger Uncertainties}
 Trigger uncertainties stem from imperfect knowledge of the ratio between the
 efficiency of a given trigger in data to its efficiency in Monte Carlo
-simulation. This ratio is applied as a scale factor to all simulated events (as
-described in \Sect{\ref{subsubsec:trig-sf}}), with the systematic variations
-produced by varying the scale factor up or down by one sigma.
+simulation. This ratio is applied as a scale factor to all simulated events, with the 
+systematic variations produced by varying the scale factor up or down by one sigma.
+Such variations are evaluated based on measurements of per-jet online efficiencies for both jet reconstruction 
+and $b$-tagging, and these are used to compute event-level uncertainties.
+These are then applied as overall weight variations on the simulated events.
 
+An uncertainty on the total integrated luminosity used in this analysis is also applied, 
+ans is measured to be 1.7\%~\cite{ATLAS-CONF-2019-021}, obtained using the LUCID-2 detector for 
+the primary luminosity measurements~\cite{Avoni:2633501}.
 
-\subsection{Theoretical Uncertainties}
-The theoretical uncertainties on the acceptance times efficiency ($A \times \varepsilon$) are
-evaluated by analysis of specially-generated, particle-level signal samples. The
-generation of these samples follows the configuration of the baseline samples,
-but with modifications to probe the following theoretical uncertainties:
+A variety of theoretical uncertainties are also assessed on the signal. Such uncertainties 
+are assessed by generating samples following the configuration of the baseline samples,
+but with modifications to probe various aspects of the simulation. These include
 uncertainties in the parton density functions (PDFs); uncertainties due to
 missing higher order terms in the matrix elements; and uncertainties in the
 modelling of the underlying event, which includes multi-parton interactions, of
 hadronic showers and of initial and final state radiation. 
 
-Uncertainties due to modelling of the parton shower and the underlying event
-(including multi-parton interactions) are evaluated by switching the MC generator
-used. For the scalar samples, this means switching from Herwig7.7.1.3
-to Pythia 8.235. Figure~\ref{fig:signal-PS-syst} shows the impact of these variations on the signal acceptance 
-for two resonance masses: \SI{500}{\GeV} and \SI{1}{\TeV}, covering the range of the resolved analysis. 
-No significant dependence on the variable of interest, \mhh, is observed. The disagreement observed in the tails 
-of $p_T (hh)$ and the number of jets multiplicities is negligible with respect to the final signal acceptance. 
-A 5\% flat systematic uncertainty is assigned to all signal samples, extracted from the acceptance comparison
-for the full 4-tag selection, as seen in Figs.~\ref{fig:signal-PS-syst-CF-500} and~\ref{fig:signal-PS-syst-CF-1000}. 
+Uncertainties due to modelling of the parton shower and the underlying event are 
+evaluated by comparing results from using two different generators, namely \HERWIG[7.1.3]
+and \PYTHIA[8.235]. No significant dependence on the variable of interest, \mhh, is observed.
+Therefore, a 5\% flat systematic uncertainty is assigned to all signal samples, extracted from 
+the acceptance comparison for the full 4-tag selection.
 
+Uncertainties in the matrix element calculation are evaluated by varying the factorization 
+and renormalization scales used in the generator up and down by a factor of two, both independently and simultaneously.
+This results in an effect smaller than 1\% for all variations and all masses; the impact of such uncertainties 
+is therefore neglected.
 
-To evaluate the potential effect of missing higher order terms in the matrix
-element, the renormalization and factorization scales used in the signal
-generation were varied coherently by factors of 0.5$\times$ and 2$\times$ for
-the signals. The alternative weights were generated as described on the TWiki
-\href{https://twiki.cern.ch/twiki/bin/viewauth/AtlasProtected/SignalTheoryUncertainties?rev=2}{here},
-applying on-the-fly variations using the ATLAS MadGraphControl framework. These
-weights correspond to variations of the scales either together or separately up
-and down by a factor of two. Seven-point scale variations are considered:
-($\mu_R$, $\mu_F$) = (0.5, 0.5), (1, 0.5), (0.5, 1), (1, 1), (2, 1), (1, 2), (2,
-2). The scale uncertainties are combined by taking an envelope of all of the
-uncertainties. These uncertainties are evaluated to be less than $\pm1\%$, thus
-neglected.
+PDF uncertainties are evaluated using the PDF4LHC\_NLO\_MC set~\cite{Butterworth:2015oua} by 
+calculating the signal acceptance for each PDF replica and taking the standard deviation. 
+In all cases, these uncertainties result in an effect smaller than 1\% on the signal acceptance; 
+therefore these are also neglected.
 
-PDF uncertainties are evaluated using the PDF4LHC15_nlo_mc set, which combined CT14,
-MMHT14 and NNPDF3.0 PDF sets. The uncertainty is evaluated by
-calculating the acceptance for each PDF replica. The standard deviation of these
-acceptance values divided by the baseline acceptance is taken as the PDF uncertainty.
-For each mass point the distribution of their corresponding ration is compatible
-with a Gaussian centered one. The measured 
-uncertainty in acceptance due to PDF uncertainties is less than $\pm1\%$ across the
-full mass range considered for the analysis. For this reason, it is
-neglected in the statistical analysis described in Section \ref{sec:statanalysis}.
-
-These uncertainties are implemented in the final statistical analysis as normalization
-uncertainties on the signals, with the value taken from the polynomial fit. This smooths
-out statistical fluctuations and allows interpolation between the generated mass points, if needed.
-
-The results for the non-resonant analysis presented here are preliminary and only include 
-background systematics. However, these are expected to be by far the dominant uncertainties, 
-and should therefore be reflective of the final results.
+Theoretical uncertainties on the $H \to b\bar{b}$ branching ratio~\cite{deFlorian:2227475} are also 
+included.
 
 \FloatBarrier
 \clearpage
@@ -1144,9 +1123,10 @@ background estimate.
 \section{Overview of Other \bbbb Channels}
 The results discussed above have been developed in conjunction with (1) a boosted channel 
 for the resonant search and (2) a vector boson fusion (VBF) channel for the non-resonant search. 
-Detailed discussions of these two channels are beyond the scope of this thesis. However, a combined
-set of results is presented below (\todo{or will be combined for VBF?}). We therefore briefly 
-summarize the analyses here.
+Detailed discussions of these two channels are beyond the scope of this thesis, though a 
+combined set of resolved and boosted results are presented below. The VBF results are 
+not included in this thesis, but much of this thesis work has been useful in the development 
+of that result. For completeness, we therefore briefly summarize both analyses here.
 
 \subsection{Resonant: Boosted Channel}
 The boosted analysis selection targets resonance masses from \SI{900}{\GeV} to \SI{5}{\TeV}.
@@ -1158,10 +1138,9 @@ The boosted analysis instead reconstructs $\higgs$ decays as large radius, $R=1.
 corresponding $\Pqb$-quarks identified with variable radius subjets, that is jets with a 
 radius that scales as $\rho / p_{T}$, the $p_{T}$ is that of the jet in question, and
 $\rho$ is a fixed parameter, here chosen to be \SI{30}{\GeV}, which is optimized to maintain 
-truth-level double b-labelling efficiency across the full range of Higgs jet $p_{T}$ 
-\todo{cite: https://cds.cern.ch/record/2268678}.
+truth-level double b-labelling efficiency across the full range of Higgs jet $p_{T}$~\cite{ATL-PHYS-PUB-2017-010}.
 
-Due to limited boosted b-tagging efficiency \todo{cite} and to maintain sensitivity 
+Due to limited boosted b-tagging efficiency and to maintain sensitivity 
 even when \bjets are highly collimated, the boosted analysis is divided into three categories 
 based on the number of \btagged jets associated to each large radius jet:
 \begin{itemize}
@@ -1171,7 +1150,6 @@ based on the number of \btagged jets associated to each large radius jet:
 \end{itemize} 
 
 The analysis then proceeds in each of these categories.
-\todo{what other boosted details?}
 
 The resolved and boosted channels are combined for resonance masses from \SI{900}{\GeV} 
 to \SI{1.5}{\TeV} inclusive. To keep the channels statistically independent, the boosted channel 
@@ -1183,15 +1161,25 @@ The vector boson fusion channel is only considered for the non-resonant search. 
 sensitivity is in general much more limited than the gluon-gluon fusion analysis due to the 
 much smaller production cross section, VBF is sensitive to a variety of Beyond the Standard 
 Model physics, both complementary and orthogonal to the theoretical scope of gluon-gluon fusion. 
-\todo{I'll probably mention more details in the pheno section}
 
 The VBF channel proceeds very similarly to the ggF, with the primary differences being the 
-kinematic selections and the categorization.
+kinematic selections and the categorization, which are impacted by the 
+presence of two \emph{VBF jets}, resulting from the two initial state quarks. The ggF channel 
+result presented here includes a veto on VBF events, such that if events pass the full 
+VBF selection, they are not included in the set of events considered for the ggF result.
 
-\todo{fill in kinematics}
+Beginning with the assumption of four $HH$ jets and two VBF jets, the VBF channel first requires an 
+event to have a minimum six jets. The VBF jets are reconstructed as the two jets with the 
+highest di-jet invariant mass, $m_{jj}$, out of the set of all non-tagged jets in the event. If no such pair 
+exists (i.e., there are less than two non-tagged jets), the event is placed in the ggF channel. 
+To reduce the number of background events, three cuts are then applied, VBF jets are requried to have 
+$\Delta \eta > 3$ and a combined invariant mass of $m_{jj}$> \SI{1000}{\GeV}. $HH$ jets are identified 
+as in the ggF channel, and the vector sum of the $p_{T}$ of the $HH$ and VBF jets is required to be 
+less than \SI{65}{\GeV}. The remainder of the analysis proceeds similarly to the ggF channel, and 
+events failing any stage of this selection are considered for ggF.
 
-Note that the background estimation is inherited from the resonant and ggF analyses, 
-an ancillary, but significant, contribution of this thesis work.
+Note that the background estimation for the VBF channel is inherited from the resonant 
+and ggF analyses, an ancillary, but significant, contribution of this thesis work.
 
 \section{$m_{HH}$ Distributions}
 \subsection{Resonant Search}

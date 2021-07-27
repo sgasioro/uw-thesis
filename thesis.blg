@@ -1,72 +1,79 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[63] biber-darwin:322> INFO - === Mon Jul 26, 2021, 22:44:16
-[75] Biber.pm:415> INFO - Reading 'thesis.bcf'
-[173] Biber.pm:943> INFO - Found 99 citekeys in bib section 0
-[189] Biber.pm:4256> INFO - Processing section 0
-[189] Utils.pm:75> INFO - Globbing data source 'bib/ATLAS.bib'
-[189] Utils.pm:91> INFO - Globbed data source 'bib/ATLAS.bib' to bib/ATLAS.bib
-[189] Utils.pm:75> INFO - Globbing data source 'bib/CMS.bib'
-[189] Utils.pm:91> INFO - Globbed data source 'bib/CMS.bib' to bib/CMS.bib
-[189] Utils.pm:75> INFO - Globbing data source 'bib/ConfNotes.bib'
-[189] Utils.pm:91> INFO - Globbed data source 'bib/ConfNotes.bib' to bib/ConfNotes.bib
-[189] Utils.pm:75> INFO - Globbing data source 'bib/PubNotes.bib'
-[189] Utils.pm:91> INFO - Globbed data source 'bib/PubNotes.bib' to bib/PubNotes.bib
-[189] Utils.pm:75> INFO - Globbing data source 'bib/Extra.bib'
-[190] Utils.pm:91> INFO - Globbed data source 'bib/Extra.bib' to bib/Extra.bib
-[198] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/ATLAS.bib' for section 0
-[233] bibtex.pm:1653> INFO - LaTeX decoding ...
-[1569] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/ATLAS.bib'
-[1704] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/CMS.bib' for section 0
-[1734] bibtex.pm:1653> INFO - LaTeX decoding ...
-[2897] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/CMS.bib'
-[2976] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/ConfNotes.bib' for section 0
-[3000] bibtex.pm:1653> INFO - LaTeX decoding ...
-[3692] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/ConfNotes.bib'
-[3757] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/PubNotes.bib' for section 0
-[3766] bibtex.pm:1653> INFO - LaTeX decoding ...
-[3988] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/PubNotes.bib'
-[4022] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/Extra.bib' for section 0
-[4026] bibtex.pm:1653> INFO - LaTeX decoding ...
-[4154] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/Extra.bib'
-[4161] Utils.pm:304> WARN - Possible typo (case mismatch) between datasource keys: 'HerwigPP' and 'Herwigpp' in file 'bib/Extra.bib'
-[4161] Utils.pm:304> WARN - Duplicate entry key: 'EvtGen' in file 'bib/Extra.bib', skipping ...
-[4188] Utils.pm:304> WARN - month field 'Jan' in entry 'Zweig' is not an integer - this will probably not sort properly.
-[4190] Utils.pm:304> WARN - month field 'Nov' in entry 'Greenberg' is not an integer - this will probably not sort properly.
-[4194] Utils.pm:304> WARN - month field 'Aug' in entry 'Han-Nambu' is not an integer - this will probably not sort properly.
-[4201] Utils.pm:304> WARN - month field 'Aug' in entry 'Englert' is not an integer - this will probably not sort properly.
-[4203] Utils.pm:304> WARN - month field 'Oct' in entry 'Higgs' is not an integer - this will probably not sort properly.
-[4208] Utils.pm:304> WARN - month field 'Nov' in entry 'GHK' is not an integer - this will probably not sort properly.
-[4211] Utils.pm:304> WARN - month field 'Nov' in entry 'Yukawa-lep' is not an integer - this will probably not sort properly.
-[4224] Utils.pm:304> WARN - month field 'Aug' in entry 'Gravitons' is not an integer - this will probably not sort properly.
-[4471] Utils.pm:304> WARN - month field 'Jan' in entry 'Higgs-vac' is not an integer - this will probably not sort properly.
-[4476] Utils.pm:304> WARN - month field 'Jun' in entry 'Dawson-2015' is not an integer - this will probably not sort properly.
-[4489] Utils.pm:304> WARN - month field 'Nov' in entry 'top-Yukawa' is not an integer - this will probably not sort properly.
-[4494] Utils.pm:304> WARN - month field 'Nov' in entry 'HH1' is not an integer - this will probably not sort properly.
-[4503] Utils.pm:304> WARN - month field 'Jun' in entry 'HH2' is not an integer - this will probably not sort properly.
-[4511] Utils.pm:304> WARN - month field 'May' in entry 'HH3' is not an integer - this will probably not sort properly.
-[4515] Utils.pm:304> WARN - month field 'Nov' in entry 'HH4' is not an integer - this will probably not sort properly.
-[4520] Utils.pm:304> WARN - month field 'Jul' in entry 'HH5' is not an integer - this will probably not sort properly.
-[4532] Utils.pm:304> WARN - month field 'May' in entry 'HH7' is not an integer - this will probably not sort properly.
-[4540] Utils.pm:304> WARN - month field 'Mar' in entry 'HH8' is not an integer - this will probably not sort properly.
-[4545] Utils.pm:304> WARN - month field 'Dec' in entry 'Higgsxs' is not an integer - this will probably not sort properly.
-[4549] Utils.pm:304> WARN - month field 'Mar' in entry 'TripleHiggs' is not an integer - this will probably not sort properly.
-[4554] Utils.pm:304> WARN - month field 'May' in entry 'HHH1' is not an integer - this will probably not sort properly.
-[4559] Utils.pm:304> WARN - month field 'Feb' in entry 'HHH2' is not an integer - this will probably not sort properly.
-[4563] Utils.pm:304> WARN - month field 'Jun' in entry 'HHH3' is not an integer - this will probably not sort properly.
-[4566] Utils.pm:304> WARN - month field 'Mar' in entry 'DetectorImage' is not an integer - this will probably not sort properly.
-[4569] Utils.pm:304> WARN - month field 'Jan' in entry 'ShowerImage' is not an integer - this will probably not sort properly.
-[4775] Utils.pm:304> WARN - month field 'Dec' in entry 'SamplingCalo' is not an integer - this will probably not sort properly.
-[4784] Utils.pm:304> WARN - month field 'Apr' in entry 'Antikt' is not an integer - this will probably not sort properly.
-[4786] Utils.pm:304> WARN - month field 'May' in entry 'Jetography' is not an integer - this will probably not sort properly.
-[4830] Utils.pm:304> WARN - month field 'Sep' in entry 'ATL-COM-DAQ-2019-150' is not an integer - this will probably not sort properly.
-[4876] Utils.pm:304> WARN - month field 'Apr' in entry 'cosThetastar' is not an integer - this will probably not sort properly.
-[4951] Utils.pm:304> WARN - month field 'Mar' in entry 'bbyyNote' is not an integer - this will probably not sort properly.
-[4962] Utils.pm:304> WARN - month field 'Mar' in entry 'RNNs' is not an integer - this will probably not sort properly.
-[5114] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[5114] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[5114] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[5115] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[5196] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[5583] bbl.pm:755> INFO - Output to thesis.bbl
-[5583] Biber.pm:128> INFO - WARNINGS: 34
+[62] biber-darwin:322> INFO - === Tue Jul 27, 2021, 13:43:22
+[78] Biber.pm:415> INFO - Reading 'thesis.bcf'
+[175] Biber.pm:943> INFO - Found 119 citekeys in bib section 0
+[186] Biber.pm:4256> INFO - Processing section 0
+[187] Utils.pm:75> INFO - Globbing data source 'bib/ATLAS.bib'
+[187] Utils.pm:91> INFO - Globbed data source 'bib/ATLAS.bib' to bib/ATLAS.bib
+[187] Utils.pm:75> INFO - Globbing data source 'bib/CMS.bib'
+[187] Utils.pm:91> INFO - Globbed data source 'bib/CMS.bib' to bib/CMS.bib
+[187] Utils.pm:75> INFO - Globbing data source 'bib/ConfNotes.bib'
+[187] Utils.pm:91> INFO - Globbed data source 'bib/ConfNotes.bib' to bib/ConfNotes.bib
+[187] Utils.pm:75> INFO - Globbing data source 'bib/PubNotes.bib'
+[187] Utils.pm:91> INFO - Globbed data source 'bib/PubNotes.bib' to bib/PubNotes.bib
+[187] Utils.pm:75> INFO - Globbing data source 'bib/Extra.bib'
+[187] Utils.pm:91> INFO - Globbed data source 'bib/Extra.bib' to bib/Extra.bib
+[194] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/ATLAS.bib' for section 0
+[230] bibtex.pm:1653> INFO - LaTeX decoding ...
+[1493] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/ATLAS.bib'
+[1615] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/CMS.bib' for section 0
+[1645] bibtex.pm:1653> INFO - LaTeX decoding ...
+[2754] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/CMS.bib'
+[2824] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/ConfNotes.bib' for section 0
+[2851] bibtex.pm:1653> INFO - LaTeX decoding ...
+[3581] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/ConfNotes.bib'
+[3646] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/PubNotes.bib' for section 0
+[3655] bibtex.pm:1653> INFO - LaTeX decoding ...
+[3869] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/PubNotes.bib'
+[3898] Biber.pm:4455> INFO - Looking for bibtex format file 'bib/Extra.bib' for section 0
+[3903] bibtex.pm:1653> INFO - LaTeX decoding ...
+[4047] bibtex.pm:1471> INFO - Found BibTeX data source 'bib/Extra.bib'
+[4055] Utils.pm:304> WARN - Possible typo (case mismatch) between datasource keys: 'HerwigPP' and 'Herwigpp' in file 'bib/Extra.bib'
+[4055] Utils.pm:304> WARN - Duplicate entry key: 'EvtGen' in file 'bib/Extra.bib', skipping ...
+[4078] Utils.pm:304> WARN - month field 'Jan' in entry 'Zweig' is not an integer - this will probably not sort properly.
+[4080] Utils.pm:304> WARN - month field 'Nov' in entry 'Greenberg' is not an integer - this will probably not sort properly.
+[4083] Utils.pm:304> WARN - month field 'Aug' in entry 'Han-Nambu' is not an integer - this will probably not sort properly.
+[4088] Utils.pm:304> WARN - month field 'Aug' in entry 'Englert' is not an integer - this will probably not sort properly.
+[4090] Utils.pm:304> WARN - month field 'Oct' in entry 'Higgs' is not an integer - this will probably not sort properly.
+[4093] Utils.pm:304> WARN - month field 'Nov' in entry 'GHK' is not an integer - this will probably not sort properly.
+[4095] Utils.pm:304> WARN - month field 'Nov' in entry 'Yukawa-lep' is not an integer - this will probably not sort properly.
+[4105] Utils.pm:304> WARN - month field 'Aug' in entry 'Gravitons' is not an integer - this will probably not sort properly.
+[4286] Utils.pm:304> WARN - month field 'Jan' in entry 'Higgs-vac' is not an integer - this will probably not sort properly.
+[4290] Utils.pm:304> WARN - month field 'Jun' in entry 'Dawson-2015' is not an integer - this will probably not sort properly.
+[4299] Utils.pm:304> WARN - month field 'Nov' in entry 'top-Yukawa' is not an integer - this will probably not sort properly.
+[4303] Utils.pm:304> WARN - month field 'Nov' in entry 'HH1' is not an integer - this will probably not sort properly.
+[4310] Utils.pm:304> WARN - month field 'Jun' in entry 'HH2' is not an integer - this will probably not sort properly.
+[4315] Utils.pm:304> WARN - month field 'May' in entry 'HH3' is not an integer - this will probably not sort properly.
+[4318] Utils.pm:304> WARN - month field 'Nov' in entry 'HH4' is not an integer - this will probably not sort properly.
+[4322] Utils.pm:304> WARN - month field 'Jul' in entry 'HH5' is not an integer - this will probably not sort properly.
+[4331] Utils.pm:304> WARN - month field 'May' in entry 'HH7' is not an integer - this will probably not sort properly.
+[4337] Utils.pm:304> WARN - month field 'Mar' in entry 'HH8' is not an integer - this will probably not sort properly.
+[4342] Utils.pm:304> WARN - month field 'Dec' in entry 'Higgsxs' is not an integer - this will probably not sort properly.
+[4345] Utils.pm:304> WARN - month field 'Mar' in entry 'TripleHiggs' is not an integer - this will probably not sort properly.
+[4349] Utils.pm:304> WARN - month field 'May' in entry 'HHH1' is not an integer - this will probably not sort properly.
+[4352] Utils.pm:304> WARN - month field 'Feb' in entry 'HHH2' is not an integer - this will probably not sort properly.
+[4356] Utils.pm:304> WARN - month field 'Jun' in entry 'HHH3' is not an integer - this will probably not sort properly.
+[4359] Utils.pm:304> WARN - month field 'Mar' in entry 'DetectorImage' is not an integer - this will probably not sort properly.
+[4362] Utils.pm:304> WARN - month field 'Jan' in entry 'ShowerImage' is not an integer - this will probably not sort properly.
+[4512] Utils.pm:304> WARN - month field 'Sep' in entry 'HLLHC-compute' is not an integer - this will probably not sort properly.
+[4524] Utils.pm:304> WARN - month field 'Dec' in entry 'SamplingCalo' is not an integer - this will probably not sort properly.
+[4538] Utils.pm:304> WARN - month field 'Jul' in entry 'TopoCluster' is not an integer - this will probably not sort properly.
+[4539] Utils.pm:304> WARN - month field 'apr' in entry 'GAN-sim' is not an integer - this will probably not sort properly.
+[4545] Utils.pm:304> WARN - month field 'Aug' in entry 'DijetGAN' is not an integer - this will probably not sort properly.
+[4549] Utils.pm:304> WARN - month field 'Apr' in entry 'Antikt' is not an integer - this will probably not sort properly.
+[4551] Utils.pm:304> WARN - month field 'May' in entry 'Jetography' is not an integer - this will probably not sort properly.
+[4583] Utils.pm:304> WARN - month field 'Sep' in entry 'ATL-COM-DAQ-2019-150' is not an integer - this will probably not sort properly.
+[4617] Utils.pm:304> WARN - month field 'Apr' in entry 'cosThetastar' is not an integer - this will probably not sort properly.
+[4619] Utils.pm:304> WARN - month field 'Oct' in entry 'BDT-RW' is not an integer - this will probably not sort properly.
+[4627] Utils.pm:304> WARN - month field 'May' in entry 'NNRW-Nachman' is not an integer - this will probably not sort properly.
+[4676] Utils.pm:304> WARN - month field 'Mar' in entry 'bbyyNote' is not an integer - this will probably not sort properly.
+[4965] Utils.pm:304> WARN - month field 'Oct' in entry 'deFlorian:2227475' is not an integer - this will probably not sort properly.
+[4973] Utils.pm:304> WARN - month field 'Mar' in entry 'RNNs' is not an integer - this will probably not sort properly.
+[5117] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[5117] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[5117] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[5117] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[5201] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[6102] bbl.pm:755> INFO - Output to thesis.bbl
+[6102] Biber.pm:128> INFO - WARNINGS: 41

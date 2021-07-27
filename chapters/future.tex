@@ -149,13 +149,13 @@ latent distribution $z\sim p_Z$ (cf. inverse transform sampling) -- the correspo
 sample is then $x\sim p_X$ with $x=f^{-1}(z)$.
 
 A standard approach to the definition of these $f$ is as a composition of affine transformations (e.g. 
-RealNVP \todo{cite}), 
+RealNVP~\cite{RealNVP}), 
 that is, transformations of the form $\alpha z + \beta$, with $\alpha$ and $\beta$ learnable 
 parameter vectors. This can roughly be though of as shifting and squeezing the input
 input prior density in order to match the data densitiy. However, this has somewhat limited expressivity, 
 for instance in the case of a multi-modal density.
 
-This work thus instead relies on neural spline flows \todo{cite: https://arxiv.org/pdf/1906.04032.pdf} 
+This work thus instead relies on neural spline flows~\cite{NeuralSplineFlows} 
 in which the functions considered are monotonic rational-quadratic splines, which have an analytic inverse.
 A rational quadratic function has the form of a quotient of two quadratic polynomials, namely,
 \begin{equation}
