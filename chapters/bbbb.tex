@@ -379,7 +379,6 @@ QCD multijet background.
 only a small fraction of signal, but a significant fraction of data (which, in
 the validation region, is a good approximation of pure background).
 
-
 In order to mitigate the hadronic \ttbar background, a top veto is then applied,
 removing events consistent with a \HepProcess{\Pqt \to \Pqb (\PW \to \Pq_{1} \Paq_{2})}
 decay.
@@ -570,7 +569,7 @@ the flexibility of the estimation method, as well as the high relative proportio
 QCD background ($>90~\%$), and allows for the use of machine learning methods in the construction of
 the background estimate. However, it sacrifices an explicit treatment of the
 \ttbar component. Performance of the background estimate on the \ttbar component
-is checked explicitly \todo{add plots}, and minimal impact due to \ttbar 
+is checked explicitly, and minimal impact due to \ttbar 
 mismodeling is seen.
 
 Contributions of single Higgs processes and $\PZ\PZ$ are found 
@@ -749,7 +748,7 @@ the training, this ratio of number of $4b$ events ($n(4b)$) over number of $2b$ 
 folded into the learned weights. Correspondingly, the set of normalization factors described above is 
 near $1$ and the learned weights are centered around $n(4b) / n(2b)$ (roughly 0.01 over the full dataset). 
 This normalization procedure applies for all instances of the reweighting (e.g. those used for validations 
-in Section \ref{sec:bkg-validation}), with appropriate substitutions of reweighting origin 
+in Section \ref{sec:bkgd-validation}), with appropriate substitutions of reweighting origin 
 (here $2b$) and reweighting target (here $4b$).
 
 Note that, due to different trigger and pileup selections during each year, 
@@ -1070,7 +1069,7 @@ included.
 \FloatBarrier
 \clearpage
 \section{Background Validation}
-\label{sec:bkdg-validation}
+\label{sec:bkgd-validation}
 In addition to checking the performance of the background estimate in the control and 
 validation regions, a variety of alternative selections are defined to allow for a 
 full ``dress rehearsal'' of the background estimation procedure. 
@@ -1249,11 +1248,48 @@ overflow are included in the intial and final bin contents respectively. $m_{HH}
 no correction is used as the final discriminant in each category.
 
 A demonstration of the performance of the reweighting on distributions unrolled across categories is shown 
-in Figure \todo{insert} for the the control region and Figure \todo{insert} for 
-the the validation region. A background-only profile likelihood fit is run for the distribution in the signal 
+in Figures \ref{fig:nonres-4b-CR} and \ref{fig:nonres-3b1l-CR} for the the control region and 
+Figures \ref{fig:nonres-4b-VR} and \ref{fig:nonres-3b1l-VR} for 
+the validation region. A background-only profile likelihood fit is run for the distribution in the signal 
 region, and results with the Standard Model $HH$ signal and $\kappa_{\lambda}=6$ signal overlaid are shown for $4b$ in Figure \ref{fig:nonres-sr-mhh-4b} and $3b1l$ in Figure \ref{fig:nonres-sr-mhh-3b1l}. Note that 
 the plots show the sum across all years, but the signal extraction fit and background estimate are run with the 
 years separately. All bins are normalized to represent a density of Events / \SI{15}{\GeV}.
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \includegraphics[width=1.0\textwidth]{figures/nonres-4b-CR.pdf}
+  }
+  \caption{\label{fig:nonres-4b-CR} \textbf{Non-resonant Search (4b)}: Demonstration of the performance of the nominal reweighting in the control region on $m_{HH}$, split into the two $\Delta\eta_{HH}$ regions. Closure is generally good, 
+  with some residual mismodeling in the low $\Delta\eta_{HH}$ region near \SI{600}{\GeV}.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \includegraphics[width=1.0\textwidth]{figures/nonres-3b1l-CR.pdf}
+  }
+  \caption{\label{fig:nonres-3b1l-CR} \textbf{Non-resonant Search (3b1l)}: Demonstration of the performance of the nominal reweighting in the control region on $m_{HH}$, split into the two $\Delta\eta_{HH}$ regions. Closure is generally good, with similar conclusions as for the $4b$ region.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \includegraphics[width=1.0\textwidth]{figures/nonres-4b-VR.pdf}
+  }
+  \caption{\label{fig:nonres-4b-VR} \textbf{Non-resonant Search (4b)}: Demonstration of the performance of the nominal reweighting in the validation region on $m_{HH}$, split into the two $\Delta\eta_{HH}$ regions. The low $\Delta\eta_{HH}$ region is consistently overestimated, but, systematic uncertainties are defined via the difference between 
+  VR and CR estimates.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \subfloat{
+    \includegraphics[width=1.0\textwidth]{figures/nonres-3b1l-VR.pdf}
+  }
+  \caption{\label{fig:nonres-3b1l-VR} \textbf{Non-resonant Search (3b1l)}: Demonstration of the performance of the nominal reweighting in the validation region on $m_{HH}$, split into the two $\Delta\eta_{HH}$ regions. A deficit 
+  is present near \SI{600}{\GeV}, but agreement is fairly good otherwise.}
+\end{figure}
+
 
 \begin{figure}[ht]
   \centering
