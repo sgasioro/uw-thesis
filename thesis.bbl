@@ -9152,6 +9152,54 @@
       \field{title}{Deep Learning}
       \field{year}{2016}
     \endentry
+    \entry{NormalizingFlows}{article}{}
+      \name{author}{3}{}{%
+        {{hash=bcace0bc7edc43ff8b28289e73d22358}{%
+           family={Kobyzev},
+           familyi={K\bibinitperiod},
+           given={Ivan},
+           giveni={I\bibinitperiod}}}%
+        {{hash=5ebbf5e491ca832b9d20831f98adf2b1}{%
+           family={Prince},
+           familyi={P\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=13e542215366001a04c3d21163d79458}{%
+           family={Brubaker},
+           familyi={B\bibinitperiod},
+           given={Marcus},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers (IEEE)}%
+      }
+      \strng{namehash}{2a61f26fb30afe425c1929f45cc66174}
+      \strng{fullhash}{2a61f26fb30afe425c1929f45cc66174}
+      \strng{bibnamehash}{2a61f26fb30afe425c1929f45cc66174}
+      \strng{authorbibnamehash}{2a61f26fb30afe425c1929f45cc66174}
+      \strng{authornamehash}{2a61f26fb30afe425c1929f45cc66174}
+      \strng{authorfullhash}{2a61f26fb30afe425c1929f45cc66174}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1939-3539}
+      \field{journaltitle}{IEEE Transactions on Pattern Analysis and Machine Intelligence}
+      \field{title}{Normalizing Flows: An Introduction and Review of Current Methods}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 1}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1109/tpami.2020.2992934
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1109/TPAMI.2020.2992934
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1109/TPAMI.2020.2992934
+      \endverb
+    \endentry
     \entry{RealNVP}{misc}{}
       \name{author}{3}{}{%
         {{hash=0976c27ff012c9556f4206afd4b48c1f}{%

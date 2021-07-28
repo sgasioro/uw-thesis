@@ -90,9 +90,112 @@ found to be sufficient to only consider a maximum of 5 jets. Consideration of mo
 principle possible, but the quickly expanding combinatorics leads to a rapidly more 
 difficult problem. The jets considered are the five leading jets in $p_{T}$. Notably, 
 this set of jets may include jets which are not $b$-tagged, even for the nominal $4b$ 
-region -- therefore events with $4$ $b$-jets are not required to use all of them 
+region -- therefore events with $4$ $b$-tagged jets are not required to use all of them 
 in the construction of Higgs candidates, in contrast to the other algorithms used in this 
 thesis.
+
+A comparison of the pairAGraph jet selection with the baseline selection used in Chapter ~\ref{chap:bbbb} 
+is considered in Table \ref{tbl:pag-jet-sel} for the MC16a Standard Model non-resonant signal. As a reminder, 
+the baseline selection orders jets by $p_{T}$, selecting first the highest $p_{T}$ $b$-tagged jets (according 
+to the $b$-tag region definition) and then the highest $p_{T}$ non-tagged jets. The first four jets 
+in this ordering are used. 
+
+For the comparison presented in Table \ref{tbl:pag-jet-sel}, only the leading five jets are considered in 
+applying both algorithms in order to compare results on more equal footing. The numbers shown are the percent 
+of the time that the correct jets are selected for the Higgs candidates by each algorithm, given that the 
+correct jets fall within these leading five jets, where ``correct'' here means truth matched to the 
+corresponding $b$-quarks. pairAGraph demonstrates a slight improvement over the baseline for $4b$, which widens when 
+considering lower $b$-tag categories. Given that four $b$-quarks are present in all of these 
+categories, this suggests that pairAGraph is able to recover information in the case of, e.g., mis-tagged 
+jets.
+
+\begin{table}
+\centering
+\begin{tabular}{|c | c | c|}
+\hline
+\textbf{4b correct jets} & 96.7\% & 96.0\%\\
+\hline
+\textbf{3b+1 loose correct jets} & 96.3\% & 95.2\%\\
+\hline
+\textbf{3b correct jets} & 91.6\% & 83.2\%\\
+\hline
+\end{tabular}
+\caption{\label{tbl:pag-jet-sel} Percent of the time that the correct jets are selected for the 
+Higgs candidates by each algorithm, given that the correct jets fall within the set of considered jets,  
+where ``correct'' here means truth matched to the corresponding $b$-quarks. Only the leading five jets 
+are considered in the assessment of both algorithms. Definitions of the $4b$ and $3b+1$ loose categories 
+are as described in Section \ref{sec:analysis-selection}, where $3b$ requires three $b$-tagged jets and 
+the fourth jet is untagged. pairAGraph demonstrates a slight improvement over the 
+baseline for $4b$, which widens when considering lower $b$-tag categories. Given that four $b$-quarks are present 
+in all of these categories, this suggests that pairAGraph is able to recover information in the case of, 
+e.g., mis-tagged jets.}
+\end{table}
+
+
+Table \ref{tbl:pag-accuracy} compares the $HH$ pairing accuracy of a few different pairing algorithms for the 
+Standard Model signal. Notably, pairAGraph demonstrates a higher pairing accuracy immediately after paring, 
+but all methods are quite comparable after the full analysis selection.
+\begin{table}
+\centering
+\begin{tabular}{|c | c | c|}
+\hline
+&\textbf{After Pairing} & \textbf{After Full Selection}\\
+\hline \hline
+$D_{HH}$ & 71.8\% & 93.6\% \\
+\hline
+$\min{\Delta R}$ & 69.7\% & 94.7\% \\
+\hline
+pairAGraph & 78.4\% & 94.2\%\\
+\hline
+\end{tabular}
+\caption{\label{tbl:pag-accuracy} Pairing accuracy evaluated for the Standard Model signal (MC16a), comparing 
+$D_{HH}$ and $\min{\Delta R}$ (discussed in Chapter \ref{chap:bbbb}) with pairAGraph trained on the Standard Model 
+signal. Numbers are shown both immediately after pairing and after the full analysis selection. pairAGraph demonstrates 
+a 7-8\% higher accuracy than the other algorithms immediately after pairing, but all methods are quite comparable after 
+the full analysis selection.}
+\end{table}
+
+As mentioned in Chapter \ref{chap:bbbb}, though the pairing is quite important for signal events, it also 
+must be applied to events in data, where the overwhelming majority of events do not contain $HH$. Though in 
+general, pairing methods select for an $HH$-like topology, the additional flexibility of pairAGraph to 
+choose which jets enter the candidate $HH$ system provides an additional handle to shape the 
+kinematics of events in data. Examples of this impact are seen in Figures \ref{fig:no-rw-pt-hh-compare} and 
+\ref{fig:pt-hh-compare}, which compare the $2b$ and $4b$ distributions of $p_{T}$ of the $HH$ candidate 
+system between BDT pairing and pairAGraph pairing before and after reweighting. $HH$ $p_{T}$ was 
+chosen as it is a variable which demonstrates both a large difference between $2b$ and $4b$ and 
+a residual mis-modeling after reweighting. As can be seen in Figure \ref{fig:no-rw-pt-hh-compare}, 
+the $2b$ and $4b$ distributions are more similar before reweighting with pairAGraph. Figure \ref{fig:pt-hh-compare} 
+further shows that the residual mis-modeling after reweighting is reduced, along with the corresponding uncertainty. 
+While this is not fully conclusive, it provides a hint that the jets chosen for the $2b$ event $HH$ candidate 
+system may be more ``$4b$-like'' than the jets chosen with the baseline selection.
+
+\begin{figure}[ht]
+	\centering
+	\subfloat[BDT Paring]{\label{fig:no-rw-BDT-pt-hh}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-pt-hh-norw-bstrap-med-Validation-NN-18.pdf}
+	}
+	\subfloat[pairAGraph]{\label{fig:no-rw-PAG-pt-hh}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-PAG-pt-hh-norw-bstrap-med-Validation-NN-18.pdf}
+	}
+	\caption{\label{fig:no-rw-pt-hh-compare} Comparison of distributions of $HH$ $p_{T}$ in the 2018 resonant validation region before reweighting for BDT pairing (left) and pairAGraph (right). $HH$ $p_{T}$ is a variable with a 
+	large difference between $2b$ and $4b$, but the relative shapes seem to be more similar for pairAGraph than 
+	for BDT paring, corresponding to the hypothesis that pairAGraph chooses more ``$4b$-like'' jets.}
+\end{figure}
+
+
+\begin{figure}[ht]
+	\centering
+	\subfloat[BDT Paring]{\label{fig:BDT-pt-hh}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-pt-hh-bstrap-med-Validation-NN-18.pdf}
+	}
+	\subfloat[pairAGraph]{\label{fig:no-rw-PAG-pt-hh}%
+		\includegraphics[width=0.48\textwidth]{figures/thesis-PAG-pt-hh-bstrap-med-Validation-NN-18.pdf}
+	}
+	\caption{\label{fig:pt-hh-compare} Comparison of distributions of $HH$ $p_{T}$ in the 2018 resonant validation region after reweighting for BDT pairing (left) and pairAGraph (right). $HH$ $p_{T}$ is a variable with a 
+	large difference between $2b$ and $4b$, and the reweighted agreement in the high $p_{T}$ tail is significantly 
+	improved with pairAGraph, with a corresponding reduction in the assigned bootstrap uncertainty in that region.}
+\end{figure} 
+
 
 \section{Background Estimation with Mass Plane Interpolation}
 The choice of a pairing algorithm that results in a smooth mass plane (such as $\min{\Delta R}$) 
@@ -110,6 +213,10 @@ of a method that operates within the $4b$ mass plane. This additionally removes 
 $b$-tagging regions, allowing for the use of, e.g. $3b$ triggers, and future-proofing the analysis 
 against trigger bandwidth constraints in the low tag regions.
 
+The pairAGraph pairing method discussed in the previous section was developed concurrently with 
+these studies and demonstrates good properties for an interpolated estimate (as shown below), and 
+is therefore used in the following.
+
 The method considered here relies on the following: for a given vector of 
 input variables (event kinematics, etc), $\vec{x}$, the joint probability in the $HH$ mass 
 plane may be written as:
@@ -121,7 +228,7 @@ in the $HH$ mass plane may be described by (1) the conditional probability of
 considered variables $\vec{x}$, given values of $m_{H1}$ and $m_{H2}$, and (2) the 
 density of the mass plane itself. 
 
-We present here an approach which uses normalizing flows \todo{cite} to model the 
+We present here an approach which uses normalizing flows~\cite{NormalizingFlows} to model the 
 conditional probabilities of events in the mass plane and Gaussian processes to 
 model the mass plane density. These models are trained in a region around, but not 
 including, the signal region, and the trained models are then used to construct an 
@@ -272,17 +379,19 @@ in place to construct an interpolation background estimate. Namely
 \begin{enumerate}
 	\item Gaussian process sampled $(m_{H1}, m_{H2})$ values are provided to the normalizing flow to predict 
 	the other variables for the Higgs candidate four-vectors. These are used to construct the $HH$ system (notably 
-	$m_{HH}, \cos{\theta^{*}}$).
+	$m_{HH}$).
 	\item These final distributions are normalized according to the predicted background yield.
 \end{enumerate}
 
 \subsection{Results}
+All of the following results use the pairAGraph pairing algorithm, and reweighted results use the region 
+definitions from the resonant analysis.
+
 The Gaussian process sampling procedure is trained on a small fraction ($0.01$) of $2b$ data to mimic 
 the available $4b$ statistics. This fraction of $2b$ data is blinded, and the prediction of the estimate trained on 
 this blinded region may then be compared to real $2b$ data in the signal region. The 
 predictions for signal region $m_{H1}$ and $m_{H2}$ individually are shown in 
-Figure \ref{fig:gp-marginals-18}, and the resulting mass planes are compared in Figure \ref{fig:gp-massplane-18}.
-Good agreement is seen.
+Figure \ref{fig:gp-marginals-18}, and the resulting mass planes are compared in Figure \ref{fig:gp-massplane-18}.  Good agreement is seen.
 \begin{figure}[ht]
 	\centering
 	\subfloat{\label{fig:gp-mh1-18}%
@@ -350,6 +459,55 @@ estimates are seen to be compatible.
 	}
 	\caption{\label{fig:gp-massplane-4b-18} Gaussian process sampling prediction for the $4b$ mass plane compared to 
 	the reweighted $2b$ estimate in the signal region. Both estimates are compatible.}
+\end{figure}
+
+The Gaussian process estimate may then be used as an input to the normalizing flow estimate to form a 
+complete background estimate. Figure \ref{fig:flow-gp-2b} shows such an estimate for the subsampled $2b$ 
+signal region. Results for the prediction of the normalizing flow with 
+inputs of real 2b signal region $m_{H1}$ and $m_{H2}$ are compared to the results of using Gaussian 
+process predicted $m_{H1}$ and $m_{H2}$, and are seen to be consistent, demonstrating the above 
+closure of the Gaussian process prediction. Reasonable agreement with real $2b$ signal region 
+data is seen.
+
+\begin{figure}
+\centering
+	\subfloat{
+	    \includegraphics[width=0.8\textwidth]{figures/m-hh-comparison-flow-gp-2b.pdf}
+	}
+	\caption{\label{fig:flow-gp-2b} Comparison of the interpolation background estimate with 
+	real 2b data in the signal region. Only 1~\% of $2b$ data is used in order to mimic $4b$ statistics, 
+	and results are presented here summed across years. The ``Flow Only'' prediction uses samples of 
+	actual $2b$ signal region data for the input values of $m_{H1}$ and $m_{H2}$, whereas the ``Flow + GP'' 
+	prediction uses samples following the Gaussian process procedure above, more closely mimicking a 
+	the full background estimation procedure. The two predictions are quite comparable, demonstrating the 
+	closure of the Gaussian process estimate, and the predicted $m_{HH}$ shape agrees well with $2b$ data. 
+	Only $2b$ statistical uncertainty is shown.}
+\end{figure}
+
+
+Figure \ref{fig:flow-gp-rw-4b} demonstrates the application of this process to the $4b$ region, 
+closely following how such an estimate would be used in the $HH\rightarrow\bbbb$ analysis. As the 
+$4b$ signal region is kept blinded for these studies, no direct evaluation is made, but results 
+are compared to a resonant control region derived reweighting. Both signal region predictions are 
+seen to be comparable, though there are some systematic differences. However, only the nominal 
+estimates are compared here, with assessment of uncertainties on the interpolated estimate 
+left for future work.
+
+\begin{figure}
+\centering
+	\subfloat{
+	    \includegraphics[width=0.48\textwidth]{figures/m-hh-comparison-flow-rw2b-16.pdf}
+	}
+	\subfloat{
+	    \includegraphics[width=0.48\textwidth]{figures/m-hh-comparison-flow-rw2b-17.pdf}
+	}
+
+	\subfloat{
+	    \includegraphics[width=0.48\textwidth]{figures/m-hh-comparison-flow-rw2b-18.pdf}
+	}
+	\caption{\label{fig:flow-gp-rw-4b} Comparison of the interpolation background estimate in the 
+	$4b$ signal region with the control region derived reweighted 2b estimate, shown for each year 
+	individually. Results are generally similar, within around 10~\%.}
 \end{figure}
 
 \subsection{Outstanding Points}

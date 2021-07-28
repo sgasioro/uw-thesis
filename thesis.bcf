@@ -2346,9 +2346,10 @@
     <bcf:citekey order="153">Transformers</bcf:citekey>
     <bcf:citekey order="154">Transformers</bcf:citekey>
     <bcf:citekey order="155">Softmax</bcf:citekey>
-    <bcf:citekey order="156">RealNVP</bcf:citekey>
-    <bcf:citekey order="157">NeuralSplineFlows</bcf:citekey>
-    <bcf:citekey order="158">scikit-learn</bcf:citekey>
+    <bcf:citekey order="156">NormalizingFlows</bcf:citekey>
+    <bcf:citekey order="157">RealNVP</bcf:citekey>
+    <bcf:citekey order="158">NeuralSplineFlows</bcf:citekey>
+    <bcf:citekey order="159">scikit-learn</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
