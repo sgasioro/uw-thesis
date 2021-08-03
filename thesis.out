@@ -1,48 +1,49 @@
 \BOOKMARK [0][-]{chapter*.2}{List of Figures}{}% 1
 \BOOKMARK [0][-]{chapter*.3}{Glossary}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Chapter 1: The Standard Model of Particle Physics}{}% 3
-\BOOKMARK [1][-]{section.1.1}{1.1 Introduction: Particles and Fields}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.2}{1.2 Quantum Electrodynamics}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.3}{1.3 An Aside on Group Theory}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.4}{1.4 Quantum Chromodynamics}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.5}{1.5 The Weak Interaction}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.6}{1.6 The Higgs Potential and the SM}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.7}{1.7 The Standard Model: A Summary}{chapter.1}% 10
-\BOOKMARK [0][-]{chapter.2}{Chapter 2: Di-Higgs Phenomenology and Physics Beyond the Standard Model}{}% 11
-\BOOKMARK [1][-]{section.2.1}{2.1 Intro to Di-Higgs}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.2}{2.2 Resonant HH Searches}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.3}{2.3 Non-resonant HH Searches}{chapter.2}% 14
-\BOOKMARK [0][-]{chapter.3}{Chapter 3: Experimental Apparatus}{}% 15
-\BOOKMARK [1][-]{section.3.1}{3.1 The Large Hadron Collider}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.2}{3.2 The ATLAS Experiment}{chapter.3}% 17
-\BOOKMARK [0][-]{chapter.4}{Chapter 4: Simulation}{}% 18
-\BOOKMARK [1][-]{section.4.1}{4.1 Event Generation}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.2}{4.2 Detector Simulation}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.3}{4.3 Correlated Fluctuations in FastCaloSim}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.4}{4.4 Outlook}{chapter.4}% 22
-\BOOKMARK [0][-]{chapter.5}{Chapter 5: Reconstruction}{}% 23
-\BOOKMARK [1][-]{section.5.1}{5.1 Jets}{chapter.5}% 24
-\BOOKMARK [1][-]{section.5.2}{5.2 Flavor Tagging}{chapter.5}% 25
-\BOOKMARK [0][-]{chapter.6}{Chapter 6: The Anatomy of an LHC Search}{}% 26
-\BOOKMARK [1][-]{section.6.1}{6.1 Object Selection and Identification}{chapter.6}% 27
-\BOOKMARK [1][-]{section.6.2}{6.2 Defining a Signal Region}{chapter.6}% 28
-\BOOKMARK [1][-]{section.6.3}{6.3 Background Estimation}{chapter.6}% 29
-\BOOKMARK [1][-]{section.6.4}{6.4 Uncertainty Estimation}{chapter.6}% 30
-\BOOKMARK [1][-]{section.6.5}{6.5 Hypothesis Testing}{chapter.6}% 31
-\BOOKMARK [0][-]{chapter.7}{Chapter 7: Search for pair production of Higgs bosons in the bbarbbbarb final state}{}% 32
-\BOOKMARK [1][-]{section.7.1}{7.1 Data and Monte Carlo Simulation}{chapter.7}% 33
-\BOOKMARK [1][-]{section.7.2}{7.2 Triggers and Object Definitions}{chapter.7}% 34
-\BOOKMARK [1][-]{section.7.3}{7.3 Analysis Selection}{chapter.7}% 35
-\BOOKMARK [1][-]{section.7.4}{7.4 Background Reduction and Top Veto}{chapter.7}% 36
-\BOOKMARK [1][-]{section.7.5}{7.5 Kinematic Region Definition}{chapter.7}% 37
-\BOOKMARK [1][-]{section.7.6}{7.6 Background Estimation}{chapter.7}% 38
-\BOOKMARK [1][-]{section.7.7}{7.7 Uncertainties}{chapter.7}% 39
-\BOOKMARK [1][-]{section.7.8}{7.8 Background Validation}{chapter.7}% 40
-\BOOKMARK [1][-]{section.7.9}{7.9 Overview of Other bbarbbbarb Channels}{chapter.7}% 41
-\BOOKMARK [1][-]{section.7.10}{7.10 m\137HH Distributions}{chapter.7}% 42
-\BOOKMARK [1][-]{section.7.11}{7.11 Statistical Analysis}{chapter.7}% 43
-\BOOKMARK [1][-]{section.7.12}{7.12 Results}{chapter.7}% 44
-\BOOKMARK [0][-]{chapter.8}{Chapter 8: Future Ideas for HHbbarbbbarb }{}% 45
-\BOOKMARK [1][-]{section.8.1}{8.1 pairAGraph: A New Method for Jet Pairing}{chapter.8}% 46
-\BOOKMARK [1][-]{section.8.2}{8.2 Background Estimation with Mass Plane Interpolation}{chapter.8}% 47
-\BOOKMARK [0][-]{chapter.9}{Chapter 9: Conclusions}{}% 48
+\BOOKMARK [0][-]{chapter*.5}{Preface}{}% 3
+\BOOKMARK [0][-]{chapter.1}{Chapter 1: The Standard Model of Particle Physics}{}% 4
+\BOOKMARK [1][-]{section.1.1}{1.1 Introduction: Particles and Fields}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.2}{1.2 Quantum Electrodynamics}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.3}{1.3 An Aside on Group Theory}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.4}{1.4 Quantum Chromodynamics}{chapter.1}% 8
+\BOOKMARK [1][-]{section.1.5}{1.5 The Weak Interaction}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.6}{1.6 The Higgs Potential and the SM}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.7}{1.7 The Standard Model: A Summary}{chapter.1}% 11
+\BOOKMARK [0][-]{chapter.2}{Chapter 2: Di-Higgs Phenomenology and Physics Beyond the Standard Model}{}% 12
+\BOOKMARK [1][-]{section.2.1}{2.1 Intro to Di-Higgs}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.2}{2.2 Resonant HH Searches}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.3}{2.3 Non-resonant HH Searches}{chapter.2}% 15
+\BOOKMARK [0][-]{chapter.3}{Chapter 3: Experimental Apparatus}{}% 16
+\BOOKMARK [1][-]{section.3.1}{3.1 The Large Hadron Collider}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.2}{3.2 The ATLAS Experiment}{chapter.3}% 18
+\BOOKMARK [0][-]{chapter.4}{Chapter 4: Simulation}{}% 19
+\BOOKMARK [1][-]{section.4.1}{4.1 Event Generation}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.2}{4.2 Detector Simulation}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.3}{4.3 Correlated Fluctuations in FastCaloSim}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.4}{4.4 Outlook}{chapter.4}% 23
+\BOOKMARK [0][-]{chapter.5}{Chapter 5: Reconstruction}{}% 24
+\BOOKMARK [1][-]{section.5.1}{5.1 Jets}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{5.2 Flavor Tagging}{chapter.5}% 26
+\BOOKMARK [0][-]{chapter.6}{Chapter 6: The Anatomy of an LHC Search}{}% 27
+\BOOKMARK [1][-]{section.6.1}{6.1 Object Selection and Identification}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.2}{6.2 Defining a Signal Region}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.3}{6.3 Background Estimation}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.4}{6.4 Uncertainty Estimation}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.5}{6.5 Hypothesis Testing}{chapter.6}% 32
+\BOOKMARK [0][-]{chapter.7}{Chapter 7: Search for pair production of Higgs bosons in the bbarbbbarb final state}{}% 33
+\BOOKMARK [1][-]{section.7.1}{7.1 Data and Monte Carlo Simulation}{chapter.7}% 34
+\BOOKMARK [1][-]{section.7.2}{7.2 Triggers and Object Definitions}{chapter.7}% 35
+\BOOKMARK [1][-]{section.7.3}{7.3 Analysis Selection}{chapter.7}% 36
+\BOOKMARK [1][-]{section.7.4}{7.4 Background Reduction and Top Veto}{chapter.7}% 37
+\BOOKMARK [1][-]{section.7.5}{7.5 Kinematic Region Definition}{chapter.7}% 38
+\BOOKMARK [1][-]{section.7.6}{7.6 Background Estimation}{chapter.7}% 39
+\BOOKMARK [1][-]{section.7.7}{7.7 Uncertainties}{chapter.7}% 40
+\BOOKMARK [1][-]{section.7.8}{7.8 Background Validation}{chapter.7}% 41
+\BOOKMARK [1][-]{section.7.9}{7.9 Overview of Other bbarbbbarb Channels}{chapter.7}% 42
+\BOOKMARK [1][-]{section.7.10}{7.10 m\137HH Distributions}{chapter.7}% 43
+\BOOKMARK [1][-]{section.7.11}{7.11 Statistical Analysis}{chapter.7}% 44
+\BOOKMARK [1][-]{section.7.12}{7.12 Results}{chapter.7}% 45
+\BOOKMARK [0][-]{chapter.8}{Chapter 8: Future Ideas for HHbbarbbbarb }{}% 46
+\BOOKMARK [1][-]{section.8.1}{8.1 pairAGraph: A New Method for Jet Pairing}{chapter.8}% 47
+\BOOKMARK [1][-]{section.8.2}{8.2 Background Estimation with Mass Plane Interpolation}{chapter.8}% 48
+\BOOKMARK [0][-]{chapter.9}{Chapter 9: Conclusions}{}% 49
