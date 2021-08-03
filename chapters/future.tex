@@ -22,7 +22,7 @@ component of the analysis.
 To that end, we note that all of the pairing methods considered here share a common feature: 
 four jets are selected, and the pairing is some discrimination between the available three pairings 
 of these four jets. For the methods used in this analysis, the jet selection proceeds via a 
-simple $p_{T}$ ordering, with $b$-tagged jets recieving a higher priority than non-tagged jets.
+simple $p_{T}$ ordering, with $b$-tagged jets receiving a higher priority than non-tagged jets.
 
 With the advent of a variety of machine learning methods for dealing with a variable number of 
 inputs (e.g. recurrent neural networks~\cite{RNNs}, deep sets~\cite{DeepSets}, graph neural networks~\cite{GNNs}, 
@@ -250,7 +250,7 @@ where $\qty(\frac{d(f(x))}{dx})$ is the Jacobian of $f$ at $x$.
 
 The problem of normalizing flows then reduces to (1) choosing sets of $f$ which are 
 both tractable and sufficiently expressive to describe observed data, and (2) optimizing 
-associated sets of functional parameters on observed data via maximum likelihood esitmation 
+associated sets of functional parameters on observed data via maximum likelihood estimation 
 using the above formula. Sampling from the learned density is done by drawing from the 
 latent distribution $z\sim p_Z$ (cf. inverse transform sampling) -- the corresponding 
 sample is then $x\sim p_X$ with $x=f^{-1}(z)$.
@@ -259,7 +259,7 @@ A standard approach to the definition of these $f$ is as a composition of affine
 RealNVP~\cite{RealNVP}), 
 that is, transformations of the form $\alpha z + \beta$, with $\alpha$ and $\beta$ learnable 
 parameter vectors. This can roughly be though of as shifting and squeezing the input
-input prior density in order to match the data densitiy. However, this has somewhat limited expressivity, 
+input prior density in order to match the data density. However, this has somewhat limited expressivity, 
 for instance in the case of a multi-modal density.
 
 This work thus instead relies on neural spline flows~\cite{NeuralSplineFlows} 
@@ -274,19 +274,19 @@ transformation, allowing, e.g., the treatment of multi-modality via the piecewis
 
 The rational quadratic spline is defined on an set interval. The transformation outside of this interval 
 is set to the identity, with these linear tails allowing for unconstrained inputs. The boundaries between 
-bins of the spline are set by coordinates scalled \emph{knots}, with $K+1$ knots for $K$ bins -- the two 
+bins of the spline are set by coordinates called \emph{knots}, with $K+1$ knots for $K$ bins -- the two 
 endpoints for the spline interval plus the $K-1$ internal boundaries. The derivatives 
 at these points are constrained to be positive for the internal knots, and boundary 
 derivatives are set to 1 to match the linear tails. 
 
 The bin widths and heights are learnable ($2\cdot K$ parameters) as are the internal knot derivatives
-($K-1$ parameters), and these $3K-1$ ouputs of the neural network are sufficient to define a monotonic 
+($K-1$ parameters), and these $3K-1$ outputs of the neural network are sufficient to define a monotonic 
 rational-quadratic spline which passes through each knot and has the given derivative value at each knot.
 
 In the context of the $HH\rightarrow 4b$ analysis, a neural spline flow is used to model the four vector 
 information of each Higgs candidate, conditional on their respective masses. The resulting flow is 
 therefore five dimensional, with inputs $x$ = ($p_{T, H1}$, $p_{T, H2}$, $\eta_{H1}$, $\eta_{H2}$, 
-$\Delta\phi_{HH}$), where the ATLAS $\phi$ symmetry has been encdoded by assuming $\phi_{H1} = 0$. 
+$\Delta\phi_{HH}$), where the ATLAS $\phi$ symmetry has been encoded by assuming $\phi_{H1} = 0$. 
 Conditional variables $m_{H1}$ and $m_{H2}$ are not modeled by the flow, but ``come along for the ride''. 
 A standard normal distribution in $5$ dimensions is used for the underlying prior. Modeling of the four 
 vectors was chosen in order to reduce bias from modeling $m_{HH}$ directly.
@@ -355,7 +355,7 @@ Coming back to our case of the mass plane, the procedure runs as follows:
 	according to the density (specifically, according to the mean of the Gaussian process posterior). 
 	Though in principle the Gaussian process sampling is not limited 
 	to bin centers, this is kept for simplicity, with a uniform smearing applied within each 
-	sampled bin to approximate the contiuous estimate, namely, if a bin is sampled from, the 
+	sampled bin to approximate the continuous estimate, namely, if a bin is sampled from, the 
 	returned value is drawn uniformly at random within the sampled bin. 
 	\item The sampling in the previous step can be arbitrary -- to set the overall normalization, 
 	a Monte Carlo sampling of the Gaussian process is done to approximate the relative fraction 

@@ -21,7 +21,7 @@ gluons interacting. Protons are composed of three ``valence'' quarks with variou
 with each other via exchange of gluons, but also a sea of virtual gluons which may decay into other
 quarks. A hard scatter event is therefore characterized by the corresponding particle level 
 diagrams, but additionally by a set of \emph{parton distribution functions} (PDFs), which describe the 
-probablity to find constituent quarks or gluons at carrying various momenta at a given energy 
+probability to find constituent quarks or gluons at carrying various momenta at a given energy 
 scale (often written $Q^2$). Such PDFs are measured experimentally \todo{cite} and the selection 
 of a ``PDF set'' and a given physics process characterizes the hard scatter. Depending on the model being 
 considered and the particular theoretical constraints, processes are often simulated at either leading (LO) 
@@ -33,7 +33,7 @@ used in this thesis for leading order simulation.
 The hard scatter is not the only component of a given collider event, however. Incoming and outgoing 
 particles are themselves very energetic and may radiate particles along their trajectory. In particular,
 gluons, which have a self-interaction term as described in Chapter \ref{chap:intro-SM}, may be radiated,  
-which subesquently themselves radiate gluons or decay to quarks which can also radiate gluons, in a 
+which subsequently themselves radiate gluons or decay to quarks which can also radiate gluons, in a 
 whole mess of QCD that both contributes to the particle content of a collider event and is not directly 
 described by the hard scatter. This cascade, called a \emph{parton shower}, has a dedicated set of simulation
 tools. For this thesis, \HERWIG[7]~\cite{Herwig7}\cite{HerwigPP} and \PYTHIA[8]~\cite{Pythia} are used, which 
@@ -41,7 +41,7 @@ interface with tools such as \MADGRAPH for simulation.
 
 Due to color confinement (Chapter \ref{chap:intro-SM}), quarks and gluons cannot be observed free particles, but 
 rather undergo a process called hadronization, in which they are grouped into colorless hadrons (e.g. \emph{mesons},
-consisting of one quark and one antiquark). In simulation, this is also handled with tools such as \HERWIG[7] or \PYTHIA[8].
+consisting of one quark and one anti-quark). In simulation, this is also handled with tools such as \HERWIG[7] or \PYTHIA[8].
 
 The physics of \Pqb-quarks is quite important for a variety of searches for new physics and measurements of 
 the Standard Model, including this thesis work. Correspondingly, the decay of ``heavy flavor'' particles 
@@ -68,7 +68,7 @@ the information collected by sophisticated detectors (Chapter \ref{chap:experime
 physics content of collider events. The simulation of how particles interact with the physical detector and of
 the corresponding information that is collected is therefore a necessary step of physics simulation at the 
 LHC. The design and components of the ATLAS detector are described in Chapter \ref{chap:experiment}. 
-Simulation of this detector quickly becomes complicated -- there are a variety of different materials and subdetectors, each with particular configurations and resolutions. Interactions of particles with the detector materials can cause showering, and such showers must be simulated and characterized. 
+Simulation of this detector quickly becomes complicated -- there are a variety of different materials and sub-detectors, each with particular configurations and resolutions. Interactions of particles with the detector materials can cause showering, and such showers must be simulated and characterized. 
 
 In ATLAS, the \GEANT~\cite{GEANT4} simulation toolkit is used for detailed simulation of the ATLAS detector, often 
 referred to as \emph{full simulation}. The method can be thought of as proceeding step by step as a particle moves 
@@ -123,7 +123,7 @@ The PCA chain transforms $N$ energy inputs into $N$ Gaussians and projects these
 Modeling of the lateral shower shape makes use of 2D histograms filled with \GEANT hit energies in each layer and PCA bin.
 Binned in polar $\alpha-R$ coordinates in a local plane tangential to the surface of the calorimeter system, these histograms 
 represent the spatial distribution of energy deposits for a given particle shower. Such histograms are constructed for a 
-number of Geant4 events, and the histograms for each event are normalized to total energy deposited in the given layer. The 
+number of \GEANT events, and the histograms for each event are normalized to total energy deposited in the given layer. The 
 average of these histograms is then taken (what is called here the ``average shape'').
 
 In simulation, these average shape histograms are used as probability distributions, from which a finite number of equal 
@@ -138,7 +138,7 @@ induces a fluctuation of the order of $10\%/\sqrt{E_{\text{bin}}}$ for each bin 
 
 Figure \ref{fig-1} shows a comparison of energy and weta2~\cite{ATLAS-CONF-2010-077}, defined as the energy weighted lateral width of a 
 shower in the second electromagnetic calorimeter layer, for 16 GeV photons simulated with the new FastCaloSim and with full 
-\GEANT simulation. The agreement is quite good, with FastCaloSim matching the Geant4 mean to within 0.3 and 0.03 percent 
+\GEANT simulation. The agreement is quite good, with FastCaloSim matching the \GEANT mean to within 0.3 and 0.03 percent 
 respectively. Similar results are seen for other photon energies and $\eta$ points.
 \begin{figure}[ht!]
 \centering
@@ -176,10 +176,10 @@ shower structure and to encode correlations between energy deposits.
 Both methods are trained on ratios of energy in binned units called voxels. This voxelization is performed in the same polar 
 $\alpha-R$ coordinates as the average shape, with a 5 mm core in $R$ and 20 mm binning thereafter. There are a total of 8 
 $\alpha$ bins from 0 to $2\pi$ and 8 additional $R$ bins from 5 mm to 165 mm. The 5 mm core is filled with the average value 
-of core voxels across the 8 $\alpha$ bins when creating the parametrisation. However, during simulation, each of these 8 core 
+of core voxels across the 8 $\alpha$ bins when creating the parametrization. However, during simulation, each of these 8 core 
 bins is treated independently. The outputs of both methods mimic these energy ratios and are used in the shape simulation as 
 the weights described above. In contrast to an approach based on, e.g., calorimeter cells, using voxels allows for 
-flexibility in tuning the binning used in creating the parametrisation. Further, due to their relatively large size, using 
+flexibility in tuning the binning used in creating the parametrization. Further, due to their relatively large size, using 
 calorimeter cells is subject to ``edge effects'', where the splitting of energy between cells has a non-trivial effect on the 
 observed energy ratio. The binning used here is of the order of half of a cell size, mitigating this effect.
 

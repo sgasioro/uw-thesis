@@ -66,15 +66,15 @@ combination of their searches in the $\bbbar\bbbar$, $\bbbar\tautau$,
 $\bbbar\gamma\gamma$, and $\bbbar\VVbos$ channels in~\cite{CMS-HIG-17-030}.
 
 This analysis also benefits from improvements to ATLAS jet reconstruction and
-calibration, and flavour tagging~\cite{FTAG-2018-01}. In particular, this
+calibration, and flavor tagging~\cite{FTAG-2018-01}. In particular, this
 analysis benefits from the introduction of particle flow
 jets~\cite{PERF-2015-09}. These make use of tracking information to supplement
 calorimeter energy deposits, improving the angular and transverse momentum
 resolution of jets by better measuring these quantities for charged particles in
 those jets.
 
-The analysis also benefits from the new DL1r ATLAS flavour tagging algorithm.
-Whereas the flavour tagging algorithm used in the previous analysis (MV2) used a
+The analysis also benefits from the new DL1r ATLAS flavor tagging algorithm.
+Whereas the flavor tagging algorithm used in the previous analysis (MV2) used a
 boosted decision tree (BDT) to combine the output of various low level
 algorithms, DL1r (and the baseline DL1 algorithm) uses a deep neural network to
 do this combination. In addition to the low level algorithms used as inputs to
@@ -488,7 +488,7 @@ the non-resonant analysis. The outer boundary defined by the shifted resonant co
 	\sqrt{\qty(\mh1 - 1.05 \times \SI{124}{\GeV})^{2} + \qty(\mh2 - 1.05 \times
 		\SI{117}{\GeV})^{2}} < \SI{45}{\GeV}
 \end{equation}
-is kept, rougly corresponding to combining the regions used for the resonant analysis. In order 
+is kept, roughly corresponding to combining the regions used for the resonant analysis. In order 
 to assess the variation of the background estimate, two sets of regions are desired, so this combined 
 region is split into \emph{quadrants}, that is, divided into four pieces along axes that intersect 
 with the signal region center. To avoid kinematic bias, quadrants on opposite sides of the signal 
@@ -523,7 +523,7 @@ variable is calculated by re-scaling the Higgs candidate four vectors such that
 each $m_{H} = \SI{125}{\GeV}$. These re-scaled four-vectors are then summed, and
 their invariant mass is the corrected $m_{HH}$. These re-scaled four-vectors are
 not used for any other purpose. The effect of this correction, which sharpens
-the $m_{HH}$ peak and correctly centres it, is shown
+the $m_{HH}$ peak and correctly centers it, is shown
 in~\Fig{\ref{fig:m-hh-cor-effect}}.
 \begin{figure}[ht]
 \centering
@@ -565,7 +565,7 @@ QCD background ($>90~\%$), and allows for the use of machine learning methods in
 the background estimate. However, it sacrifices an explicit treatment of the
 \ttbar component. Performance of the background estimate on the \ttbar component
 is checked explicitly, and minimal impact due to \ttbar 
-mismodeling is seen.
+mis-modeling is seen.
 
 Contributions of single Higgs processes and $\PZ\PZ$ are found 
 to be negligible, and the Standard Model $\higgs\higgs$ background
@@ -701,7 +701,7 @@ The non-resonant analysis uses an identical set of variables with two notable ch
 	in Section \ref{sec:kinematic-cuts}).
 	\item An integer encoding of the two trigger categories is used as an input (variable which 
 	takes on the value 0 or 1 corresponding to each of the two categories). This was found to improve
-	a mismodeling near the tradeoff in \mhh of the two buckets.
+	a mis-modeling near the tradeoff in \mhh of the two buckets.
 \end{enumerate}
 
 The neural network used for both resonant and non-resonant reweighting has three 
@@ -789,7 +789,7 @@ largest such uncertainty is associated with the kinematic bias inherent in
 deriving the background estimate outside of the signal region. However, a
 statistical biasing of this same estimate also has a significant impact.
 Additionally, due to the use of Monte Carlo for signal modelling and \btag
-calibration, uncertainties related to mismodellings in simulation must also be
+calibration, uncertainties related to mis-modelings in simulation must also be
 accounted for. Note that the results for the non-resonant analysis presented here are 
 preliminary and only include background systematic, such that the discussion of the 
 signal systematics \emph{only} applies for the resonant search. However, these background 
@@ -858,7 +858,7 @@ are as follows:
 \item Replica weight ($w_{i}$): weight predicted for a given event by a network trained on replica 
 dataset $i$.
 \item Replica norm ($\alpha_{i}$): normalization factor for replica $i$. This normalizes the reweighting 
-prediction of the network trained on replica dataset $i$ to match the correponding target yield.
+prediction of the network trained on replica dataset $i$ to match the corresponding target yield.
 \item Median weight ($w_{med}$): median weight for a given event across replica datasets, used for the nominal estimate. Defined (for 100 bootstrap replicas) as
 \begin{equation}
 w_{med} \equiv \operatorname{median}(\alpha_{1}w_{1}, \ldots \alpha_{100}w_{100})
@@ -885,7 +885,7 @@ for a given set of weights, the final varied histogram is thus:
 H(w_{med} +\frac{1}{2}\operatorname{IQR}(w_{1},\ldots, w_{100}))\cdot \frac{Y(\alpha_{med}w_{med})}{Y(w_{med} +\frac{1}{2}\operatorname{IQR}(w_{1},\ldots, w_{100}))} + \frac{1}{2}\operatorname{IQR}(\alpha_{1}, \ldots, \alpha_{100})\cdot H(\alpha_{med}w_{med})
 \end{equation}
 
-where the first term roughly describes the behaviour of the bootstrap variation across the distribution of 
+where the first term roughly describes the behavior of the bootstrap variation across the distribution of 
 the variable of interest while the second term describes the normalization variation of the bootstrap replicas.
 
 The difference between the varied histogram and the nominal histogram is then
@@ -1010,7 +1010,7 @@ the background estimate. Note again that the results presented for the non-reson
 include the background systematics described above.
 
 Detector modeling and reconstruction uncertainties account for differences 
-between Monte Carlo simulation and real data due to mismodelling of the detector
+between Monte Carlo simulation and real data due to mis-modeling of the detector
 as well as due to the different performance of algorithms on simulation compared to data. 
 In this analysis they consist of uncertainties related to jet properties and uncertainties stemming 
 from the flavor tagging procedure. The jet uncertainties are treated according to the prescription in 
@@ -1132,7 +1132,7 @@ The boosted analysis instead reconstructs $\higgs$ decays as large radius, $R=1.
 corresponding $\Pqb$-quarks identified with variable radius subjets, that is jets with a 
 radius that scales as $\rho / p_{T}$, the $p_{T}$ is that of the jet in question, and
 $\rho$ is a fixed parameter, here chosen to be \SI{30}{\GeV}, which is optimized to maintain 
-truth-level double b-labelling efficiency across the full range of Higgs jet $p_{T}$~\cite{ATL-PHYS-PUB-2017-010}.
+truth-level double b-labeling efficiency across the full range of Higgs jet $p_{T}$~\cite{ATL-PHYS-PUB-2017-010}.
 
 Due to limited boosted b-tagging efficiency and to maintain sensitivity 
 even when \bjets are highly collimated, the boosted analysis is divided into three categories 
@@ -1147,7 +1147,7 @@ The analysis then proceeds in each of these categories.
 
 The resolved and boosted channels are combined for resonance masses from \SI{900}{\GeV} 
 to \SI{1.5}{\TeV} inclusive. To keep the channels statistically independent, the boosted channel 
-vetos events passing the resolved analysis selection.
+vetoes events passing the resolved analysis selection.
 
 
 \subsection{Non-resonant: VBF Channel} 
@@ -1166,14 +1166,14 @@ Beginning with the assumption of four $HH$ jets and two VBF jets, the VBF channe
 event to have a minimum six jets. The VBF jets are reconstructed as the two jets with the 
 highest di-jet invariant mass, $m_{jj}$, out of the set of all non-tagged jets in the event. If no such pair 
 exists (i.e., there are less than two non-tagged jets), the event is placed in the ggF channel. 
-To reduce the number of background events, three cuts are then applied, VBF jets are requried to have 
+To reduce the number of background events, three cuts are then applied, VBF jets are required to have 
 $\Delta \eta > 3$ and a combined invariant mass of $m_{jj}$> \SI{1000}{\GeV}. $HH$ jets are identified 
 as in the ggF channel, and the vector sum of the $p_{T}$ of the $HH$ and VBF jets is required to be 
 less than \SI{65}{\GeV}. The remainder of the analysis proceeds similarly to the ggF channel, and 
 events failing any stage of this selection are considered for ggF.
 
 Note that the background estimation for the VBF channel is inherited from the resonant 
-and ggF analyses, an ancillary, but significant, contribution of this thesis work.
+and ggF analyses, a significant additional contribution of this thesis work.
 
 \section{$m_{HH}$ Distributions}
 \subsection{Resonant Search}
@@ -1239,7 +1239,7 @@ b_{low}^{i+1} = b_{low}^{i} + r\cdot b_{low}^{i},
 \end{equation}
 where $b_{low}^{i}$ is the low edge of bin $i$. The parameters used here are 
 $r=0.08$ over a range from \SI{280}{\GeV} to \SI{975}{\GeV}, and underflow and 
-overflow are included in the intial and final bin contents respectively. $m_{HH}$ with 
+overflow are included in the initial and final bin contents respectively. $m_{HH}$ with 
 no correction is used as the final discriminant in each category.
 
 A demonstration of the performance of the reweighting on distributions unrolled across categories is shown 
@@ -1256,7 +1256,7 @@ years separately. All bins are normalized to represent a density of Events / \SI
     \includegraphics[width=1.0\textwidth]{figures/nonres-4b-CR.pdf}
   }
   \caption{\label{fig:nonres-4b-CR} \textbf{Non-resonant Search (4b)}: Demonstration of the performance of the nominal reweighting in the control region on $m_{HH}$, split into the two $\Delta\eta_{HH}$ regions. Closure is generally good, 
-  with some residual mismodeling in the low $\Delta\eta_{HH}$ region near \SI{600}{\GeV}.}
+  with some residual mis-modeling in the low $\Delta\eta_{HH}$ region near \SI{600}{\GeV}.}
 \end{figure}
 
 \begin{figure}[ht]
@@ -1450,7 +1450,7 @@ values of $\kappa_{\lambda}$, but the points near the Standard Model are nearly 
 is significantly reduced, with observed limits for $\kappa_{\lambda} \geq 5$ now falling entirely within the expected 
 $1\sigma$ band. Due to the preliminary nature of these results, further study is left for future work. However, 
 we believe, in conjunction with the $HH\rightarrow bb\gamma\gamma$ results and our expectations about the difficulty 
-of the background estimation at low mass, that this is demonstrative of a mismodeling rather than a real excess. 
+of the background estimation at low mass, that this is demonstrative of a mis-modeling rather than a real excess. 
 
 \begin{figure}[ht]
   \centering
