@@ -20,7 +20,7 @@ primary focuses of this thesis. Further, several analysis design decisions are m
 allow for sensitivity to a broad range of masses -- in particular, though sensitivity is 
 limited at lower values of \mhh relative to other channels \todo{Combination, bbyy} due to 
 the challenging background topology, retaining and properly reconstructing these low mass events 
-allows the \bbbb channel to retain sensitivity up until the kinematic threshold at \SI{250}{\GeV}.
+allows the \bbbb channel to retain sensitivity as low as the kinematic threshold at \SI{250}{\GeV}.
 
 In contrast, non-resonant signal hypotheses are quite broad in \mhh, and have a much more limited 
 mass range, with Standard Model production peaking near \SI{400}{GeV}, and the majority of the analysis 
@@ -166,7 +166,7 @@ various topologies is used, namely
 Due to minimal contributions from some of these triggers for the Standard Model non-resonant signal, a simplified strategy relying entirely on $2b+1j$ and $2b+2j$ triggers is used for the non-resonant search.
 
 While the use of multiple triggers is beneficial for analysis sensitivity, it comes with some
-complications. Namely, a set of scale factors must be assigned to simulated events 
+complications. Namely, a set of scale factors must be assigned to simulated events to 
 account for differences in trigger efficiency between real and simulated events. Because these scale 
 factors may differ between triggers, the use of multiple triggers becomes complicated: an event may pass 
 more than one trigger,while trigger scale factors are only provided for individual triggers.
@@ -193,7 +193,7 @@ For the resonant search, the $2b+1j$ and $2b+2j$ triggers are the dominant categ
 the $1b$ trigger efficiency is largest at high $(>\SI{1}{\TeV})$ resonance masses.
 
 For the non-resonant search, it was noted that the $1b$ trigger has minimal contribution, while the $2b+HT$ events are 
-largely captured by the $2b+2j$ trigger. Therefore, for, a simplified scheme is considered, 
+largely captured by the $2b+2j$ trigger. Therefore, a simplified scheme is considered, 
 with selections:
 \begin{enumerate}
 	\item If the 1st leading jet has $p_{T} > \SI{170}{\GeV}$ and the 3rd leading jet has $p_{T} > \SI{70}{\GeV}$,
@@ -269,8 +269,9 @@ Figure \ref{fig:pairing-massplanes}.
 \caption{\label{fig:pairing-massplanes} Comparison of $m_{H1}$ vs $m_{H2}$ planes for the full Run 2 $2b$ 
 dataset with different pairings. As evidenced, this choice significantly impacts where events 
 fall in this plane, and therefore which events fall into the various kinematic regions defined in 
-this plane (see Section \ref{sec:kinematic-reg}). Respective signal regions are shown for reference, 
-with the $\min\Delta R$ signal region shifted slightly up and to the right to match the non-resonant 
+this plane (see Section \ref{sec:kinematic-reg}). The signal regions for the resonant/early Run 2 analysis 
+are shown for reference for the BDT and $D_{HH}$ pairings, while the the $\min\Delta R$ signal region shifted 
+is shifted slightly up and to the right to match the non-resonant 
 selection. Note that the band structure around \SI{80}{\GeV} in both $m_{H1}$ and $m_{H2}$ is introduced 
 by the top veto described in Section \ref{sec:kinematic-cuts}.}
 \end{figure}
@@ -451,7 +452,7 @@ regions, but which do pass
 \end{equation}
 
 For simplicity, the SR/VR/CR definitions from the early Run 2 paper~\cite{EXOT-2016-31} were chosen 
-for the resonant analysis, but were found to be close to optimal. These regions are shown in Figure 
+for the resonant analysis, and were found to be close to optimal. These regions are shown in Figure 
 \ref{fig:res-regions}.
 
 \begin{figure}
@@ -477,11 +478,18 @@ behind the $\min{\dr}$ pairing algorithm.
 
 Two areas for improvement were identified in the resonant analysis, which will be discussed in more detail below: 
 \emph{signal contamination} of the validation region (which impacts the uncertainty assessed due to extrapolation)
-and \emph{large nuisance parameter pulls} on this uncertainty, corresponding to a rough assumption that the 
+and \emph{large nuisance parameter pulls} for this uncertainty, corresponding to a rough assumption that the 
 validation region is closer to the signal region in the mass plane, and so offers a better estimate of the 
-signal region.
+signal region. Extensive cross-checks were performed for the resonant search, which demonstrated minimal 
+bias due to the signal contamination and healthy behavior of the signal extraction fit, despite 
+the large pulls. However, these large pulls imply that the nominal estimate may be improved by 
+incorporating some of the information entering the definition of the extrapolation uncertainty. Further, 
+the resonant search benefits from a set of highly peaked signals, such that the smooth nature of the 
+background helps to mitigate signal contamination bias. With the broad non-resonant signals, 
+a bias due to signal contamination becomes more of a concern, such that addressing this is highly 
+motivated.
 
-To mitigate these two issues, a redesign of the control and validation regions was performed for 
+A redesign of the control and validation regions is therefore performed for 
 the non-resonant analysis. The outer boundary defined by the shifted resonant control region:
 \begin{equation}
 	\label{eqn:ctrl-reg-def}
@@ -556,7 +564,7 @@ and $0 \leq X_{HH} \leq 0.95$ and $0.95 \leq X_{HH} \leq 1.6$ for $X_{HH}$.
 \clearpage
 \section{Background Estimation}
 \label{sec:bkgdestimation}
-After the event selection described above there are
+After the event selection described above, there are
 two major backgrounds, QCD and \ttbar. A very similar approach is used 
 for both the resonant and the non-resonant analyses, with some small modifications. 
 This approach is notably fully data-driven, which is warranted due to 
@@ -620,7 +628,7 @@ in which to reweight increases, limiting the number of variables used for reweig
 This leads either to an unstable fit result (overfitting with finely grained bins) or a 
 lower quality fit result (underfitting with coarse bins).
 
-Note that even machine learning methods such as Boosted Decision Trees (BDTs)~\cite{BDT-RW}, may suffer
+Note that even some machine learning methods such as Boosted Decision Trees (BDTs)~\cite{BDT-RW}, may suffer
 from this curse of dimensionality, as the depth of each decision tree used is limited by 
 the available statistics after each set of corresponding selections (cf. binning in a 
 more sophisticated way), limiting the expressivity of the learned reweighting function.
@@ -687,7 +695,7 @@ set of training variables used for the resonant analysis is
 	\item $\log(p_T)$ of the 2nd leading Higgs candidate jet
 	\item $\log(\Delta R)$ between the closest two Higgs candidate jets
 	\item $\log(\Delta R)$ between the other two Higgs candidate jets
-	\item Average absolute value of Higgs candidate jet $\eta$
+	\item Average absolute value of $\eta$ across the four Higgs candidate jets
 	\item $\log(p_T)$ of the di-Higgs system.
 	\item $\Delta R$ between the two Higgs candidates
 	\item $\Delta \phi$ between the jets in the leading Higgs candidate
@@ -725,7 +733,7 @@ Control Region. The prediction of these networks in the Signal Region is then us
 for the nominal background estimate. In addition, a separate ensemble of networks is 
 trained in the Validation Region. The difference between the prediction of the nominal 
 estimate and the estimate from the VR derived networks in the Signal Region is used to 
-assign a systematic uncertainty. Further details on this systematic uncertainty are shown 
+assign a systematic uncertainty. Further details on this systematic uncertainty are discussed 
 in Section \ref{sec:systematics}.
 Note that although the same procedure is used for both Control and Validation Region trained 
 networks, only the median estimate from the VR derived reweighting is used for assessing a 
@@ -764,7 +772,9 @@ region derived reweighting on the validation region is shown in Figures \ref{fig
 through \ref{fig:res-Validation18-8} for the resonant search and Figures \ref{fig:nonres-Validation184b-1} 
 through \ref{fig:nonres-Validation184b-8} for $4b$ and Figures \ref{fig:nonres-Validation183b1l-1} 
 through \ref{fig:nonres-Validation183b1l-8} for $3b1l$ for the non-resonant 
-search. Generally good performance is seen, with some occasional mis-modeling. For the resonant 
+search. 2018 is chosen because it is the largest subset of the data on which the year-by-year reweighting 
+is trained. The other years are omitted here for brevity, but demonstrate very similar results. Generally 
+good performance is seen, with some occasional mis-modeling. For the resonant 
 search, this is most notable in the case of individual jet $p_{T}$. Such mis-modeling may be corrected 
 by including the variables in the input set, but this was found to not improve the modeling of $m_{HH}$, 
 and so is not done here. This mis-modeling is notable for the non-resonant search in the leading Higgs candidate 
@@ -937,7 +947,7 @@ spectrum, with a two-sided uncertainty defined by symmetrizing the difference ab
 the baseline.
 
 For the resonant analysis, this uncertainty is split into two components to allow for two 
-independent variations of the \mhh spectrum: : a low-$H_{T}$ and a high-$H_{T}$ component,
+independent variations of the \mhh spectrum: a low-$H_{T}$ and a high-$H_{T}$ component,
 where $H_{T}$ is the scalar sum of the $p_{T}$ of the four jets constituting the
 Higgs boson candidates, and serves as a proxy for \mhh, while avoiding
 introducing a sharp discontinuity. The boundary value is \SI{300}{\GeV}. The
@@ -1167,7 +1177,7 @@ event to have a minimum six jets. The VBF jets are reconstructed as the two jets
 highest di-jet invariant mass, $m_{jj}$, out of the set of all non-tagged jets in the event. If no such pair 
 exists (i.e., there are less than two non-tagged jets), the event is placed in the ggF channel. 
 To reduce the number of background events, three cuts are then applied, VBF jets are required to have 
-$\Delta \eta > 3$ and a combined invariant mass of $m_{jj}$> \SI{1000}{\GeV}. $HH$ jets are identified 
+$\Delta \eta > 3$ and a combined invariant mass of $m_{jj}>$ \SI{1000}{\GeV}. $HH$ jets are identified 
 as in the ggF channel, and the vector sum of the $p_{T}$ of the $HH$ and VBF jets is required to be 
 less than \SI{65}{\GeV}. The remainder of the analysis proceeds similarly to the ggF channel, and 
 events failing any stage of this selection are considered for ggF.
