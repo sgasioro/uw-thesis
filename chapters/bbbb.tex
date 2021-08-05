@@ -1253,7 +1253,7 @@ overflow are included in the initial and final bin contents respectively. $m_{HH
 no correction is used as the final discriminant in each category.
 
 A demonstration of the performance of the reweighting on distributions unrolled across categories is shown 
-in Figures \ref{fig:nonres-4b-CR} and \ref{fig:nonres-3b1l-CR} for the the control region and 
+in Figures \ref{fig:nonres-4b-CR} and \ref{fig:nonres-3b1l-CR} for the control region and 
 Figures \ref{fig:nonres-4b-VR} and \ref{fig:nonres-3b1l-VR} for 
 the validation region. A background-only profile likelihood fit is run for the distribution in the signal 
 region, and results with the Standard Model $HH$ signal and $\kappa_{\lambda}=6$ signal overlaid are shown for $4b$ in Figure \ref{fig:nonres-sr-mhh-4b} and $3b1l$ in Figure \ref{fig:nonres-sr-mhh-3b1l}. Note that 
@@ -1361,8 +1361,11 @@ The signal cross-section {$\mu$}~\si{\femto\barn} is excluded at the 95\% confid
 \clearpage
 \section{Results}
 Figure \ref{fig:res-limits} shows the expected limit for the spin-0 and spin-2 resonant search. The 
-resolved channel covers the range between \SIlist{251;1500}{\GeV} and is combined with the boosted channel between \SIlist{900;1500}{\GeV}. The boosted channel then extends to \SI{3}{\TeV}. The most significant excess is seen 
-for a signal mass of \SI{1100}{\GeV}, with local significance of $2.6\sigma$ for the spin-0 signal and 
+resolved channel covers the range between \SIlist{251;1500}{\GeV} and is combined with the boosted channel between 
+\SIlist{900;1500}{\GeV}. The boosted channel then extends to \SI{5}{\TeV}. All results use the asymptotic approximation, 
+though the validity of such an approximation for the boosted results above \SI{3}{\TeV} is being studied. 
+The most significant excess is seen for a signal mass of \SI{1100}{\GeV}, with local significance of 
+$2.6\sigma$ for the spin-0 signal and 
 $2.7\sigma$ for the spin-2 signal. This is reduced to $1.0\sigma$ and $1.2\sigma$ globally. 
 
 The spin-2 bulk Randall-Sundrum model with $k/\overline{M}_{\mathrm{Pl}} = 1$ is excluded for 
@@ -1372,12 +1375,12 @@ graviton masses between \SIlist{298;1440}{\GeV}.
   \vspace*{-3cm}
   \subfloat[]{
     \label{fig:limits-spin0}
-    \includegraphics[width=0.65\textwidth]{figures/limits-scalar.pdf}
+    \includegraphics[width=0.65\textwidth]{figures/limits-scalar-5-TeV.pdf}
   }
 
   \subfloat[]{
     \label{fig:limits-spin2}
-    \includegraphics[width=0.65\textwidth]{figures/limits-graviton.pdf}
+    \includegraphics[width=0.65\textwidth]{figures/limits-graviton-5-TeV.pdf}
   }
   \caption{\label{fig:res-limits}
     Expected (dashed black) and observed (solid black) 95\% CL upper limits on the cross-section times branching ratio of resonant production for spin-0 (\(X \rightarrow HH\)) and spin-2 \(G_{KK}^{*} \rightarrow HH\). 
@@ -1385,16 +1388,19 @@ graviton masses between \SIlist{298;1440}{\GeV}.
     The resolved channel expected limit is shown in dashed pink and covers the range from \SIlist{251;1500}{\GeV}. 
     It is combined with the boosted channel (dashed blue) between \SIlist{900;1500}{\GeV}.
     The theoretical prediction for the bulk RS model with \(k/\overline{M}_{\mathrm{Pl}} = 1\)~\cite{Carvalho} 
-    (solid red line) is shown, with the decrease below \SI{350}{\GeV} due to a sharp reduction in the \(G_{KK}^{*} \rightarrow HH\) branching ratio. The nominal \(H \rightarrow b\bar{b}\) branching ratio is taken as 0.582.
-  }
+    (solid red line) is shown, with the decrease below \SI{350}{\GeV} due to a sharp reduction in the \(G_{KK}^{*} \rightarrow HH\) branching ratio. The nominal \(H \rightarrow b\bar{b}\) branching ratio is taken as 0.582. Note 
+    that all results use the asymptotic approximation, though the validity of this approximation for the boosted results 
+    above \SI{3}{\TeV} is being evaluated.}
 \end{figure}
 
 Preliminary results are presented here for the gluon-gluon fusion non-resonant search, combining results from the $4b$ 
 and $3b+1l$ signal regions in the $2\times 2$ category scheme in $\Delta \eta_{HH}$ and $X_{HH}$. These results will be 
-further combined with a VBF channel as discussed, but this is left for future work. Results shown here include background 
-systematics only. Limits are set for $\kappa_{\lambda}$ values from $-20$ to $20$. 
+further combined with a VBF channel as discussed, but this is left for future work. Results shown here include 
+background all background uncertainties, but do not include signal systematics. Limits are set for $\kappa_{\lambda}$ 
+values from $-20$ to $20$. 
 The cross section limit for $HH$ production is set at \SI{140}{\fb} (\SI{180}{\fb}) observed (expected), 
-corresponding to an observed (expected) limit of $4.4$ ($5.9$) times the Standard Model prediction (see Table \ref{tbl:SM-HH-limits}). 
+corresponding to an observed (expected) limit of $4.4$ ($5.9$) times the Standard Model prediction 
+(see Table \ref{tbl:SM-HH-limits}). 
 $\kappa_{\lambda}$ is constrained to be within the range $-4.9 \leq \kappa_{\lambda} \leq 14.4$ observed 
 ($-3.9 \leq \kappa_{\lambda} \leq 10.9$ expected). These results are shown in Figure \ref{fig:nonres-limits}.
 
@@ -1408,7 +1414,7 @@ $\kappa_{\lambda}$ is constrained to be within the range $-4.9 \leq \kappa_{\lam
  \hline
 \end{tabular}
  \caption{\label{tbl:SM-HH-limits} Limits on Standard Model $HH\rightarrow \bbbb$ production, presented in units of the 
-predicted Standard Model cross section. Results include background systematics only.}
+predicted Standard Model cross section. Results do not include signal systematics.}
 \end{table}
 
 We note that this is a significant improvement over the early Run 2 result, which achieved an observed (expected) 
@@ -1454,7 +1460,8 @@ To check the impact of if we would have imposed such a cut, and to verify that t
 we therefore run the same set of limits without the low mass bins. In this case, we choose to simply drop the 
 first few bins in $m_{HH}$ such that everything else, including the higher mass bin edges, is kept the same. Due to 
 the variable width binning, this corresponds to an $m_{HH}$ cut of \SI{381}{\GeV}. The results of this check are shown 
-in Figure \ref{fig:nonres-limits-with-cut}, overlaid with the limits of Figure \ref{fig:nonres-limits} for reference.
+in Figure \ref{fig:nonres-limits-with-cut}, and the corresponding limits for Standard Model $HH$ are 
+quoted in Table \ref{tbl:SM-HH-limits-mhh-cut}.
 With the $m_{HH}$ cut imposed, there is a slight degradation in the expected limits for larger positive and negative 
 values of $\kappa_{\lambda}$, but the points near the Standard Model are nearly identical. Further, the observed excess 
 is significantly reduced, with observed limits for $\kappa_{\lambda} \geq 5$ now falling entirely within the expected 
@@ -1466,13 +1473,30 @@ of the background estimation at low mass, that this is demonstrative of a mis-mo
   \centering
   \subfloat{
     \label{fig:limits-kl-with-cut}
-    \includegraphics[width=0.8\textwidth]{figures/obs-limit-2x2-with-mhh-cut.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/obs-limit-2x2-cut-at-381-only.pdf}
   }
-  \caption{\label{fig:nonres-limits-with-cut} Comparison of the limits in Figure \ref{fig:nonres-limits}
-  with an equivalent set of limits that drop the $m_{HH}$ bins below \SI{381}{\GeV}, with the value 
-  of \SI{381}{\GeV} determined by the optimized variable width binning. The expected limit band with 
-  this mass cut is shown in dashed blue, and the observed is shown in solid blue. The excess 
-  at and above $\kappa_{\lambda} = 5$ is significantly reduced, demonstrating that this is driven by 
+  \caption{\label{fig:nonres-limits-with-cut} Limits including only events above \SI{381}{\GeV} in $m_{HH}$, 
+  to be compared with the limits in Figure \ref{fig:nonres-limits}. Such a cut is accomplished by 
+  dropping $m_{HH}$ bins below \SI{381}{\GeV}, with the value 
+  of \SI{381}{\GeV} determined by the optimized variable width binning. All other aspects of the procedure 
+  and inputs are kept the same as in Figure \ref{fig:nonres-limits}. The excess 
+  at and above $\kappa_{\lambda} = 5$ is significantly reduced, demonstrating that such an excess is driven by 
   low mass. Notably, there is minimal impact on the expected sensitivity with this $m_{HH}$ cut.
   }
 \end{figure}
+
+\begin{table}
+\centering
+\begin{tabular}{ |c|c|c|c|c|c| } 
+\hline
+\textbf{Observed} & $-2\sigma$ & $-1\sigma$ & \textbf{Expected} & $+1\sigma$ & $+2\sigma$\\
+ \hline
+\textbf{3.7}	& 3.2	& 4.3 & \textbf{5.9}	& 8.3 & 11.2\\
+ \hline
+\end{tabular}
+ \caption{\label{tbl:SM-HH-limits-mhh-cut} Limits on Standard Model $HH\rightarrow \bbbb$ production, 
+ presented in units of the predicted Standard Model cross section, corresponding to the $m_{HH} > \SI{381}{\GeV}$ 
+ selection of Figure \ref{fig:nonres-limits-with-cut}. Results do not include signal systematics. The deficit 
+ in the observed limit is larger than that of Table \ref{tbl:SM-HH-limits}, but still within the $2\sigma$ band. There 
+ are only very minor differences in the expected limit band.}
+\end{table}
