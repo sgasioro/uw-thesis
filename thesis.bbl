@@ -5639,38 +5639,6 @@
       \verb https://cds.cern.ch/record/2759683
       \endverb
     \endentry
-    \entry{CMS-EXO-12-053}{article}{}
-      \name{author}{1}{}{%
-        {{hash=0448d009825e0bfac7316a655abf5740}{%
-           family={{CMS Collaboration}},
-           familyi={C\bibinitperiod}}}%
-      }
-      \strng{namehash}{0448d009825e0bfac7316a655abf5740}
-      \strng{fullhash}{0448d009825e0bfac7316a655abf5740}
-      \strng{bibnamehash}{0448d009825e0bfac7316a655abf5740}
-      \strng{authorbibnamehash}{0448d009825e0bfac7316a655abf5740}
-      \strng{authornamehash}{0448d009825e0bfac7316a655abf5740}
-      \strng{authorfullhash}{0448d009825e0bfac7316a655abf5740}
-      \field{extraname}{2}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{hep-ex}
-      \field{eprinttype}{arXiv}
-      \field{journaltitle}{Eur. Phys. J. C}
-      \field{title}{{Search for heavy resonances decaying to two Higgs bosons in final states containing four \(b\) quarks}}
-      \field{volume}{76}
-      \field{year}{2016}
-      \field{pages}{371}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1140/epjc/s10052-016-4206-6
-      \endverb
-      \verb{eprint}
-      \verb 1602.08762
-      \endverb
-    \endentry
     \entry{CMS-B2G-17-019}{article}{}
       \name{author}{1}{}{%
         {{hash=0448d009825e0bfac7316a655abf5740}{%
@@ -5683,7 +5651,7 @@
       \strng{authorbibnamehash}{0448d009825e0bfac7316a655abf5740}
       \strng{authornamehash}{0448d009825e0bfac7316a655abf5740}
       \strng{authorfullhash}{0448d009825e0bfac7316a655abf5740}
-      \field{extraname}{3}
+      \field{extraname}{2}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
@@ -5703,6 +5671,26 @@
       \verb 1808.01473
       \endverb
     \endentry
+    \entry{CMS-PAS-HIG-20-005}{report}{}
+      \list{institution}{1}{%
+        {CERN}%
+      }
+      \list{location}{1}{%
+        {Geneva}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labeltitlesource}{title}
+      \field{title}{{Search for Higgs boson pair production in the four b quark final state}}
+      \field{type}{techreport}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://cds.cern.ch/record/2771912
+      \endverb
+      \verb{url}
+      \verb https://cds.cern.ch/record/2771912
+      \endverb
+    \endentry
     \entry{CMS-HIG-17-030}{article}{}
       \name{author}{1}{}{%
         {{hash=0448d009825e0bfac7316a655abf5740}{%
@@ -5715,7 +5703,7 @@
       \strng{authorbibnamehash}{0448d009825e0bfac7316a655abf5740}
       \strng{authornamehash}{0448d009825e0bfac7316a655abf5740}
       \strng{authorfullhash}{0448d009825e0bfac7316a655abf5740}
-      \field{extraname}{4}
+      \field{extraname}{3}
       \field{sortinit}{1}
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
@@ -6011,41 +5999,6 @@
       \endverb
       \verb{eprint}
       \verb 1510.03865
-      \endverb
-    \endentry
-    \entry{Herwigpp}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=3b570fab5104ab1e69ddeaf2a3e193ee}{%
-           family={Bahr},
-           familyi={B\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{9f0fd7e77fa70b4a15d63a8904ee1333}
-      \strng{fullhash}{9f0fd7e77fa70b4a15d63a8904ee1333}
-      \strng{bibnamehash}{9f0fd7e77fa70b4a15d63a8904ee1333}
-      \strng{authorbibnamehash}{9f0fd7e77fa70b4a15d63a8904ee1333}
-      \strng{authornamehash}{9f0fd7e77fa70b4a15d63a8904ee1333}
-      \strng{authorfullhash}{9f0fd7e77fa70b4a15d63a8904ee1333}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{hep-ph}
-      \field{eprinttype}{arXiv}
-      \field{journaltitle}{Eur. Phys. J.}
-      \field{title}{{Herwig++ Physics and Manual}}
-      \field{volume}{C58}
-      \field{year}{2008}
-      \field{pages}{639\bibrangedash 707}
-      \range{pages}{69}
-      \verb{doi}
-      \verb 10.1140/epjc/s10052-008-0798-9
-      \endverb
-      \verb{eprint}
-      \verb 0803.0883
       \endverb
     \endentry
     \entry{skopt}{software}{}

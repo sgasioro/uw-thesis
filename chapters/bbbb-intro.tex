@@ -2,14 +2,32 @@
 \label{chap:bbbb-intro}
 
 The following chapters present two complementary searches for pair production of 
-Higgs bosons in the final state. Such searches are separated based on the 
+Higgs bosons in the $\bbbb$ final state. Such searches are separated based on the 
 signal models being considered: resonant production, in which a new spin-0 or 
 spin-2 particle is produced and decays to two Standard Model Higgs bosons, and 
 non-resonant production, which is sensitive to the value of the Higgs self-coupling
 $\lambda_{HHH}$. Further information on the theory behind both channels can be 
 found in Chapter \ref{chap:hh-bsm}.
 
-While the searches face many similar challenges and proceed (in broad strokes) in a very 
+ATLAS has performed a variety of searches for both resonant and non-resonant $HH$ in complementary 
+decay channels, notably for early Run 2 in the $\bbbar\Wplus\Wminus$~\cite{HIGG-2016-27},
+$\bbbar\tautau$~\cite{HIGG-2016-16},
+$\Wplus\Wminus\Wplus\Wminus$~\cite{HIGG-2016-24},
+$\bbbar\gamma\gamma$~\cite{HIGG-2016-15}, and
+$\Wplus\Wminus\gamma\gamma$~\cite{HIGG-2016-20} final states, which were combined
+along with $\bbbar\bbbar$ in~\cite{HDBS-2018-58}. ATLAS has also released 
+a variety of full Run 2 results, including boosted $\bbbar\tautau$~\cite{HDBS-2019-22}, 
+VBF $\bbbb$~\cite{HDBS-2018-18}, $\bbbar\ell\nu\ell\nu$~\cite{HDBS-2018-33}, and 
+$\bbbar\gamma\gamma$~\cite{ATLAS-CONF-2021-016}.
+
+CMS has also performed searches for production of Higgs boson pairs in
+the $\bbbar\bbbar$ final state (among others) for early Run 2~\cite{CMS-B2G-17-019} and 
+full Run 2~\cite{CMS-PAS-HIG-20-005}. A combination of CMS searches in the 
+$\bbbar\bbbar$, $\bbbar\tautau$, $\bbbar\gamma\gamma$, and $\bbbar\VVbos$ channels 
+was performed for early Run 2 in~\cite{CMS-HIG-17-030}.
+
+While the resonant and non-resonant searches presented here face many similar challenges and 
+proceed (in broad strokes) in a very 
 similar manner, separate optimizations are performed to maximize the respective sensitivities 
 for these two very different sets of signal hypotheses. More particularly, resonant signal 
 hypotheses are (1) very peaked in values of the mass of the $HH$ candidate system near the 
@@ -18,8 +36,8 @@ signal mass hypotheses. The resonant searches are therefore split into resolved 
 topologies based on Lorentz boost of the decay products, with the resolved channel as one of the 
 primary focuses of this thesis. Further, several analysis design decisions are made to 
 allow for sensitivity to a broad range of masses -- in particular, though sensitivity is 
-limited at lower values of \mhh relative to other channels \todo{Combination, bbyy} due to 
-the challenging background topology, retaining and properly reconstructing these low mass events 
+limited at lower values of \mhh relative to other channels (see, e.g. Chapter \ref{chap:other-channels}) 
+due to the challenging background, retaining and properly reconstructing these low mass events 
 allows the \bbbb channel to retain sensitivity as low as the kinematic threshold at \SI{250}{\GeV}.
 
 In contrast, non-resonant signal hypotheses are quite broad in \mhh, and have a much more limited 
@@ -32,7 +50,21 @@ for the middle to upper $HH$ mass regime, resulting in improved modeling and sma
 than would be obtained with a more generic approach.
 
 Both searches are presented in the following, with emphasis on particular motivations for, and consequences
-of, the various design decisions involved for each respective set of signal hypotheses. 
+of, the various design decisions involved for each respective set of signal hypotheses. A comparison of 
+representative signals for both the resonant and non-resonant analyses is shown in Figure \ref{fig:sig-examples}.
+
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=0.8\textwidth]{figures/signal-example-plot.pdf}
+		 }
+\caption{\label{fig:sig-examples} Example distributions in invariant mass of the reconstructed di-Higgs system 
+for a variety of spin-0 resonances ($m(X)$) compared to the Standard Model non-resonant signal (SM HH). 
+Both are presented in their respective signal regions, after all corresponding analysis selections. The resonant 
+signals are sharply peaked at values near their respective resonance masses, whereas the non-resonant signal is much 
+more broad. The different character of these different signals informs the analysis design.}
+\end{figure}
+
 
 The analyses improve upon previous work~\cite{EXOT-2016-31} in several notable ways. The resonant search leverages 
 a Boosted Decision Tree (BDT) based algorithm for the reconstruction of the $HH$ system from the jets considered for 
@@ -51,23 +83,6 @@ thesis wishes to emphasize that the background estimate, with the corresponding 
 other associated decisions, really is the core of the $HH\rightarrow \bbbb$ analysis -- the development
 of this procedure, and all associated decisions, is similarly the core of this thesis work.
 
-ATLAS has performed a variety of searches in complementary decay channels as well,
-notably for early Run 2 in the $\bbbar\Wplus\Wminus$~\cite{HIGG-2016-27},
-$\bbbar\tautau$~\cite{HIGG-2016-16},
-$\Wplus\Wminus\Wplus\Wminus$~\cite{HIGG-2016-24},
-$\bbbar\gamma\gamma$~\cite{HIGG-2016-15}, and
-$\Wplus\Wminus\gamma\gamma$~\cite{HIGG-2016-20} final states, which were combined
-along with $\bbbar\bbbar$ in~\cite{HDBS-2018-58}. ATLAS has also released 
-a variety of full Run 2 results, including boosted $\bbbar\tautau$~\cite{HDBS-2019-22}, 
-VBF $\bbbb$~\cite{HDBS-2018-18}, $\bbbar\ell\nu\ell\nu$~\cite{HDBS-2018-33}, and 
-$\bbbar\gamma\gamma$~\cite{ATLAS-CONF-2021-016}.
-
-CMS has also performed searches for resonant production of Higgs boson pairs in
-the $\bbbar\bbbar$ final state (among others) at
-$\rts = \SI{8}{\TeV}$~\cite{CMS-EXO-12-053} and
-$\rts = \SI{13}{\TeV}$~\cite{CMS-B2G-17-019}. CMS have also performed a
-combination of their searches in the $\bbbar\bbbar$, $\bbbar\tautau$,
-$\bbbar\gamma\gamma$, and $\bbbar\VVbos$ channels in~\cite{CMS-HIG-17-030}.
 
 This analysis also benefits from improvements to ATLAS jet reconstruction and
 calibration, and flavor tagging~\cite{FTAG-2018-01}. In particular, this
@@ -155,12 +170,8 @@ using \POWHEGBOX v2 generator~\cite{Powheg1, Powheg2, Powheg3} at next-to-leadin
 NLO corrections with finite top mass, using the PDF4LHC~\cite{Butterworth:2015oua} parton distribution 
 function (PDF) set. Parton showers and hadronization are simulated with \PYTHIA[8].
 
-Alternative ggF samples are simulated at NLO using \POWHEGBOX v2, but instead using \HERWIG[7]~\cite{Herwigpp} 
-for parton showering and hadronization. The comparison between these two is used to assess an uncertainty 
-on the parton showering.
 
-
-\section{Triggers and Object Definitions}
+\section{Triggers}
 \label{sec:trigger}
 To maximize analysis sensitivity, a combination of multi-\Pqb-jet triggers is used. Due to the 
 use of events with two \Pqb-tagged jets in the background estimate, such triggers have a maximum 
@@ -182,7 +193,11 @@ more than one trigger,while trigger scale factors are only provided for individu
 
 To simplify this calculation, a set of hierarchical offline selections is applied, closely 
 mimicking the trigger selection. Based on these selections, events are sorted into categories
-(\emph{trigger buckets}), after which the decision of a \emph{single trigger} is checked. 
+(\emph{trigger buckets}), after which the decision of a \emph{single trigger} is checked. Note 
+that the set of events which enter the analysis via this trigger category selection must pass both the 
+offline selection as well as the corresponding online trigger selection. Particularly for the $2b$ 
+categories, this means that the explicit requirement of two $b$-tagged jets is left to the trigger decision 
+itself, with the categorization designed around the other considered objects (non-tagged jets or $H_{T}$).
 
 The resonant search applies such categorization in the following way, with 
 selections considered in order:
@@ -209,3 +224,6 @@ with selections:
 	the event is in the $2b+1j$ trigger category.
 	\item Otherwise, the event is in the $2b+2j$ trigger category.
 \end{enumerate}
+The additional cut (on the 3rd leading jet) added here for the $2b+1j$ category was found to enhance the overall 
+signal yield in the two bucket strategy relative to the single cut on leading jet $p_{T}$ used for the same category 
+in the resonant strategy.
