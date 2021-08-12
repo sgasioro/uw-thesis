@@ -1,5 +1,5 @@
 \chapter{Future Ideas for $HH\rightarrow \bbbb$}
-\label{chap:future}
+\label{app:future}
 
 The searches presented in this thesis make use of a large suite of sophisticated techniques, selected 
 through careful study and validation. During this process, a variety of interesting 
@@ -10,7 +10,7 @@ but were not used due to a variety of constraints. We present two such interesti
 with the hope of encouraging further exploration of these techniques in future work.
 
 \section{pairAGraph: A New Method for Jet Pairing}
-As discussed in Chapter \ref{chap:bbbb}, one of the main problems to solve is the pairing of 
+As discussed in Chapter \ref{chap:bbbb-selection}, one of the main problems to solve is the pairing of 
 $b$-jets into Higgs candidates. Figure \ref{fig:pairing-massplanes} demonstrates that the choice 
 of the pairing method, while important for achieving good reconstruction of signal events, also 
 significantly impacts the structure of non-$HH$ events, leading to various biases in the 
@@ -94,7 +94,7 @@ region -- therefore events with $4$ $b$-tagged jets are not required to use all 
 in the construction of Higgs candidates, in contrast to the other algorithms used in this 
 thesis.
 
-A comparison of the pairAGraph jet selection with the baseline selection used in Chapter ~\ref{chap:bbbb} 
+A comparison of the pairAGraph jet selection with the baseline selection used in Chapter ~\ref{chap:bbbb-selection} 
 is considered in Table \ref{tbl:pag-jet-sel} for the MC16a Standard Model non-resonant signal. As a reminder, 
 the baseline selection orders jets by $p_{T}$, selecting first the highest $p_{T}$ $b$-tagged jets (according 
 to the $b$-tag region definition) and then the highest $p_{T}$ non-tagged jets. The first four jets 
@@ -149,13 +149,13 @@ pairAGraph & 78.4\% & 94.2\%\\
 \hline
 \end{tabular}
 \caption{\label{tbl:pag-accuracy} Pairing accuracy evaluated for the Standard Model signal (MC16a), comparing 
-$D_{HH}$ and $\min{\Delta R}$ (discussed in Chapter \ref{chap:bbbb}) with pairAGraph trained on the Standard Model 
+$D_{HH}$ and $\min{\Delta R}$ (discussed in Chapter \ref{chap:bbbb-selection}) with pairAGraph trained on the Standard Model 
 signal. Numbers are shown both immediately after pairing and after the full analysis selection. pairAGraph demonstrates 
 a 7-8\% higher accuracy than the other algorithms immediately after pairing, but all methods are quite comparable after 
 the full analysis selection.}
 \end{table}
 
-As mentioned in Chapter \ref{chap:bbbb}, though the pairing is quite important for signal events, it also 
+As mentioned in Chapter \ref{chap:bbbb-selection}, though the pairing is quite important for signal events, it also 
 must be applied to events in data, where the overwhelming majority of events do not contain $HH$. Though in 
 general, pairing methods select for an $HH$-like topology, the additional flexibility of pairAGraph to 
 choose which jets enter the candidate $HH$ system provides an additional handle to shape the 

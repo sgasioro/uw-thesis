@@ -24,26 +24,28 @@
 \BOOKMARK [0][-]{chapter.5}{Chapter 5: Reconstruction}{}% 24
 \BOOKMARK [1][-]{section.5.1}{5.1 Jets}{chapter.5}% 25
 \BOOKMARK [1][-]{section.5.2}{5.2 Flavor Tagging}{chapter.5}% 26
-\BOOKMARK [0][-]{chapter.6}{Chapter 6: The Anatomy of an LHC Search}{}% 27
-\BOOKMARK [1][-]{section.6.1}{6.1 Object Selection and Identification}{chapter.6}% 28
-\BOOKMARK [1][-]{section.6.2}{6.2 Defining a Signal Region}{chapter.6}% 29
-\BOOKMARK [1][-]{section.6.3}{6.3 Background Estimation}{chapter.6}% 30
-\BOOKMARK [1][-]{section.6.4}{6.4 Uncertainty Estimation}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.5}{6.5 Hypothesis Testing}{chapter.6}% 32
-\BOOKMARK [0][-]{chapter.7}{Chapter 7: Search for pair production of Higgs bosons in the bbarbbbarb final state}{}% 33
-\BOOKMARK [1][-]{section.7.1}{7.1 Data and Monte Carlo Simulation}{chapter.7}% 34
-\BOOKMARK [1][-]{section.7.2}{7.2 Triggers and Object Definitions}{chapter.7}% 35
-\BOOKMARK [1][-]{section.7.3}{7.3 Analysis Selection}{chapter.7}% 36
-\BOOKMARK [1][-]{section.7.4}{7.4 Background Reduction and Top Veto}{chapter.7}% 37
-\BOOKMARK [1][-]{section.7.5}{7.5 Kinematic Region Definition}{chapter.7}% 38
-\BOOKMARK [1][-]{section.7.6}{7.6 Background Estimation}{chapter.7}% 39
-\BOOKMARK [1][-]{section.7.7}{7.7 Uncertainties}{chapter.7}% 40
-\BOOKMARK [1][-]{section.7.8}{7.8 Background Validation}{chapter.7}% 41
-\BOOKMARK [1][-]{section.7.9}{7.9 Overview of Other bbarbbbarb Channels}{chapter.7}% 42
-\BOOKMARK [1][-]{section.7.10}{7.10 m\137HH Distributions}{chapter.7}% 43
-\BOOKMARK [1][-]{section.7.11}{7.11 Statistical Analysis}{chapter.7}% 44
-\BOOKMARK [1][-]{section.7.12}{7.12 Results}{chapter.7}% 45
-\BOOKMARK [0][-]{chapter.8}{Chapter 8: Future Ideas for HHbbarbbbarb }{}% 46
-\BOOKMARK [1][-]{section.8.1}{8.1 pairAGraph: A New Method for Jet Pairing}{chapter.8}% 47
-\BOOKMARK [1][-]{section.8.2}{8.2 Background Estimation with Mass Plane Interpolation}{chapter.8}% 48
-\BOOKMARK [0][-]{chapter.9}{Chapter 9: Conclusions}{}% 49
+\BOOKMARK [0][-]{chapter.6}{Chapter 6: Setting up the HHbbarbbbarb \040Analysis}{}% 27
+\BOOKMARK [1][-]{section.6.1}{6.1 Data and Monte Carlo Simulation}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.2}{6.2 Triggers and Object Definitions}{chapter.6}% 29
+\BOOKMARK [0][-]{chapter.7}{Chapter 7: Analysis Selection}{}% 30
+\BOOKMARK [1][-]{section.7.1}{7.1 Analysis Selection}{chapter.7}% 31
+\BOOKMARK [1][-]{section.7.2}{7.2 Background Reduction and Top Veto}{chapter.7}% 32
+\BOOKMARK [1][-]{section.7.3}{7.3 Kinematic Region Definition}{chapter.7}% 33
+\BOOKMARK [0][-]{chapter.8}{Chapter 8: Background Estimation}{}% 34
+\BOOKMARK [1][-]{section.8.1}{8.1 The Two Tag Region}{chapter.8}% 35
+\BOOKMARK [1][-]{section.8.2}{8.2 Kinematic Reweighting}{chapter.8}% 36
+\BOOKMARK [0][-]{chapter.9}{Chapter 9: Uncertainties and Validation}{}% 37
+\BOOKMARK [1][-]{section.9.1}{9.1 Statistical Uncertainties and Bootstrapping}{chapter.9}% 38
+\BOOKMARK [1][-]{section.9.2}{9.2 Background Shape Uncertainties}{chapter.9}% 39
+\BOOKMARK [1][-]{section.9.3}{9.3 Signal Uncertainties}{chapter.9}% 40
+\BOOKMARK [1][-]{section.9.4}{9.4 Background Validation}{chapter.9}% 41
+\BOOKMARK [0][-]{chapter.10}{Chapter 10: Results}{}% 42
+\BOOKMARK [1][-]{section.10.1}{10.1 m\137HH Distributions}{chapter.10}% 43
+\BOOKMARK [1][-]{section.10.2}{10.2 Statistical Analysis}{chapter.10}% 44
+\BOOKMARK [1][-]{section.10.3}{10.3 Results}{chapter.10}% 45
+\BOOKMARK [0][-]{chapter.11}{Chapter 11: Comparisons with other channels}{}% 46
+\BOOKMARK [0][-]{chapter.12}{Chapter 12: Conclusions}{}% 47
+\BOOKMARK [0][-]{appendix.A}{Appendix A: Overview of Other bbarbbbarb Channels}{}% 48
+\BOOKMARK [0][-]{appendix.B}{Appendix B: Future Ideas for HHbbarbbbarb }{}% 49
+\BOOKMARK [1][-]{section.B.1}{B.1 pairAGraph: A New Method for Jet Pairing}{appendix.B}% 50
+\BOOKMARK [1][-]{section.B.2}{B.2 Background Estimation with Mass Plane Interpolation}{appendix.B}% 51

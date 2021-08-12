@@ -1,0 +1,227 @@
+\chapter{Background Estimation}
+\label{chap:bbbb-background}
+
+After the event selection described above, there are
+two major backgrounds, QCD and \ttbar. A very similar approach is used 
+for both the resonant and the non-resonant analyses, with some small modifications. 
+This approach is notably fully data-driven, which is warranted due to 
+the flexibility of the estimation method, as well as the high relative proportion of 
+QCD background ($>90~\%$), and allows for the use of machine learning methods in the construction of
+the background estimate. However, it sacrifices an explicit treatment of the
+\ttbar component. Performance of the background estimate on the \ttbar component
+is checked explicitly, and minimal impact due to \ttbar 
+mis-modeling is seen.
+
+Contributions of single Higgs processes and $\PZ\PZ$ are found 
+to be negligible, and the Standard Model $\higgs\higgs$ background
+is found to have no impact on the resonant search.
+
+The foundation of the background estimate lies in the derivation of a
+reweighting function which matches the kinematics of events with exactly two
+\btagged jets to those of events in the higher tagged regions (events with three or four 
+\btagged jets). The reweighting function and overall normalization are derived in 
+the control region. Systematic bias of this estimate is assessed in the validation 
+region. 
+
+For the resonant analysis, the systematic bias is a bias due to extrapolation:
+the validation region lies between the control and signal regions. For the 
+non-resonant analysis, the bias instead comes from different possible interpolations
+of the signal region kinematics -- given the choice of nominal estimate, the validation
+region is a conceptually equivalent, but maximally different, signal region estimate.
+
+\section{The Two Tag Region}
+
+Events in data with exactly two b-tagged jets are used for the data driven 
+background estimate. The hypothesis here is that, due to the presence of 
+multiple \btagged jets, the kinematics of such events are similar to the 
+kinematics of events in higher b-tagged regions (i.e. events with three and 
+four \btagged jets, respectively), and any differences can be corrected by a 
+reweighting procedure. The region with three \btagged jets is split into 
+two $b$-tagging regions, as described in Section \ref{sec:analysis-selection}, 
+with the 3$b$ + 1 loose region used as an additional signal 
+region. The lower tagged 3$b$ component (3$b$ + 1 fail) is reserved for validation
+of the background modelling procedure. Events with fewer than two \btagged jets are not 
+used for this analysis, as they are relatively more different from the higher tag regions.
+
+The nominal event selection requires at least four jets in order to form Higgs
+candidates. For the four tag region, these are the four highest $p_{T}$ \btagged 
+jets. For the three tag regions, these jets are the three \btagged jets, plus the 
+highest $p_{T}$ jet satisfying a loosened $b$-tagging requirement. Similarly, and following 
+the approach of the resonant analysis, the two tag region uses the two \btagged jets 
+and the two highest $p_{T}$ non-tagged jets to form Higgs candidates. Combinatoric bias 
+from selection of different numbers of \btagged jets is corrected as a part of the kinematic 
+reweighting procedure through the reweighting of the total number of jets in the event. In this way, 
+the full event selection may be run on two tagged events. 
+
+\section{Kinematic Reweighting}
+The set of two tagged data events is the fundamental piece of the data driven
+background estimate. However, kinematic differences from the four tag region
+exist and must be corrected in order for this estimate to be useful. Binned 
+approaches based on ratios of histograms have been previously considered~\cite{EXOT-2016-31},~\cite{HDBS-2018-18}, 
+but are limited in their handling of correlations 
+between variables and by the ``curse of dimensionality'', i.e. the dataset
+becomes sparser and sparser in ``reweighting space'' as the number of dimensions
+in which to reweight increases, limiting the number of variables used for reweighting. 
+This leads either to an unstable fit result (overfitting with finely grained bins) or a 
+lower quality fit result (underfitting with coarse bins).
+
+Note that even some machine learning methods such as Boosted Decision Trees (BDTs)~\cite{BDT-RW}, may suffer
+from this curse of dimensionality, as the depth of each decision tree used is limited by 
+the available statistics after each set of corresponding selections (cf. binning in a 
+more sophisticated way), limiting the expressivity of the learned reweighting function.
+
+To solve these issues, a neural network based reweighting procedure is used
+here. This is a truly multivariate approach, allowing for proper treatment of
+variable correlations. It further overcomes the issues associated with binned
+approaches by learning the reweighting function directly, allowing for greater
+sensitivity to local differences and helping to avoid the curse of
+dimensionality.
+
+
+\subsection{Neural Network Reweighting}
+Let $p_{4b}(x)$ and $p_{2b}(x)$ be the probability density functions for four and two tag data respectively across 
+some input variables $x$. The problem of learning the reweighting function between two and four tag data 
+is then the problem of learning a function $w(x)$ such that
+\begin{equation}
+p_{2b}(x) \cdot w(x) = p_{4b}(x)
+\end{equation}
+from which it follows that
+\begin{equation}
+w(x) = \frac{p_{4b}(x)}{p_{2b}(x)}.
+\end{equation}
+
+This falls into the domain of density ratio estimation, for which there are a variety
+of approaches. The method considered here is modified from ~\cite{NNloss, NNloss1}, and depends on
+a loss function of the form
+\begin{equation}
+\mathcal{L}(R(x)) = \mathbb{E}_{x\sim p_{2b}}[\sqrt{R(x)}]
++\mathbb{E}_{x\sim p_{4b}}[\frac{1}{\sqrt{R(x)}}].
+\end{equation}
+where $R(x)$ is some estimator dependent on $x$ and $\mathbb{E}_{x\sim p_{2b}}$ and 
+$\mathbb{E}_{x\sim p_{4b}}$ are the expectation values with respect to the 2b and 4b probability 
+densities. A neural network trained with such a loss function has the objective of finding
+the estimator, $R(x)$, that minimizes this loss. It is straightforward to show that
+\begin{equation}
+\arg \min_{R}\mathcal{L}(R(x)) = \frac{p_{4b}(x)}{p_{2b}(x)}
+\end{equation}
+which is exactly the form of the desired reweighting function.
+
+In practice, to avoid imposing explicit positivity constraints, the substitution
+$Q(x) \equiv \log R(x)$ is made. The loss function then takes the equivalent form
+\begin{equation}
+\mathcal{L}(Q(x)) = \mathbb{E}_{x\sim p_{2b}}[\sqrt{e^{Q(x)}}]
++\mathbb{E}_{x\sim p_{4b}}[\frac{1}{\sqrt{e^{Q(x)}}}],
+\end{equation}
+with solution
+\begin{equation}
+\arg \min_{Q}\mathcal{L}(Q(x)) = \log\frac{p_{4b}(x)}{p_{2b}(x)}.
+\end{equation}
+Taking the exponent then results in the desired reweighting function.
+
+Note that similar methods for density ratio estimation are available~\cite{NNRW-Nachman},
+e.g. from a more standard binary cross-entropy loss. However, these were found to
+perform no better than the formulation presented here.
+
+\subsection{Variables and Results}
+The neural network is trained on a variety of variables sensitive to two vs.
+four tag differences. To help bring out these differences, the natural logarithm 
+of some of the variables with a large, local change is taken. The 
+set of training variables used for the resonant analysis is
+\begin{enumerate}
+	\item $\log(p_T)$ of the 4th leading Higgs candidate jet
+	\item $\log(p_T)$ of the 2nd leading Higgs candidate jet
+	\item $\log(\Delta R)$ between the closest two Higgs candidate jets
+	\item $\log(\Delta R)$ between the other two Higgs candidate jets
+	\item Average absolute value of $\eta$ across the four Higgs candidate jets
+	\item $\log(p_T)$ of the di-Higgs system.
+	\item $\Delta R$ between the two Higgs candidates
+	\item $\Delta \phi$ between the jets in the leading Higgs candidate
+	\item $\Delta \phi$ between the jets in the subleading Higgs candidate
+	\item $\log(X_{\PW\Pqt})$, where $X_{\PW\Pqt}$ is the variable used for the top veto
+	\item Number of jets in the event.
+\end{enumerate}
+The non-resonant analysis uses an identical set of variables with two notable changes
+\begin{enumerate}
+	\item The definition of $X_{\PW\Pqt}$ differs from the resonant definition (as described 
+	in Section \ref{sec:kinematic-cuts}).
+	\item An integer encoding of the two trigger categories is used as an input (variable which 
+	takes on the value 0 or 1 corresponding to each of the two categories). This was found to improve
+	a mis-modeling near the tradeoff in \mhh of the two buckets.
+\end{enumerate}
+
+The neural network used for both resonant and non-resonant reweighting has three 
+densely connected hidden layers of 50 nodes each with ReLU activation functions and a single node 
+linear output. This configuration demonstrates good performance in the modelling 
+of a variety of relevant variables, including \mhh, when compared to a 
+range of networks of similar size.
+
+In practice, a given training of the reweighting neural network is subject to variation
+due to training statistics and initial conditions. An uncertainty is assigned to account
+for this (Chapter \ref{chap:bbbb-uncert}), which relies on training an ensemble of
+reweighting networks~\cite{DeepEnsembles}. To increase the stability of the background estimate,
+the median of the predicted weight for each event is calculated across the ensemble.
+This median is then used as the nominal background estimate. This approach is indeed 
+seen to be much more stable and to demonstrate a better overall performance than a 
+single arbitrary training. Each ensemble used for this analysis consists of 100 
+neural networks, trained as described in Chapter \ref{chap:bbbb-uncert}.
+
+The training of the ensemble used for the nominal estimate is done in the kinematic
+Control Region. The prediction of these networks in the Signal Region is then used
+for the nominal background estimate. In addition, a separate ensemble of networks is 
+trained in the Validation Region. The difference between the prediction of the nominal 
+estimate and the estimate from the VR derived networks in the Signal Region is used to 
+assign a systematic uncertainty. Further details on this systematic uncertainty are discussed 
+in Chapter \ref{chap:bbbb-uncert}.
+Note that although the same procedure is used for both Control and Validation Region trained 
+networks, only the median estimate from the VR derived reweighting is used for assessing a 
+systematic -- no additional ``uncertainty on the uncertainty'' from 
+VR ensemble variation is applied.
+
+Each reweighted estimate is normalized such that the reweighted $2b$ yield matches the $4b$ 
+yield in the corresponding training region. Note that this applies to each of the networks 
+used in each ensemble, where the normalization factor is also subject to the procedure described 
+in Chapter \ref{chap:bbbb-uncert}. As the median over these normalized weights is not guaranteed 
+to preserve this normalization, a further correction is applied such that the $2b$ yield, after 
+the median weights are applied, matches the $4b$ yield in the corresponding training region. As no 
+pre-processing is applied to correct for the class imbalance between $2b$ and $4b$ events entering 
+the training, this ratio of number of $4b$ events ($n(4b)$) over number of $2b$ events ($n(2b)$) is 
+folded into the learned weights. Correspondingly, the set of normalization factors described above is 
+near $1$ and the learned weights are centered around $n(4b) / n(2b)$ (roughly 0.01 over the full dataset). 
+This normalization procedure applies for all instances of the reweighting (e.g. those used for validations 
+in Section \ref{sec:bkgd-validation}), with appropriate substitutions of reweighting origin 
+(here $2b$) and reweighting target (here $4b$).
+
+Note that, due to different trigger and pileup selections during each year, 
+the reweighting is trained on each year separately. An approach of training all of the years 
+together with a one-hot encoding was explored, but was found to have minimal 
+benefit over the split years approach, and in fact to increase 
+the systematic bias of the corresponding background estimate.
+Because of this, and because trigger selections for each year significantly impact the kinematics of each year, 
+such that categorizing by year is expected to reflect groupings of kinematically similar events and 
+to provide a meaningful degree of freedom in the signal extraction fit, the split-year approach is
+kept.
+
+The control region closure for the 2018 dataset is shown for the resonant search in Figures \ref{fig:res-Control18-1} 
+through \ref{fig:res-Control18-8} and for the non-resonant search in Figures \ref{fig:nonres-Control184b-1} 
+through \ref{fig:nonres-Control184b-8} for $4b$ and Figures \ref{fig:nonres-Control183b1l-1} 
+through \ref{fig:nonres-Control183b1l-8} for $3b1l$. The impact of this control 
+region derived reweighting on the validation region is shown in Figures \ref{fig:res-Validation18-1} 
+through \ref{fig:res-Validation18-8} for the resonant search and Figures \ref{fig:nonres-Validation184b-1} 
+through \ref{fig:nonres-Validation184b-8} for $4b$ and Figures \ref{fig:nonres-Validation183b1l-1} 
+through \ref{fig:nonres-Validation183b1l-8} for $3b1l$ for the non-resonant 
+search. 2018 is chosen because it is the largest subset of the data on which the year-by-year reweighting 
+is trained. The other years are omitted here for brevity, but demonstrate very similar results. Generally 
+good performance is seen, with some occasional mis-modeling. For the resonant 
+search, this is most notable in the case of individual jet $p_{T}$. Such mis-modeling may be corrected 
+by including the variables in the input set, but this was found to not improve the modeling of $m_{HH}$, 
+and so is not done here. This mis-modeling is notable for the non-resonant search in the leading Higgs candidate 
+jet $p_{T}$, and is a direct consequence of the trigger category input, which improves modeling of $m_{HH}$.
+Results are similar for other years, but are not included here for brevity. 
+
+One other salient feature of the non-resonant plots is the distributions of $m_{H1}$ and $m_{H2}$, which 
+emphasize the quadrant region definitions -- the control region has a peak around \SI{125}{\GeV} in $m_{H1}$, 
+which may be thought of as ``signal region-like'', motivating this alignment, though consequently the 
+distribution of $m_{H2}$ is quite bimodal. The reverse is true for the validation region.
+
+\input{chapters/res-bkg-template}
+\input{chapters/nonres-bkg-template}

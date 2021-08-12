@@ -1,51 +1,57 @@
 \chapter*{Preface}      % starred form omits the `chapter x'
 \addcontentsline{toc}{chapter}{Preface}
 
-This thesis focuses primarily on searches for pair production of Higgs bosons in the \bbbb final state. 
+This thesis focuses primarily on searches for pair production of Higgs bosons in the \bbbb final state. It begins 
+with an overview of the relevant physics and experimental background for such work, structured as follows:
 In Chapter \ref{chap:intro-SM}, I provide an overview of the Standard Model of particle physics, with discussion 
 of the theoretical and experimental development of such a model. Chapter \ref{chap:hh-bsm} dives more into the 
 details of Higgs boson pair production, as well as the physics beyond the Standard Model relevant for 
 this thesis. Chapter \ref{chap:experiment} then provides an introduction to the experimental apparatus used for 
-the presented searches, with an outline of the Large Hadron Collider and the ATLAS detector. 
+the presented searches, with an outline of the Large Hadron Collider and the ATLAS detector. Chapter \ref{chap:simulation} 
+details the procedure to simulate the physics processes discussed in Chapters \ref{chap:intro-SM} and \ref{chap:hh-bsm}, 
+including simulation of the detector discussed Chapter \ref{chap:experiment}. Finally, a review of the procedures to 
+reconstruct objects used for physics analysis is provided in Chapter \ref{chap:reconstruction}, with a focus on jets and flavor-tagging.
 
-Chapter \ref{chap:simulation} details the procedure to simulate the physics processes discussed in 
-Chapters \ref{chap:intro-SM} and \ref{chap:hh-bsm}, including simulation of the detector discussed Chapter \ref{chap:experiment}. 
-A review of the procedures to reconstruct objects used for physics analysis is provided in 
-Chapter \ref{chap:reconstruction}, with a focus on jets and flavor-tagging. To conclude the introductory material of 
-the thesis, a discussion of the general procedures behind a physics search at the LHC is provided in 
-Chapter \ref{chap:search-outline}.
-
-While this thesis provides a review of the necessary background information, it also presents a significant body of 
-original research. Chapter \ref{chap:simulation} includes my work on the development of methods to improve the modeling 
+The original contributions of this thesis are discussed in a variety of places. Chapter \ref{chap:simulation} 
+includes my work on the development of methods to improve the modeling 
 of hadronic showers within a parametrized simulation of the ATLAS calorimeter. I entirely developed both the method and 
 the software for the Gaussian method discussed in Chapter \ref{chap:simulation}, including all of the validations 
-presented there. The development of the Variational Autoencoder method was done in conjuction with Dalila Salamani, but 
-also contains significant contribution from me.
+presented there. The development of the Variational Autoencoder method was done in collaboration with Dalila Salamani. 
+This work has been published in a set of proceedings~\cite{CHEP-proceedings} and implemented into ATLAS software. At the 
+time of this writing, it is a candidate for inclusion in the Run 3 simulation infrastructure.
 
-The content presented in Chapters \ref{chap:bbbb} and \ref{chap:future} is almost entirely original research. 
-Chapter \ref{chap:bbbb} details searches for resonant and non-resonant pair production of Higgs bosons in the \bbbb 
-final state. I was one of the main analyzers for both of these searches, but my dominant contribution was the 
-development of the background estimation procedure and the associated uncertainties, which I spearheaded both conceptually 
-and practically. This is quite a significant contribution for both the resonant and non-resonant -- to paraphrase Georges 
-Aad during the resonant review process, ``This is the analysis.''
+Chapters \ref{chap:bbbb-intro} through \ref{chap:bbbb-results}  detail searches for resonant 
+and non-resonant pair production of Higgs bosons in the \bbbb final state. I was one of the main analyzers for both of 
+these searches, responsible for much of the development of the methods, infrastructure, and documentation. 
+My most major contribution was the development of the background estimation procedure and the associated uncertainties, 
+which I spearheaded both conceptually and practically. This is quite a significant contribution for both the resonant and non-resonant, as it is the core of much of the analysis design, with the most direct impact on the final results -- to paraphrase Georges Aad during the resonant review process, ``This is the analysis.''
 
 This was not my only contribution -- for the resonant search, I contributed to the development of the analysis selection 
-and limit setting, as well as many many cross checks, and was the co-editor of the ATLAS internal documentation, along with 
-Beojan Stanislaus, who developed the BDT pairing and much of the analysis software. Credit goes as well to Lucas Borgna, 
-for much of the work behind the development of the trigger strategy.
+and codebase, performed many of the necessary cross-checks, and was the co-editor of the ATLAS internal documentation, 
+along with Beojan Stanislaus, who developed the BDT pairing and much of the analysis software. Credit goes as well to 
+Lucas Borgna, for much of the work behind the development of the trigger strategy.
 
 The resonant search follows many of the procedures of the early Run 2 analysis~\cite{EXOT-2016-31}, 
-with the pairing method and background estimation method 
-constituting the two biggest analysis-level differences from that work. However, the non-resonant analysis has 
-several additional changes, including various kinematic variable and region definitions 
-and a different pairing method than both the early Run 2 search and the resonant search. I was responsible for a 
-large majority of the studies behind each of these decisions, literally improving the Standard Model sensitivity 
-by a factor of three relative to the resonant analysis strategy baseline. I am also responsible for the development 
-of much of the modern $4b$ software infrastructure, 
-including, of course, the background estimation framework, a new limit setting framework, and a new centralized plotting 
-framework, the latter of which greatly facilitates both studies and documentation for the more complicated 
-non-resonant analysis strategy.
+with the pairing method and background estimation method constituting the two biggest analysis-level differences 
+from that work. The non-resonant analysis has several additional changes, which include a variety of new kinematic variable 
+and region definitions, as well as a different pairing method than both the early Run 2 search and the resonant search. 
+I was responsible for a large majority of the studies behind each of these decisions. I am also responsible for the 
+development of much of the modern $4b$ software infrastructure, including, of course, the background estimation framework, 
+a new limit setting framework, and a new centralized plotting framework, the latter of which greatly facilitates 
+both studies and documentation for the more complicated non-resonant analysis strategy.
 
-Chapter \ref{chap:future} is also entirely original research, done in collaboration primarily with Nicole Hartman, presenting two novel methods for the future of the $4b$ channel. While these represent promising directions 
-for the $4b$ analysis, they are also methodologically interesting, and conceptually related results were published 
-concurrently with the development of the work presented in this thesis in \cite{SPANet} and \cite{Astro-NSF}.
+At the time of this writing, the preliminary resonant results have been published~\cite{ATLAS-CONF-2021-035}, with a 
+paper soon to follow, pending some additional studies on the high mass ($>\SI{3}{\TeV}$) results in the boosted 
+analysis channel~\footnote{This thesis focuses on the resolved analysis channel, so these additional studies do 
+not impact the final results of this thesis work. The boosted channel is included in the limits presented 
+in Figure \ref{fig:res-limits}, but in no other plots or results. See Appendix \ref{app:other-channels} for a description 
+of the boosted analysis selection.}. The non-resonant results are more preliminary, but the analysis strategy presented 
+in this thesis is approximately final, and the analysis is beginning internal ATLAS review.
+
+While these above results are the main results of this thesis, proof-of-concept studies for two novel $4b$ analysis methods 
+are included in Appendix \ref{app:future}. This work, done in collaboration primarily with 
+Nicole Hartman, was not used for the $4b$ results presented here, but I encourage the interested reader to consider 
+these for further study in future iterations of the $4b$ analysis. I note as well that, while these methods are 
+promising in the context of the $4b$ analysis, they are also methodologically interesting, and conceptually 
+related results have been published concurrently with the development of the work presented in this thesis in 
+\cite{SPANet} and \cite{Astro-NSF}. 

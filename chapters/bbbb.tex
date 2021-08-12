@@ -1,7 +1,7 @@
-\chapter{Search for pair production of Higgs bosons in the \bbbb final state}
-\label{chap:bbbb}
+\chapter{Setting up the $HH\rightarrow \bbbb$ Analysis}
+\label{chap:bbbb-intro}
 
-This chapter presents two complementary searches for pair production of 
+The following chapters present two complementary searches for pair production of 
 Higgs bosons in the final state. Such searches are separated based on the 
 signal models being considered: resonant production, in which a new spin-0 or 
 spin-2 particle is produced and decays to two Standard Model Higgs bosons, and 
@@ -35,14 +35,18 @@ Both searches are presented in the following, with emphasis on particular motiva
 of, the various design decisions involved for each respective set of signal hypotheses. 
 
 The analyses improve upon previous work~\cite{EXOT-2016-31} in several notable ways. The resonant search leverages 
-a Boosted Decision Tree (BDT) based pairing algorithm, offering improved $HH$ pairing efficiency over a broad 
-mass spectrum. The non-resonant adopts a different approach, with a simplified algorithm based on the minimum
-angular distance ($\Delta R$) between jets in a Higgs candidate. Such an approach very efficiently discards 
-low mass background events, resulting in an easier to estimate background with reduced systematic uncertainties.
+a Boosted Decision Tree (BDT) based algorithm for the reconstruction of the $HH$ system from the jets considered for 
+the analysis, offering an improved efficiency of that reconstruction over a broad mass spectrum. The non-resonant 
+adopts a different approach, with 
+a simplified algorithm based on the minimum angular distance ($\Delta R$) between jets in a reconstructed 
+Higgs candidate. Such an approach very efficiently discards low mass background events, resulting in an 
+easier to estimate background with reduced systematic uncertainties.
 
 A particular contribution of this thesis is the background estimation, which uses a novel, neural network
-based approach, offering improved modeling over previous methods, as well as the ability to model correlations 
-between observables. While all aspects of the analysis of course contribute to the final result, the author of this 
+based approach to perform a data-driven estimation of the background, which is dominated by QCD processes, for which 
+a sufficient simulation is not available. This new approach offers improved modeling over previous methods, as 
+well as the ability to model correlations between observables. While all aspects of the analysis of course contribute 
+to the final result, the author of this 
 thesis wishes to emphasize that the background estimate, with the corresponding uncertainties and all 
 other associated decisions, really is the core of the $HH\rightarrow \bbbb$ analysis -- the development
 of this procedure, and all associated decisions, is similarly the core of this thesis work.
@@ -91,7 +95,10 @@ The overall analysis sensitivity further benefits from a factor of
 Both the resonant and non-resonant searches are performed on the full ATLAS Run 2 dataset, consisting of 
 $\sqrt{s} = \SI{13}{\TeV}$ proton-proton collision data taken from 2016 to 2018 inclusive. Data taken in 2015 
 is not used due to a lack of trigger jet matching
-information and \bjet trigger scale factors. The integrated luminosity collected
+information and \bjet trigger scale factors\footnote{These trigger scale factors account for differences 
+in the performance of the b-tagging algorithms between simulation and data, with the jet matching providing a 
+correspondence between the jets in the trigger decision and the jets in the offline analysis}. The integrated 
+luminosity collected
 and usable in this analysis\footnote{\label{foot:lost-lumi}approximately
   \SI{9}{\ifb} of data was collected but could not be used in this analysis due
   to an inefficiency in the \bjet triggers at the start of 2016~\cite{ATL-COM-DAQ-2019-150}} was:
@@ -110,8 +117,10 @@ issue mentioned above.
 
 In this analysis, Monte Carlo samples are used purely for modelling signal
 processes. The background is strongly dominated by events produced by QCD
-multijet processes, which are difficult to correctly model in simulation. This
-necessitates the use of a data-driven background modelling technique, which is
+multijet processes, which are difficult to correctly model in simulation due to 
+the complexity of the interactions involved (including, e.g. non-perturbative effects), as well as the harsh requirement 
+of four $b$-tagged jets, which makes it difficult to collect sufficient Monte Carlo statistics. This
+necessitates the use of a data-driven background modeling technique, which is
 described in \Sect{\ref{sec:bkgdestimation}}.
 
 The scalar resonance signal model is simulated at leading order in \alphas using
@@ -251,7 +260,18 @@ and the biases inherent in the background estimation procedure. The interplay be
 pairing is an important part of the choices made for this analysis.
 
 A comparison of different shapes due to three different paring strategies is shown in
-Figure \ref{fig:pairing-massplanes}.
+Figure \ref{fig:pairing-massplanes}. The Boosted Decision Tree (BDT) pairing and $\min{\dr}$ pairing 
+are used for the analyses presented here, and are described in more detail below. The $D_{HH}$ pairing 
+was used for the early Run 2 searches~\cite{EXOT-2016-31}, and is based on minimizing the quantity 
+\begin{equation}
+D_{HH} = \frac{\qty|m_{H1} - \frac{120}{110}m_{H2}|}{\sqrt{1+\qty(\frac{120}{110})^2}},
+\end{equation}
+corresponding to the the distance of the reconstructed Higgs candidate masses from a line 
+running from $(0, 0)$ to the center of the signal region, (\SI{120}{\GeV}, \SI{110}{\GeV}) in 
+leading and subleading Higgs candidate masses, ($m_{H1}$, $m_{H2}$). Note that while 
+this achieves good pairing efficiency with respect to truth across a broad $HH$ mass range, it significantly 
+sculpts the mass plane (as seen in Figure \ref{fig:pairing-massplanes}), motivating the new 
+approaches considered here.
 
 
 \begin{figure}[ht]
@@ -295,7 +315,7 @@ by the top veto described in Section \ref{sec:kinematic-cuts}.}
 		 }
 \caption{\label{fig:pairing-signal} 
 Comparison of signal distributions in the respective signal regions for the $\min\Delta R$ and 
-$D_{HH}$ pairing for various values of the Higgs trilinear coupling in the respective signal regions. The 
+$D_{HH}$ pairing for various values of the Higgs trilinear coupling. The 
 distributions are quite similar at the Standard Model point, but for other variations, $\min\Delta R$ does not 
 pick up the low mass features.}
 \end{figure}
@@ -366,6 +386,33 @@ but, because the $4b$ channel has the strongest contribution near the Standard M
 large low mass background present with other pairing methods, the impact on analysis sensitivity 
 is mitigated. The $\min{\dr}$ pairing is thus adopted for the non-resonant search.
 
+\subsection{Pairing Efficiencies}
+Though this is implicit in the above descriptions, an explicit examination of the pairing 
+efficiencies with respect to truth for the respective signal samples has been performed for both 
+$\min{\Delta R}$ and the BDT pairing. Conceptually, for high invariant mass of the $HH$ system, 
+each Higgs has a high $p_{T}$ and the the $b$-jets corresponding to a given Higgs are more collimated. 
+In this case, angular information such as that exploited both directly by $\min{\Delta R}$ and as inputs in 
+the BDT pairing may be expected to be a good discriminant for determining the $HH$ system. Indeed 
+for resonance masses above \SI{500}{\GeV}, the pairing efficiency for both algorithms is close to 
+100~\%.
+
+For lower $HH$ masses, the jets corresponding to a given Higgs are no longer as collimated, such that 
+$\min{\Delta R}$ is no longer guaranteed to pick up the correct pairing (e.g. in a case when the four jets 
+involved are isotropic), and the pairing efficiency steadily gets worse as the $HH$ mass decreases. On 
+resonant samples, e.g., the $\min{\Delta R}$ efficiency drops below 80~\% near \SI{400}{\GeV}. 
+The additional information exploited by the BDT mitigates this somewhat, though there is still a drop 
+in efficiency at lower $m_{HH}$. Interestingly, the BDT pairing demonstrates a 
+rise in pairing efficiency near the threshold of \SI{250}{\GeV}, likely due to the limited kinematic 
+phase space for the $HH$ system in this region.
+
+The examination of the pairing efficiency as a function of $m_{HH}$ has a more direct correspondence for 
+resonant samples, but it of course applies to non-resonant samples as well, resulting in the behavior shown 
+in Figure \ref{fig:pairing-signal}. Note that the above statement 
+that $\min{\dr}$ discards low mass events is a consequence of the reduced pairing efficiency at low mass -- 
+the pairing algorithm itself does not make any cuts, but the mis-reconstruction of low mass signal results 
+in the reconstruction of Higgs candidates with masses away from \SI{125}{\GeV}, placing such events outside of 
+the kinematic signal regions defined in Section \ref{sec:kinematic-reg}.
+
 \FloatBarrier
 \clearpage
 \section{Background Reduction and Top Veto}
@@ -406,8 +453,43 @@ However, for the non-resonant search, the top candidates considered for $X_{\PW\
 additional requirement that the jet used for the $b$ is $b$-tagged. While this is identical
 to the resonant analysis by definition for $4b$ events, it does change the set of events 
 considered in lower tag regions, in particular for the $2b$ events considered in the derivation
-of the background estimate. Such a change is found to reduce the impact of background systematics
-by increasing $2b$ support in the high $X_{\PW\Pqt}$ kinematic region. \todo{Insert plots of variables}
+of the background estimate. Such a change is found to reduce the impact of background systematics, an 
+effect that is thought to be due to the shifting of $2b$ events to higher values of $X_{\PW\Pqt}$ (due to 
+this more stringent requirement), where, e.g, the Standard Model signal peaks.
+
+The distribution of this variable is shown for $t\bar{t}$ Monte Carlo and representative signal 
+samples for the resonant and non-resonant $4b$ signal regions in Figures \ref{fig:Xwt-res} and 
+\ref{fig:Xwt-nonres} respectively, with a line at the cut value of 1.5. Individual years are shown, 
+but results are representative across years. For the resonant analysis, the value of the cut is 
+constrained by low mass resonances, with the value of 1.5 chosen as a compromise between $t\bar{t}$ 
+rejection and retaining sensitivity for these signals. For the non-resonant, though e.g., the SM signal 
+peaks at higher values, a more aggressive cut on $X_{Wt}$ was found to decrease analysis sensitivity, 
+so the value of 1.5 is kept.
+\begin{figure}
+\centering
+\subfloat{
+		  \includegraphics[width=0.8\textwidth]{figures/Xwt-res.pdf}
+  }
+\caption{\label{fig:Xwt-res} \textbf{Resonant search}: Illustration of the impact of the top veto on $t\bar{t}$ 
+Monte Carlo for the resonant analysis, with representative scalar signals shown for reference. The cut value 
+used is 1.5, shown in the dashed black, and events below this value are discarded. This top veto clearly removes 
+the bulk of $t\bar{t}$ events, and the value of the cut is chosen to retain analysis sensitivity, particularly for 
+low mass.}
+\end{figure}
+
+\begin{figure}
+\centering
+\subfloat{
+		  \includegraphics[width=0.8\textwidth]{figures/Xwt-nonres.pdf}
+  }
+\caption{\label{fig:Xwt-nonres} \textbf{Non-resonant search}: Illustration of the impact of the top veto on $t\bar{t}$ 
+Monte Carlo for the non-resonant analysis, with the Standard Model signal shown for reference. The cut value 
+used is 1.5, shown in the dashed black, and events below this value are discarded. This top veto clearly removes 
+the bulk of $t\bar{t}$ events. While this plot may seem to motivate a more aggressive cut on $X_{Wt}$, increasing 
+the value of the cut was found to reduce analysis sensitivity.}
+\end{figure}
+
+
 
 \FloatBarrier
 \clearpage
@@ -1124,67 +1206,6 @@ background estimate.
 
 \FloatBarrier
 \clearpage
-\section{Overview of Other \bbbb Channels}
-The results discussed above have been developed in conjunction with (1) a boosted channel 
-for the resonant search and (2) a vector boson fusion (VBF) channel for the non-resonant search. 
-Detailed discussions of these two channels are beyond the scope of this thesis, though a 
-combined set of resolved and boosted results are presented below. The VBF results are 
-not included in this thesis, but much of this thesis work has been useful in the development 
-of that result. For completeness, we therefore briefly summarize both analyses here.
-
-\subsection{Resonant: Boosted Channel}
-The boosted analysis selection targets resonance masses from \SI{900}{\GeV} to \SI{5}{\TeV}.
-In such events, $\higgs$ decays have a high Lorentz boost, such that the $b\bar{b}$ decays are
-very collimated. The resolved analysis fails to reconstruct such $\higgs\higgs$ events, as the 
-$R=0.4$ jets start to overlap. 
-
-The boosted analysis instead reconstructs $\higgs$ decays as large radius, $R=1.0$ jets, with 
-corresponding $\Pqb$-quarks identified with variable radius subjets, that is jets with a 
-radius that scales as $\rho / p_{T}$, the $p_{T}$ is that of the jet in question, and
-$\rho$ is a fixed parameter, here chosen to be \SI{30}{\GeV}, which is optimized to maintain 
-truth-level double b-labeling efficiency across the full range of Higgs jet $p_{T}$~\cite{ATL-PHYS-PUB-2017-010}.
-
-Due to limited boosted b-tagging efficiency and to maintain sensitivity 
-even when \bjets are highly collimated, the boosted analysis is divided into three categories 
-based on the number of \btagged jets associated to each large radius jet:
-\begin{itemize}
-	\item $4b$ category: two \btagged jets in each
-	\item $2b-1$ category: two \btagged jets in one, one in the other
-	\item $1b-1$ category: one \btagged jet in each
-\end{itemize} 
-
-The analysis then proceeds in each of these categories.
-
-The resolved and boosted channels are combined for resonance masses from \SI{900}{\GeV} 
-to \SI{1.5}{\TeV} inclusive. To keep the channels statistically independent, the boosted channel 
-vetoes events passing the resolved analysis selection.
-
-
-\subsection{Non-resonant: VBF Channel} 
-The vector boson fusion channel is only considered for the non-resonant search. While the 
-sensitivity is in general much more limited than the gluon-gluon fusion analysis due to the 
-much smaller production cross section, VBF is sensitive to a variety of Beyond the Standard 
-Model physics, both complementary and orthogonal to the theoretical scope of gluon-gluon fusion. 
-
-The VBF channel proceeds very similarly to the ggF, with the primary differences being the 
-kinematic selections and the categorization, which are impacted by the 
-presence of two \emph{VBF jets}, resulting from the two initial state quarks. The ggF channel 
-result presented here includes a veto on VBF events, such that if events pass the full 
-VBF selection, they are not included in the set of events considered for the ggF result.
-
-Beginning with the assumption of four $HH$ jets and two VBF jets, the VBF channel first requires an 
-event to have a minimum six jets. The VBF jets are reconstructed as the two jets with the 
-highest di-jet invariant mass, $m_{jj}$, out of the set of all non-tagged jets in the event. If no such pair 
-exists (i.e., there are less than two non-tagged jets), the event is placed in the ggF channel. 
-To reduce the number of background events, three cuts are then applied, VBF jets are required to have 
-$\Delta \eta > 3$ and a combined invariant mass of $m_{jj}>$ \SI{1000}{\GeV}. $HH$ jets are identified 
-as in the ggF channel, and the vector sum of the $p_{T}$ of the $HH$ and VBF jets is required to be 
-less than \SI{65}{\GeV}. The remainder of the analysis proceeds similarly to the ggF channel, and 
-events failing any stage of this selection are considered for ggF.
-
-Note that the background estimation for the VBF channel is inherited from the resonant 
-and ggF analyses, a significant additional contribution of this thesis work.
-
 \section{$m_{HH}$ Distributions}
 \subsection{Resonant Search}
 The final discriminant used for the resonant search is corrected $m_{HH}$. Histogram binning was 
@@ -1228,12 +1249,18 @@ years separately. Agreement is generally good throughout.
 \begin{figure}[ht]
   \centering
   \subfloat{
-    \includegraphics[width=0.65\textwidth]{figures/resolved-mhh.pdf}
+    \includegraphics[width=0.48\textwidth]{figures/resolved-mhh.pdf}
+  }
+  \subfloat{
+    \includegraphics[width=0.48\textwidth]{figures/resolved-mhh-spin2.pdf}
   }
   \caption{\label{fig:res-sr-mhh} \textbf{Resonant Search}: Signal region agreement of the background estimate and 
-  observed data after a background-only profile likelihood fit. The closure is generally quite good, 
-  though there is an evident deficit in the background estimate relative to the data for higher values 
-  of corrected $m_{HH}$.}
+  observed data after a background-only profile likelihood fit. The left plot overlays a variety of representative 
+  spin-0 signals, while the right does the same for spin-2. The background and data are identical between the two. 
+  The closure is generally quite good, though there is an evident deficit in the background estimate relative to the 
+  data for higher values of corrected $m_{HH}$. Note that the spin-2 signals are significantly wider than the spin-0 
+  signals. Near the kinematic threshold of \SI{250}{\GeV}, this leads to, e.g., the double peaked structure of the 
+  \SI{280}{\GeV} signal, which is understood to be an effect of the limited kinematic phase space in this region.}
 \end{figure}
 
 \FloatBarrier
