@@ -401,7 +401,33 @@ the assumption that these events are more similar to signal region events, while
 from the signal region, mitigating signal contamination. This region selection is found to have good performance
 in alternate validation regions (see Section \ref{sec:bkgd-validation}).
 
-\subsection{Discriminating Variable}
+Figure \ref{fig:a-times-e} shows the signal acceptance times efficiency for the respective analysis selections 
+described above for spin-0, spin-2, and $4b$ Standard Model signals. 
+
+\begin{figure}[ht]
+\centering
+\subfloat[Spin-0 signal]{
+		  \includegraphics[width=0.48\textwidth]{figures/spin-0-a-times-e.pdf}
+  }
+\subfloat[Spin-2 signal]{
+		  \includegraphics[width=0.48\textwidth]{figures/spin-2-a-times-e.pdf}
+}
+
+\subfloat[SM HH signal]{
+		  \includegraphics[width=0.48\textwidth]{figures/SM-HH-a-times-e-all-years-log-scale.pdf}
+}
+\caption{\label{fig:a-times-e} Acceptance times efficiency for the respective analysis selections for 
+spin-0, spin-2, and $4b$ Standard Model signals. The Standard Model acceptance times efficiency is roughly 
+consistent with the resonant signals in the mass range near the Standard Model peak (near 400 to \SI{600}{\GeV}). 
+Acceptance times efficiency at low mass is mostly limited by the trigger, whereas for higher masses, the 
+jets start to merge together, and the efficiency for reconstructing four $b$-tagged jets decreases.
+The spin-2 signal has a higher low mass acceptance times efficiency than spin-0 due to the broader signal 
+distributions of this variable, which leads to a distortion of this distribution towards higher mass values. 
+The increase in acceptance times efficiency at very low mass reflects the impact of the kinematic threshold of 
+\SI{250}{\GeV}.}
+\end{figure}
+
+\section{Discriminating Variable}
 \label{subsec:disc-var}
 
 The discriminant used for the resonant analysis is \emph{corrected $m_{HH}$}. This
@@ -431,8 +457,7 @@ variable which, along with \mhh, fully characterizes the $HH$ system~\cite{cosTh
 and $X_{HH}$, the variable used for the 
 signal region definition, which leverages the peaked structure of the 
 signal in the ($\mh1$, $\mh2$) plane to split the signal extraction fit into lower and higher
-purity regions (highest purity near $X_{HH} = 0$, the center of the signal region).
-Distributions of these variables are shown in \todo{plots}. The categorization used for this 
-thesis has been optimized to be $2\times 2$ in these variables, with corresponding selections 
+purity regions (highest purity near $X_{HH} = 0$, the center of the signal region). The categorization 
+used for this thesis has been optimized to be $2\times 2$ in these variables, with corresponding selections 
 $0 \leq \Delta \eta_{HH} \leq 0.75$ and $0.75 \leq \Delta \eta_{HH} \leq 1.5$ for $\Delta \eta_{HH}$, 
 and $0 \leq X_{HH} \leq 0.95$ and $0.95 \leq X_{HH} \leq 1.6$ for $X_{HH}$.
