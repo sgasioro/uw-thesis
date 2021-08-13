@@ -9,9 +9,13 @@ corresponding to a bin width of \SI{14.3}{\GeV}, and overflow events (events abo
 are included in the last bin. A demonstration of the performance of the reweighting on this 
 distribution is shown in Figure \ref{fig:res-cr-mhh} for the the control region and Figure \ref{fig:res-vr-mhh} for 
 the the validation region. A background-only profile likelihood fit is run for the distribution in the signal 
-region, and results with spin-0 signals overlaid are shown in Figure \ref{fig:res-sr-mhh}. Note that 
-the plots show the sum across all years, but the signal extraction fit and background estimate are run with the 
-years separately. Agreement is generally good throughout.
+region, and results with representative signals overlaid are shown in Figure \ref{fig:res-sr-mhh}. $4b$ data yields, 
+estimated background, and signal event yields are extracted for representative mass hypotheses in a 
+corrected $m_{HH}$ window containing roughly 90~\% of the corresponding signal after this same background-only 
+fit in the signal region. These results are shown in Tables \ref{tab:resolved-yields-spin0} and 
+\ref{tab:resolved-yields-spin2} for spin-0 and spin-2 respectively. Note that 
+the plots and tables show the sum across all years, but the signal extraction fit and background estimate are run with the 
+years separately. Agreement is generally good throughout. 
 
 \begin{figure}[ht]
   \centering
@@ -57,6 +61,49 @@ years separately. Agreement is generally good throughout.
   signals. Near the kinematic threshold of \SI{250}{\GeV}, this leads to, e.g., the double peaked structure of the 
   \SI{280}{\GeV} signal, which is understood to be an effect of the limited kinematic phase space in this region.}
 \end{figure}
+
+\begin{table}[tbp]
+  \begin{center}
+    \caption{Resolved \(4b\) signal region data, estimated background, and signal event yields in corrected \mhh windows containing roughly 90\% of each signal, for representative spin-0 mass hypotheses.
+             The signal is normalized to the overall expected limit on its cross-section; its uncertainties are evaluated by adding all individual components in quadrature.
+             The background yields and uncertainties are evaluated after a background-only fit to the data. ~\cite{ATLAS-CONF-2021-035}.
+            }
+    \label{tab:resolved-yields-spin0}
+    \sisetup{group-minimum-digits=4}
+    \begin{tabular}{lc S[table-format=5.0] S[table-format=5.1]@{\(\;\pm\;\)}S[table-format=3.1] S[table-format=3.2]@{\(\;\pm\;\)}S[table-format=2.2]}
+      \toprule
+      \(m(X)\) [\GeV] & Corrected \mhh range [\GeV] & \multicolumn{1}{c}{Data}  & \multicolumn{2}{c}{Background model} & \multicolumn{2}{c}{Spin-0 signal model} \\ 
+      \midrule
+      260  &   [250, 321] & 18554 & 18300   & 110   & 503   & 43 \\
+      500  &   [464, 536] &  2827 &  2866   &  22   & 105.4 & 5.7 \\
+      800  &   [750, 850] &   358 &   366.2 &   7.3 &  37.7 & 1.7 \\
+      1200 & [1079, 1250] &    68 &    52.6 &   1.7 &  11.71 & 0.62 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[tbp]
+  \begin{center}
+    \caption{Resolved \(4b\) signal region data, estimated background, and signal event yields in corrected \mhh windows containing roughly 90\% of each signal, for representative spin-2 mass hypotheses.
+             The signal is normalized to the overall expected limit on its cross-section; its uncertainties are evaluated by adding all individual components in quadrature.
+             The background yields and uncertainties are evaluated after a background-only fit to the data. ~\cite{ATLAS-CONF-2021-035}.
+            }
+    \label{tab:resolved-yields-spin2}
+    \sisetup{group-minimum-digits=4}
+    \begin{tabular}{lc S[table-format=5.0] S[table-format=5.1]@{\(\;\pm\;\)}S[table-format=3.1] S[table-format=3.2]@{\(\;\pm\;\)}S[table-format=2.2]}
+      \toprule
+      \(m(G_{KK}^{*})\) [\GeV] & Corrected \mhh range [\GeV] & \multicolumn{1}{c}{Data}  & \multicolumn{2}{c}{Background model} & \multicolumn{2}{c}{Spin-2 signal model} \\ 
+      \midrule
+      260  &  [250, 393] & 26775 & 26650   & 130   & 368    & 25 \\
+      500  &  [464, 636] &  4655 &  4719   &  37   & 138.6  &  5.7 \\
+      800  &  [707, 950] &   795 &   811   &  13   &  52.1  &  1.9 \\
+      1200 & [993, 1279] &   146 &   120.6 &   2.8 &  14.45 &  0.67 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
 
 \FloatBarrier
 \subsection{Non-resonant Search}
@@ -205,7 +252,7 @@ graviton masses between \SIlist{298;1440}{\GeV}.
     \includegraphics[width=0.65\textwidth]{figures/limits-graviton-5-TeV.pdf}
   }
   \caption{\label{fig:res-limits}
-    Expected (dashed black) and observed (solid black) 95\% CL upper limits on the cross-section times branching ratio of resonant production for spin-0 (\(X \rightarrow HH\)) and spin-2 \(G_{KK}^{*} \rightarrow HH\). 
+    Expected (dashed black) and observed (solid black) 95\% CL upper limits on the cross-section times branching ratio of resonant production for spin-0 (\(X \rightarrow HH\)) and spin-2 (\(G_{KK}^{*} \rightarrow HH\)). 
     The \(\pm 1\sigma\) and \(\pm 2\sigma\) ranges for the expected limits are shown in the colored bands. 
     The resolved channel expected limit is shown in dashed pink and covers the range from \SIlist{251;1500}{\GeV}. 
     It is combined with the boosted channel (dashed blue) between \SIlist{900;1500}{\GeV}.
@@ -215,9 +262,39 @@ graviton masses between \SIlist{298;1440}{\GeV}.
     above \SI{3}{\TeV} is being evaluated.}
 \end{figure}
 
+\begin{figure}[ht]
+  \centering
+  \vspace*{-3cm}
+  \subfloat[]{
+    \label{fig:limits-spin0-early-Run2}
+    \includegraphics[width=0.65\textwidth]{figures/scalar-limits-early-Run2.pdf}
+  }
+
+  \subfloat[]{
+    \label{fig:limits-spin2-early-Run-2}
+    \includegraphics[width=0.65\textwidth]{figures/grav-limits-early-Run2.pdf}
+  }
+  \caption{\label{fig:res-limits-early-Run-2} Expected (dashed black) and observed (solid black) 95\% CL upper limits 
+  or spin-0 (Scalar\(\rightarrow HH\rightarrow \bbbb \)) and spin-2 (\(G_{KK} \rightarrow HH \rightarrow \bbbb\)) from the
+  early Run 2 $4b$ search~\cite{EXOT-2016-31}, to be compared with the results in Figure \ref{fig:res-limits}. Note that 
+  the $y$-axis scaling differs from Figure \ref{fig:res-limits} by a factor of the $HH\rightarrow \bbbb$ branching ratio.
+  An excess is present at \SI{280}{\GeV}, with local (global) significance $3.6 (2.3)\sigma$. The spin-2 
+  bulk Randall-Sundrum model with $k/\overline{M}_{\mathrm{Pl}} = 1$ is excluded for graviton masses between \SIlist{313;1362}{\GeV}.}
+\end{figure}
+
+Results from the early Run 2 $4b$ resonant search~\cite{EXOT-2016-31} are included in Figure 
+\ref{fig:res-limits-early-Run-2} for comparison. The full Run 2 results of this thesis represent an 
+improvement in sensitivity, 
+with an expanded exclusion for the spin-2 search of graviton masses between \SIlist{298;1440}{\GeV}, relative 
+to the early Run 2 result, 
+with exclusion between \SIlist{313;1362}{\GeV}. An excess is present in the early Run 2 results at \SI{280}{\GeV}, 
+with local (global) significance $3.6 (2.3)\sigma$. This is no longer present in the full Run 2 results, 
+indicative of improved background modeling in this low mass region.
+
 Preliminary results are presented here for the gluon-gluon fusion non-resonant search, combining results from the $4b$ 
 and $3b+1l$ signal regions in the $2\times 2$ category scheme in $\Delta \eta_{HH}$ and $X_{HH}$. These results will be 
-further combined with a VBF channel as discussed, but this is left for future work. Results shown here include 
+further combined with a VBF channel (discussed in Appendix \ref{app:other-channels}), but this is left for future work. 
+Results shown here include 
 background all background uncertainties, but do not include signal systematics. Limits are set for $\kappa_{\lambda}$ 
 values from $-20$ to $20$. 
 The cross section limit for $HH$ production is set at \SI{140}{\fb} (\SI{180}{\fb}) observed (expected), 
@@ -239,14 +316,15 @@ $\kappa_{\lambda}$ is constrained to be within the range $-4.9 \leq \kappa_{\lam
 predicted Standard Model cross section. Results do not include signal systematics.}
 \end{table}
 
-We note that this is a significant improvement over the early Run 2 result, which achieved an observed (expected) 
+This is a significant improvement over the early Run 2 result, which achieved an observed (expected) 
 limit of 12.9 (20.7) times the Standard Model prediction. The dataset is 4.6 times larger, and a naive scaling 
 of the early Run 2 result (Poisson statistics $\implies$ a factor of $1/\sqrt{4.6}$) would predict an observed (expected)
 limit of 6.0 (9.7) times the Standard Model. The result of 4.4 (5.9) observed (expected) presented here is 
 therefore both an improvement by a factor of 3 (3.5) over the previous result and also beats the statistical 
-scaling by around 30 (40)~\%, demonstrating the impact of the various analysis improvements presented here. We 
-note again that these results do not include the complete set of uncertainties -- however we expect the addition 
-of the remaining uncertainties to have no more than a few percent impact.
+scaling by around 30 (40)~\%, demonstrating the impact of the various analysis improvements presented here. Note again that these results do not include the complete set of uncertainties -- however, the addition 
+of the remaining uncertainties is expected to have no more than a few percent impact.
+
+Further comparisons of both the resonant and non-resonant results are presented in Chapter \ref{chap:compare}.
 
 \begin{figure}[ht]
   \centering
@@ -263,24 +341,24 @@ of the remaining uncertainties to have no more than a few percent impact.
     corresponding to an observed (expected) limit of $4.4$ ($5.9$) times the Standard Model prediction. 
     $\kappa_{\lambda}$ is constrained to be within the range $-4.9 \leq \kappa_{\lambda} \leq 14.4$ observed 
     ($-3.9 \leq \kappa_{\lambda} \leq 10.9$ expected). The nominal \(H \rightarrow b\bar{b}\) branching ratio is 
-    taken as 0.582. We note that the excess present for $\kappa_{\lambda}\geq 5$ is thought to be due to a low mass 
-    background mis-modeling, present due to the optimization of this analysis for the Standard Model point, and is not present in more sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$).
+    taken as 0.582. The excess present for $\kappa_{\lambda}\geq 5$ is thought to be due to a low mass 
+    background mis-modeling, present due to the optimization of this analysis for the Standard Model point, and is not present in more sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$~\cite{ATLAS-CONF-2021-016}).
   }
 \end{figure}
 
 The observed limits presented in Figure \ref{fig:nonres-limits} are consistently above the $2\sigma$ band for values of 
 $\kappa_{\lambda} \geq 5$, peaking at a local significance of $3.8\sigma$ for $\kappa_{\lambda} = 6$. 
 As this analysis is optimized for points near the Standard Model, and as there is no excess present in more 
-sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$\todo{include comparison}), we do 
-not believe this is a real effect, but is rather due to a mis-modeling of the background at low mass, where 
+sensitive channels in this same region (e.g. $HH\rightarrow bb\gamma\gamma$~\cite{ATLAS-CONF-2021-016}), it is 
+not believed this is a real effect, but is rather due to a mis-modeling of the background at low mass, where 
 the $\min{\Delta R}$ pairing 
 has poor signal efficiency and the assumption of well behaved background in the mass plane breaks down. This is 
 consistent with the location of the $\kappa_{\lambda} = 6$ signal in $m_{HH}$, as shown in Figures \ref{fig:nonres-sr-mhh-4b} and \ref{fig:nonres-sr-mhh-3b1l}.
 It was considered, but not implemented, for this analysis to impose a cut on $m_{HH}$ near $350$ or \SI{400}{\GeV} to avoid such a low mass modeling issue.
 
-To check the impact of if we would have imposed such a cut, and to verify that the excess is due to the low mass regime, 
-we therefore run the same set of limits without the low mass bins. In this case, we choose to simply drop the 
-first few bins in $m_{HH}$ such that everything else, including the higher mass bin edges, is kept the same. Due to 
+To check the impact of if such a cut would have been imposed, and to verify that the excess is due to the low mass regime, 
+the same set of limits is run without the low mass bins. In this case, the first few bins in $m_{HH}$ are simply dropped, 
+such that everything else, including the higher mass bin edges, is kept the same. Due to 
 the variable width binning, this corresponds to an $m_{HH}$ cut of \SI{381}{\GeV}. The results of this check are shown 
 in Figure \ref{fig:nonres-limits-with-cut}, and the corresponding limits for Standard Model $HH$ are 
 quoted in Table \ref{tbl:SM-HH-limits-mhh-cut}.
@@ -288,8 +366,8 @@ With the $m_{HH}$ cut imposed, there is a slight degradation in the expected lim
 values of $\kappa_{\lambda}$, but the points near the Standard Model are nearly identical. Further, the observed excess 
 is significantly reduced, with observed limits for $\kappa_{\lambda} \geq 5$ now falling entirely within the expected 
 $1\sigma$ band. Due to the preliminary nature of these results, further study is left for future work. However, 
-we believe, in conjunction with the $HH\rightarrow bb\gamma\gamma$ results and our expectations about the difficulty 
-of the background estimation at low mass, that this is demonstrative of a mis-modeling rather than a real excess. 
+in conjunction with the $HH\rightarrow bb\gamma\gamma$ results and expectations about the difficulty 
+of the background estimation at low mass, it is believed that this is demonstrative of a mis-modeling rather than a real excess. 
 
 \begin{figure}[ht]
   \centering

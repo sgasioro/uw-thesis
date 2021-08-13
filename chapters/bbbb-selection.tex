@@ -36,9 +36,14 @@ by $p_{T}$ (e.g. for the 2$b$ region, the jets chosen are the two $b$-tagged jet
 highest $p_{T}$ non-tagged jets; for the $4b$ region, the jets are the four highest $p_{T}$ $b$-tagged
 jets). To match the topology of a $HH\rightarrow \bbbb$ event, these four jets are then \emph{paired}
 into \emph{Higgs candidates}: the four jets are split into two sets of two, and each of these pairs is
-used to define a reconstructed object that is a proxy for a Higgs in a $HH$ event.
+used to define a reconstructed object that is a proxy for a Higgs in a $HH$ event. The four-vectors of 
+these reconstructed objects may then be used for a variety of selections which check the consistency 
+of the reconstructed $HH$ system with the expected $HH$ signal kinematics. Kinematic quantities corresponding 
+to each Higgs candidate are denoted with subscripts $H1$ and $H2$ for leading and subleading Higgs candidates 
+respectively (e.g. $m_{H1}$ and $m_{H2}$ for the Higgs candidate masses).
 
-For four jets there are three possible pairings. For signal events, a correct pairing can be identified
+For four jets there are three possible pairings of jets into Higgs candidates. For signal events, a correct 
+pairing can be identified
 (provided all necessary jets pass pre-selection) using the truth information of the Monte Carlo simulation, 
 and such information may be used to design/select an appropriate pairing algorithm. This is only part of 
 the story, however. The vast majority of the events in data do \emph{not} include a real $HH$ decay (this is 
@@ -77,7 +82,8 @@ approaches considered here.
 		  \includegraphics[width=0.48\textwidth]{figures/DHH-pairing-2b-massplane.png}
 		 }
 \caption{\label{fig:pairing-massplanes} Comparison of $m_{H1}$ vs $m_{H2}$ planes for the full Run 2 $2b$ 
-dataset with different pairings. As evidenced, this choice significantly impacts where events 
+dataset with different pairings, where $m_{H1}$ and $m_{H2}$ are the invariant masses of the leading and 
+subleading Higgs candidates. As evidenced, this choice significantly impacts where events 
 fall in this plane, and therefore which events fall into the various kinematic regions defined in 
 this plane (see Section \ref{sec:kinematic-reg}). The signal regions for the resonant/early Run 2 analysis 
 are shown for reference for the BDT and $D_{HH}$ pairings, while the the $\min\Delta R$ signal region shifted 
