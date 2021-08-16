@@ -3122,6 +3122,35 @@
       \field{note}{Accessed: 27 July 2021}
       \field{title}{CERN's accelerator complex}
     \endentry
+    \entry{ATLASupgrade-phase2}{article}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labeltitlesource}{title}
+      \field{title}{{Letter of Intent for the Phase-II Upgrade of the ATLAS Experiment}}
+      \field{year}{2012}
+    \endentry
+    \entry{HiLumi}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4307556c37e5f5929b842eae872d4f76}{%
+           family={Project},
+           familyi={P\bibinitperiod},
+           given={HL-LHC},
+           giveni={H\bibinithyphendelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{4307556c37e5f5929b842eae872d4f76}
+      \strng{fullhash}{4307556c37e5f5929b842eae872d4f76}
+      \strng{bibnamehash}{4307556c37e5f5929b842eae872d4f76}
+      \strng{authorbibnamehash}{4307556c37e5f5929b842eae872d4f76}
+      \strng{authornamehash}{4307556c37e5f5929b842eae872d4f76}
+      \strng{authorfullhash}{4307556c37e5f5929b842eae872d4f76}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://hilumilhc.web.cern.ch/content/hl-lhc-project}}
+      \field{note}{Accessed: 16 August 2021}
+      \field{title}{The HL-LHC project}
+    \endentry
     \entry{DetectorImage}{unpublished}{}
       \name{author}{1}{}{%
         {{hash=09e214119185ac51997b4face21351a1}{%
@@ -3318,8 +3347,8 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{8}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}
@@ -4539,8 +4568,8 @@
       \strng{authorbibnamehash}{4034275bca42b52c1a394d599186c42e}
       \strng{authornamehash}{4034275bca42b52c1a394d599186c42e}
       \strng{authorfullhash}{2a20bc4baf699bf2195a490827b183c3}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Geant4 is a toolkit for simulating the passage of particles through matter. It includes a complete range of functionality including tracking, geometry, physics models and hits. The physics processes offered cover a comprehensive range, including electromagnetic, hadronic and optical processes, a large set of long-lived particles, materials and elements, over a wide energy range starting, in some cases, from 250eV and extending in others to the TeV energy range. It has been designed and constructed to expose the physics models utilised, to handle complex geometries, and to enable its easy adaptation for optimal use in different sets of applications. The toolkit is the result of a worldwide collaboration of physicists and software engineers. It has been created exploiting software engineering and object-oriented technology and implemented in the C++ programming language. It has been used in applications in particle physics, nuclear physics, accelerator design, space engineering and medical physics.}
@@ -5090,8 +5119,8 @@
       \strng{authornamehash}{ebfe6052e5f504e4a3579c49c44afe41}
       \strng{authorfullhash}{ebfe6052e5f504e4a3579c49c44afe41}
       \field{extraname}{14}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{hep-ex}

@@ -1,15 +1,15 @@
 \chapter{Experimental Apparatus}
 \label{chap:experiment}
 
-What machines must we build to examine the smallest pieces of the universe? The famous equation 
-$E = m$ provides that to create massive particles, we need to provide enough energy. In order to give 
+What machines must be built to examine the smallest pieces of the universe? The famous equation 
+$E = m$ provides that to create massive particles, enough energy must be provided. In order to give 
 kinematic phase space to the types of processes that are examined in this thesis (and many others besides),
 a system must be created in which there is enough energy to (at bare minimum), overcome kinematic thresholds:
 if you want to search for $HH$ decays, you should have at least \SI{250}{\GeV} ($= 2\times m_{H}$) to work with.
 It is not enough to simply induce such processes, however. These processes need to be captured in some way, emitted 
 energy and particles must be characterized and identified, and in the end all of this information must be put into a 
 useful and useable form such that selections can be made, statistics can be run, and a meaningful statement 
-can be made about the universe. In this chapter, we describe the machines behind the physics, namely the Large 
+can be made about the universe. This chapter describes the machines behind the physics, namely the Large 
 Hadron Collider and the ATLAS experiment.
 
 \section{The Large Hadron Collider}
@@ -31,8 +31,8 @@ Protons are then transferred to the Super Proton Synchrotron (SPS), which ramps 
 \SI{450}{\GeV}. Finally, the protons enter the LHC itself, bringing the beam up to \SI{6.5}{\TeV}~\cite{accelerator}.
 
 While there is, of course, much that goes into the Large Hadron Collider development and operation, perhaps
-two of the most fundamental ideas are (1) how are the beams directed and manipulated and (2) what do we 
-mean when we say ``protons are accelerated''. These questions both are directly answered by pieces of hardware,
+two of the most fundamental ideas are (1) how are the beams directed and manipulated and (2) what is 
+meant by ``protons are accelerated''. These questions both are directly answered by pieces of hardware,
 namely (1) magnets and (2) radiofrequency (RF) cavities.
 
 One of fundamental components of the LHC is a large set of superconducting niobium-titanium magnets. These 
@@ -44,8 +44,8 @@ perpendicular to the velocity of the charged particles, providing the necessary 
 the synchrotron motion.
 
 A proton beam is not made of a single proton, however, but of many protons, grouped into a series of \emph{bunches}.
-As all of these are positively charged, if unchecked, these bunches would become diffuse and break apart. What we 
-want is a stable beam with tightly clustered protons to maximize the chance of a high energy collision.
+As all of these are positively charged, if unchecked, these bunches would become diffuse and break apart. What is 
+desired is a stable beam with tightly clustered protons to maximize the chance of a high energy collision.
 Such clustering is done via a series of quadropole magnets, with field distributed as in 
 \todo{grab image from General Exam}. Alternating sets of quadropoles provide the necessary forces for a tight, 
 stable beam. While these are the two major components of the LHC magnet system, it is not the full story -- higher order 
@@ -57,14 +57,15 @@ oscillate (switch direction) at a precise rate. This oscillation creates RF \emp
 bunches corresponding to groups of protons that fill a given bucket. The timing is such that protons will always 
 experience an accelerating voltage, corresponding to the \SI{25}{\ns} bunch spacing used at the LHC.
 
-A nice property of this bucket/bunch configuration is that there is some self-correction -- there is 
-some finite spread in the grouping of particles. If a particle arrives too early, it will experience some 
+A nice property of this bucket/bunch configuration is that there is some self-correction. There is 
+some finite spread in the grouping of particles. However, if a particle arrives too early, it will experience a 
 decelerating voltage; if too late, it will experience a higher accelerating voltage.
 
 \subsection{The LHC Schedule}
 The physics program at the Large Hadron Collider is split into a variety of data taking periods called \emph{runs}.
 these runs correspond to various detector/accelerator configurations, and are interspersed with \emph{long shutdowns} -- 
-periods used for detector/accelerator upgrades in preparation for the next run. The LHC timeline is as follows 
+periods used for detector/accelerator upgrades in preparation for the next run. The LHC timeline is as 
+follows~\cite{ATLASupgrade-phase2,HiLumi}:
 \begin{enumerate}
 	\item Run 1 (2010--2013): First run of the LHC, operating at center of mass energy $\sqrt{s}=\SI{7}{\TeV}$, 
 	increased to \SI{8}{\TeV} in 2012. ATLAS recorded \SI{4.57}{\ifb} and \SI{20.3}{\ifb} of data usable for physics
@@ -98,7 +99,7 @@ periods used for detector/accelerator upgrades in preparation for the next run. 
 \end{figure}
 
 This thesis focuses on searches done with the ATLAS experiment. As mentioned, this is 
-one of two ``general purpose'' experiments at the LHC, by which we mean there is a 
+one of two ``general purpose'' experiments at the LHC, meaning that there is a
 very large and broad variety of physics done within the experimental collaboration. 
 This broad physics focus has a direct relation to the design of the ATLAS detector~\cite{PERF-2007-01}, pictured 
 in Figure \ref{fig:ATLAS-det}, which is composed of a sophisticated set of subsystems designed 
@@ -107,8 +108,8 @@ tracking detector surrounded by a thin superconducting solenoid, electromagnetic
 and a muon spectrometer incorporating three large superconducting toroidal magnets. The ATLAS detector 
 covers nearly the entire solid angle around the collision point, fully characterizing the ``visible'' 
 components of a collision and allowing for indirect sensitivity to particles that do not interact with the detector 
-(e.g. neutrinos) via ``missing'' energy (roughly momentum balance). We will go through the design and physics 
-contribution of each of the detector components in the following. A schematic of how various particles 
+(e.g. neutrinos) via ``missing'' energy (roughly momentum balance). The design and physics 
+contribution of each of the detector components is described in the following. A schematic of how various particles 
 interact with the detector is shown in Figure \ref{fig:ATLAS-shower}.
 
 \begin{figure}[ht]
@@ -180,12 +181,12 @@ The ATLAS calorimeter therefore has a \emph{sampling calorimeter} structure, nam
 of absorber interspersed with layers of sensitive material, giving the calorimeter ``stopping power'' 
 while allowing detailed measurement of the resulting particle shower and corresponding deposited energy.
 
-The ATLAS calorimetersystem covers the pseudorapidity range \(|\eta| < 4.9\), 
+The ATLAS calorimeter system covers the pseudorapidity range \(|\eta| < 4.9\), 
 and is primarily composed of two components, an electromagnetic calorimeter, 
 designed to measure particles which primarily interact via electromagnetism 
 (e.g. photons and electrons), and a hadronic calorimeter, designed to measure 
-particles which interact via the strong force (e.g. pions, other hadrons). We 
-will return to the differences between these in a moment. 
+particles which interact via the strong force (e.g. pions, other hadrons). These differences 
+are further described in Section \ref{sec:showering}.
 
 In ATLAS, the electromagnetic calorimeter covers the region of \(|\eta|< 3.2\),
 and uses lead for the absorbers and liquid-argon for the sensitive material. It is high 
@@ -234,6 +235,7 @@ are recorded to disk at much more manageable rate of about \SI{1}{\kHz}.
 An extensive set of ATLAS software~\cite{ATL-SOFT-PUB-2021-001} is open source, including the software used for real and simulated data reconstruction and analysis and that used in the trigger and data acquisition systems of the experiment.
 
 \subsection{Particle Showers and the Calorimeter}
+\label{sec:showering}
 The design of the ATLAS detector is directly tied to the physics it is trying to detect. Of these, 
 possibly the most non-trival distinction is in the calorimeter design. It is therefore useful to discuss in more 
 detail the various properties of electromagnetic and hadronic interactions with material, and how these 
@@ -253,7 +255,7 @@ two processes are equal is called the \emph{critical energy}, and is roughly
 \begin{equation}
 E_{c} \approx \frac{\SI{800}{\MeV}}{Z}
 \end{equation}
-where $Z$ is the nuclear charge. From a similar analysis of rates, we may see that the bremsstrahlung 
+where $Z$ is the nuclear charge. From a similar analysis of rates, it can be seen that the bremsstrahlung 
 rate is inversely proportional to the square of the mass of the particle. This explains why muons do not 
 shower in a similar way, as the rate of bremsstrahlung is suppressed by $(m_{e}/m_{\mu})^2$ relative to electrons.
 
@@ -267,7 +269,7 @@ such that for a \SI{100}{\GeV} shower in lead, $x\sim 13$. The radiation length 
 such that an electromagnetic shower could be expected to be captured within \SI{10}{\cm} of lead. 
 
 Electromagnetic showers are therefore characterized by depositing much of their energy within a small region 
-of space. As we show below (Chapter \ref{chap:simulation}) though electromagnetic showering is not deterministic, 
+of space. As shown below (Chapter \ref{chap:simulation}), though electromagnetic showering is not deterministic, 
 the large number of particles and the restricted set of processes involved means that the shower development as a whole 
 is very similar between individual electromagnetic showers of the same energy.
 
