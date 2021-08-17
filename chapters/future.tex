@@ -75,7 +75,7 @@ with sum of $1$, lending an interpretation as probability of each pairing.
 
 In training, the ground truth pairing is set by \emph{truth matching} jets to the $b$-jets 
 in the $HH$ signal simulation -- a jet is considered to match if it is $< 0.3$ in $\Delta R$
-away from a $b$-jet in the simulation record. Given this ground truth, a cross-entropy loss \todo{cite}
+away from a $b$-jet in the simulation record. Given this ground truth, a cross-entropy loss~\cite{MLbook}
 is used on the softmax outputs, and $w_{ij}$ and $\mathbf{h}$ are updated correspondingly.
 Training in such a way corresponds to updating $w_{ij}$ and $\mathbf{h}$ to maximize the similarity 
 metric for the correct pairing.

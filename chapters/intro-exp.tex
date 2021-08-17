@@ -8,7 +8,7 @@ a system must be created in which there is enough energy to (at bare minimum), o
 if you want to search for $HH$ decays, you should have at least \SI{250}{\GeV} ($= 2\times m_{H}$) to work with.
 It is not enough to simply induce such processes, however. These processes need to be captured in some way, emitted 
 energy and particles must be characterized and identified, and in the end all of this information must be put into a 
-useful and useable form such that selections can be made, statistics can be run, and a meaningful statement 
+useful and usable form such that selections can be made, statistics can be run, and a meaningful statement 
 can be made about the universe. This chapter describes the machines behind the physics, namely the Large 
 Hadron Collider and the ATLAS experiment.
 
@@ -46,10 +46,9 @@ the synchrotron motion.
 A proton beam is not made of a single proton, however, but of many protons, grouped into a series of \emph{bunches}.
 As all of these are positively charged, if unchecked, these bunches would become diffuse and break apart. What is 
 desired is a stable beam with tightly clustered protons to maximize the chance of a high energy collision.
-Such clustering is done via a series of quadropole magnets, with field distributed as in 
-\todo{grab image from General Exam}. Alternating sets of quadropoles provide the necessary forces for a tight, 
-stable beam. While these are the two major components of the LHC magnet system, it is not the full story -- higher order 
-magnets are used to correct for small imperfections in the beam.
+Such clustering is done via a series of quadrupole magnets, with alternating sets of quadrupoles providing 
+the necessary forces for a tight, stable beam. While these are the two major components of the LHC magnet system, 
+it is not the full story -- higher order magnets are used to correct for small imperfections in the beam.
 
 Magnetic fields do no work, however, so the magnet system is unable to do the job of the actual acceleration. This is 
 accomplished via a set of radiofrequency (RF) cavities. Within these cavities, an electric field is made to 
@@ -246,7 +245,18 @@ pair production. This proceeds roughly as follows: an electron entering a materi
 field of a heavy nucleus. This results in the radiation of a photon. That photon produces an electron-positron 
 pair, and the process repeats, resulting in a shower structure. At each step, characterized by 
 \emph{radiation length}, $X_{0}$, the number of particles approximately doubles and the average particle 
-energy decreases by approximately a factor of two. \todo{Include nice Thomson image}
+energy decreases by approximately a factor of two. An illustration of this process is shown in 
+Figure \ref{fig:em-shower}.
+
+\begin{figure}[ht]
+\centering
+\subfloat{
+		  \includegraphics[width=0.8\textwidth]{figures/em-shower}
+		 }
+\caption{\label{fig:em-shower} Illustration of electromagnetic showering. Repeated bremsstrahlung and 
+electron-positron pair production result in a shower structure in which the number of particles 
+approximately doubles every radiation length, $X_{0}$. Figure taken from~\cite{Thomson}.}
+\end{figure}
 
 Note that bremsstrahlung and pair production only dominate in specific energy regimes, with other processes 
 taking over depending on particle energy. For electrons, bremsstrahlung only dominates for higher energies,  

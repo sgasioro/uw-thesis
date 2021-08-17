@@ -226,6 +226,62 @@ where the $p$-values are calculated in the asymptotic approximation
 
 The signal cross-section {$\mu$}~\si{\femto\barn} is excluded at the 95\% confidence level if $\CLs < 0.05$.
 
+Nuisance parameter pulls and impacts for the background extrapolation uncertainties are shown for representative scalar 
+resonances in Figure \ref{fig:res-pull-imp}. Note that the fit includes all uncertainties. The $H_{T}$ nuisance 
+parameters are significantly pulled, corresponding to the expectation that the resonant validation region is 
+more similar to the signal region than the resonant control region is, though the control region is 
+where the nominal estimate is derived. A variety of 
+cross-checks have been done to confirm the healthy behavior of the signal extraction fit, despite these large pulls.
+\begin{figure}[ht]
+  \centering
+
+  \subfloat{
+    \includegraphics[width=0.48\textwidth]{figures/pulls-impacts-280}
+  }
+  \subfloat{
+    \includegraphics[width=0.48\textwidth]{figures/pulls-impacts-400}
+  }
+
+  \subfloat{
+    \includegraphics[width=0.48\textwidth]{figures/pulls-impacts-600}
+  }
+    \subfloat{
+    \includegraphics[width=0.48\textwidth]{figures/pulls-impacts-1000}
+  }
+  \caption{\label{fig:res-pull-imp} Pulls and impacts of the background extrapolation uncertainties for 
+  the resonant analysis, ranked by magnitude of post-fit impact and shown for a variety of representative scalar 
+  signals. Significant pulls of the $H_{T}$ systematics are present, corresponding to the expectation that the 
+  validation region is more similar to the signal region than the control region is. Nuisance parameter pulls 
+  are generally consistent across signal mass, but impacts vary, with low $H_{T}$ having the largest impact 
+  for low mass, and high $H_{T}$ for high mass. \SI{400}{\GeV} is near the split between the two regimes.}
+\end{figure}
+
+Corresponding nuisance parameter pulls for the Standard Model non-resonant search are shown in 
+Figure \ref{fig:nonres-pull}. There are significantly more parameters than the resonant search due to the 
+category scheme, as well as due to the splitting of the control/validation region comparison systematic into 
+four signal region quadrants. In general, however, the pulls are well behaved, and are generally consistent 
+with 0. The largest deviating pulls are less constrained than in the resonant search, such that these 
+deviations are still within $2\sigma$ of $0$.
+
+\begin{figure}[ht]
+  \centering
+  \hspace*{-2cm}
+  \subfloat{
+    \includegraphics[width=0.48\textwidth]{figures/unb-pulls-SM-HH-4b}
+  }
+  \subfloat{
+    \includegraphics[width=0.49\textwidth]{figures/unb-pulls-SM-HH-3b1l}
+  }
+
+  \caption{\label{fig:nonres-pull} Background control/validation region systematic nuisance parameter pulls for 
+  the Standard Model non-resonant signal, shown for $4b$ (left) and $3b1l$ (right) separately, though the two channels 
+  are fit together. There are four signal region quadrant nuisance parameters for each category in the $2\times 2$ scheme 
+  in $\Delta \eta_{HH}$ and $X_{HH}$, and each year is treated as a separate channel in the fit. Pulls are generally 
+  consistent with zero, though there are some trends: quadrant 1 $4b$ tends to be pulled negatively, 2016 tends to 
+  be pulled positively. Note that $4b$ dominates the sensitivity relative to $3b1l$.}
+\end{figure}
+
+
 \FloatBarrier
 \clearpage
 \section{Results}

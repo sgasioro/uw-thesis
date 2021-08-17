@@ -22,7 +22,7 @@ with each other via exchange of gluons, but also a sea of virtual gluons which m
 quarks. A hard scatter event is therefore characterized by the corresponding particle level 
 diagrams, but additionally by a set of \emph{parton distribution functions} (PDFs), which describe the 
 probability to find constituent quarks or gluons at carrying various momenta at a given energy 
-scale (often written $Q^2$). Such PDFs are measured experimentally \todo{cite} and the selection 
+scale (often written $Q^2$). Such PDFs are measured experimentally (see, e.g. ~\cite{PDF}) and the selection 
 of a ``PDF set'' and a given physics process characterizes the hard scatter. Depending on the model being 
 considered and the particular theoretical constraints, processes are often simulated at either leading (LO) 
 or next to leading order (NLO), corresponding to the order of the perturbative expansion (i.e. tree level 
@@ -89,7 +89,8 @@ The divergence of the baseline computing model from the projected computing budg
 		 }
 \caption{\label{fig:budget-plot} The projected ATLAS computational requirements for Run 3 and the HL-LHC 
 relative to the projected computing budget. Aggressive R\&D is required to keep resources within 
-budget~\cite{computing-budget}.}
+budget~\cite{computing-budget}. $y$-axis units are MHS06 $\cdot$ years, where HS06 is a high energy 
+physics specific CPU performance benchmark~\cite{HS06}.}
 \end{figure}
 
 The fast simulation used for this thesis, AtlFast-II~\cite{SOFT-2010-01}, is one such technique, which uses
@@ -101,7 +102,7 @@ sampling of distributions from fully simulated events, to massively speed up sim
 Such a speed up comes at a bit of a cost in performance. In particular, the modeling of jet substructure (see Chapter 
 \ref{chap:reconstruction}) historically has been an issue for FastCaloSim. The ATLAS authorship qualification work 
 supporting this thesis is an effort to improve such modeling, and is part of a suite of updates being considered for 
-a new fast simulation targeting Run 3. We briefly describe this work in the following.
+a new fast simulation targeting Run 3. This work is briefly described in the following.
 
 \FloatBarrier
 \section{Correlated Fluctuations in FastCaloSim}
@@ -128,7 +129,15 @@ average of these histograms is then taken (what is called here the ``average sha
 
 In simulation, these average shape histograms are used as probability distributions, from which a finite number of equal 
 energy hits are drawn. This finite drawing of hits induces a statistical fluctuation about the average shape which is tuned 
-to match the expected calorimeter sampling uncertainty.
+to match the expected calorimeter sampling uncertainty. An example such average shape is shown in Figure \ref{fig:photon-ave-shape}.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=0.6\textwidth]{figures/photon-ave-shape.pdf}
+\caption{Example average lateral shower shape for a \SI{265}{\GeV} photon in the range $0.55 < |\eta| < 0.60$ in the second layer of the EM barrel. The binning shown here is in polar $\alpha-R$ coordinates in a local plane 
+tangential to the surface of the calorimeter system. Such a histogram is used as a probability distribution, from 
+which a finite number of ``hits'' are drawn ~\cite{ATL-SOFT-PUB-2018-002}.}
+\label{fig:photon-ave-shape} 
+\end{figure}
 
 As an example, the intrinsic resolution of the ATLAS Liquid Argon calorimeter has a sampling term of 
 $\sigma_{\text{samp}} \approx 10\%/\sqrt{E}$ \cite{SamplingCalo}. The number of hits to be drawn for each layer, 
